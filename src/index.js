@@ -6,6 +6,7 @@ import loadable from '@loadable/component'
 import store from './app/redux'
 import { Preloader } from './app/Preloader'
 
+import 'bootstrap/dist/css/bootstrap.css'
 import './reset.css'
 import './index.css'
 

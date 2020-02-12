@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { ErrorBoundary } from 'ui'
+import { Header } from '../Header/Header'
+import { Footer } from '../Footer/Footer'
 
 export const NormalLayout = ({
   title = false,
@@ -11,14 +13,11 @@ export const NormalLayout = ({
 }) => {
   return (
     <ContentContainer>
-      {/* <Navigation {...props} /> */}
-      {/* <ContentWrapper>
-        {title && <Heading>{title}</Heading>}
-        <NormalLayoutWrapper column={column}>{children}</NormalLayoutWrapper>
-      </ContentWrapper> */}
-        <ErrorBoundary>
-          {children}
-        </ErrorBoundary>
+      <ErrorBoundary>
+        <Header />
+        {children}
+        <Footer />
+      </ErrorBoundary>
     </ContentContainer>
   )
 }
