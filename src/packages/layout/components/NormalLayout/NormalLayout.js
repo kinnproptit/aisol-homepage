@@ -20,11 +20,9 @@ export const NormalLayout = ({
         {title && <Heading>{title}</Heading>}
         <NormalLayoutWrapper column={column}>{children}</NormalLayoutWrapper>
       </ContentWrapper> */}
-      <Layout>
         <ErrorBoundary>
-          <Page.Content title={title}>{children}</Page.Content>
+          {children}
         </ErrorBoundary>
-      </Layout>
     </ContentContainer>
   )
 }

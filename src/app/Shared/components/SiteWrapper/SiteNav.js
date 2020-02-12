@@ -1,6 +1,7 @@
 import React from 'react'
 import cn from 'classnames'
-import { Container, Grid, Nav } from 'tabler-react'
+import { Container, Grid } from 'tabler-react'
+import { Nav } from 'layout'
 
 export const SiteNav = ({
   children,

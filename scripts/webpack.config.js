@@ -19,7 +19,6 @@ module.exports = ({ mode, outputPath }) => {
         base: path.resolve(process.cwd(), 'src', 'packages', 'base'),
         layout: path.resolve(process.cwd(), 'src', 'packages', 'layout'),
         core: path.resolve(process.cwd(), 'src', 'packages', 'core'),
-        service: path.resolve(process.cwd(), 'src', 'packages', 'service'),
         environments: path.resolve(process.cwd(), 'src', 'environments')
       },
       mainFields: ['browser', 'main', 'module'],

@@ -7,6 +7,7 @@ import store from './app/redux'
 
 import { Preloader } from './app/Preloader'
 
+import './rest.css'
 import './index.css'
 import 'tabler-react/dist/Tabler.css'
 
