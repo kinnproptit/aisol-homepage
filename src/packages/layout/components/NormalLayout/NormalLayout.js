@@ -3,10 +3,6 @@ import styled from 'styled-components'
 
 import { ErrorBoundary } from 'ui'
 
-import { Page } from 'tabler-react'
-
-import { Layout } from '../../../../app/Shared/components/Layout'
-
 export const NormalLayout = ({
   title = false,
   //   column = false,
