@@ -1,5 +1,6 @@
 import React from 'react'
 import loadable from '@loadable/component'
+
 import { LoadingIndicator } from 'ui'
 
 const AsyncPage = loadable(props => import(`../views/${props.component}`), {
@@ -18,19 +19,6 @@ export const routes = [
     exact: true,
     component: () => <AsyncPage component='Demo' />,
     title: 'Demo'
-  },
-  {
-    path: '/user',
-    exact: true,
-    component: () => <AsyncPage component='User' />,
-    title: 'User',
-    isPrivate: true
-  },
-  {
-    path: '/login',
-    exact: true,
-    component: () => <AsyncPage component='Login' />,
-    title: 'Login'
   },
   {
     path: '/404.html',

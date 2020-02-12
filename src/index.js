@@ -4,12 +4,10 @@ import { Provider } from 'react-redux'
 import loadable from '@loadable/component'
 
 import store from './app/redux'
-
 import { Preloader } from './app/Preloader'
 
-import './rest.css'
+import './reset.css'
 import './index.css'
-import 'tabler-react/dist/Tabler.css'
 
 import { LoadingIndicator } from 'ui'
 
