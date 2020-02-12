@@ -15,10 +15,28 @@ export const routes = [
     title: 'Homepage'
   },
   {
-    path: '/demo',
+    path: '/solution1.html',
     exact: true,
-    component: () => <AsyncPage component='Demo' />,
-    title: 'Demo'
+    component: () => <AsyncPage component='Solution1' />,
+    title: 'Solution'
+  },
+  {
+    path: '/solution2.html',
+    exact: true,
+    component: () => <AsyncPage component='Solution2' />,
+    title: 'Solution'
+  },
+  {
+    path: '/contact.html',
+    exact: true,
+    component: () => <AsyncPage component='Contact' />,
+    title: 'Contact'
+  },
+  {
+    path: '/products.html',
+    exact: true,
+    component: () => <AsyncPage component='Product' />,
+    title: 'Products'
   },
   {
     path: '/404.html',
