@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACd,UAAU,EAAE,IAAI;EAChB,gBAAgB,EAAE,IAAI;EACtB,SAAS,EAAE,gBAAgB;CAC3B",
+    "sources": [
+        "../components/homeCarousel.scss"
+    ],
+    "names": [],
+    "file": "homeCarousel.css"
+}

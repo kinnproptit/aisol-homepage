@@ -1,0 +1,18 @@
+.application__heading {
+	font-weight: bold;
+	font-family: "Muli", sans-serif;
+}
+
+.application__item {
+	list-style: none;
+
+	&__heading {
+		color: $blue-dark;
+		margin-bottom: 2rem;
+		padding-left: 2rem;
+	}
+
+	&__description {
+		line-height: 2.4rem;
+	}
+}

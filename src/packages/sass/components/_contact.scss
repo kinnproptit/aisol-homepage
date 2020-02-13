@@ -1,0 +1,42 @@
+.contact-form-input {
+	border-top-style: hidden;
+	border-right-style: hidden;
+	border-left-style: hidden;
+	padding: 2rem;
+
+	&:focus {
+		outline: none !important;
+	}
+
+	&:focus ~ .contact-form-label {
+		transform: translateY(-10px) scale(0.5);
+	}
+}
+
+.contact-form {
+	padding: 3rem;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+	min-height: 50rem;
+
+	.form-group {
+		&:not(:last-child) {
+			margin-bottom: 5rem;
+		}
+	}
+}
+
+.contact-form-label {
+	display: flex;
+	align-items: center;
+	position: absolute;
+
+	p {
+		margin-bottom: 0;
+		margin-left: 1rem;
+	}
+
+	.anticon {
+		font-size: 2rem;
+	}
+}

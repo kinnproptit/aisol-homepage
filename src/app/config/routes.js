@@ -33,7 +33,7 @@ export const routes = [
     title: 'Contact'
   },
   {
-    path: '/products.html',
+    path: '/product.html',
     exact: true,
     component: () => <AsyncPage component='Product' />,
     title: 'Products'

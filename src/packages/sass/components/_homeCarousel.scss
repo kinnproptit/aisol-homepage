@@ -1,0 +1,28 @@
+.home-carousel {
+	min-height: 90vh;
+	margin-top: -15%;
+	font-family: "Montserrat", sans-serif;
+
+	@include respond(phone) {
+		margin-top: -25%;
+	}
+
+	&__item {
+		position: absolute;
+		top: 40%;
+		left: 17.5%;
+
+		@include respond(tab-port) {
+			left: 5%;
+			width: 90%;
+		}
+	}
+
+	&__heading {
+		color: $blue-light;
+	}
+
+	&__description {
+		line-height: 4rem;
+	}
+}

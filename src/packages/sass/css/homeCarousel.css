@@ -1,0 +1,7 @@
+.home-carousel {
+  min-height: 60vh;
+  background-color: #000;
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
+}
+/*# sourceMappingURL=homeCarousel.css.map */

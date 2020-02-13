@@ -1,0 +1,48 @@
+.homepage-solution {
+	position: relative;
+	font-family: "Montserrat", sans-serif;
+
+	&--even {
+		color: #fff;
+	}
+
+	&--odd {
+		color: #000;
+	}
+
+	&__main {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__heading {
+		font-weight: bolder;
+
+		&--even {
+			color: #fff;
+		}
+
+		&--odd {
+			color: $blue-dark;
+		}
+	}
+
+	&__btn-group {
+		.btn--green {
+			margin-right: 2rem;
+		}
+	}
+
+	&__description {
+		font-size: 2.6rem;
+	}
+
+	&__placeholder {
+		@include respond(phone) {
+			display: none;
+		}
+	}
+}
