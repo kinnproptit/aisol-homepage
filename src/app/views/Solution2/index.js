@@ -4,12 +4,14 @@ import { SpeechSynthesis } from '../../Shared/components/Experiences/SpeechSynth
 import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
 
+import AppImage1 from './assets/img_ungdung.svg'
+
 const Solution2 = () => {
   return (
     <React.Fragment>
       <SpeechSynthesis />
       <Advantages />
-      <Application sectionTitle='Ứng dụng thực tiễn' image={AppImage1} />
+      <Application sectionTitle='Ứng dụng thực tiễn' Image={AppImage1} />
     </React.Fragment>
   )
 }

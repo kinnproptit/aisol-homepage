@@ -7,7 +7,8 @@ export const Advantages = () => {
     return (
       <div className='advantage-item col-md-4 d-flex flex-column align-items-center'>
         <div className='advantage-item__image margin-bottom-medium'>
-          <img src={AdvantageImg1} alt='Advantage item image' />
+          {/* <img src={AdvantageImg1} alt='Advantage item image' /> */}
+          <AdvantageImg1 />
         </div>
 
         <div className='advantage-item__content d-flex flex-column align-items-center'>

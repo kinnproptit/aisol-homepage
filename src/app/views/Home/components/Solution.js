@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Solution = ({ image, title, description, id }) => {
+export const Solution = ({ Image, title, description, id }) => {
   return (
     <div
       className={`homepage-solution homepage-solution--${
@@ -9,6 +9,7 @@ export const Solution = ({ image, title, description, id }) => {
       }`}
     >
       {/* <LoadableSVG svg={image} /> */}
+      <Image />
       <mage
         className='homepage-solution__image'
         alt='Homepage solution banner'

@@ -11,7 +11,7 @@ const Solution1 = () => {
     <React.Fragment>
       <SpeechRecognition />
       <Advantages />
-      <Application sectionTitle='Ứng dụng thực tiễn' image={AppImage1} />
+      <Application sectionTitle='Ứng dụng thực tiễn' Image={AppImage1} />
     </React.Fragment>
   )
 }

@@ -7,7 +7,8 @@ export const Technique = () => {
     return (
       <div className='col-md-3'>
         <div className='technique-item d-flex flex-column align-items-center'>
-          <img className='margin-bottom-big' src={TechniqueImage} alt='' />
+          {/* <img className='margin-bottom-big' src={TechniqueImage} alt='' /> */}
+          <TechniqueImage className='margin-bottom-big' />
           <p>
             Sử dụng công nghệ nhận dạng tiếng nói (Speech-to-text) tiếng Việt để
             chuyển toàn bộ nội dung cuộc gọi sang văn bản

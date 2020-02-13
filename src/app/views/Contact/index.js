@@ -8,7 +8,7 @@ const Contact = () => {
     <div className='container'>
       <div className='row'>
         <div className='col-md-6'>
-          <img src={ContactImage} className='margin-bottom-medium' alt='' />
+          <ContactImage className='margin-bottom-medium' />
           <div className='contact-infor'>
             <h3 className='contact-infor--company-name'>
               CÔNG TY CỔ PHẦN GIẢI PHÁP TRÍ TUỆ NHÂN TẠO AISOL
