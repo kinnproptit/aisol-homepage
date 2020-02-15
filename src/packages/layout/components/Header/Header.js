@@ -1,19 +1,60 @@
-import React from 'react'
+/* eslint-disable id-length */
+import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Select } from 'antd'
+import $ from 'jquery'
 
 import Logo from '../../assets/Logo.svg'
+
 import ENGFlag from '../../assets/flag.svg'
 import VIEFlag from '../../assets/flag1.svg'
-
 import { IntroCarousel } from '../../../../app/Shared/components/HeaderCarousel/IntroCarousel'
 
 const Header = ({ history }) => {
+  useEffect(() => {
+    $('.dropdown-menu li a').click(function() {
+      var selText = $(this).text()
+      var imgSource = $(this)
+        .find('img')
+        .attr('src')
+      var img = '<img src="' + imgSource + '"/>'
+      $(this)
+        .parents('.btn-group')
+        .find('.dropdown-toggle')
+        .html(img + ' ' + selText + ' <span class="caret" />')
+    })
+  }, [])
+
   const handleLink = link => {
-    history.push({ pathname: `${link}` })
+    history.push({ pathname: `/${link}` })
   }
 
-  const { Option } = Select
+  const selectList = () => {
+    return (
+      <div className='btn-group'>
+        <a
+          className='dropdown-toggle dropdown-btn'
+          data-toggle='dropdown'
+          href='#'
+        >
+          <ENGFlag /> ENG
+          <span className='caret' />
+        </a>
+        <ul className='dropdown-menu'>
+          <li className='dropdown-item'>
+            <a href='javascript:void(0);'>
+              <ENGFlag /> ENG
+            </a>
+          </li>
+          <li className='dropdown-item'>
+            <a href='javascript:void(0);'>
+              <VIEFlag /> VIE
+            </a>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+
   return (
     <React.Fragment>
       <section className='headernav'>
@@ -25,65 +66,31 @@ const Header = ({ history }) => {
 
             <ul className='nav__list'>
               <li className='nav__item'>
-                <a className='nav__link' onClick={() => handleLink('/')}>
-                  Trang chủ
+                <a href='#' className='nav__link'>
+                  Home
                 </a>
               </li>
               <li className='nav__item'>
                 <a
+                  href='#'
                   className='nav__link'
-                  onClick={() => handleLink('/solution1.html')}
+                  onClick={() => handleLink('solution1.html')}
                 >
-                  Giải pháp
+                  About us
                 </a>
               </li>
               <li className='nav__item'>
-                <a
-                  className='nav__link'
-                  onClick={() => handleLink('/product.html')}
-                >
-                  Sản phẩm
+                <a href='#' className='nav__link'>
+                  Porfolio
                 </a>
               </li>
               <li className='nav__item'>
-                <a
-                  className='nav__link'
-                  onClick={() => handleLink('/price.html')}
-                >
-                  Bảng giá
+                <a href='#' className='nav__link'>
+                  Contact us
                 </a>
               </li>
-              <li className='nav__item'>
-                <a
-                  className='nav__link'
-                  onClick={() => handleLink('/contact.html')}
-                >
-                  Liên hệ
-                </a>
-              </li>
+              {selectList()}
             </ul>
-
-            <div>
-              <Select
-                className='nav__selection'
-                showSearch
-                style={{ width: 100 }}
-                placeholder='Select language'
-                optionFilterProp='children'
-                // onChange={onChange}
-                // onFocus={onFocus}
-                // onBlur={onBlur}
-                // onSearch={onSearch}
-                filterOption={(input, option) =>
-                  option.props.children
-                    .toLowerCase()
-                    .indexOf(input.toLowerCase()) >= 0
-                }
-              >
-                <Option value='eng'>ENG</Option>
-                <Option value='vie'>VIE</Option>
-              </Select>
-            </div>
           </nav>
         </div>
         <input
@@ -93,9 +100,9 @@ const Header = ({ history }) => {
           id='toggle-nav'
         />
         <label htmlFor='toggle-nav' className='nav__toggle-btn'>
-          <p className='nav__icon'></p>
-          <p className='nav__icon'></p>
-          <p className='nav__icon'></p>
+          <p className='nav__icon' />
+          <p className='nav__icon' />
+          <p className='nav__icon' />
         </label>
 
         <nav className='nav-small'>
@@ -120,33 +127,7 @@ const Header = ({ history }) => {
                 Contact us
               </a>
             </li>
-            <li>
-              <Select
-                className='nav__selection'
-                showSearch
-                style={{ width: '200px' }}
-                placeholder='Select a person'
-                optionFilterProp='children'
-                // onChange={onChange}
-                // onFocus={onFocus}
-                // onBlur={onBlur}
-                // onSearch={onSearch}
-                // filterOption={(input, option) =>
-                // 	option.props.children
-                // 		.toLowerCase()
-                // 		.indexOf(input.toLowerCase()) >= 0
-                // }
-              >
-                <Option value='eng'>
-                  <ENGFlag />
-                  ENG
-                </Option>
-                <Option value='vie'>
-                  <VIEFlag />
-                  VIE
-                </Option>
-              </Select>
-            </li>
+            <li>{selectList()}</li>
           </ul>
         </nav>
       </section>

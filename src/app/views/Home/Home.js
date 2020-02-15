@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 // import IntroCarousel from "../components/Home/IntroCarousel";
 
 import { Solution } from './components/Solution'
+import { MCare } from './components/MCare'
 
 import sol1 from './assets/sol1.svg'
 import sol2 from './assets/sol2.svg'
@@ -31,6 +32,7 @@ export const Home = () => {
 
   return (
     <React.Fragment>
+      <MCare />
       <div className='margin-bottom-large'>{HomepageSolutionIntro}</div>
     </React.Fragment>
   )

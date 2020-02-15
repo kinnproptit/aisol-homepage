@@ -82,8 +82,9 @@ const FooterTop = styled.div`
 `
 
 const Row = styled.div`
-  padding-top: 45px;
-  padding-bottom: 30px;
+  padding-top: 4.5rem;
+
+  padding-bottom: 3rem;
   line-height: 1.5rem;
 `
 
@@ -93,34 +94,40 @@ const Label = styled.h2`
   color: #a0feea;
   font-weight: bold;
   margin-bottom: 1.2rem;
+  font-size: 2rem;
 `
 
 const HeaderItem = styled.div`
-  margin-bottom: 25px;
+  margin-bottom: 2.5rem;
 `
 
 const BodyItem = styled.div`
-  margin-top: ${props => (props.noSpace ? '0px' : '40px')};
+  margin-top: ${props => (props.noSpace ? '0px' : '4rem')};
 `
 
 const ItemLabel = styled.h2`
-  margin-top: 40px;
+  margin-top: 4rem;
   color: #a0feea;
   font-weight: bold;
+  font-size: 2rem;
 `
 
 const List = styled.ul``
 
 const Item = styled.li`
-  margin-bottom: ${props => (props.noSpace ? '8px' : '20px')};
+  margin-bottom: ${props => (props.noSpace ? '8px' : '2rem')};
+  font-size: 2rem;
+  list-style-type: none;
 `
 
 const Span = styled.span`
   font-weight: bold;
+  font-size: 2rem;
 `
 
 const Copyright = styled.div`
   background-color: #035177;
-  padding: 20px;
+  padding: 2rem;
   color: white;
+  font-size: 2rem;
 `
