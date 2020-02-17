@@ -126,7 +126,7 @@ const Span = styled.span`
 
 const Copyright = styled.div`
   background-color: #035177;
-  padding: 2rem;
+  padding: 1.2rem;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
 `
