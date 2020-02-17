@@ -11,8 +11,8 @@ export const Solution1 = () => {
   const data = [
     {
       title: 'Thiết bị công nghệ thông minh',
-      content: 'Tích hợp vào các sản phẩm công nghệ thông minh, trở thành trợ
-      lý đắc lực cho người dùng trong cuộc sống'
+      content:
+        'Tích hợp vào các sản phẩm công nghệ thông minh, trở thành trợ lý đắc lực cho người dùng trong cuộc sống'
     },
     {
       title: '',
