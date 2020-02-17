@@ -4,7 +4,7 @@ import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
 import { SpeechRecognition } from '../../Shared/components/Experiences/SpeechRecognition'
 
-import AppImage1 from './assets/img_ungdung.svg'
+import AppImage1 from '../assets/img_ungdung.svg'
 
 const Solution1 = () => {
   return (

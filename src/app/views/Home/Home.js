@@ -4,8 +4,8 @@ import React from 'react'
 import { Solution } from './components/Solution'
 import { MCare } from './components/MCare'
 
-import sol1 from './assets/sol1.svg'
-import sol2 from './assets/sol2.svg'
+import sol1 from '../assets/sol1.svg'
+import sol2 from '../assets/sol2.svg'
 
 export const Home = () => {
   const HomepageSolutionIntro = [
@@ -26,7 +26,7 @@ export const Home = () => {
     const id = index + 1
 
     return (
-      <Solution title={title} description={description} Image={image} id={id} />
+      <Solution title={title} description={description} image={image} id={id} />
     )
   })
 

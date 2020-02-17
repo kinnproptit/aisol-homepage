@@ -1,16 +1,12 @@
-/* eslint-disable id-length */
-import React, { useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import React, { Component } from 'react'
 import $ from 'jquery'
-
-import Logo from '../../assets/Logo.svg'
+import { withRouter } from 'react-router'
 
 import ENGFlag from '../../assets/flag.svg'
 import VIEFlag from '../../assets/flag1.svg'
-import { IntroCarousel } from '../../../../app/Shared/components/HeaderCarousel/IntroCarousel'
 
-const Header = ({ history }) => {
-  useEffect(() => {
+class Header extends Component {
+  componentDidMount() {
     $('.dropdown-menu li a').click(function() {
       var selText = $(this).text()
       var imgSource = $(this)
@@ -20,48 +16,44 @@ const Header = ({ history }) => {
       $(this)
         .parents('.btn-group')
         .find('.dropdown-toggle')
-        .html(img + ' ' + selText + ' <span class="caret" />')
+        .html(img + ' ' + selText + ' <span class="caret"></span>')
     })
-  }, [])
-
-  const handleLink = link => {
-    history.push({ pathname: `/${link}` })
   }
 
-  const selectList = () => {
+  render() {
+    const selectList = () => {
+      return (
+        <div className='btn-group'>
+          <a
+            className='dropdown-toggle dropdown-btn'
+            data-toggle='dropdown'
+            href='#'
+          >
+            <img src={ENGFlag} alt='eng flag'></img> ENG{' '}
+            <span className='caret'></span>
+          </a>
+          <ul className='dropdown-menu'>
+            <li className='dropdown-item'>
+              <a href='javascript:void(0);'>
+                <img src={ENGFlag} alt='flag'></img> ENG
+              </a>
+            </li>
+            <li className='dropdown-item'>
+              <a href='javascript:void(0);'>
+                <img src={VIEFlag} alt='flag'></img> VIE
+              </a>
+            </li>
+          </ul>
+        </div>
+      )
+    }
+
     return (
-      <div className='btn-group'>
-        <a
-          className='dropdown-toggle dropdown-btn'
-          data-toggle='dropdown'
-          href='#'
-        >
-          <ENGFlag /> ENG
-          <span className='caret' />
-        </a>
-        <ul className='dropdown-menu'>
-          <li className='dropdown-item'>
-            <a href='javascript:void(0);'>
-              <ENGFlag /> ENG
-            </a>
-          </li>
-          <li className='dropdown-item'>
-            <a href='javascript:void(0);'>
-              <VIEFlag /> VIE
-            </a>
-          </li>
-        </ul>
-      </div>
-    )
-  }
-
-  return (
-    <React.Fragment>
       <section className='headernav'>
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo'>
-              <Logo />
+              <img src={require('../../assets/Logo.svg')} alt='' />
             </div>
 
             <ul className='nav__list'>
@@ -71,11 +63,7 @@ const Header = ({ history }) => {
                 </a>
               </li>
               <li className='nav__item'>
-                <a
-                  href='#'
-                  className='nav__link'
-                  onClick={() => handleLink('solution1.html')}
-                >
+                <a href='#' className='nav__link'>
                   About us
                 </a>
               </li>
@@ -100,9 +88,9 @@ const Header = ({ history }) => {
           id='toggle-nav'
         />
         <label htmlFor='toggle-nav' className='nav__toggle-btn'>
-          <p className='nav__icon' />
-          <p className='nav__icon' />
-          <p className='nav__icon' />
+          <p className='nav__icon'></p>
+          <p className='nav__icon'></p>
+          <p className='nav__icon'></p>
         </label>
 
         <nav className='nav-small'>
@@ -131,9 +119,8 @@ const Header = ({ history }) => {
           </ul>
         </nav>
       </section>
-      <IntroCarousel />
-    </React.Fragment>
-  )
+    )
+  }
 }
 
 export default withRouter(Header)

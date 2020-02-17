@@ -10,7 +10,7 @@ export const Footer = () => {
         <Row className='row'>
           <FooterItem className='col-lg-3 col-md-3'>
             <HeaderItem>
-              <Logo />
+              <img src={Logo} alt='' />
             </HeaderItem>
             <BodyItem noSpace>
               <Label>Công ty cổ phần Giải pháp trí tuệ nhân tạo AISOL</Label>

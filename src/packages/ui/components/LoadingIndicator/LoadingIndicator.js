@@ -18,7 +18,7 @@ export const LoadingIndicator = () => {
           to: { property: 'transform', value: 'scale(1.2) rotate(25deg)' }
         }}
       > */}
-      <Loading width='200' height='200' />
+      <img src={Loading} />
       {/* </Animated> */}
     </LoadingIndicatorWrapper>
   )

@@ -1,14 +1,14 @@
 import React from 'react'
 import { Icon } from 'antd'
 
-import ContactImage from './assets/img_contact.svg'
+import ContactImage from '../assets/img_contact.svg'
 
-const Contact = () => {
+export const Contact = () => {
   return (
-    <div className='container'>
+    <div className='container margin-bottom-large'>
       <div className='row'>
         <div className='col-md-6'>
-          <ContactImage className='margin-bottom-medium' />
+          <img src={ContactImage} className='margin-bottom-medium' alt='' />
           <div className='contact-infor'>
             <h3 className='contact-infor--company-name'>
               CÔNG TY CỔ PHẦN GIẢI PHÁP TRÍ TUỆ NHÂN TẠO AISOL
@@ -22,65 +22,54 @@ const Contact = () => {
         </div>
         <div className='col-md-6'>
           <form className='contact-form' action='#' method='post'>
-            <div className='form-group'>
-              <input
-                className='form-control contact-form-input'
-                type='text'
-                id='name'
-              />
+            <div className='form-group contact-form__item'>
+              <input className='contact-form-input' type='text' id='name' />
               <label htmlFor='name' className='contact-form-label'>
                 <Icon type='user' />
                 <p>Họ và tên</p>
               </label>
             </div>
-            <div className='form-group'>
+            <div className='form-group contact-form__item'>
+              <input className=' contact-form-input' type='email' id='name' />
               <label htmlFor='name' className='contact-form-label'>
                 <Icon type='user' />
                 <p>Email</p>
               </label>
-              <input
-                className='form-control contact-form-input'
-                type='email'
-                id='name'
-              />
             </div>
-            <div className='form-group'>
+            <div className='form-group contact-form__item'>
+              <input className='contact-form-input' type='text' id='name' />
               <label htmlFor='name' className='contact-form-label'>
                 <Icon type='user' />
                 <p>Nghề nghiệp</p>
               </label>
-              <input
-                className='form-control contact-form-input'
-                type='text'
-                id='name'
-              />
             </div>
-            <div className='form-group'>
+            <div className='form-group contact-form__item'>
+              <input className='contact-form-input' type='text' id='name' />
               <label htmlFor='name' className='contact-form-label'>
                 <Icon type='user' />
                 <p>Công ty</p>
               </label>
-              <input
-                className='form-control contact-form-input'
-                type='text'
-                id='name'
-              />
             </div>
-            <div className='form-group'>
+            <div className='form-group contact-form__item'>
+              <textarea
+                className=' contact-form-input'
+                id='feedback'
+                rows='4'
+                cols='50'
+              />
               <label htmlFor='name' className='contact-form-label'>
                 <Icon type='user' />
                 <p>Họ và tên</p>
               </label>
-              <textarea
-                className='form-control contact-form-input'
-                id='feedback'
-              />
             </div>
+            <input
+              type='submit'
+              className='btn btn--green'
+              value='Gửi thông tin'
+            ></input>
           </form>
         </div>
       </div>
     </div>
   )
 }
-
-export default Contact

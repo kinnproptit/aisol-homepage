@@ -18,9 +18,9 @@ export const Partner = () => {
     }
   }
 
-  // const parter = [...Array(10)].map((item, index) => {
-  //   return <StyledPartnerLogo />
-  // })
+  const parter = [...Array(10)].map((item, index) => {
+    return <img src={PartnerLogo} alt='' />
+  })
 
   return (
     <section className='partner margin-bottom-large'>
@@ -33,11 +33,8 @@ export const Partner = () => {
         nav
         key={`owl-carousel-${Math.random()}`}
       >
-        <StyledPartnerLogo />
-        {/* {parter} */}
+        {parter}
       </OwlCarousel>
     </section>
   )
 }
-
-const StyledPartnerLogo = styled(PartnerLogo)``

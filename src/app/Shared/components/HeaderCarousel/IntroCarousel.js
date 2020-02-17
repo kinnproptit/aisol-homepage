@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 
 import Carousel from 'react-bootstrap/Carousel'
 
-import SlideImg from '../../assets/Slide.svg'
+import Slide from '../../assets/Slide.svg'
 
 export const IntroCarousel = () => {
   const [index, setIndex] = useState(0)
@@ -22,7 +21,7 @@ export const IntroCarousel = () => {
       className='home-carousel'
     >
       <Carousel.Item>
-        <StyledSlideImg className='d-block' />
+        <img className='d-block' src={Slide} alt='First slide'></img>
         <div className='container home-carousel__item'>
           <div className='row'>
             <div className='col-md-8 d-flex flex-column align-items-start'>
@@ -43,7 +42,7 @@ export const IntroCarousel = () => {
         </div>
       </Carousel.Item>
       <Carousel.Item>
-        <StyledSlideImg className='d-block' />
+        <img className='d-block' src={Slide} alt='First slide'></img>
         <div className='container home-carousel__item'>
           <div className='row'>
             <div className='col-md-8 d-flex flex-column align-items-start'>
@@ -64,7 +63,7 @@ export const IntroCarousel = () => {
         </div>
       </Carousel.Item>
       <Carousel.Item>
-        <StyledSlideImg className='d-block' />
+        <img className='d-block' src={Slide} alt='First slide'></img>
         <div className='container home-carousel__item'>
           <div className='row'>
             <div className='col-md-8 d-flex flex-column align-items-start'>
@@ -87,5 +86,3 @@ export const IntroCarousel = () => {
     </Carousel>
   )
 }
-
-const StyledSlideImg = styled(SlideImg)``

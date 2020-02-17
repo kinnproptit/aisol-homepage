@@ -4,7 +4,7 @@ import axios from 'axios'
 import axiosMiddleware from 'redux-axios-middleware'
 import logger from 'redux-logger'
 
-import environments from 'environments'
+import environments from '../../environments'
 
 import rootReducer from './reducers'
 

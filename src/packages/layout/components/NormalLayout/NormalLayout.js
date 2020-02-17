@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { ErrorBoundary } from 'ui'
 import { Footer } from '../Footer/Footer'
 import { Partner } from '../Partner/Partner'
+
+import { ErrorBoundary } from '../../../ui'
 import Header from '../Header/Header'
 
 export const NormalLayout = ({

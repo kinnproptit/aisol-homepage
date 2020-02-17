@@ -1,9 +1,4 @@
 export { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary'
-export {
-  ToggleSwitch,
-  ToggleText,
-  ToggleWrapper
-} from './components/ToggleSwitch/ToggleSwitch'
 export { SearchBar } from './components/SearchBar/SearchBar'
 export { LoadingIndicator } from './components/LoadingIndicator/LoadingIndicator'
 export { SpinnerLoader } from './components/Loader/SpinnerLoader.js'

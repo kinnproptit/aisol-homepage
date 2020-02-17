@@ -1,9 +1,7 @@
 import React, { createContext, useEffect } from 'react'
-import axios from 'axios'
-
+import { LoadingIndicator } from '../packages/ui'
+import { useState } from '../packages/core'
 // import environments from 'environments'
-import { useState } from 'core'
-import { LoadingIndicator } from 'ui'
 
 export const PreloaderContext = createContext()
 
