@@ -15,12 +15,14 @@ export const Solution1 = () => {
         'Tích hợp vào các sản phẩm công nghệ thông minh, trở thành trợ lý đắc lực cho người dùng trong cuộc sống'
     },
     {
-      title: '',
-      content: ''
+      title: 'Ghi âm phỏng vấn, hội thảo',
+      content:
+        'Hỗ trợ phóng viên và các đơn vị, tổ chức có nhu cầu bóc tách băng ghi âm, ghi âm tại hội thảo, họp báo hay trong các cuộc phỏng vấn'
     },
     {
-      title: '',
-      content: ''
+      title: 'Hệ thống khám chữa bệnh',
+      content:
+        'Tích hợp vào các sản phẩm, dịch vụ tại các cơ sở y tế, giúp tiết kiệm nguồn nhân lực, thời gian và cải thiện chất lượng dịch vụ'
     }
   ]
 
