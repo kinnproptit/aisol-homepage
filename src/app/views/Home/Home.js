@@ -1,5 +1,4 @@
 import React from 'react'
-// import IntroCarousel from "../components/Home/IntroCarousel";
 
 import { Solution } from './components/Solution'
 import { MCare } from './components/MCare'

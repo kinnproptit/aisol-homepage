@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import $ from 'jquery'
-import { withRouter } from 'react-router'
+import { useHistory } from 'react-router-dom'
 
 import ENGFlag from '../../assets/flag.svg'
 import VIEFlag from '../../assets/flag1.svg'
 
-class Header extends Component {
-  componentDidMount() {
+import { IntroCarousel } from '../../../../app/Shared/components/HeaderCarousel/IntroCarousel'
+
+const Header = () => {
+  useEffect(() => {
     $('.dropdown-menu li a').click(function() {
       var selText = $(this).text()
       var imgSource = $(this)
@@ -18,37 +20,43 @@ class Header extends Component {
         .find('.dropdown-toggle')
         .html(img + ' ' + selText + ' <span class="caret"></span>')
     })
+  })
+
+  const selectList = () => {
+    return (
+      <div className='btn-group'>
+        <a
+          className='dropdown-toggle dropdown-btn'
+          data-toggle='dropdown'
+          href='#'
+        >
+          <img src={ENGFlag} alt='eng flag'></img> ENG{' '}
+          <span className='caret'></span>
+        </a>
+        <ul className='dropdown-menu'>
+          <li className='dropdown-item'>
+            <a href='javascript:void(0);'>
+              <img src={ENGFlag} alt='flag'></img> ENG
+            </a>
+          </li>
+          <li className='dropdown-item'>
+            <a href='javascript:void(0);'>
+              <img src={VIEFlag} alt='flag'></img> VIE
+            </a>
+          </li>
+        </ul>
+      </div>
+    )
   }
 
-  render() {
-    const selectList = () => {
-      return (
-        <div className='btn-group'>
-          <a
-            className='dropdown-toggle dropdown-btn'
-            data-toggle='dropdown'
-            href='#'
-          >
-            <img src={ENGFlag} alt='eng flag'></img> ENG{' '}
-            <span className='caret'></span>
-          </a>
-          <ul className='dropdown-menu'>
-            <li className='dropdown-item'>
-              <a href='javascript:void(0);'>
-                <img src={ENGFlag} alt='flag'></img> ENG
-              </a>
-            </li>
-            <li className='dropdown-item'>
-              <a href='javascript:void(0);'>
-                <img src={VIEFlag} alt='flag'></img> VIE
-              </a>
-            </li>
-          </ul>
-        </div>
-      )
-    }
+  let history = useHistory()
 
-    return (
+  const handleLink = link => {
+    history.push(`/${link}`)
+  }
+
+  return (
+    <React.Fragment>
       <section className='headernav'>
         <div className='nav-wrapper'>
           <nav className='nav'>
@@ -58,23 +66,40 @@ class Header extends Component {
 
             <ul className='nav__list'>
               <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                  Home
+                <a className='nav__link' onClick={() => handleLink('/')}>
+                  Trang chủ
                 </a>
               </li>
               <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                  About us
+                <a
+                  className='nav__link'
+                  onClick={() => handleLink('solution1.html')}
+                >
+                  Giải pháp
                 </a>
               </li>
               <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                  Porfolio
+                <a
+                  className='nav__link'
+                  onClick={() => handleLink('product.html')}
+                >
+                  Sản phẩm
                 </a>
               </li>
               <li className='nav__item'>
-                <a href='#' className='nav__link'>
-                  Contact us
+                <a
+                  className='nav__link'
+                  onClick={() => handleLink('price.html')}
+                >
+                  Bảng giá
+                </a>
+              </li>
+              <li className='nav__item'>
+                <a
+                  className='nav__link'
+                  onClick={() => handleLink('contact.html')}
+                >
+                  Liên hệ
                 </a>
               </li>
               {selectList()}
@@ -119,8 +144,9 @@ class Header extends Component {
           </ul>
         </nav>
       </section>
-    )
-  }
+      <IntroCarousel />
+    </React.Fragment>
+  )
 }
 
-export default withRouter(Header)
+export default Header

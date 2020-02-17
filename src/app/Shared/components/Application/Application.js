@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Application = ({ Image, sectionTitle }) => {
+export const Application = ({ image, sectionTitle }) => {
   return (
     <section className='margin-bottom-large'>
       <h1 className='application__heading text-center margin-bottom-medium'>
@@ -10,8 +10,7 @@ export const Application = ({ Image, sectionTitle }) => {
       <div className='container'>
         <div className='row'>
           <div className='col-md-6'>
-            {/* <img src={image} alt='' /> */}
-            <Image />
+            <img src={image} alt='' />
           </div>
           <div className='col-md-6'>
             <ul className='application__list'>
