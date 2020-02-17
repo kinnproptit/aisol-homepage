@@ -77,5 +77,5 @@ export const Contact = () => {
 }
 
 const ContactWrapper = styled.div`
-  margin-top: 8rem;
+  // margin-top: 8rem;
 `

@@ -6,24 +6,30 @@ import img_player from '../../assets/img_player.png'
 
 export const Mp3Experience = () => {
   return (
-    <Wrapper>
-      <MainTitle>Trải nghiệm</MainTitle>
-      <FlexContent className='container'>
-        <ExperienceInput type='text' placeholder='Nội dung trải nghiệm' />
-        <PlayerContainer>
-          <p>Giọng đọc</p>
-          <DropDownMenu options={['ABCD', 'ASDBASH', 'ASDGHE']} />
-          <FlexContent>
-            <p>Tốc độ</p>
-            <DropDownMenu options={['0', '1', '2', '3']} />
+    <section>
+      <div className='margin-bottom-large'>
+        <h1 className='application__heading text-center margin-bottom-medium advantage__heading'>
+          Trải nghiệm
+        </h1>
+        <Wrapper>
+          <FlexContent className='container'>
+            <ExperienceInput type='text' placeholder='Nội dung trải nghiệm' />
+            <PlayerContainer>
+              <p>Giọng đọc</p>
+              <DropDownMenu options={['ABCD', 'ASDBASH', 'ASDGHE']} />
+              <FlexContent>
+                <p>Tốc độ</p>
+                <DropDownMenu options={['0', '1', '2', '3']} />
+              </FlexContent>
+              <Player src={img_player}></Player>
+              <div>
+                <DownloadButton>Tải xuống</DownloadButton>
+              </div>
+            </PlayerContainer>
           </FlexContent>
-          <Player src={img_player}></Player>
-          <div>
-            <DownloadButton>Tải xuống</DownloadButton>
-          </div>
-        </PlayerContainer>
-      </FlexContent>
-    </Wrapper>
+        </Wrapper>
+      </div>
+    </section>
   )
 }
 
@@ -31,10 +37,6 @@ const Wrapper = styled.div`
   font-family: 'Muli', san-serif;
 `
 
-const MainTitle = styled.div`
-  font-weight: bold;
-  text-align: center;
-`
 const FlexContent = styled.div`
   display: flex;
   justify-content: center;

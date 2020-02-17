@@ -11,42 +11,47 @@ import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
 
 const ExperienceView = () => {
   return (
-    <Wrapper className='container'>
-      <Row className='row'>
-        <Button text='Ghi âm' icon={iconRecord} />
-        <Button text='Tải lên' icon={iconUpload} />
-        <ButtonOutline text='Mẫu file 1' icon={iconWave} />
-        <ButtonOutline text='Mẫu file 2' icon={iconWave} />
-      </Row>
-      <Row className='row'>
-        <Col className='col-sm'>
-          <Intro>
-            Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt giúp
-            doanh nghiệp tự động hóa quá trình cung cấp sản phẩm dịch vụ, nâng
-            cao hiệu quả hoạt động sản xuất kinh doanh. Giọng đọc nhân tạo Voice
-            AI có ngữ điệu tự nhiên, đa dạng vùng miền, dễ dàng tích hợp với mọi
-            hệ thống
-          </Intro>
-        </Col>
-        <Col className='col-sm'>
+    <section className=''>
+      <div className='margin-bottom-large'>
+        <h1 className='application__heading text-center margin-bottom-medium advantage__heading'>
+          Trải nghiệm
+        </h1>
+        <Wrapper className='container'>
           <Row className='row'>
-            <Input placeHolder='URL' className='input' />
-            <button className='btn btn-danger'>
-              <p>Play</p>
-            </button>
+            <Button text='Ghi âm' icon={iconRecord} />
+            <Button text='Tải lên' icon={iconUpload} />
+            <ButtonOutline text='Mẫu file 1' icon={iconWave} />
+            <ButtonOutline text='Mẫu file 2' icon={iconWave} />
           </Row>
-          <img src={demo} />
-        </Col>
-      </Row>
-    </Wrapper>
+          <Row className='row'>
+            <Col className='col-sm'>
+              <Intro>
+                Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt
+                giúp doanh nghiệp tự động hóa quá trình cung cấp sản phẩm dịch
+                vụ, nâng cao hiệu quả hoạt động sản xuất kinh doanh. Giọng đọc
+                nhân tạo Voice AI có ngữ điệu tự nhiên, đa dạng vùng miền, dễ
+                dàng tích hợp với mọi hệ thống
+              </Intro>
+            </Col>
+            <Col className='col-sm'>
+              <Row className='row'>
+                <Input placeHolder='URL' className='input' />
+                <button className='btn btn-danger'>
+                  <p>Play</p>
+                </button>
+              </Row>
+              <img src={demo} />
+            </Col>
+          </Row>
+        </Wrapper>
+      </div>
+    </section>
   )
 }
 
 export default ExperienceView
 
-const Wrapper = styled.div`
-  padding: 10px;
-`
+const Wrapper = styled.div``
 
 const Row = styled.div``
 
