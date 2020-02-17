@@ -10,8 +10,9 @@ import ExperienceView from './Experience'
 export const Solution1 = () => {
   const data = [
     {
-      title: '',
-      content: ''
+      title: 'Thiết bị công nghệ thông minh',
+      content: 'Tích hợp vào các sản phẩm công nghệ thông minh, trở thành trợ
+      lý đắc lực cho người dùng trong cuộc sống'
     },
     {
       title: '',
