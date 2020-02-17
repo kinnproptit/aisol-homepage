@@ -4,11 +4,14 @@ import { SpeechSynthesis } from '../../Shared/components/Experiences/SpeechSynth
 import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
 
+import { Mp3Experience } from './components/Experience'
+
 import AppImage1 from '../assets/img_ungdung.svg'
 
 export const Solution2 = () => {
   return (
     <React.Fragment>
+      <Mp3Experience />
       <SpeechSynthesis />
       <Advantages />
       <Application sectionTitle='Ứng dụng thực tiễn' image={AppImage1} />

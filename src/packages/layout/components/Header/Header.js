@@ -10,6 +10,22 @@ import { IntroCarousel } from '../../../../app/Shared/components/HeaderCarousel/
 
 const Header = () => {
   useEffect(() => {
+    $(document).ready(function() {
+      /* This is for the sticky navigation*/
+      // $('#main-page').waypoint(
+      //   function(direction) {
+      //     if (direction == 'down') {
+      //       $('nav').addClass('fixed')
+      //     } else {
+      //       $('nav').removeClass('fixed')
+      //     }
+      //   },
+      //   {
+      //     offset: '60px;'
+      //   }
+      // )
+    })
+
     $('.dropdown-menu li a').click(function() {
       var selText = $(this).text()
       var imgSource = $(this)
@@ -58,7 +74,7 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <section className='headernav'>
+      <Section className='headernav'>
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo'>
@@ -114,7 +130,6 @@ const Header = () => {
           id='toggle-nav'
         />
         <label htmlFor='toggle-nav' className='nav__toggle-btn'>
-          <br />
           <p className='nav__icon'></p>
           <p className='nav__icon'></p>
           <p className='nav__icon'></p>
@@ -123,26 +138,68 @@ const Header = () => {
         <nav className='nav-small'>
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
-              <Link href='#' className='nav-small__link'>
-                Home
+              <Link
+                href='#'
+                className='nav-small__link'
+                onClick={() => handleLink('')}
+              >
+                Trang chủ
               </Link>
             </li>
             <li className='nav-small__item'>
-              <Link className='nav-small__link'>About us</Link>
+              <Link
+                className='nav-small__link'
+                onClick={() => handleLink('solution1.html')}
+              >
+                Giải pháp
+              </Link>
             </li>
             <li className='nav-small__item'>
-              <Link className='nav-small__link'>Porfolio</Link>
+              <Link
+                className='nav-small__link'
+                onClick={() => handleLink('solution2.html')}
+              >
+                Giải pháp
+              </Link>
             </li>
             <li className='nav-small__item'>
-              <Link className='nav-small__link'>Contact us</Link>
+              <Link
+                className='nav-small__link'
+                onClick={() => handleLink('product.html')}
+              >
+                Sản phẩm
+              </Link>
+            </li>
+            <li className='nav-small__item'>
+              <Link
+                className='nav-small__link'
+                onClick={() => handleLink('price.html')}
+              >
+                Bảng giá
+              </Link>
+            </li>
+            <li className='nav-small__item'>
+              <Link
+                className='nav-small__link'
+                onClick={() => handleLink('contact.html')}
+              >
+                Liên hệ
+              </Link>
             </li>
             <li>{selectList()}</li>
           </ul>
         </nav>
-      </section>
+      </Section>
       <IntroCarousel />
     </React.Fragment>
   )
 }
+
+const Section = styled.section`
+  ${'' /* position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10; */}
+`
 
 export default Header

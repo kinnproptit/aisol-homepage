@@ -16,7 +16,7 @@ export const NormalLayout = ({
     <ContentContainer>
       <ErrorBoundary>
         <Header />
-        {children}
+        <div id='main-page'>{children}</div>
         <Partner />
         <Footer />
       </ErrorBoundary>
