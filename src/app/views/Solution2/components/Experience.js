@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { DropDownMenu } from './DropdownMenu'
+import { DropdownMenu } from '../../../Shared/components/Dropdown/DropdownMenu'
 import img_player from '../../assets/img_player.png'
 
 export const Mp3Experience = () => {
@@ -16,10 +16,10 @@ export const Mp3Experience = () => {
             <ExperienceInput type='text' placeholder='Nội dung trải nghiệm' />
             <PlayerContainer>
               <p>Giọng đọc</p>
-              <DropDownMenu options={['ABCD', 'ASDBASH', 'ASDGHE']} />
+              <DropdownMenu options={['ABCD', 'ASDBASH', 'ASDGHE']} />
               <FlexContent>
                 <p>Tốc độ</p>
-                <DropDownMenu options={['0', '1', '2', '3']} />
+                <DropdownMenu options={['0', '1', '2', '3']} />
               </FlexContent>
               <Player src={img_player}></Player>
               <div>

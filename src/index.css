@@ -38,3 +38,7 @@ body {
 .border--top {
   border-top: 3px solid #f9f5f5;
 }
+
+.bg-second-cl {
+  background-color: #ecf8f8;
+}

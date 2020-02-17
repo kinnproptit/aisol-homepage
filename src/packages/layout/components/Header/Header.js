@@ -7,6 +7,7 @@ import ENGFlag from '../../assets/flag.svg'
 import VIEFlag from '../../assets/flag1.svg'
 
 import { IntroCarousel } from '../../../../app/Shared/components/HeaderCarousel/IntroCarousel'
+import { DropdownMenu } from '../../../../app/Shared/components/Dropdown/DropdownMenu'
 
 const Header = () => {
   useEffect(() => {
@@ -88,12 +89,15 @@ const Header = () => {
                 </Link>
               </li>
               <li className='nav__item'>
-                <Link
-                  className='nav__link'
-                  onClick={() => handleLink('solution1.html')}
-                >
-                  Giải pháp
-                </Link>
+                <DropdownMenu isLink options={[{to: '/solution1.html', content: 'Nhận dạng tiếng nói'}, {to: '/solution2.html', content: 'Tổng hợp tiếng nói'}]}>
+                  <Link
+                    className='nav__link'
+                    // onClick={() => handleLink('solution1.html')}
+                  >
+                    Giải pháp
+                  </Link>
+                </DropdownMenu>
+                {/* Giải pháp */}
               </li>
               <li className='nav__item'>
                 <Link
@@ -151,7 +155,7 @@ const Header = () => {
                 className='nav-small__link'
                 onClick={() => handleLink('solution1.html')}
               >
-                Giải pháp
+                Nhận dạng tiếng nói
               </Link>
             </li>
             <li className='nav-small__item'>
@@ -159,7 +163,7 @@ const Header = () => {
                 className='nav-small__link'
                 onClick={() => handleLink('solution2.html')}
               >
-                Giải pháp
+                Tổng hợp tiếng nói
               </Link>
             </li>
             <li className='nav-small__item'>

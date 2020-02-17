@@ -28,14 +28,19 @@ export const Solution1 = () => {
 
   return (
     <React.Fragment>
-      <ExperienceView />
-      <SpeechRecognition />
+      <div className='bg-second-cl'>
+        <ExperienceView />
+        <SpeechRecognition />
+      </div>
+
       <Advantages />
-      <Application
-        sectionTitle='Ứng dụng thực tế'
-        image={AppImage1}
-        data={data}
-      />
+      <div className='bg-second-cl2'>
+        <Application
+          sectionTitle='Ứng dụng thực tế'
+          image={AppImage1}
+          data={data}
+        />
+      </div>
     </React.Fragment>
   )
 }

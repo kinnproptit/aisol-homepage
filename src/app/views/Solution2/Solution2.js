@@ -28,14 +28,18 @@ export const Solution2 = () => {
   ]
   return (
     <React.Fragment>
-      <Mp3Experience />
-      <SpeechSynthesis />
+      <div className='bg-second-cl'>
+        <Mp3Experience />
+        <SpeechSynthesis />
+      </div>
       <Advantages />
-      <Application
-        sectionTitle='Ứng dụng thực tế'
-        image={AppImage1}
-        data={data}
-      />
+      <div className='bg-second-cl'>
+        <Application
+          sectionTitle='Ứng dụng thực tế'
+          image={AppImage1}
+          data={data}
+        />
+      </div>
     </React.Fragment>
   )
 }

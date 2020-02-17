@@ -370,11 +370,11 @@ p {
 }
 
 .dropdown-btn {
-  padding: 1rem 2rem;
+  padding: 0.5rem;
   border-radius: 5px;
   background: #fff;
   font-size: 1.5rem;
-  min-width: 12.5rem;
+  min-width: 10rem;
   color: #000;
 }
 
