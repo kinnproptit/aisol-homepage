@@ -24,7 +24,9 @@ export const Solution = ({ image, title, description, id }) => {
                 id % 2 ? '' : 'padding-twoside-large'
               }`}
             >
-              <p className='text-medium'>Giải pháp</p>
+              <p className={`text-medium ${id % 2 ? '' : 'giai-phap-cl'}`}>
+                Giải pháp
+              </p>
               <h1
                 className={`heading-big homepage-solution__heading homepage-solution__heading--${
                   id % 2 ? 'even' : 'odd'

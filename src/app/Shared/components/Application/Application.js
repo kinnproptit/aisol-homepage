@@ -15,12 +15,15 @@ export const Application = ({ image, sectionTitle, data = [] }) => {
             </div>
             <div className='col-md-6'>
               <ul className='application__list'>
-                {data.map(({ title, content }) => (
+                {data.map(({ title, content, subcontent = false }) => (
                   <li className='application__item'>
                     <h3 className='application__item__heading text-with-border-left'>
                       {title}
                     </h3>
-                    <p className='application__item__description'>{content}</p>
+                    <p className='application__item__description'>
+                      {content}
+                      {subcontent ? `<br /> ${subcontent}` : ''}
+                    </p>
                   </li>
                 ))}
               </ul>

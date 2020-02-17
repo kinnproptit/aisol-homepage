@@ -16,7 +16,7 @@ $breakpoint argument choices:
 
 */
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800|Muli&display=swap');
 *,
 *::after,
 *::before {
@@ -119,10 +119,13 @@ p {
 
 .heading-big {
   font-size: 6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
 }
 
 .text-medium {
   font-size: 2.2rem;
+  text-transform: uppercase;
 }
 
 .text-with-border-left {
@@ -140,7 +143,7 @@ p {
 }
 
 .padding-twoside-large {
-  padding: 0 15rem;
+  /* padding: 0 15rem; */
 }
 
 .margin-bottom-extra-large {
@@ -531,7 +534,7 @@ p {
 }
 
 .technique-item {
-  padding: 2.5rem 1.5rem;
+  margin: 0 1.5rem;
   -webkit-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   border-radius: 8px;

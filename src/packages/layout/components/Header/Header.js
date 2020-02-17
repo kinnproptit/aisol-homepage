@@ -79,7 +79,7 @@ const Header = () => {
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo'>
-              <img src={require('../../assets/Logo.svg')} alt='' />
+              <img src={require('../../assets/Logo.png')} alt='' />
             </div>
 
             <ul className='nav__list'>
@@ -89,7 +89,13 @@ const Header = () => {
                 </Link>
               </li>
               <li className='nav__item'>
-                <DropdownMenu isLink options={[{to: '/solution1.html', content: 'Nhận dạng tiếng nói'}, {to: '/solution2.html', content: 'Tổng hợp tiếng nói'}]}>
+                <DropdownMenu
+                  isLink
+                  options={[
+                    { to: '/solution1.html', content: 'Nhận dạng tiếng nói' },
+                    { to: '/solution2.html', content: 'Tổng hợp tiếng nói' }
+                  ]}
+                >
                   <Link
                     className='nav__link'
                     // onClick={() => handleLink('solution1.html')}

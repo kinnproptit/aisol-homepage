@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/Logo.png'
 
 export const Footer = () => {
   return (
@@ -93,7 +93,7 @@ const Label = styled.h2`
   color: #a0feea;
   font-weight: bold;
   margin-bottom: 1.2rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
 `
 
 const HeaderItem = styled.div`
@@ -114,14 +114,14 @@ const ItemLabel = styled.h2`
 const List = styled.ul``
 
 const Item = styled.li`
-  margin-bottom: ${props => (props.noSpace ? '8px' : '2rem')};
-  font-size: 2rem;
+  margin-bottom: ${props => (props.noSpace ? '0.8rem' : '2rem')};
+  font-size: 1.5rem;
   list-style-type: none;
 `
 
 const Span = styled.span`
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
 `
 
 const Copyright = styled.div`
@@ -129,4 +129,5 @@ const Copyright = styled.div`
   padding: 1.2rem;
   color: white;
   font-size: 1.5rem;
+  font-family: 'Muli', sans-serif;
 `
