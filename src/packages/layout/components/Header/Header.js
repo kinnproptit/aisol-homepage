@@ -210,6 +210,7 @@ const Section = styled.section`
   top: 0;
   left: 0;
   z-index: 10; */}
+  padding-top: 2.3rem;
 `
 
 export default Header

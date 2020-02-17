@@ -74,7 +74,6 @@ export const Footer = () => {
 
 const Wrapper = styled.div`
   background-color: #05638f;
-  font-family: 'Muli', sans-serif;
 `
 
 const FooterTop = styled.div`
@@ -91,7 +90,7 @@ const FooterItem = styled.div``
 
 const Label = styled.h2`
   color: #a0feea;
-  font-weight: bold;
+  font-weight: 400;
   margin-bottom: 1.2rem;
   font-size: 1.8rem;
 `
@@ -107,7 +106,7 @@ const BodyItem = styled.div`
 const ItemLabel = styled.h2`
   margin-top: 4rem;
   color: #a0feea;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 2rem;
 `
 

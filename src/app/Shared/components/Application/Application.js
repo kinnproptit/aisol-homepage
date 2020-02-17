@@ -22,7 +22,8 @@ export const Application = ({ image, sectionTitle, data = [] }) => {
                     </h3>
                     <p className='application__item__description'>
                       {content}
-                      {subcontent ? `<br /> ${subcontent}` : ''}
+                      <br />
+                      {subcontent}
                     </p>
                   </li>
                 ))}
