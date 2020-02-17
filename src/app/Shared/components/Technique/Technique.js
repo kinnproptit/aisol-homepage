@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import TechniqueImage from '../../assets/Technique.svg'
 
@@ -18,9 +19,15 @@ export const Technique = () => {
   })
 
   return (
-    <section className='technique container margin-bottom-large'>
-      <h1 className='text-center margin-bottom-large'>Công nghệ</h1>
-      <div className='row'>{techniqueItem}</div>
+    <section className='border--top'>
+      <div className='technique container margin-bottom-large'>
+        <H1 className='text-center advantage__heading margin-bottom-big'>
+          Công nghệ
+        </H1>
+        <div className='row'>{techniqueItem}</div>
+      </div>
     </section>
   )
 }
+
+const H1 = styled.h1``

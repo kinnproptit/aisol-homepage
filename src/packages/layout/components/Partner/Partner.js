@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import OwlCarousel from 'react-owl-carousel'
 import PartnerLogo from '../../assets/img_doitac5.svg'

@@ -9,12 +9,30 @@ import { Mp3Experience } from './components/Experience'
 import AppImage1 from '../assets/img_ungdung.svg'
 
 export const Solution2 = () => {
+  const data = [
+    {
+      title: '',
+      content: ''
+    },
+    {
+      title: '',
+      content: ''
+    },
+    {
+      title: '',
+      content: ''
+    }
+  ]
   return (
     <React.Fragment>
       <Mp3Experience />
       <SpeechSynthesis />
       <Advantages />
-      <Application sectionTitle='Ứng dụng thực tiễn' image={AppImage1} />
+      <Application
+        sectionTitle='Ứng dụng thực tiễn'
+        image={AppImage1}
+        data={data}
+      />
     </React.Fragment>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Application = ({ image, sectionTitle }) => {
+export const Application = ({ image, sectionTitle, data = [] }) => {
   return (
     <section className='margin-bottom-large'>
       <h1 className='application__heading text-center margin-bottom-medium'>
@@ -14,33 +14,14 @@ export const Application = ({ image, sectionTitle }) => {
           </div>
           <div className='col-md-6'>
             <ul className='application__list'>
-              <li className='application__item'>
-                <h3 className='application__item__heading text-with-border-left'>
-                  Thiết bị công nghệ thông minh
-                </h3>
-                <p className='application__item__description'>
-                  Tích hợp vào các sản phẩm công nghệ thông minh, trở thành trợ
-                  lý đắc lực cho người dùng trong cuộc sống
-                </p>
-              </li>
-              <li className='application__item'>
-                <h3 className='application__item__heading text-with-border-left'>
-                  Thiết bị công nghệ thông minh
-                </h3>
-                <p className='application__item__description'>
-                  Tích hợp vào các sản phẩm công nghệ thông minh, trở thành trợ
-                  lý đắc lực cho người dùng trong cuộc sống
-                </p>
-              </li>
-              <li className='application__item'>
-                <h3 className='application__item__heading text-with-border-left'>
-                  Thiết bị công nghệ thông minh
-                </h3>
-                <p className='application__item__description'>
-                  Tích hợp vào các sản phẩm công nghệ thông minh, trở thành trợ
-                  lý đắc lực cho người dùng trong cuộc sống
-                </p>
-              </li>
+              {data.map(({ title, content }) => (
+                <li className='application__item'>
+                  <h3 className='application__item__heading text-with-border-left'>
+                    {title}
+                  </h3>
+                  <p className='application__item__description'>{content}</p>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

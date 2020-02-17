@@ -8,12 +8,31 @@ import AppImage1 from '../assets/img_ungdung.svg'
 import ExperienceView from './Experience'
 
 export const Solution1 = () => {
+  const data = [
+    {
+      title: '',
+      content: ''
+    },
+    {
+      title: '',
+      content: ''
+    },
+    {
+      title: '',
+      content: ''
+    }
+  ]
+
   return (
     <React.Fragment>
       <ExperienceView />
       <SpeechRecognition />
       <Advantages />
-      <Application sectionTitle='Ứng dụng thực tiễn' image={AppImage1} />
+      <Application
+        sectionTitle='Ứng dụng thực tế'
+        image={AppImage1}
+        data={data}
+      />
     </React.Fragment>
   )
 }

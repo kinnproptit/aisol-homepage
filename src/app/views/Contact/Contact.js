@@ -1,11 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import { Icon } from 'antd'
 
 import ContactImage from '../assets/img_contact.svg'
 
 export const Contact = () => {
   return (
-    <div className='container margin-bottom-large'>
+    <ContactWrapper className='container margin-bottom-large'>
       <div className='row'>
         <div className='col-md-6'>
           <img src={ContactImage} className='margin-bottom-medium' alt='' />
@@ -32,21 +34,21 @@ export const Contact = () => {
             <div className='form-group contact-form__item'>
               <input className=' contact-form-input' type='email' id='name' />
               <label htmlFor='name' className='contact-form-label'>
-                <Icon type='user' />
+                <Icon type='mail' />
                 <p>Email</p>
               </label>
             </div>
             <div className='form-group contact-form__item'>
               <input className='contact-form-input' type='text' id='name' />
               <label htmlFor='name' className='contact-form-label'>
-                <Icon type='user' />
-                <p>Nghề nghiệp</p>
+                <Icon type='setting' />
+                <p>Nghề nghiệp/Lĩnh vực</p>
               </label>
             </div>
             <div className='form-group contact-form__item'>
               <input className='contact-form-input' type='text' id='name' />
               <label htmlFor='name' className='contact-form-label'>
-                <Icon type='user' />
+                <Icon type='home' />
                 <p>Công ty</p>
               </label>
             </div>
@@ -58,8 +60,8 @@ export const Contact = () => {
                 cols='50'
               />
               <label htmlFor='name' className='contact-form-label'>
-                <Icon type='user' />
-                <p>Họ và tên</p>
+                <Icon type='message' />
+                <p>Nội dung tin nhắn</p>
               </label>
             </div>
             <input
@@ -70,6 +72,10 @@ export const Contact = () => {
           </form>
         </div>
       </div>
-    </div>
+    </ContactWrapper>
   )
 }
+
+const ContactWrapper = styled.div`
+  margin-top: 8rem;
+`

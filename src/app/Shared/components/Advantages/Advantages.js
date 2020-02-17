@@ -25,9 +25,11 @@ export const Advantages = () => {
   })
 
   return (
-    <div className='container margin-bottom-large'>
-      <h1 className='advantage__heading margin-bottom-big'>Ưu điểm</h1>
-      <div className='row'>{AdvantageItem}</div>
+    <div className='border--top'>
+      <div className='container margin-bottom-large'>
+        <h1 className='advantage__heading margin-bottom-big'>Ưu điểm</h1>
+        <div className='row'>{AdvantageItem}</div>
+      </div>
     </div>
   )
 }

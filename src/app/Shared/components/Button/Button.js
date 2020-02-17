@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Button = ({ icon, text }) => {
   return (
-    <Wrapper className='btn btn-light'>
+    <Wrapper className='btn btn--green'>
       <Row className='row'>
         <img src={icon} />
         <Text>{text}</Text>
