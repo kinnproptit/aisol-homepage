@@ -83,9 +83,8 @@ const FooterTop = styled.div`
 
 const Row = styled.div`
   padding-top: 4.5rem;
-
   padding-bottom: 3rem;
-  line-height: 1.5rem;
+  // line-height: 1.5rem;
 `
 
 const FooterItem = styled.div``

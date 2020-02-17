@@ -1,6 +1,7 @@
-import React, { Component, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import $ from 'jquery'
-import { useHistory } from 'react-router-dom'
+import styled from 'styled-components'
+import { useHistory, Link } from 'react-router-dom'
 
 import ENGFlag from '../../assets/flag.svg'
 import VIEFlag from '../../assets/flag1.svg'
@@ -66,41 +67,41 @@ const Header = () => {
 
             <ul className='nav__list'>
               <li className='nav__item'>
-                <a className='nav__link' onClick={() => handleLink('/')}>
+                <Link className='nav__link' onClick={() => handleLink('')}>
                   Trang chủ
-                </a>
+                </Link>
               </li>
               <li className='nav__item'>
-                <a
+                <Link
                   className='nav__link'
                   onClick={() => handleLink('solution1.html')}
                 >
                   Giải pháp
-                </a>
+                </Link>
               </li>
               <li className='nav__item'>
-                <a
+                <Link
                   className='nav__link'
                   onClick={() => handleLink('product.html')}
                 >
                   Sản phẩm
-                </a>
+                </Link>
               </li>
               <li className='nav__item'>
-                <a
+                <Link
                   className='nav__link'
                   onClick={() => handleLink('price.html')}
                 >
                   Bảng giá
-                </a>
+                </Link>
               </li>
               <li className='nav__item'>
-                <a
+                <Link
                   className='nav__link'
                   onClick={() => handleLink('contact.html')}
                 >
                   Liên hệ
-                </a>
+                </Link>
               </li>
               {selectList()}
             </ul>
@@ -113,6 +114,7 @@ const Header = () => {
           id='toggle-nav'
         />
         <label htmlFor='toggle-nav' className='nav__toggle-btn'>
+          <br />
           <p className='nav__icon'></p>
           <p className='nav__icon'></p>
           <p className='nav__icon'></p>
@@ -121,24 +123,18 @@ const Header = () => {
         <nav className='nav-small'>
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
-              <a href='#' className='nav-small__link'>
+              <Link href='#' className='nav-small__link'>
                 Home
-              </a>
+              </Link>
             </li>
             <li className='nav-small__item'>
-              <a href='#' className='nav-small__link'>
-                About us
-              </a>
+              <Link className='nav-small__link'>About us</Link>
             </li>
             <li className='nav-small__item'>
-              <a href='#' className='nav-small__link'>
-                Porfolio
-              </a>
+              <Link className='nav-small__link'>Porfolio</Link>
             </li>
             <li className='nav-small__item'>
-              <a href='#' className='nav-small__link'>
-                Contact us
-              </a>
+              <Link className='nav-small__link'>Contact us</Link>
             </li>
             <li>{selectList()}</li>
           </ul>
