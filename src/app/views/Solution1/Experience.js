@@ -18,29 +18,40 @@ const ExperienceView = () => {
         </h1>
         <Wrapper className='container'>
           <Row className='row'>
-            <Button text='Ghi âm' icon={iconRecord} />
-            <Button text='Tải lên' icon={iconUpload} />
-            <ButtonOutline text='Mẫu file 1' icon={iconWave} />
-            <ButtonOutline text='Mẫu file 2' icon={iconWave} />
-          </Row>
-          <Row className='row'>
-            <Col className='col-sm'>
-              <Intro>
-                Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt
-                giúp doanh nghiệp tự động hóa quá trình cung cấp sản phẩm dịch
-                vụ, nâng cao hiệu quả hoạt động sản xuất kinh doanh. Giọng đọc
-                nhân tạo Voice AI có ngữ điệu tự nhiên, đa dạng vùng miền, dễ
-                dàng tích hợp với mọi hệ thống
-              </Intro>
+            <Col className='col-lg-7 margin-bottom-medium'>
+              <div className='button-controller'>
+                <Button text='Ghi âm' icon={iconRecord} />
+                <Button text='Tải lên' icon={iconUpload} />
+                <ButtonOutline text='Mẫu file 1' icon={iconWave} />
+                <ButtonOutline text='Mẫu file 2' icon={iconWave} />
+              </div>
+              <Col>
+                <div className='ux1-description-container'>
+                  <p className='ux1-description'>
+                    Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng
+                    Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản
+                    phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh
+                    doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa
+                    dạng vùng miền, dễ dàng tích hợp với mọi hệ thống
+                  </p>
+                </div>
+              </Col>
             </Col>
-            <Col className='col-sm'>
-              <Row className='row'>
-                <Input placeHolder='URL' className='input' />
-                <button className='btn btn-danger'>
+            <Col className='col-lg-5 '>
+              <Row className='margin-bottom-xs d-flex'>
+                <Input placeHolder='Enter Video URL' className='input' />
+                <button className='btn btn-danger ux1-play-btn'>
                   <p>Play</p>
                 </button>
               </Row>
-              <img src={demo} />
+              <iframe
+                className='youtube'
+                src='https://www.youtube.com/embed/E7wJTI-1dvQ'
+                frameBorder='0'
+                allow='autoplay; encrypted-media'
+                allowFullScreen
+                title='video'
+              />
             </Col>
           </Row>
         </Wrapper>
@@ -59,15 +70,28 @@ const Intro = styled.p`
   margin-top: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  height: 100%;
+  min-height: 50vh;
+  clip-path: polygon(
+    0% 15%,
+    0 0,
+    15% 0%,
+    85% 0%,
+    85% 15%,
+    100% 15%,
+    85% 37%,
+    85% 85%,
+    85% 100%,
+    15% 100%,
+    0 100%,
+    0% 85%
+  );
 `
 
 const Input = styled.input`
-  height: 50px;
   width: 70%;
-  border-radius: 10px;
-  border-color: gray;
-  border-width: 1px;
+  border-radius: 7.38px;
+  outline: none;
+  border: none;
 `
 
 const Col = styled.div``

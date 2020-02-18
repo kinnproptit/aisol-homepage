@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Button = ({ icon, text }) => {
   return (
     <Wrapper className='btn btn--green'>
-      <Row className='row'>
+      <Row className='row align-items-center'>
         <img src={icon} />
         <Text>{text}</Text>
       </Row>
@@ -19,11 +19,9 @@ const Wrapper = styled.button`
   margin-left: 15px;
 `
 const Text = styled.p`
+  margin: 0;
   margin-left: 10px;
   color: white;
 `
 
-const Row = styled.div`
-  padding-left: 10px;
-  padding-right: 10px;
-`
+const Row = styled.div``

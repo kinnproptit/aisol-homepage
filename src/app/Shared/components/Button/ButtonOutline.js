@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const ButtonOutline = ({ icon, text }) => {
   return (
-    <Wrapper className='btn btn-outline-secondary'>
+    <Wrapper className='btn btn-outline-secondary btn-ux-outline'>
       <Row className='row'>
         <img src={icon} />
         <Text>{text}</Text>
@@ -18,6 +18,7 @@ const Wrapper = styled.button`
   margin-left: 15px;
 `
 const Text = styled.p`
+  margin: 0;
   margin-left: 10px;
   color: black;
 `
