@@ -1,20 +1,21 @@
-@import "abstracts/function";
-@import "abstracts/mixin";
-@import "abstracts/variables";
+@import 'abstracts/function';
+@import 'abstracts/mixin';
+@import 'abstracts/variables';
 
-@import "base/animation";
-@import "base/base";
-@import "base/typography";
-@import "base/utilities";
+@import 'base/animation';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
 
-@import "layout/headerNav";
-@import "layout/basic-layout";
+@import 'layout/headerNav';
+@import 'layout/basic-layout';
 
-@import "components/homeCarousel";
-@import "components/button";
-@import "components/advantage";
-@import "components/application";
-@import "components/technique";
-@import "components/contact";
+@import 'components/homeCarousel';
+@import 'components/button';
+@import 'components/advantage';
+@import 'components/application';
+@import 'components/technique';
+@import 'components/contact';
+@import 'components/ux1';
 
-@import "pages/home";
+@import 'pages/home';
