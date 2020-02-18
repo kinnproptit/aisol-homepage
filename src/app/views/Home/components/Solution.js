@@ -15,7 +15,7 @@ export const Solution = ({ image, title, description, id }) => {
         alt='Homepage solution banner'
       />
       <div className='homepage-solution__main'>
-        <div className={`${id % 2 ? 'container' : 'container-fluid'} h-100`}>
+        <div className={`${id % 2 ? 'container' : 'container'} h-100`}>
           <div
             className={`row h-100 ${id % 2 === 0 ? 'flex-row-reverse' : ''}`}
           >

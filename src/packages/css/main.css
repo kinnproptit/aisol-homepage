@@ -638,6 +638,7 @@ p {
 
 .m-care-main {
   margin: 0;
+  margin-right: 30rem;
   border-radius: 13px;
   -webkit-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);

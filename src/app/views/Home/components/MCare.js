@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import MCareImage from '../../assets/image-mcare.svg'
 import checkIcon from '../../assets/ico_check.svg'
@@ -6,7 +7,7 @@ import checkIcon from '../../assets/ico_check.svg'
 export const MCare = () => {
   return (
     <div className='m-care-container margin-bottom-large'>
-      <div className='m-care-main container'>
+      <div className='m-care-main'>
         <div className='row'>
           <div className='col-md-7 m-care-image__container'>
             <img
@@ -18,8 +19,8 @@ export const MCare = () => {
           <div className='col-md-5'>
             <div className='m-care__description'>
               <h1 className='text-with-border-left margin-bottom-small'>
-                <p>Sản phẩm</p>
-                <p className='heading-big'>M care</p>
+                <SubTitle>SẢN PHẨM</SubTitle>
+                <P className='heading-big'>M-CARE</P>
               </h1>
 
               <ul className='m-care__description-list__item'>
@@ -29,6 +30,12 @@ export const MCare = () => {
                     Giám sát được toàn bộ hoạt động và nội dung cuộc đàm thoại
                     giữa điện thoại viên với khách hàng và phát hiện nhanh các
                     cuộc gọi bất thường
+                  </p>
+                </li>
+                <li className='d-flex justify-content-between align-items-start m-care__description-list__item'>
+                  <img src={checkIcon} alt='check-icon' />
+                  <p className='m-care__description-list__item__content'>
+                    Nâng cao chất lượng điện thoại viên và tối ưu nguồn chi phí hoạt động CSKH
                   </p>
                 </li>
               </ul>
@@ -45,3 +52,11 @@ export const MCare = () => {
     </div>
   )
 }
+
+const SubTitle = styled.p`
+  margin: 0 !important;
+`
+
+const P = styled.p`
+  color: #06658d;
+`
