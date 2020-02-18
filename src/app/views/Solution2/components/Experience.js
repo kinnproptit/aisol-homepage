@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import { DropdownMenu } from '../../../Shared/components/Dropdown/DropdownMenu'
 import img_player from '../../assets/img_player.png'
+import DownloadIcon from '../../assets/ic_upload.png'
+import Button from '../../../Shared/components/Button/Button'
 
 export const Mp3Experience = () => {
   return (
@@ -15,22 +17,24 @@ export const Mp3Experience = () => {
           <FlexContent className='container'>
             <Paper>
               <PaperContent>
-                <Textarea>
-                  Hello there ! Here's a paper text area, feel free to type
-                  something ...
-                </Textarea>
+                <Textarea>Nội dung trải nghiệm</Textarea>
               </PaperContent>
             </Paper>
             <PlayerContainer>
               <p>Giọng đọc</p>
-              <DropdownMenu options={['ABCD', 'ASDBASH', 'ASDGHE']} />
+              <Dropdown1 options={['ABCD', 'ASDBASH', 'ASDGHE']} />
               <FlexContent>
-                <p>Tốc độ</p>
-                <DropdownMenu options={['0', '1', '2', '3']} />
+                <P>Tốc độ</P>
+                <Dropdown2 options={['0', '1', '2', '3']} />
               </FlexContent>
-              <Player src={img_player}></Player>
+              <Player src={img_player} />
               <div>
-                <DownloadButton>Tải xuống</DownloadButton>
+                <StyledButton
+                  text='Tải xuống'
+                  icon={DownloadIcon}
+                  className='btn--red'
+                  isMarginLeft={false}
+                />
               </div>
             </PlayerContainer>
           </FlexContent>
@@ -46,33 +50,31 @@ const Wrapper = styled.div`
 
 const FlexContent = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
 `
-const ExperienceInput = styled.input`
-  width: 60%;
-  height: 100%;
-`
+
 const PlayerContainer = styled.div`
   width: 40%;
 `
 const Player = styled.img`
-  width: 70%;
-`
-const DownloadButton = styled.a`
-  width: 70%;
-  background: red;
-  color: #000;
+  margin-bottom: 1em;
 `
 
 const Paper = styled.div`
-  width: 60%;
+  width: 58%;
+  position: relative;
+  border-radius: 13px;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
+  background: white;
+  opacity: 0.3;
 `
 const PaperContent = styled.div`
-  ${'' /* position: absolute; */}
-  top: 30px;
-  right: 30px;
-  bottom: 30px;
-  left: 15px;
+  position: absolute;
+  top: 0.5rem;
+  right: 1.5rem;
+  bottom: 0.5rem;
+  left: 1.5rem;
   background: linear-gradient(transparent, transparent 29px, gray 29px);
   background-size: 30px 30px;
 `
@@ -92,4 +94,37 @@ const Textarea = styled.textarea`
   font-size: 16px;
   box-sizing: border-box;
   z-index: 1;
+`
+
+const StyledButton = styled(Button)`
+  justify-content: center;
+  display: flex;
+  width: 100%;
+`
+
+const StyledDropdown = styled(DropdownMenu)`
+  padding: 1rem 4rem;
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-family: 'Muli', sans-serif;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: #b9ccc6;
+  color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const Dropdown1 = styled(StyledDropdown)`
+  margin-bottom: 1em;
+`
+const Dropdown2 = styled(StyledDropdown)`
+  width: 80%;
+`
+
+const P = styled.p`
+  margin: 0;
+  display: flex;
+  align-items: center;
 `

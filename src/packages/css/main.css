@@ -530,7 +530,6 @@ p {
   font-weight: bolder;
 }
 
-
 .application__item__description {
   line-height: 2.4rem;
 }
@@ -720,4 +719,37 @@ p {
     display: none;
   }
 }
+
+.youtube {
+  width: 100%;
+  height: 50vh;
+}
+
+.btn-ux-outline {
+  padding: 1rem;
+}
+
+.ux1-description-container {
+  margin-top: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  min-height: 50vh;
+  background-color: #fff;
+  clip-path: polygon(0% 15%, 0 0, 15% 0%, 92% 0, 92% 6%, 100% 5%, 92% 16%, 91% 86%, 91% 100%, 15% 100%, 0 100%, 0% 85%);
+}
+
+.ux1-description {
+  padding-right: 10rem;
+}
+
+.ux1-play-btn {
+  border-radius: unset;
+  border-top-right-radius: 7.38px;
+  border-bottom-right-radius: 7.38px;
+}
+
+.ux1-play-btn p {
+  margin: 0;
+}
+
 /*# sourceMappingURL=main.css.map */

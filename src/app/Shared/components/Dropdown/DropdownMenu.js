@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Menu, Dropdown, Icon } from 'antd'
 
-export const DropdownMenu = ({ options = [], isLink = false, children }) => {
+export const DropdownMenu = ({ options = [], isLink = false, children, className }) => {
   const [selected, setSelected] = useState([options[0]])
   const menu = (
     <Menu
@@ -23,7 +23,7 @@ export const DropdownMenu = ({ options = [], isLink = false, children }) => {
     </Menu>
   )
   return (
-    <Dropdown overlay={menu} trigger={['click']}>
+    <Dropdown className={className} overlay={menu} trigger={['click']}>
       {isLink ? (
         children
       ) : (
