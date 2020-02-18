@@ -1,20 +1,24 @@
 .btn {
-	padding: 1rem 4rem;
-	border-radius: 0.8rem;
-	font-size: 1.8rem;
-	font-family: "Muli", sans-serif;
+  padding: 1rem 4rem;
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+  font-family: 'Muli', sans-serif;
 
-	&--yellow {
-		background: $yellow;
-	}
+  &--yellow {
+    background: $yellow;
+  }
 
-	&--green {
-		background: $green-light;
-		color: #fff;
-	}
+  &--green {
+    background: $green-light;
+    color: #fff;
+  }
 
-	&--red {
-		background: $red;
-		color: #fff;
-	}
+  &--red {
+    background: $red;
+    color: #fff;
+  }
+
+  &-ux-outline {
+    padding: 1rem;
+  }
 }
