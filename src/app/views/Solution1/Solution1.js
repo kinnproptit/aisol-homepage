@@ -3,9 +3,13 @@ import React from 'react'
 import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
 import { SpeechRecognition } from '../../Shared/components/Experiences/SpeechRecognition'
+import ExperienceView from './Experience'
 
 import AppImage1 from '../assets/img_ungdung.svg'
-import ExperienceView from './Experience'
+
+import Ad1 from '../assets/ad1.svg'
+import Ad2 from '../assets/ad2.svg'
+import Ad3 from '../assets/ad3.svg'
 
 export const Solution1 = () => {
   const data = [
@@ -26,6 +30,26 @@ export const Solution1 = () => {
     }
   ]
 
+  const AdvantagesData = [
+    {
+      image: Ad1,
+      title: 'Tự động phân loại',
+      content:
+        'Tự động phân loại các cuộc gọi theo chủ đề, sản phẩm, dịch vụ, gói cước điện thoại khu vực. Giúp phân tích đưa ra định hướng kinh doanh'
+    },
+    {
+      image: Ad2,
+      title: 'Chính xác',
+      content: 'Hoạt động chính xác với tất cả các giọng vùng miền của Việt Nam'
+    },
+    {
+      image: Ad3,
+      title: 'Nhận dạng viết tắt',
+      content:
+        'Có khả năng nhận dạng những từ viết tắt, tên dịch vụ/ sản phẩm như: mobiletv, funring, mgame, mcare, facebook...'
+    }
+  ]
+
   return (
     <React.Fragment>
       <div className='bg-second-cl'>
@@ -33,7 +57,7 @@ export const Solution1 = () => {
         <SpeechRecognition />
       </div>
 
-      <Advantages />
+      <Advantages data={AdvantagesData} />
       <div className='bg-second-cl2'>
         <Application
           sectionTitle='Ứng dụng thực tế'

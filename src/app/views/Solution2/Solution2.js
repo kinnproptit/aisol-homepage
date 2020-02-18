@@ -8,6 +8,10 @@ import { Mp3Experience } from './components/Experience'
 
 import AppImage1 from '../assets/img_ungdung.svg'
 
+import Ad1 from '../assets/ad1.svg'
+import Ad2 from '../assets/ad2.svg'
+import Ad3 from '../assets/ad3.svg'
+
 export const Solution2 = () => {
   const data = [
     {
@@ -26,13 +30,34 @@ export const Solution2 = () => {
         'Tích hợp vào các kênh truyền hình với vai trò làm MC Ảo hoặc Thuyết minh phụ đề phim. Giúp giảm thời gian, chi phí nhân sự cho các công việc này và tăng hiệu quả công việc'
     }
   ]
+
+  const AdvantagesData = [
+    {
+      image: Ad1,
+      title: 'Tự động phân loại',
+      content:
+        'Tự động phân loại các cuộc gọi theo chủ đề, sản phẩm, dịch vụ, gói cước điện thoại khu vực. Giúp phân tích đưa ra định hướng kinh doanh'
+    },
+    {
+      image: Ad2,
+      title: 'Chính xác',
+      content: 'Hoạt động chính xác với tất cả các giọng vùng miền của Việt Nam'
+    },
+    {
+      image: Ad3,
+      title: 'Nhận dạng viết tắt',
+      content:
+        'Có khả năng nhận dạng những từ viết tắt, tên dịch vụ/ sản phẩm như: mobiletv, funring, mgame, mcare, facebook...'
+    }
+  ]
+
   return (
     <React.Fragment>
       <div className='bg-second-cl'>
         <Mp3Experience />
         <SpeechSynthesis />
       </div>
-      <Advantages />
+      <Advantages data={AdvantagesData} />
       <div className='bg-second-cl'>
         <Application
           sectionTitle='Ứng dụng thực tế'
