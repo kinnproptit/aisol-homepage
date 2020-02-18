@@ -8,7 +8,7 @@ export const PreloaderContext = createContext()
 export const Preloader = ({ children }) => {
   const [state, setState] = useState({
     loading: true,
-    isLoggedIn: false
+    isActiveLink: [1, 0, 0, 0, 0]
   })
 
   useEffect(() => {

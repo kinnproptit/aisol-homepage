@@ -527,7 +527,9 @@ p {
   color: #06658d;
   margin-bottom: 2rem;
   padding-left: 2rem;
+  font-weight: bolder;
 }
+
 
 .application__item__description {
   line-height: 2.4rem;

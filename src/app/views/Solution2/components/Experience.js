@@ -13,7 +13,14 @@ export const Mp3Experience = () => {
         </h1>
         <Wrapper>
           <FlexContent className='container'>
-            <ExperienceInput type='text' placeholder='Nội dung trải nghiệm' />
+            <Paper>
+              <PaperContent>
+                <Textarea>
+                  Hello there ! Here's a paper text area, feel free to type
+                  something ...
+                </Textarea>
+              </PaperContent>
+            </Paper>
             <PlayerContainer>
               <p>Giọng đọc</p>
               <DropdownMenu options={['ABCD', 'ASDBASH', 'ASDGHE']} />
@@ -55,4 +62,34 @@ const DownloadButton = styled.a`
   width: 70%;
   background: red;
   color: #000;
+`
+
+const Paper = styled.div`
+  width: 60%;
+`
+const PaperContent = styled.div`
+  ${'' /* position: absolute; */}
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 15px;
+  background: linear-gradient(transparent, transparent 29px, gray 29px);
+  background-size: 30px 30px;
+`
+
+const Textarea = styled.textarea`
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  line-height: 30px;
+  padding: 0 5px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  box-sizing: border-box;
+  z-index: 1;
 `
