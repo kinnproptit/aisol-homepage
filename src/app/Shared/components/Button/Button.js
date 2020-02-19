@@ -5,7 +5,7 @@ const Button = ({ icon, text, className = 'btn--green', isMarginLeft = true }) =
   return (
     <Wrapper className={`btn ${className}`} isMarginLeft={isMarginLeft}>
       <Row className='row align-items-center'>
-        <img src={icon} />
+        {icon && (<img src={icon} />)}
         <Text>{text}</Text>
       </Row>
     </Wrapper>
@@ -21,6 +21,7 @@ const Text = styled.p`
   margin: 0;
   margin-left: 10px;
   color: white;
+  font-size: 1.8rem;
 `
 
 const Row = styled.div``

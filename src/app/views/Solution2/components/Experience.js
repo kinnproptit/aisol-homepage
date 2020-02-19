@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { DropdownMenu } from '../../../Shared/components/Dropdown/DropdownMenu'
 import img_player from '../../assets/img_player.png'
-import DownloadIcon from '../../assets/ic_upload.png'
+import DownloadIcon from '../../assets/Download.svg'
 import Button from '../../../Shared/components/Button/Button'
 
 export const Mp3Experience = () => {
@@ -67,7 +67,6 @@ const Paper = styled.div`
   border-radius: 13px;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
   background: white;
-  opacity: 0.3;
 `
 const PaperContent = styled.div`
   position: absolute;
@@ -77,6 +76,7 @@ const PaperContent = styled.div`
   left: 1.5rem;
   background: linear-gradient(transparent, transparent 29px, gray 29px);
   background-size: 30px 30px;
+  opacity: 0.3;
 `
 
 const Textarea = styled.textarea`

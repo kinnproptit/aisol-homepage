@@ -10,9 +10,9 @@ import Second from '../assets/second.svg'
 import Third from '../assets/third.svg'
 import Fourth from '../assets/fourth.svg'
 
-import Ad1 from '../assets/ad1.svg'
-import Ad2 from '../assets/ad2.svg'
-import Ad3 from '../assets/ad3.svg'
+import Ad1 from '../assets/first.svg'
+import Ad2 from '../assets/first.svg'
+import Ad3 from '../assets/first.svg'
 
 export const Product = () => {
   const data = [
@@ -93,6 +93,7 @@ export const Product = () => {
       />
       <Advantages data={AdvantagesData} />
       <Technique data={TechniqueData} />
+      <img src={Ad2} />
     </React.Fragment>
   )
 }

@@ -40,7 +40,7 @@ const ExperienceView = () => {
               <Row className='margin-bottom-xs d-flex'>
                 <Input placeHolder='Enter Video URL' className='input' />
                 <button className='btn btn-danger ux1-play-btn'>
-                  <p>Play</p>
+                  Play
                 </button>
               </Row>
               <iframe

@@ -1,4 +1,7 @@
 import React from 'react'
+import Button from '../../../Shared/components/Button/Button'
+
+import Icon from '../../assets/ic_wave.png'
 
 export const Solution = ({ image, title, description, id }) => {
   console.log('id: ', id)
@@ -40,12 +43,11 @@ export const Solution = ({ image, title, description, id }) => {
               <div className='homepage-solution__btn-group'>
                 <button className='btn btn--green'>Xem chi tiết</button>
 
-                <button
+                <Button
+                  icon={Icon}
+                  text='Demo giải pháp'
                   className={`btn ${id % 2 ? 'btn--yellow' : 'btn--red'}`}
-                >
-                  <img src='' alt='' />
-                  Demo giải pháp
-                </button>
+                />
               </div>
             </div>
             <div className='col-md-6 homepage-solution__placeholder'></div>

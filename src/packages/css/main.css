@@ -527,7 +527,6 @@ p {
   color: #06658d;
   margin-bottom: 2rem;
   padding-left: 2rem;
-  font-weight: bolder;
 }
 
 .application__item__description {
@@ -645,6 +644,38 @@ p {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
   background: #fff;
 }
+@media (max-width: 112.5em) {
+  .m-care-main {
+    width: 95%;
+  }
+}
+
+@media (max-width: 840px) {
+  .m-care-main {
+    width: 98%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 75em) {
+  .m-care-image__container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .m-care__description {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .m-care__description-list__item {
+    justify-content: unset !important;
+  }
+
+  .btn-group {
+    margin: 0 5rem 4rem;
+  }
+}
 
 .m-care-image__container {
   background: #c1e9f9;
@@ -735,7 +766,20 @@ p {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   min-height: 50vh;
   background-color: #fff;
-  clip-path: polygon(0% 15%, 0 0, 15% 0%, 92% 0, 92% 6%, 100% 5%, 92% 16%, 91% 86%, 91% 100%, 15% 100%, 0 100%, 0% 85%);
+  clip-path: polygon(
+    0% 15%,
+    0 0,
+    15% 0%,
+    85% 0%,
+    85% 10%,
+    100% 10%,
+    85% 28%,
+    85% 85%,
+    85% 100%,
+    15% 100%,
+    0 100%,
+    0% 85%
+  );
 }
 
 .ux1-description {
@@ -750,6 +794,18 @@ p {
 
 .ux1-play-btn p {
   margin: 0;
+}
+
+@media (max-width: 37.5em) {
+  .owl-carousel .owl-nav button.owl-prev,
+  .owl-carousel .owl-nav button.owl-next,
+  .owl-carousel button.owl-dot {
+    display: none !important;
+  }
+}
+
+.homepage-solution--odd {
+  background: url('../../app/views/assets/sol2.svg');
 }
 
 /*# sourceMappingURL=main.css.map */

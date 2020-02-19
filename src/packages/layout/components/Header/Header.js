@@ -1,32 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import $ from 'jquery'
 import styled from 'styled-components'
-import { useHistory, Link } from 'react-router-dom'
+import useWindowScroll from '@react-hook/window-scroll'
+
+import { useState } from '../../../core'
+
+import { useHistory, Link, useLocation } from 'react-router-dom'
+
+import { DropdownMenu } from '../../../../app/Shared/components/Dropdown/DropdownMenu'
 
 import ENGFlag from '../../assets/flag.svg'
 import VIEFlag from '../../assets/flag1.svg'
 
 import { IntroCarousel } from '../../../../app/Shared/components/HeaderCarousel/IntroCarousel'
-import { DropdownMenu } from '../../../../app/Shared/components/Dropdown/DropdownMenu'
+import { HeaderCarousel } from '../../../../app/Shared/components/HeaderCarousel/HeaderCarousel'
+
+import HeaderSolution1 from '../../../../app/views/assets/HeaderSolution1.svg'
+import HeaderContact from '../../../../app/views/assets/Contact.svg'
 
 const Header = () => {
   useEffect(() => {
-    // $(document).ready(function() {
-    /* This is for the sticky navigation*/
-    // $('#main-page').waypoint(
-    //   function(direction) {
-    //     if (direction == 'down') {
-    //       $('nav').addClass('fixed')
-    //     } else {
-    //       $('nav').removeClass('fixed')
-    //     }
-    //   },
-    //   {
-    //     offset: '60px;'
-    //   }
-    // )
-    // })
-
     $('.dropdown-menu li a').click(function() {
       var selText = $(this).text()
       var imgSource = $(this)
@@ -67,15 +60,38 @@ const Header = () => {
     )
   }
 
+  let { pathname } = useLocation()
   let history = useHistory()
+  const ref = useRef()
 
   const handleLink = link => {
     history.push(`/${link}`)
   }
 
+  const [state, setState] = useState({ isHide: false })
+
+  const hideBar = () => {
+    let { isHide } = state
+    window.scrollY > ref.current
+      ? !isHide && setState({ isHide: true })
+      : isHide && setState({ isHide: false })
+
+      ref.current = window.scrollY
+      console.log(isHide)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', hideBar)
+    return () => {
+      window.removeEventListener('scroll', hideBar)
+    }
+  })
+
+  let classHide = state.isHide ? 'hide' : ''
+
   return (
     <React.Fragment>
-      <Section className='headernav'>
+      <Section className='headernav' className={'topbar ' + classHide}>
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo'>
@@ -200,16 +216,26 @@ const Header = () => {
           </ul>
         </nav>
       </Section>
-      <IntroCarousel />
+      {pathname === '/' && (
+        <IntroCarousel />
+      )}
+      {pathname === '/solution1.html' && (
+        <HeaderCarousel title='efhefeef' content='feofihe' image={HeaderSolution1} />
+      )}
+      {pathname === '/solution2.html' && (
+        <HeaderCarousel title='efhefeef' content='feofihe' image='' />
+      )}
+      {pathname === '/product.html' && (
+        <HeaderCarousel title='efhefeef' content='feofihe' image='' />
+      )}
+      {pathname === '/contact.html' && (
+        <HeaderCarousel title='efhefeef' content='feofihe' image={HeaderContact} />
+      )}
     </React.Fragment>
   )
 }
 
 const Section = styled.section`
-  ${'' /* position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 10; */}
   padding-top: 2.3rem;
 `
 
