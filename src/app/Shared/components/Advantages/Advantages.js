@@ -1,21 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const Advantages = ({ data = [] }) => {
-  const AdvantageItem = data.map(({ image, title, content }) => (
-    <div className='advantage-item col-md-4 d-flex flex-column align-items-center'>
-      <div className='advantage-item__image margin-bottom-medium'>
-        <Img src={image} alt='Advantage item image' />
-      </div>
+import Ad1 from '../../../views/assets/ad1.svg'
+// import Ad2 from '../assets/ad2.svg'
+// import Ad3 from '../assets/ad3.svg'
 
-      <div className='advantage-item__content d-flex flex-column align-items-center'>
-        <div className='advantage-item__heading margin-bottom-small'>
-          {title}
+export const Advantages = ({ data = [] }) => {
+  const AdvantageItem = data.map(({ image, title, content }) => {
+    return (
+      <div className='advantage-item col-md-4 d-flex flex-column align-items-center'>
+        <div className='advantage-item__image margin-bottom-medium'>
+          <img
+            src={require('../../../views/assets/ad1.svg')}
+            alt='Advantage item image'
+          />
         </div>
-        <p className='advantage-item__description text-center'>{content}</p>
+
+        <div className='advantage-item__content d-flex flex-column align-items-center'>
+          <div className='advantage-item__heading margin-bottom-small'>
+            {title}
+          </div>
+          <p className='advantage-item__description text-center'>{content}</p>
+        </div>
       </div>
-    </div>
-  ))
+    )
+  })
 
   return (
     <div className='border--top'>

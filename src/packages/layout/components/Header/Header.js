@@ -12,19 +12,19 @@ import { DropdownMenu } from '../../../../app/Shared/components/Dropdown/Dropdow
 const Header = () => {
   useEffect(() => {
     // $(document).ready(function() {
-    /* This is for the sticky navigation*/
-    // $('#main-page').waypoint(
-    //   function(direction) {
-    //     if (direction == 'down') {
-    //       $('nav').addClass('fixed')
-    //     } else {
-    //       $('nav').removeClass('fixed')
+    //   /* This is for the sticky navigation*/
+    //   $('#main-page').waypoint(
+    //     function(direction) {
+    //       if (direction == 'down') {
+    //         $('nav').addClass('fixed')
+    //       } else {
+    //         $('nav').removeClass('fixed')
+    //       }
+    //     },
+    //     {
+    //       offset: '60px;'
     //     }
-    //   },
-    //   {
-    //     offset: '60px;'
-    //   }
-    // )
+    //   )
     // })
 
     $('.dropdown-menu li a').click(function() {

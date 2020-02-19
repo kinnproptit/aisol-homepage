@@ -644,6 +644,38 @@ p {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
   background: #fff;
 }
+@media (max-width: 112.5em) {
+  .m-care-main {
+    width: 95%;
+  }
+}
+
+@media (max-width: 840px) {
+  .m-care-main {
+    width: 98%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 75em) {
+  .m-care-image__container {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .m-care__description {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .m-care__description-list__item {
+    justify-content: unset !important;
+  }
+
+  .btn-group {
+    margin: 0 5rem 4rem;
+  }
+}
 
 .m-care-image__container {
   background: #c1e9f9;
@@ -762,6 +794,18 @@ p {
 
 .ux1-play-btn p {
   margin: 0;
+}
+
+@media (max-width: 37.5em) {
+  .owl-carousel .owl-nav button.owl-prev,
+  .owl-carousel .owl-nav button.owl-next,
+  .owl-carousel button.owl-dot {
+    display: none !important;
+  }
+}
+
+.homepage-solution--odd {
+  background: url('../../app/views/assets/sol2.svg');
 }
 
 /*# sourceMappingURL=main.css.map */
