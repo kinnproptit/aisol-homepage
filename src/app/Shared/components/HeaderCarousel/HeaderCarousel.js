@@ -5,7 +5,7 @@ import Button from '../Button/Button'
 
 import Slide from '../../assets/Slide.svg'
 
-export const HeaderCarousel = ({ title, content, button = false, image }) => {
+export const HeaderCarousel = ({ title, content, subcontent = false, button = false, image }) => {
 
   return (
     <div
@@ -21,6 +21,8 @@ export const HeaderCarousel = ({ title, content, button = false, image }) => {
               </h1>
               <h3 className='text-white home-carousel__description margin-bottom-small'>
                 {content}
+                <br/>
+                {subcontent}
               </h3>
               {button && (
                 <Button text='Trải nghiệm ngay' className='btn btn--yellow ' />

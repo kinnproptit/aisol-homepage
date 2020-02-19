@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = ({ icon, text, className = 'btn--green', isMarginLeft = true }) => {
+const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false }) => {
   return (
     <Wrapper className={`btn ${className}`} isMarginLeft={isMarginLeft}>
       <Row className='row align-items-center'>

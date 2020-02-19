@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 
 import Carousel from 'react-bootstrap/Carousel'
 
@@ -25,18 +26,14 @@ export const IntroCarousel = () => {
         <div className='container home-carousel__item'>
           <div className='row'>
             <div className='col-md-8 d-flex flex-column align-items-start'>
-              <h1 className='heading-big margin-bottom-small home-carousel__heading'>
-                Nhận dạng tiếng nói
-              </h1>
+              <Title className='heading-big margin-bottom-small home-carousel__heading'>
+                Vietnam AI Solutions
+              </Title>
+              <SubTitle className='text-white '><i>Giải pháp trí tuệ nhân tạo cho Việt Nam</i></SubTitle>
               <h3 className='text-white home-carousel__description margin-bottom-small'>
-                Giải pháp tự động chuyển đổi tiếng nói thành văn bản Tiếng Việt,
-                đạt độ chính xác lên tới 96% và nhận dạng được tất cả môi trường
-                Ứng dụng mạnh mẽ trong trợ lý ảo, phòng họp thông minh và lĩnh
-                vực chăm sóc khách hàng.. giúp tăng trải nghiệm người dùng và
-                nâng cao chất lượng cuộc sống. Trải nghiệm (ok để nguyên như
-                hiện tại)
+              Cung cấp giải pháp thông minh cho các doanh nghiệp trong thời kỳ chuyển đổi sổ
+                Tập hợp các giải pháp và sản phẩm trí tuệ nhân tạo được phát triển bởi các chuyên gia hàng đầu Việt Nam
               </h3>
-              <button className='btn btn--yellow '>Trải nghiệm ngay</button>
             </div>
           </div>
         </div>
@@ -46,18 +43,14 @@ export const IntroCarousel = () => {
         <div className='container home-carousel__item'>
           <div className='row'>
             <div className='col-md-8 d-flex flex-column align-items-start'>
-              <h1 className='heading-big margin-bottom-small home-carousel__heading'>
-                Nhận dạng tiếng nói
-              </h1>
+            <Title className='heading-big margin-bottom-small home-carousel__heading'>
+                Vietnam AI Solutions
+              </Title>
+              <SubTitle className='text-white '><i>Giải pháp trí tuệ nhân tạo cho Việt Nam</i></SubTitle>
               <h3 className='text-white home-carousel__description margin-bottom-small'>
-                Giải pháp tự động chuyển đổi tiếng nói thành văn bản Tiếng Việt,
-                đạt độ chính xác lên tới 96% và nhận dạng được tất cả môi trường
-                Ứng dụng mạnh mẽ trong trợ lý ảo, phòng họp thông minh và lĩnh
-                vực chăm sóc khách hàng.. giúp tăng trải nghiệm người dùng và
-                nâng cao chất lượng cuộc sống. Trải nghiệm (ok để nguyên như
-                hiện tại)
+              Cung cấp giải pháp thông minh cho các doanh nghiệp trong thời kỳ chuyển đổi sổ
+                Tập hợp các giải pháp và sản phẩm trí tuệ nhân tạo được phát triển bởi các chuyên gia hàng đầu Việt Nam
               </h3>
-              <button className='btn btn--yellow '>Trải nghiệm ngay</button>
             </div>
           </div>
         </div>
@@ -67,18 +60,14 @@ export const IntroCarousel = () => {
         <div className='container home-carousel__item'>
           <div className='row'>
             <div className='col-md-8 d-flex flex-column align-items-start'>
-              <h1 className='heading-big margin-bottom-small home-carousel__heading'>
-                Nhận dạng tiếng nói
-              </h1>
+            <Title className='heading-big margin-bottom-small home-carousel__heading'>
+                Vietnam AI Solutions
+              </Title>
+              <SubTitle className='text-white '><i>Giải pháp trí tuệ nhân tạo cho Việt Nam</i></SubTitle>
               <h3 className='text-white home-carousel__description margin-bottom-small'>
-                Giải pháp tự động chuyển đổi tiếng nói thành văn bản Tiếng Việt,
-                đạt độ chính xác lên tới 96% và nhận dạng được tất cả môi trường
-                Ứng dụng mạnh mẽ trong trợ lý ảo, phòng họp thông minh và lĩnh
-                vực chăm sóc khách hàng.. giúp tăng trải nghiệm người dùng và
-                nâng cao chất lượng cuộc sống. Trải nghiệm (ok để nguyên như
-                hiện tại)
+              Cung cấp giải pháp thông minh cho các doanh nghiệp trong thời kỳ chuyển đổi sổ
+                Tập hợp các giải pháp và sản phẩm trí tuệ nhân tạo được phát triển bởi các chuyên gia hàng đầu Việt Nam
               </h3>
-              <button className='btn btn--yellow '>Trải nghiệm ngay</button>
             </div>
           </div>
         </div>
@@ -86,3 +75,13 @@ export const IntroCarousel = () => {
     </Carousel>
   )
 }
+
+const Title = styled.h1`
+  margin-bottom: 0 !important;
+`
+
+const SubTitle = styled.h2`
+  font-size: 3rem;
+  font-weight: 800;
+  font-style: italic;
+`

@@ -20,7 +20,7 @@ const ExperienceView = () => {
             <Col className='col-lg-7 margin-bottom-medium'>
               <div className='button-controller'>
                 <Button text='Ghi âm' icon={iconRecord} />
-                <Button text='Tải lên' icon={iconUpload} />
+                <Button text='Tải lên' icon={iconUpload} isMarginLeft/>
                 <ButtonOutline text='Mẫu file 1' icon={iconWave} />
                 <ButtonOutline text='Mẫu file 2' icon={iconWave} />
               </div>

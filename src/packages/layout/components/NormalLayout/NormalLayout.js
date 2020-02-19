@@ -5,7 +5,7 @@ import { Footer } from '../Footer/Footer'
 import { Partner } from '../Partner/Partner'
 
 import { ErrorBoundary } from '../../../ui'
-import Header from '../Header/Header'
+import Header from '../Header'
 
 export const NormalLayout = ({
   title = false,

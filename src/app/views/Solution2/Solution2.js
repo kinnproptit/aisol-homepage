@@ -8,9 +8,9 @@ import { Mp3Experience } from './components/Experience'
 
 import AppImage1 from '../assets/img_ungdung.svg'
 
-import Ad1 from '../assets/ad1.svg'
-import Ad2 from '../assets/ad2.svg'
-import Ad3 from '../assets/ad3.svg'
+import Ad1 from '../assets/Shape 11.svg'
+import Ad2 from '../assets/Shape 11.svg'
+import Ad3 from '../assets/Shape 11.svg'
 
 export const Solution2 = () => {
   const data = [

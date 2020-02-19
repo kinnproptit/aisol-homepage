@@ -673,7 +673,7 @@ p {
   }
 
   .btn-group {
-    margin: 0 5rem 4rem;
+    /* margin: 0 5rem 4rem; */
   }
 }
 
@@ -766,20 +766,7 @@ p {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   min-height: 50vh;
   background-color: #fff;
-  clip-path: polygon(
-    0% 15%,
-    0 0,
-    15% 0%,
-    85% 0%,
-    85% 10%,
-    100% 10%,
-    85% 28%,
-    85% 85%,
-    85% 100%,
-    15% 100%,
-    0 100%,
-    0% 85%
-  );
+  clip-path: polygon(0% 15%, 0 0, 15% 0%, 92% 0, 92% 6%, 100% 5%, 92% 16%, 91% 86%, 91% 100%, 15% 100%, 0 100%, 0% 85%);
 }
 
 .ux1-description {

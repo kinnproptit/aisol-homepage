@@ -12,9 +12,9 @@ export const Contact = () => {
         <div className='col-md-6'>
           <img src={ContactImage} className='margin-bottom-medium' alt='' />
           <div className='contact-infor'>
-            <h3 className='contact-infor--company-name'>
+            <H3 className='contact-infor--company-name'>
               CÔNG TY CỔ PHẦN GIẢI PHÁP TRÍ TUỆ NHÂN TẠO AISOL
-            </h3>
+            </H3>
             <p>
               Địa chỉ: Số 99, TT7.2, Khu tái định cư Phú Diễn, Nam Từ Liêm, Hà
               Nội
@@ -78,4 +78,7 @@ export const Contact = () => {
 
 const ContactWrapper = styled.div`
   // margin-top: 8rem;
+`
+const H3 = styled.h3`
+  color: #06658d;
 `

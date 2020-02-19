@@ -44,7 +44,7 @@ export const MCare = () => {
             <div className='btn-group margin-bottom-small'>
               <button className='btn btn--blue'>Chi tiết sản phẩm</button>
               <button className='btn btn--red margin-left-small'>
-                Chi tiết sản phẩm
+                Đặt mua sản phẩm
               </button>
             </div>
           </div>

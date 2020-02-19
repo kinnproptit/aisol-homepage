@@ -1,9 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import $ from 'jquery'
 import styled from 'styled-components'
-import useWindowScroll from '@react-hook/window-scroll'
-
-import { useState } from '../../../core'
 
 import { useHistory, Link, useLocation } from 'react-router-dom'
 
@@ -19,20 +16,6 @@ import HeaderSolution1 from '../../../../app/views/assets/HeaderSolution1.svg'
 import HeaderContact from '../../../../app/views/assets/Contact.svg'
 
 const Header = () => {
-  useEffect(() => {
-    $('.dropdown-menu li a').click(function() {
-      var selText = $(this).text()
-      var imgSource = $(this)
-        .find('img')
-        .attr('src')
-      var img = '<img src="' + imgSource + '"/>'
-      $(this)
-        .parents('.btn-group')
-        .find('.dropdown-toggle')
-        .html(img + ' ' + selText + ' <span class="caret"></span>')
-    })
-  })
-
   const selectList = () => {
     return (
       <div className='btn-group'>
@@ -62,36 +45,49 @@ const Header = () => {
 
   let { pathname } = useLocation()
   let history = useHistory()
-  const ref = useRef()
 
   const handleLink = link => {
     history.push(`/${link}`)
   }
 
-  const [state, setState] = useState({ isHide: false })
-
-  const hideBar = () => {
-    let { isHide } = state
-    window.scrollY > ref.current
-      ? !isHide && setState({ isHide: true })
-      : isHide && setState({ isHide: false })
-
-      ref.current = window.scrollY
-      console.log(isHide)
-  }
-
   useEffect(() => {
-    window.addEventListener('scroll', hideBar)
-    return () => {
-      window.removeEventListener('scroll', hideBar)
-    }
+    $('.dropdown-menu li a').click(function() {
+      var selText = $(this).text()
+      var imgSource = $(this)
+        .find('img')
+        .attr('src')
+      var img = '<img src="' + imgSource + '"/>'
+      $(this)
+        .parents('.btn-group')
+        .find('.dropdown-toggle')
+        .html(img + ' ' + selText + ' <span class="caret"></span>')
+    })
   })
 
-  let classHide = state.isHide ? 'hide' : ''
+  const showingCarousel = pathname => {
+    switch (pathname) {
+      case '/solution1.html':
+        return <HeaderCarousel
+        title='NHẬN DẠNG TIẾNG NÓI'
+        content='Giải pháp tự động chuyển đổi tiếng nói thành văn bản Tiếng Việt, đạt độ chính xác lên tới 96% và nhận dạng được tất cả môi trường'
+        subcontent='Ứng dụng mạnh mẽ trong trợ lý ảo, phòng họp'
+        button
+      />
+      case '/solution2.html':
+        return <HeaderCarousel title='TỔNG HỢP TIẾNG NÓI' content='Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt với giọng điệu tự nhiên, hay và dễ dàng tích hợp với mọi hệ thống' button/>
+      case '/product.html': return <HeaderCarousel title='MCare' content='M-Care là giải pháp sử dụng công nghệ chuyển đổi âm thanh thành dạng chữ văn bản (Voice to Text) giúp dễ dàng và thuận tiện hơn trong việc giám sát nội dung các cuộc gọi giữa khách hàng và nhà cung cấp dịch vụ/ sản phẩm' button/>
+      case '/contact.html': return <HeaderCarousel
+            title='Liên hệ với AISOL'
+            content='Liên hệ với Chúng tôi để được hỗ trợ và trải nghiệm các sản phẩm - giải pháp tốt nhất tại thị trường Việt Nam ngày nay'
+          />
+      default: 
+        return <IntroCarousel />
+    }
+  }
 
   return (
     <React.Fragment>
-      <Section className='headernav' className={'topbar ' + classHide}>
+      <Section className='headernav'>
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo'>
@@ -216,21 +212,7 @@ const Header = () => {
           </ul>
         </nav>
       </Section>
-      {pathname === '/' && (
-        <IntroCarousel />
-      )}
-      {pathname === '/solution1.html' && (
-        <HeaderCarousel title='efhefeef' content='feofihe' image={HeaderSolution1} />
-      )}
-      {pathname === '/solution2.html' && (
-        <HeaderCarousel title='efhefeef' content='feofihe' image='' />
-      )}
-      {pathname === '/product.html' && (
-        <HeaderCarousel title='efhefeef' content='feofihe' image='' />
-      )}
-      {pathname === '/contact.html' && (
-        <HeaderCarousel title='efhefeef' content='feofihe' image={HeaderContact} />
-      )}
+      {showingCarousel(pathname)}
     </React.Fragment>
   )
 }
