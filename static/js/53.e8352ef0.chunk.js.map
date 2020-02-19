@@ -1,1 +1,0 @@
-{"version":3,"sources":["app/views/assets/second.svg"],"names":["module","exports"],"mappings":"oFAAAA,EAAOC,QAAU,IAA0B","file":"static/js/53.e8352ef0.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/second.6123e06a.svg\";"],"sourceRoot":""}

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/aisol-homepage/precache-manifest.29a214229ab131edac250937ba741135.js"
+  "/aisol-homepage/precache-manifest.2c56d08ef0f8e1f4d958b6de55a74867.js"
 );
 
 self.addEventListener('message', (event) => {

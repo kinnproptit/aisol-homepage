@@ -1,1 +1,0 @@
-{"version":3,"sources":["app/views/assets/uk.svg"],"names":["module","exports"],"mappings":"oFAAAA,EAAOC,QAAU,IAA0B","file":"static/js/57.0c5d2f5f.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/uk.dbb2d233.svg\";"],"sourceRoot":""}
