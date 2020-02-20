@@ -12,6 +12,7 @@
     "antd": "^3.26.10",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "gh-pages": "^2.2.0",
     "immutability-helper": "^3.0.1",
     "jquery": "^3.4.1",
     "prettier": "^1.19.1",
@@ -30,11 +31,14 @@
     "styled-components": "^5.0.1",
     "waypoints": "^4.0.1"
   },
+  "homepage": "http://ntheanh201.codes/aisol-homepage",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

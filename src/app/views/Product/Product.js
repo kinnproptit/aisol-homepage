@@ -93,7 +93,6 @@ export const Product = () => {
       />
       <Advantages data={AdvantagesData} />
       <Technique data={TechniqueData} />
-      <img src={Ad2} />
     </React.Fragment>
   )
 }

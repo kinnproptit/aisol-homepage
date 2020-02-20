@@ -84,4 +84,5 @@ const SubTitle = styled.h2`
   font-size: 3rem;
   font-weight: 800;
   font-style: italic;
+  margin-bottom: 4rem;
 `
