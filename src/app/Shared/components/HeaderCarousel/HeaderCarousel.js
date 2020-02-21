@@ -3,14 +3,17 @@ import styled from 'styled-components'
 
 import Button from '../Button/Button'
 
-import Slide from '../../assets/Slide.svg'
+import Slide from '../../../assets/homepage_banner.svg'
 
-export const HeaderCarousel = ({ title, content, subcontent = false, button = false, image }) => {
-
+export const HeaderCarousel = ({
+  title,
+  content,
+  subcontent = false,
+  button = false,
+  image
+}) => {
   return (
-    <div
-      className='home-carousel'
-    >
+    <div className='home-carousel'>
       <Wrapper>
         <img className='d-block' src={image || Slide} alt='First slide' />
         <div className='container home-carousel__item'>
@@ -21,7 +24,7 @@ export const HeaderCarousel = ({ title, content, subcontent = false, button = fa
               </h1>
               <h3 className='text-white home-carousel__description margin-bottom-small'>
                 {content}
-                <br/>
+                <br />
                 {subcontent}
               </h3>
               {button && (
@@ -36,5 +39,5 @@ export const HeaderCarousel = ({ title, content, subcontent = false, button = fa
 }
 
 const Wrapper = styled.div`
-    position: relative;
+  position: relative;
 `

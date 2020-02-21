@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { DropdownMenu } from '../../../Shared/components/Dropdown/DropdownMenu'
-import img_player from '../../assets/img_player.png'
-import DownloadIcon from '../../assets/Download.svg'
+// import img_player from '../../assets/img_player.png'
+import DownloadIcon from '../../../assets/download.svg'
+
 import Button from '../../../Shared/components/Button/Button'
 
 export const Mp3Experience = () => {
@@ -27,7 +28,7 @@ export const Mp3Experience = () => {
                 <P>Tốc độ</P>
                 <Dropdown2 options={['0', '1', '2', '3']} />
               </FlexContent>
-              <Player src={img_player} />
+              <Player src='' />
               <div>
                 <StyledButton
                   text='Tải xuống'

@@ -64,3 +64,21 @@ body {
   background-color: #fff;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
 }
+
+.girl-absolute {
+  position: absolute;
+  bottom: 0;
+}
+
+@media (max-width: 43.125em){
+  .girl-absolute {
+    display: none;
+  }
+  .homepage-solution__placeholder {
+    display: none !important;
+  }
+}
+
+.nav__toggle-btn p {
+  font-size: 12px;
+}

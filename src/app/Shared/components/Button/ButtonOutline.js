@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ButtonOutline = ({ icon, text }) => {
+const ButtonOutline = ({ icon, text = '' }) => {
   return (
     <Wrapper className='btn btn-outline-secondary btn-ux-outline'>
       <Row className='row'>

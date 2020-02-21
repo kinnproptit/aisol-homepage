@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
 
-import { withNormalLayout } from '../packages/layout'
+import { withNormalLayout } from './Shared/layout'
 
 import { PrivateRoute } from './Shared/components/PrivateRoute'
 import { routes } from './config/routes'
