@@ -1,13 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { DropdownMenu } from '../../../Shared/components/Dropdown/DropdownMenu'
-// import img_player from '../../assets/img_player.png'
 import DownloadIcon from '../../../assets/download.svg'
 
 import Button from '../../../Shared/components/Button/Button'
+import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
 
-export const Mp3Experience = () => {
+import Player from './Player'
+
+export const SpeechSynthesis = ({
+  mp3data,
+  onChangeVoice,
+  onChangeText,
+  state
+}) => {
+  const { audioUrl } = state
+
   return (
     <section>
       <div className='margin-bottom-large'>
@@ -18,17 +26,15 @@ export const Mp3Experience = () => {
           <FlexContent className='container'>
             <Paper>
               <PaperContent>
-                <Textarea>Nội dung trải nghiệm</Textarea>
+                <Textarea onChange={onChangeText}>
+                  Nội dung trải nghiệm
+                </Textarea>
               </PaperContent>
             </Paper>
             <PlayerContainer>
               <p>Giọng đọc</p>
-              <Dropdown1 options={['ABCD', 'ASDBASH', 'ASDGHE']} />
-              <FlexContent>
-                <P>Tốc độ</P>
-                <Dropdown2 options={['0', '1', '2', '3']} />
-              </FlexContent>
-              <Player src='' />
+              <Dropdown1 data={mp3data} onClick={onChangeVoice} />
+              <Player url={audioUrl} />
               <div>
                 <StyledButton
                   text='Tải xuống'
@@ -57,9 +63,6 @@ const FlexContent = styled.div`
 
 const PlayerContainer = styled.div`
   width: 40%;
-`
-const Player = styled.img`
-  margin-bottom: 1em;
 `
 
 const Paper = styled.div`
@@ -103,7 +106,7 @@ const StyledButton = styled(Button)`
   width: 100%;
 `
 
-const StyledDropdown = styled(DropdownMenu)`
+const StyledDropdown = styled(DropdownMenuVoice)`
   padding: 1rem 4rem;
   border-radius: 0.8rem;
   font-size: 1.8rem;
@@ -119,9 +122,6 @@ const StyledDropdown = styled(DropdownMenu)`
 
 const Dropdown1 = styled(StyledDropdown)`
   margin-bottom: 1em;
-`
-const Dropdown2 = styled(StyledDropdown)`
-  width: 80%;
 `
 
 const P = styled.p`
