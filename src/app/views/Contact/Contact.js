@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Icon } from 'antd'
 
-import ContactImage from '../assets/img_contact.svg'
+import ContactImage from '../../assets/img_contact.svg'
 
 export const Contact = () => {
   return (

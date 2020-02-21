@@ -12,6 +12,7 @@
     "antd": "^3.26.10",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "eslint": "^6.8.0",
     "immutability-helper": "^3.0.1",
     "jquery": "^3.4.1",
     "prettier": "^1.19.1",

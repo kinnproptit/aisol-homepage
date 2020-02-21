@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import iconRecord from '../assets/ic_record.png'
-import iconUpload from '../assets/ic_upload.png'
-import iconWave from '../assets/ic_wave.png'
+import iconRecord from '../../assets/ic_record.png'
+import iconUpload from '../../assets/ic_upload.png'
+import iconWave from '../../assets/ic_wave.png'
 
 import Button from '../../Shared/components/Button/Button'
 import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
@@ -20,7 +20,7 @@ const ExperienceView = () => {
             <Col className='col-lg-7 margin-bottom-medium'>
               <div className='button-controller'>
                 <Button text='Ghi âm' icon={iconRecord} />
-                <Button text='Tải lên' icon={iconUpload} isMarginLeft/>
+                <Button text='Tải lên' icon={iconUpload} isMarginLeft />
                 <ButtonOutline text='Mẫu file 1' icon={iconWave} />
                 <ButtonOutline text='Mẫu file 2' icon={iconWave} />
               </div>
@@ -39,9 +39,7 @@ const ExperienceView = () => {
             <Col className='col-lg-5 '>
               <Row className='margin-bottom-xs d-flex'>
                 <Input placeHolder='Enter Video URL' className='input' />
-                <button className='btn btn-danger ux1-play-btn'>
-                  Play
-                </button>
+                <button className='btn btn-danger ux1-play-btn'>Play</button>
               </Row>
               <iframe
                 className='youtube'

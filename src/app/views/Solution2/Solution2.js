@@ -6,11 +6,11 @@ import { Application } from '../../Shared/components/Application/Application'
 
 import { Mp3Experience } from './components/Experience'
 
-import AppImage1 from '../assets/img_ungdung.svg'
+import AppImage1 from '../../assets/giaiphap1_ungdung.png'
 
-import Ad1 from '../assets/Shape 11.svg'
-import Ad2 from '../assets/Shape 11.svg'
-import Ad3 from '../assets/Shape 11.svg'
+// import Ad1 from '../assets/Shape 11.svg'
+// import Ad2 from '../assets/Shape 11.svg'
+// import Ad3 from '../assets/Shape 11.svg'
 
 export const Solution2 = () => {
   const data = [
@@ -33,18 +33,18 @@ export const Solution2 = () => {
 
   const AdvantagesData = [
     {
-      image: Ad1,
+      image: 'Ad1',
       title: 'Tự động phân loại',
       content:
         'Tự động phân loại các cuộc gọi theo chủ đề, sản phẩm, dịch vụ, gói cước điện thoại khu vực. Giúp phân tích đưa ra định hướng kinh doanh'
     },
     {
-      image: Ad2,
+      image: 'Ad2',
       title: 'Chính xác',
       content: 'Hoạt động chính xác với tất cả các giọng vùng miền của Việt Nam'
     },
     {
-      image: Ad3,
+      image: 'Ad3',
       title: 'Nhận dạng viết tắt',
       content:
         'Có khả năng nhận dạng những từ viết tắt, tên dịch vụ/ sản phẩm như: mobiletv, funring, mgame, mcare, facebook...'

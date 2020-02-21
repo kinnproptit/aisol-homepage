@@ -3,16 +3,16 @@ import { Technique } from '../../Shared/components/Technique/Technique'
 import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
 
-import ApplicationProduct from '../assets/applicationProduct.svg'
+import ApplicationProduct from '../../assets/applicationProduct.svg'
 
-import First from '../assets/first.svg'
-import Second from '../assets/second.svg'
-import Third from '../assets/third.svg'
-import Fourth from '../assets/fourth.svg'
+import First from '../../assets/first.svg'
+import Second from '../../assets/second.svg'
+import Third from '../../assets/third.svg'
+import Fourth from '../../assets/fourth.svg'
 
-import Ad1 from '../assets/Shape 11.svg'
-import Ad2 from '../assets/Shape 11.svg'
-import Ad3 from '../assets/Shape 11.svg'
+// import Ad1 from '../assets/Shape 11.svg'
+// import Ad2 from '../assets/Shape 11.svg'
+// import Ad3 from '../assets/Shape 11.svg'
 
 export const Product = () => {
   const data = [
@@ -66,18 +66,18 @@ export const Product = () => {
 
   const AdvantagesData = [
     {
-      image: Ad1,
+      image: 'Ad1',
       title: 'Tự động phân loại',
       content:
         'Tự động phân loại các cuộc gọi theo chủ đề, sản phẩm, dịch vụ, gói cước điện thoại khu vực. Giúp phân tích đưa ra định hướng kinh doanh'
     },
     {
-      image: Ad2,
+      image: 'Ad2',
       title: 'Chính xác',
       content: 'Hoạt động chính xác với tất cả các giọng vùng miền của Việt Nam'
     },
     {
-      image: Ad3,
+      image: 'Ad3',
       title: 'Nhận dạng viết tắt',
       content:
         'Có khả năng nhận dạng những từ viết tắt, tên dịch vụ/ sản phẩm như: mobiletv, funring, mgame, mcare, facebook...'
@@ -93,7 +93,6 @@ export const Product = () => {
       />
       <Advantages data={AdvantagesData} />
       <Technique data={TechniqueData} />
-      <img src={Ad2} />
     </React.Fragment>
   )
 }
