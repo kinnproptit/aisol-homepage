@@ -11,14 +11,14 @@ export const Partner = () => {
     dots: false,
     autoplay: true,
     responsive: {
-      0: { items: 1 },
+      0: { items: 3 },
       768: { items: 3 },
       1170: { items: 6 }
     }
   }
 
   const parter = [...Array(10)].map((item, index) => {
-    return <img src={PartnerLogo} alt='' />
+    return <img src={PartnerLogo} alt='' key={index} />
   })
 
   return (

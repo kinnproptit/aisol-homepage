@@ -15,8 +15,8 @@ export const Application = ({ image, sectionTitle, data = [] }) => {
             </div>
             <div className='col-md-6'>
               <ul className='application__list'>
-                {data.map(({ title, content, subcontent = false }) => (
-                  <li className='application__item'>
+                {data.map(({ title, content, subcontent = false }, index) => (
+                  <li className='application__item' key={index}>
                     <h3 className='application__item__heading text-with-border-left'>
                       {title}
                     </h3>

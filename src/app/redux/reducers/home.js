@@ -1,4 +1,4 @@
-import { LOADING, GET_ALL_SESSIONS } from '../action-types'
+import { LOADING } from '../action-types'
 
 const STATE_INIT = {
   isLoading: false,
@@ -9,8 +9,6 @@ export default (state = STATE_INIT, { type, payload }) => {
   switch (type) {
     case LOADING:
       return { ...state, ...payload }
-    case GET_ALL_SESSIONS:
-      return {}
     default:
       return state
   }

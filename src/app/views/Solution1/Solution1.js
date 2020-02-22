@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
-import { SpeechRecognition } from '../../Shared/components/Experiences/SpeechRecognition'
+import SpeechRecognition from './SpeechRecognition'
 
 import AppImage1 from '../../assets/giaiphap1_ungdung.png'
 import { ExperienceContainer } from './ExperienceContainer'
@@ -53,7 +53,6 @@ export const Solution1 = () => {
   return (
     <React.Fragment>
       <div className='bg-second-cl'>
-        <ExperienceContainer />
         <SpeechRecognition />
       </div>
 

@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { SpeechSynthesis } from '../../Shared/components/Experiences/SpeechSynthesis'
 import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
 
-import { Mp3Experience } from './components/Experience'
-
 import AppImage1 from '../../assets/giaiphap1_ungdung.png'
+
+import { SpeechSynthesisContainer as SpeechSynthesis } from './components/SpeechSynthesisContainer'
 
 // import Ad1 from '../assets/Shape 11.svg'
 // import Ad2 from '../assets/Shape 11.svg'
@@ -54,7 +53,6 @@ export const Solution2 = () => {
   return (
     <React.Fragment>
       <div className='bg-second-cl'>
-        <Mp3Experience />
         <SpeechSynthesis />
       </div>
       <Advantages data={AdvantagesData} />
