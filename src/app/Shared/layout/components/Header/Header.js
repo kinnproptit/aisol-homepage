@@ -18,7 +18,7 @@ import SanPhamBanner from '../../../../assets/sanpham_banner.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
 
 const Header = () => {
-  const selectList = () => {
+  const List = () => {
     return (
       <div className='btn-group'>
         <a
@@ -120,7 +120,11 @@ const Header = () => {
 
             <ul className='nav__list'>
               <li className='nav__item'>
-                <Link className='nav__link' onClick={() => handleLink('')}>
+                <Link
+                  to=''
+                  className='nav__link'
+                  onClick={() => handleLink('')}
+                >
                   Trang chủ
                 </Link>
               </li>
@@ -133,6 +137,7 @@ const Header = () => {
                   ]}
                 >
                   <Link
+                    to=''
                     className='nav__link'
                     // onClick={() => handleLink('solution1.html')}
                   >
@@ -143,6 +148,7 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
+                  to=''
                   className='nav__link'
                   onClick={() => handleLink('product.html')}
                 >
@@ -151,6 +157,7 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
+                  to=''
                   className='nav__link'
                   onClick={() => handleLink('price.html')}
                 >
@@ -159,13 +166,14 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
+                  to=''
                   className='nav__link'
                   onClick={() => handleLink('contact.html')}
                 >
                   Liên hệ
                 </Link>
               </li>
-              {selectList()}
+              <List />
             </ul>
           </nav>
         </div>
@@ -185,7 +193,7 @@ const Header = () => {
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
               <Link
-                href='#'
+                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('')}
               >
@@ -194,6 +202,7 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('solution1.html')}
               >
@@ -202,6 +211,7 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('solution2.html')}
               >
@@ -210,6 +220,7 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('product.html')}
               >
@@ -218,6 +229,7 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('price.html')}
               >
@@ -226,13 +238,16 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('contact.html')}
               >
                 Liên hệ
               </Link>
             </li>
-            <li>{selectList()}</li>
+            <li>
+              <List />
+            </li>
           </ul>
         </nav>
       </Section>

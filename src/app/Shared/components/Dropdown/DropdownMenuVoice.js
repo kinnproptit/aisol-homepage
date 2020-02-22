@@ -34,7 +34,7 @@ export const DropdownMenuVoice = ({
   )
   return (
     <Dropdown className={className} overlay={menu} trigger={['click']}>
-        <Link className='ant-dropdown-link' href='#'>
+        <Link className='ant-dropdown-link' to='#'>
           {state.selected} <Icon type='down' />
         </Link>
     </Dropdown>

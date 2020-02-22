@@ -18,7 +18,7 @@ export const Partner = () => {
   }
 
   const parter = [...Array(10)].map((item, index) => {
-    return <img src={PartnerLogo} alt='' />
+    return <img src={PartnerLogo} alt='' key={index} />
   })
 
   return (

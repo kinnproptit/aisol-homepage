@@ -16,28 +16,8 @@ export const Preloader = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // const data = await axios('https://aisol.vn/tts/api/v1/voices', {token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55'})
-      // console.log(data)
-      const response = {
-        msg: 'Success!',
-        status: 0,
-        version: '1.0',
-        voices: [
-          {
-            id: 2,
-            name: 'Nữ - Miền Bắc id 2'
-          },
-          {
-            id: 3,
-            name: 'Nữ - Miền Bắc id 3'
-          },
-          {
-            id: 4,
-            name: 'Nữ - Miền Bắc id 4'
-          }
-        ]
-      }
-      setState({ loading: false, mp3data: response.voices })
+      const response = await axios('http://103.74.122.136:8086/api/v1/voices', {token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55'})
+      setState({ loading: false, mp3data: response.data.voices })
     }
     fetchData()
   }, [])
@@ -45,8 +25,6 @@ export const Preloader = ({ children }) => {
   if (state.loading) {
     return <LoadingIndicator />
   }
-
-  console.log(state.data)
 
   const props = {
     ...state

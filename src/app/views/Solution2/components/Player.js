@@ -24,13 +24,22 @@ const useAudio = url => {
   return [playing, toggle]
 }
 
-const Player = ({ url }) => {
+const Player = ({ url, fetchData }) => {
   const [playing, toggle] = useAudio(url)
-
-  return playing ? (
-    <Icon onClick={toggle} src={StopIcon} />
-  ) : (
-    <Icon src={PlayIcon} onClick={toggle} />
+  console.log(url)
+  return (
+    <div
+      onClick={() => {
+        toggle()
+        fetchData()
+      }}
+    >
+      {playing ? (
+        <Icon src={StopIcon} />
+      ) : (
+        <Icon src={PlayIcon} onClick={toggle} />
+      )}
+    </div>
   )
 }
 

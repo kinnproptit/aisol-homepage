@@ -2,8 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const Advantages = ({ data = [] }) => {
-  const AdvantageItem = data.map(({ image, title, content }) => (
-    <div className='advantage-item col-md-4 d-flex flex-column align-items-center'>
+  const AdvantageItem = data.map(({ image, title, content }, index) => (
+    <div
+      className='advantage-item col-md-4 d-flex flex-column align-items-center'
+      key={index}
+    >
       <div className='advantage-item__image margin-bottom-medium'>
         <Img src={image} alt='Advantage item image' />
       </div>

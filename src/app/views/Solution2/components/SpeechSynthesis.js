@@ -12,10 +12,9 @@ export const SpeechSynthesis = ({
   mp3data,
   onChangeVoice,
   onChangeText,
-  state
+  audioUrl,
+  fetchData
 }) => {
-  const { audioUrl } = state
-
   return (
     <section>
       <div className='margin-bottom-large'>
@@ -26,7 +25,7 @@ export const SpeechSynthesis = ({
           <FlexContent className='container'>
             <Paper>
               <PaperContent>
-                <Textarea onChange={onChangeText}>
+                <Textarea onChange={e => onChangeText(e.target.value)}>
                   Nội dung trải nghiệm
                 </Textarea>
               </PaperContent>
@@ -34,7 +33,7 @@ export const SpeechSynthesis = ({
             <PlayerContainer>
               <p>Giọng đọc</p>
               <Dropdown1 data={mp3data} onClick={onChangeVoice} />
-              <Player url={audioUrl} />
+              <Player url={audioUrl} fetchData={fetchData} />
               <div>
                 <StyledButton
                   text='Tải xuống'

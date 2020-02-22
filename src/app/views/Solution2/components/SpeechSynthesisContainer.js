@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState as defaultState } from 'react'
 import axios from 'axios'
+import qs from 'qs'
 
 import { useState } from '../../../../packages/core'
 
@@ -13,43 +14,36 @@ export const SpeechSynthesisContainer = () => {
 
   const initialStates = {
     loading: true,
-    voiceId: mp3data[0].id,
-    text: '',
-    token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55',
-    audioUrl: ''
+    voiceId: mp3data[0].id || null,
+    text: 'Chưa có nội dung',
+    token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55'
   }
 
   const [state, setState] = useState(initialStates)
+  const [audioUrl, setAudioUrl] = defaultState('http://103.74.122.136:8086/data/end2end_ngocmiu/20200222122616-6fdb0d5e.mp3')
 
-  const { voiceId, token, text } = state
+  const fetchData = async () => {
+    const { voiceId, token, text } = state
+    const options = {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: qs.stringify({
+        text,
+        voiceId,
+        token
+      }),
+      url: 'http://103.74.122.136:8086/api/v1/path'
+    }
+    const audio = await axios(options)
+
+    setState({
+      loading: false,
+      audioUrl: audio.data.data.url
+    })
+    setAudioUrl(audio.data.data.url)
+  }
 
   useEffect(() => {
-    const fetchData = async () => {
-      //   const audio = await axios.post('http://aisol.vn/tts/api/v1/path',{
-      //       voiceId,
-      //       text,
-      //       token
-      //   })
-
-      const audio = {
-        data: {
-          url:
-            'http://103.74.122.136:8086/data/end2end_ngocmiu/20200222012015-f58f5f54.mp3'
-        },
-        msg: 'Success!',
-        stats: {
-          num_words: 3,
-          time: 0.5727672576904297,
-          words_per_second: 5.237683781215386
-        },
-        status: 0
-      }
-
-      setState({
-        loading: false,
-        audioUrl: audio.data.url
-      })
-    }
     fetchData()
   }, [])
 
@@ -61,17 +55,18 @@ export const SpeechSynthesisContainer = () => {
     setState({ voiceId })
   }
 
-  const onChangeText = event => {
-    setState({ text: event.target.value })
+  const onChangeText = value => {
+    setState({ text: value })
   }
-  console.log(state)
 
   const props = {
     mp3data,
     state,
+    audioUrl,
     setState,
     onChangeVoice,
-    onChangeText
+    onChangeText,
+    fetchData
   }
   return <SpeechSynthesis {...props} />
 }
