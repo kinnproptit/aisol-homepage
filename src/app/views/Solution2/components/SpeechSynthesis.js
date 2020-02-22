@@ -1,20 +1,39 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import qs from 'qs'
 
+import * as Actions from '../../../redux/action-creators/audio'
 import DownloadIcon from '../../../assets/download.svg'
 
 import Button from '../../../Shared/components/Button/Button'
 import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
 
-import Player from './Player'
+import { Player } from './Player'
 
-export const SpeechSynthesis = ({
-  mp3data,
-  onChangeVoice,
-  onChangeText,
-  audioUrl,
-  fetchData
-}) => {
+export const SpeechSynthesis = ({ mp3data, onChangeVoice, onChangeText, state }) => {
+
+  const dispatch = useDispatch()
+  const audioRedux = useSelector(state => state.audioReducer)
+  
+  const fetchData = async () => {
+    const { voiceId, token, text } = state
+    const options = {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: qs.stringify({
+        text,
+        voiceId,
+        token
+      }),
+      url: 'http://103.74.122.136:8086/api/v1/path'
+    }
+    const audio = await axios(options)
+
+    dispatch(Actions.updateAudio({audioUrl: audio.data.data.url}))
+  }
+
   return (
     <section>
       <div className='margin-bottom-large'>
@@ -33,7 +52,7 @@ export const SpeechSynthesis = ({
             <PlayerContainer>
               <p>Giọng đọc</p>
               <Dropdown1 data={mp3data} onClick={onChangeVoice} />
-              <Player url={audioUrl} fetchData={fetchData} />
+              <Player url={audioRedux.audioUrl} onFetchAudio={fetchData}/>
               <div>
                 <StyledButton
                   text='Tải xuống'
