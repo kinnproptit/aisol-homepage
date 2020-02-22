@@ -1,4 +1,9 @@
-import React, { useContext, useEffect, useState as defaultState, createContext } from 'react'
+import React, {
+  useContext,
+  useEffect,
+  useState as defaultState,
+  createContext
+} from 'react'
 
 import { useState } from '../../../../packages/core'
 
@@ -15,8 +20,9 @@ export const SpeechSynthesisContainer = () => {
   const initialStates = {
     loading: false,
     voiceId: mp3data[0].id || null,
-    text: 'Chưa có nội dung',
-    token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55'
+    text: '',
+    token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55',
+    audioUrl: 'http://103.74.122.136:8086/data/end2end_ngocmiu/20200222181755-47007795.mp3'
   }
 
   const [state, setState] = useState(initialStates)
@@ -27,6 +33,10 @@ export const SpeechSynthesisContainer = () => {
 
   if (state.loading) {
     return <LoadingIndicator />
+  }
+
+  const onChangeAudio = audioUrl => {
+    setState({ audioUrl })
   }
 
   const onChangeVoice = voiceId => {
@@ -42,7 +52,8 @@ export const SpeechSynthesisContainer = () => {
     state,
     setState,
     onChangeVoice,
-    onChangeText
+    onChangeText,
+    onChangeAudio
   }
   return (
     <SpeechContext.Provider value={props}>

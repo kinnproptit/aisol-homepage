@@ -1,7 +1,7 @@
 import * as Actions from '../action-types'
 
 const initialState = {
-  audioUrl: 'http://103.74.122.136:8086/data/end2end_ngocmiu/20200222122255-346cc135.mp3',
+  audioUrl: 'http://103.74.122.136:8086/data/end2end_ngocmiu/20200222181755-47007795.mp3',
   text: null
 }
 

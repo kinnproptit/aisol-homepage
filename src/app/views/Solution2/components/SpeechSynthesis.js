@@ -12,13 +12,20 @@ import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownM
 
 import { Player } from './Player'
 
-export const SpeechSynthesis = ({ mp3data, onChangeVoice, onChangeText, state }) => {
-
+export const SpeechSynthesis = ({
+  mp3data,
+  onChangeVoice,
+  onChangeText,
+  onChangeAudio,
+  state
+}) => {
   const dispatch = useDispatch()
   const audioRedux = useSelector(state => state.audioReducer)
-  
+
   const fetchData = async () => {
     const { voiceId, token, text } = state
+    console.log(state)
+
     const options = {
       method: 'POST',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -31,7 +38,12 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, onChangeText, state })
     }
     const audio = await axios(options)
 
-    dispatch(Actions.updateAudio({audioUrl: audio.data.data.url}))
+    console.log(audio)
+
+    if (audio.data.status === 0) {
+      dispatch(Actions.updateAudio({ audioUrl: audio.data.data.url }))
+      onChangeAudio(audio.data.data.url)
+    }
   }
 
   return (
@@ -52,7 +64,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, onChangeText, state })
             <PlayerContainer>
               <p>Giọng đọc</p>
               <Dropdown1 data={mp3data} onClick={onChangeVoice} />
-              <Player url={audioRedux.audioUrl} onFetchAudio={fetchData}/>
+              <Player url={state.audioUrl} onFetchAudio={fetchData} />
               <div>
                 <StyledButton
                   text='Tải xuống'

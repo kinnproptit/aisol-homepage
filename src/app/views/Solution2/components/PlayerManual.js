@@ -1,76 +1,48 @@
-// import React, { useState, useEffect, useContext } from 'react'
-// import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
 
-// import PlayIcon from '../../../assets/play.svg'
-// import StopIcon from '../../../assets/stop.svg'
-// import { SpeechContext } from './SpeechSynthesisContainer'
+const useAudio = url => {
+  const [audio, setAudio] = useState(new Audio(url))
+  const [playing, setPlaying] = useState(false)
 
-// const useAudio = url => {
-//   const [audio] = useState(new Audio(url))
+  const toggle = () => setPlaying(!playing)
 
-//   // useEffect(() => {
-//   //   audio.addEventListener('ended', () => setPlaying(false))
-//   //   return () => {
-//   //     audio.removeEventListener('ended', () => setPlaying(false))
-//   //   }
-//   // }, [])
+  const onChangeSrc = () => {
+    audio.pause()
+    audio.currentTime = 0
+    setAudio(new Audio(url))
+    console.log(audio)
+    audio.load()
+    audio.play()
+  }
 
-//   // return [playing, toggle]
-// }
+  useEffect(() => {
+    //   playing ? audio.play() : audio.pause();
+  }, [playing])
 
-// const fetchAudioAndPlay = url => {
-//   const [audio] = useState(new Audio(url))
-//   // Show loading animation.
-//   let playPromise = audio.play()
+  useEffect(() => {
+    audio.addEventListener('ended', () => setPlaying(false))
+    return () => {
+      audio.removeEventListener('ended', () => setPlaying(false))
+    }
+  }, [])
 
-//   if (playPromise !== undefined) {
-//     playPromise
-//       .then(_ => {
-//         // Automatic playback started!
-//         // Show playing UI.
-//         return <Icon src={StopIcon} />
-//       })
-//       .catch(error => {
-//         // Auto-play was prevented
-//         // Show paused UI.
-//         return <Icon src={PlayIcon} onClick={toggle} />
-//       })
-//   }
-// }
+  return [playing, toggle, onChangeSrc]
+}
 
-// const Player = () => {
-//   const { audioUrl: url, fetchData: fetchAudioAndPlay } = useContext(
-//     SpeechContext
-//   )
+export const Player = ({ url, onFetchAudio }) => {
+  const [playing, toggle, onChangeSrc] = useAudio(url)
 
-//   useEffect(() => {
-//     const [audio] = useState(new Audio(url))
-//     return () => {
-//       cleanup
-//     };
-//   }, [])
-
-//   // const [playing, toggle] = useAudio(audioUrl, fetchAudioAndPlay)
-
-//   // return (
-//   //   <div
-//   //     onClick={() => {
-//   //       toggle()
-//   //       // fetchAudioAndPlay()
-//   //     }}
-//   //   >
-//   //     {playing ? (
-//   //       <Icon src={StopIcon} />
-//   //     ) : (
-//   //       <Icon src={PlayIcon} onClick={toggle} />
-//   //     )}
-//   //   </div>
-//   // )
-//   return fetchAudioAndPlay
-// }
-
-// const Icon = styled.img`
-//   cursor: pointer;
-// `
-
-// export default Player
+  return (
+    <div>
+      <button
+        onClick={() => {
+          toggle()
+          onFetchAudio()
+          onChangeSrc()
+        }}
+      >
+        {playing ? 'Pause' : 'Play'}
+      </button>
+    </div>
+  )
+}

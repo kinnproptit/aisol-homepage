@@ -11,7 +11,7 @@ export const updateAudio = payload => {
 export const updateText = payload => {
   return dispatch =>
     dispatch({
-      type: Actions.PLAY_AUDIO,
+      type: Actions.GET_TEXT,
       payload
     })
 }
