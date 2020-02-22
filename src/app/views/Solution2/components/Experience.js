@@ -106,7 +106,7 @@ const StyledButton = styled(Button)`
 const StyledDropdown = styled(DropdownMenu)`
   padding: 1rem 4rem;
   border-radius: 0.8rem;
-  font-size: 1.8rem;
+  font-size: 18px;
   font-family: 'Muli', sans-serif;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
