@@ -9,6 +9,7 @@ import axios from 'axios'
 import DownloadIcon from '../../../assets/download.svg'
 import PlayIcon from '../../../assets/play.svg'
 import StopIcon from '../../../assets/stop.svg'
+import ResumeIcon from '../../../assets/pause.svg'
 
 import Button from '../../../Shared/components/Button/Button'
 import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
@@ -89,7 +90,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
           <FlexContent className='container'>
             <Paper>
               <PaperContent>
-                <Textarea onChange={e => onChangeText(e.target.value)}>
+                <Textarea onChange={onChangeText}>
                   Nội dung trải nghiệm
                 </Textarea>
               </PaperContent>
@@ -115,21 +116,32 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                 <MediaPlayer>
                   {!playing ? (
                     onFetch ? (
-                      <img src={PlayIcon} onClick={onFetchPlayButton} />
+                      <Img src={PlayIcon} onClick={onFetchPlayButton} />
                     ) : (
-                      <img src={PlayIcon} onClick={onClickPlayButton} />
+                      <Img src={PlayIcon} onClick={onClickPlayButton} />
                     )
                   ) : (
-                    <img src={StopIcon} onClick={onClickPausedButton} />
+                    <Img src={ResumeIcon} onClick={onClickPausedButton} />
                   )}
-                  <Stop
-                    src={StopIcon}
-                    onClick={() => {
-                      setPlaying(false)
-                      setOnFetch(true)
-                      setPlayStatus(Sound.status.PAUSED)
-                    }}
-                  />
+                  {!playing ? (
+                    <StyledStop
+                      src={StopIcon}
+                      onClick={() => {
+                        setPlaying(false)
+                        setOnFetch(true)
+                        setPlayStatus(Sound.status.PAUSED)
+                      }}
+                    />
+                  ) : (
+                    <Stop
+                      src={StopIcon}
+                      onClick={() => {
+                        setPlaying(false)
+                        setOnFetch(true)
+                        setPlayStatus(Sound.status.PAUSED)
+                      }}
+                    />
+                  )}
                 </MediaPlayer>
               </div>
               <div className='col-md-3'>
@@ -148,9 +160,20 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   )
 }
 
-const Stop = styled.img`
+const StyledResumeIcon = styled(ResumeIcon)`
   color: #ffffff;
 `
+
+const Img = styled.img`
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+`
+const StyledStop = styled(Img)`
+  opacity: 0.5;
+`
+
+const Stop = styled(Img)``
 
 const MediaPlayer = styled.div`
   background-color: #178ce3;

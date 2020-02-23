@@ -6,9 +6,9 @@ import SpeechRecognition from './SpeechRecognition'
 
 import AppImage1 from '../../assets/giaiphap1_ungdung.png'
 
-// import Ad1 from '../assets/Shape 11.svg'
-// import Ad2 from '../assets/Shape 11.svg'
-// import Ad3 from '../assets/Shape 11.svg'
+import Ad1 from '../../assets/giaiphap2_ad2.png'
+import Ad2 from '../../assets/giaiphap2_ad2.png'
+import Ad3 from '../../assets/giaiphap2_ad2.png'
 
 export const Solution1 = () => {
   const data = [
@@ -31,18 +31,18 @@ export const Solution1 = () => {
 
   const AdvantagesData = [
     {
-      image: 'Ad1',
+      image: Ad1,
       title: 'Độ chính xác cao',
       content:
         'Việc sử dụng các công nghệ tiên tiến trên thế giới như mạng nơron sâu kết hợp với các giải pháp cho đặc thù tiếng Việt, dịch vụ nhận dạng tiếng nói của chúng tôi cho kết quả nhận dạng với độ chính xác lên tới 96%'
     },
     {
-      image: 'Ad2',
+      image: Ad2,
       title: 'Chịu tải cao',
       content: 'Có thể đáp ứng tải lên tới hàng nghìn audio đầu vào tại cùng 1 thời điểm'
     },
     {
-      image: 'Ad3',
+      image: Ad3,
       title: 'Linh hoạt cao',
       content:
         'Nhận dạng được tất cả các đầu vào khác nhau, như cuộc gọi ghi âm tổng đài hay dữ liệu ghi âm. Có khả năng dễ dàng tùy chỉnh theo các lĩnh vực khác nhau'
