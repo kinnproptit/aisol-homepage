@@ -20,7 +20,7 @@ import LienHeBanner from '../../../../assets/contact_banner.png'
 const Header = () => {
   const List = () => {
     return (
-      <div className='btn-group'>
+      <div className='btn-group langg'>
         <a
           className='dropdown-toggle dropdown-btn'
           data-toggle='dropdown'

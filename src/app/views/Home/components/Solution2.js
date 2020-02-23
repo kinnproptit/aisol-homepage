@@ -23,7 +23,7 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
           <div
             className='row h-100 flex-row-reverse'>
             <div
-              className={`col-md-6 d-flex flex-column justify-content-center ${
+              className={`col-md-6  d-flex flex-column justify-content-center ${
                 id % 2 ? '' : 'padding-twoside-large'
               }`}
             >
@@ -35,7 +35,14 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
               >
                 {title}
               </h1>
-              <p className='homepage-solution__description margin-bottom-extra-large'>
+              <div>
+                  <img
+                  src={LeftImg}
+                  className='homepage-solution__image-mobile'
+                  alt='Homepage solution banner mobile'
+                />
+              </div>
+              <p className='homepage-solution2__description margin-bottom-extra-large'>
                 {description}
               </p>
               <div className='homepage-solution__btn-group'>
@@ -48,8 +55,10 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
                 />
               </div>
             </div>
-            <LeftDiv className='col-md-6 homepage-solution__placeholder'>
-              <img src={LeftImg} />
+            <LeftDiv className='col-md-6  homepage-solution__placeholder'>
+              <img src={LeftImg} 
+              className='solution2-image'
+              />
             </LeftDiv>
           </div>
         </div>

@@ -16,6 +16,7 @@ export const MCare = () => {
               alt='m-care-image'
             />
           </div>
+          
           <div className='col-lg-5'>
             <div className='m-care__description'>
               <h1 className='text-with-border-left margin-bottom-small'>

@@ -1,8 +1,6 @@
-import React, {
-  useContext,
-  useState as defaultState,
-  createContext
-} from 'react'
+import React, { useContext, useEffect, useState as defaultState } from 'react'
+import axios from 'axios'
+import qs from 'qs'
 
 import { useState } from '../../../../packages/core'
 
@@ -11,39 +9,64 @@ import { PreloaderContext } from '../../../Preloader'
 
 import { SpeechSynthesis } from './SpeechSynthesis'
 
-export const SpeechContext = createContext()
-
 export const SpeechSynthesisContainer = () => {
   const { mp3data } = useContext(PreloaderContext)
 
   const initialStates = {
-    loading: false,
+    loading: true,
     voiceId: mp3data[0].id || null,
-    token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55',
-    text: ''
+    text: 'Chưa có nội dung',
+    token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55'
   }
 
   const [state, setState] = useState(initialStates)
+  const [audioUrl, setAudioUrl] = defaultState('http://103.74.122.136:8086/data/end2end_ngocmiu/20200222122616-6fdb0d5e.mp3')
+
+  const fetchData = async () => {
+    const { voiceId, token, text } = state
+    const options = {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: qs.stringify({
+        text,
+        voiceId,
+        token
+      }),
+      url: 'http://103.74.122.136:8086/api/v1/path'
+    }
+    const audio = await axios(options)
+
+    setState({
+      loading: false,
+      audioUrl: audio.data.data.url
+    })
+    setAudioUrl(audio.data.data.url)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   if (state.loading) {
     return <LoadingIndicator />
   }
 
-
   const onChangeVoice = voiceId => {
     setState({ voiceId })
   }
 
+  const onChangeText = value => {
+    setState({ text: value })
+  }
 
   const props = {
     mp3data,
     state,
+    audioUrl,
     setState,
     onChangeVoice,
+    onChangeText,
+    fetchData
   }
-  return (
-    <SpeechContext.Provider value={props}>
-      <SpeechSynthesis {...props} />
-    </SpeechContext.Provider>
-  )
+  return <SpeechSynthesis {...props} />
 }

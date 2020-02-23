@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
 
-import Sound from 'react-sound'
-import axios from 'axios'
-import qs from 'qs'
-
-import * as Actions from '../../../redux/action-creators/audio'
 import DownloadIcon from '../../../assets/download.svg'
 import PlayIcon from '../../../assets/play.svg'
 import StopIcon from '../../../assets/stop.svg'
@@ -90,7 +84,9 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
           <FlexContent className='container'>
             <Paper>
               <PaperContent>
-                <TextEditor onChangeText={onChangeText} />
+                <Textarea onChange={e => onChangeText(e.target.value)}>
+                  Nội dung trải nghiệm
+                </Textarea>
               </PaperContent>
             </Paper>
             <PlayerContainer className='row'>
@@ -205,6 +201,23 @@ const PaperContent = styled.div`
   opacity: 0.3;
 `
 
+const Textarea = styled.textarea`
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  line-height: 30px;
+  padding: 0 5px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  box-sizing: border-box;
+  z-index: 1;
+`
+
 const StyledButton = styled(Button)`
   justify-content: center;
   display: flex;
@@ -214,7 +227,7 @@ const StyledButton = styled(Button)`
 const StyledDropdown = styled(DropdownMenuVoice)`
   padding: 1rem 4rem;
   border-radius: 0.8rem;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-family: 'Muli', sans-serif;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
