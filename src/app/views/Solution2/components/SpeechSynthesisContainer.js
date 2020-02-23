@@ -24,7 +24,6 @@ export const SpeechSynthesisContainer = () => {
   }
 
   const [state, setState] = useState(initialStates)
-  const [audio, setAudio] = defaultState('')
 
   if (state.loading) {
     return <LoadingIndicator />
@@ -35,18 +34,12 @@ export const SpeechSynthesisContainer = () => {
     setState({ voiceId })
   }
 
-  const onChangeText = e => {
-    setState({ text: e.target.value })
-  }
 
   const props = {
     mp3data,
     state,
     setState,
     onChangeVoice,
-    onChangeText,
-    audio,
-    setAudio
   }
   return (
     <SpeechContext.Provider value={props}>

@@ -96,9 +96,9 @@ export const Player = ({ token, voiceId, text }) => {
       <Sound
         url={audioUrl}
         playStatus={playStatus}
-        // onLoad={sound => {
-        //   setSoundComp(sound)
-        // }}
+        onLoad={sound => {
+          setSoundComp(sound)
+        }}
         onPlaying={sound => {
           setPosition(sound.position)
         }}
