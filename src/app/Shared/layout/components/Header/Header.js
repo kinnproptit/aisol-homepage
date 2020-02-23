@@ -120,11 +120,7 @@ const Header = () => {
 
             <ul className='nav__list'>
               <li className='nav__item'>
-                <Link
-                  to=''
-                  className='nav__link'
-                  onClick={() => handleLink('')}
-                >
+                <Link className='nav__link' onClick={() => handleLink('')}>
                   Trang chủ
                 </Link>
               </li>
@@ -137,7 +133,6 @@ const Header = () => {
                   ]}
                 >
                   <Link
-                    to=''
                     className='nav__link'
                     // onClick={() => handleLink('solution1.html')}
                   >
@@ -148,7 +143,6 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
-                  to=''
                   className='nav__link'
                   onClick={() => handleLink('product.html')}
                 >
@@ -157,7 +151,6 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
-                  to=''
                   className='nav__link'
                   onClick={() => handleLink('price.html')}
                 >
@@ -166,7 +159,6 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
-                  to=''
                   className='nav__link'
                   onClick={() => handleLink('contact.html')}
                 >
@@ -192,17 +184,12 @@ const Header = () => {
         <nav className='nav-small'>
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
-              <Link
-                to=''
-                className='nav-small__link'
-                onClick={() => handleLink('')}
-              >
+              <Link className='nav-small__link' onClick={() => handleLink('')}>
                 Trang chủ
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('solution1.html')}
               >
@@ -211,7 +198,6 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('solution2.html')}
               >
@@ -220,7 +206,6 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('product.html')}
               >
@@ -229,7 +214,6 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('price.html')}
               >
@@ -238,7 +222,6 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('contact.html')}
               >

@@ -1,5 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import Sound from 'react-sound'
+import { useDispatch, useSelector } from 'react-redux'
+
+import qs from 'qs'
+import axios from 'axios'
 
 import DownloadIcon from '../../../assets/download.svg'
 import PlayIcon from '../../../assets/play.svg'
