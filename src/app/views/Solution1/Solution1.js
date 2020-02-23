@@ -5,7 +5,6 @@ import { Application } from '../../Shared/components/Application/Application'
 import SpeechRecognition from './SpeechRecognition'
 
 import AppImage1 from '../../assets/giaiphap1_ungdung.png'
-import { ExperienceContainer } from './ExperienceContainer'
 
 // import Ad1 from '../assets/Shape 11.svg'
 // import Ad2 from '../assets/Shape 11.svg'

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
-import AudioPlayer from 'react-h5-audio-player'
+// import AudioPlayer from 'react-h5-audio-player'
 
-import 'react-h5-audio-player/lib/styles.css'
+// import 'react-h5-audio-player/lib/styles.css'
 
-import ReactAudioPlayer from 'react-audio-player'
+// import ReactAudioPlayer from 'react-audio-player'
 
 export const Player = ({ url, onFetchAudio }) => {
   console.log(url)
@@ -13,7 +13,7 @@ export const Player = ({ url, onFetchAudio }) => {
         src={url}
         // other props here
       /> */}
-      <ReactAudioPlayer src={url} controls onPlay={onFetchAudio}/>
+      {/* <ReactAudioPlayer src={url} controls onPlay={onFetchAudio}/> */}
     </>
   )
 }

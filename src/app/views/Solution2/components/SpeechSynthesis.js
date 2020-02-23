@@ -1,8 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-import axios from 'axios'
-import qs from 'qs'
 
 import * as Actions from '../../../redux/action-creators/audio'
 import DownloadIcon from '../../../assets/download.svg'
@@ -10,41 +8,17 @@ import DownloadIcon from '../../../assets/download.svg'
 import Button from '../../../Shared/components/Button/Button'
 import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
 
-import { Player } from './Player'
+import { Player } from './PlayerManual'
+import { TextEditor } from './TextEditor'
 
 export const SpeechSynthesis = ({
   mp3data,
   onChangeVoice,
   onChangeText,
-  onChangeAudio,
   state
 }) => {
   const dispatch = useDispatch()
   const audioRedux = useSelector(state => state.audioReducer)
-
-  const fetchData = async () => {
-    const { voiceId, token, text } = state
-    console.log(state)
-
-    const options = {
-      method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: qs.stringify({
-        text,
-        voiceId,
-        token
-      }),
-      url: 'http://103.74.122.136:8086/api/v1/path'
-    }
-    const audio = await axios(options)
-
-    console.log(audio)
-
-    if (audio.data.status === 0) {
-      dispatch(Actions.updateAudio({ audioUrl: audio.data.data.url }))
-      onChangeAudio(audio.data.data.url)
-    }
-  }
 
   return (
     <section>
@@ -56,15 +30,13 @@ export const SpeechSynthesis = ({
           <FlexContent className='container'>
             <Paper>
               <PaperContent>
-                <Textarea onChange={e => onChangeText(e.target.value)}>
-                  Nội dung trải nghiệm
-                </Textarea>
+                <TextEditor onChangeText={onChangeText} />
               </PaperContent>
             </Paper>
             <PlayerContainer>
               <p>Giọng đọc</p>
               <Dropdown1 data={mp3data} onClick={onChangeVoice} />
-              <Player url={state.audioUrl} onFetchAudio={fetchData} />
+              <Player token={state.token} voiceId={state.voiceId} text={state.text}/>
               <div>
                 <StyledButton
                   text='Tải xuống'
@@ -111,23 +83,6 @@ const PaperContent = styled.div`
   background: linear-gradient(transparent, transparent 29px, gray 29px);
   background-size: 30px 30px;
   opacity: 0.3;
-`
-
-const Textarea = styled.textarea`
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  line-height: 30px;
-  padding: 0 5px;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: #000;
-  font-weight: bold;
-  font-size: 16px;
-  box-sizing: border-box;
-  z-index: 1;
 `
 
 const StyledButton = styled(Button)`

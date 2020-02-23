@@ -1,6 +1,5 @@
 import React, {
   useContext,
-  useEffect,
   useState as defaultState,
   createContext
 } from 'react'
@@ -20,31 +19,24 @@ export const SpeechSynthesisContainer = () => {
   const initialStates = {
     loading: false,
     voiceId: mp3data[0].id || null,
-    text: '',
     token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55',
-    audioUrl: 'http://103.74.122.136:8086/data/end2end_ngocmiu/20200222181755-47007795.mp3'
+    text: ''
   }
 
   const [state, setState] = useState(initialStates)
-
-  // useEffect(() => {
-  //   fetchData()
-  // }, [])
+  const [audio, setAudio] = defaultState('')
 
   if (state.loading) {
     return <LoadingIndicator />
   }
 
-  const onChangeAudio = audioUrl => {
-    setState({ audioUrl })
-  }
 
   const onChangeVoice = voiceId => {
     setState({ voiceId })
   }
 
-  const onChangeText = value => {
-    setState({ text: value })
+  const onChangeText = e => {
+    setState({ text: e.target.value })
   }
 
   const props = {
@@ -53,7 +45,8 @@ export const SpeechSynthesisContainer = () => {
     setState,
     onChangeVoice,
     onChangeText,
-    onChangeAudio
+    audio,
+    setAudio
   }
   return (
     <SpeechContext.Provider value={props}>
