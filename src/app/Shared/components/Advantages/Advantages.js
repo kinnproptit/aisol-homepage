@@ -4,14 +4,14 @@ import styled from 'styled-components'
 export const Advantages = ({ data = [] }) => {
   const AdvantageItem = data.map(({ image, title, content }, index) => (
     <div
-      className='advantage-item col-md-4 d-flex flex-column align-items-center'
+      className='advantage-item col-md-4 d-flex flex-column align-items-center flex-row'
       key={index}
     >
       <div className='advantage-item__image margin-bottom-medium'>
         <Img src={image} alt='Advantage item image' />
       </div>
 
-      <div className='advantage-item__content d-flex flex-column align-items-center'>
+      <div className='advantage-item__content d-flex flex-column align-items-center align-items-start margin-left-2'>
         <div className='advantage-item__heading margin-bottom-small'>
           {title}
         </div>

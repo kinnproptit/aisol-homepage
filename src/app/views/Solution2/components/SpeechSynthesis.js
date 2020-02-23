@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import qs from 'qs'
 import axios from 'axios'
 
+import {Slider } from 'antd'
+
 import DownloadIcon from '../../../assets/download.svg'
 import PlayIcon from '../../../assets/play.svg'
 import StopIcon from '../../../assets/stop.svg'
@@ -132,6 +134,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                       setPlayStatus(Sound.status.PAUSED)
                     }}
                   />
+                  <Slider defaultValue={30} />
                 </MediaPlayer>
               </div>
               <div className='col-md-3'>
@@ -150,9 +153,6 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   )
 }
 
-const StyledResumeIcon = styled(ResumeIcon)`
-  color: #ffffff;
-`
 
 const Img = styled.img`
   cursor: pointer;

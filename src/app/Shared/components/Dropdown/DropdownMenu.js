@@ -23,7 +23,7 @@ export const DropdownMenu = ({ options = [], isLink = false, children, className
     </Menu>
   )
   return (
-    <Dropdown className={className} overlay={menu} trigger={['click']}>
+    <Dropdown className={className} overlay={menu}>
       {isLink ? (
         children
       ) : (

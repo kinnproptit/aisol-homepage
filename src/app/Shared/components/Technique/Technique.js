@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 export const Technique = ({ data = [] }) => {
   const techniqueItem = data.map(({ image, content }) => (
-    <Item className='technique-item col-md-3'>
-      <InsideItem className='d-flex flex-column align-items-center'>
+    <Item className='technique-item'>
+      <InsideItem className='d-flex flex-column align-items-center flex-row-reverse'>
         <Img className='margin-bottom-big' src={image} alt='' />
         <p>{content}</p>
       </InsideItem>
@@ -17,7 +17,7 @@ export const Technique = ({ data = [] }) => {
         <H1 className='text-center advantage__heading margin-bottom-big'>
           Công nghệ
         </H1>
-        <div className='row'>{techniqueItem}</div>
+        <div className='technique-grid'>{techniqueItem}</div>
       </div>
     </section>
   )

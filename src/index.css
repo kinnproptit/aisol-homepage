@@ -316,4 +316,53 @@ body{
   .giai-phap-cl{
     margin-top: 30px !important;
   }
+
+  .flex-row {
+    flex-direction: row !important;
+  }
+
+  .align-items-start {
+    align-items: flex-start !important;
+  }
+
+  .margin-left-2 {
+    margin-left: 2rem;
+  }
+
+  .margin-left-2 p {
+    text-align: left !important;
+    padding: 0 !important;
+  }
+}
+
+@media only screen and (min-width: 900px){
+  .technique-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 16px;
+  }
+  .flex-row-reverse {
+    flex-direction: column !important;
+  }
+}
+
+@media only screen and (max-width: 899px){
+  .technique-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .technique-item p{
+    text-align: right;
+    margin: 0 !important;
+  }
+
+  .technique-item img {
+    margin: 0;
+  }
+
+  .flex-row-reverse {
+    flex-direction: row-reverse !important;
+  }
+
 }

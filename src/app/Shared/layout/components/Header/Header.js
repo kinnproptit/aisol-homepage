@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import $ from 'jquery'
 import styled from 'styled-components'
 
+import {Icon} from 'antd'
+
 import { useHistory, Link, useLocation } from 'react-router-dom'
 
 import { DropdownMenu } from '../../../components/Dropdown/DropdownMenu'
@@ -31,12 +33,12 @@ const Header = () => {
         </a>
         <ul className='dropdown-menu'>
           <li className='dropdown-item'>
-            <a href='javascript:void(0);'>
+            <a href=''>
               <StyledFlag src={ENGFlag} alt='flag' /> ENG
             </a>
           </li>
           <li className='dropdown-item'>
-            <a href='javascript:void(0);'>
+            <a href=''>
               <StyledFlag src={VIEFlag} alt='flag' /> VIE
             </a>
           </li>
@@ -136,7 +138,7 @@ const Header = () => {
                     className='nav__link'
                     // onClick={() => handleLink('solution1.html')}
                   >
-                    Giải pháp
+                    Giải pháp <span className='caret'></span>
                   </Link>
                 </DropdownMenu>
                 {/* Giải pháp */}

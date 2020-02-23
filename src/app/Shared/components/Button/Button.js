@@ -21,7 +21,7 @@ const Text = styled.p`
   margin: 0;
   margin-left: 10px;
   color: white;
-  font-size: 1.8rem;
+  font-size: 18px;
 `
 
 const Row = styled.div``
