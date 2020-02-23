@@ -53,6 +53,7 @@ export const Solution1 = () => {
     <React.Fragment>
       <div className='bg-second-cl'>
         <SpeechRecognition />
+        <SpeechRecognition />
       </div>
 
       <Advantages data={AdvantagesData} />

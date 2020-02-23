@@ -1,19 +1,50 @@
-import React, { useContext } from 'react'
-// import AudioPlayer from 'react-h5-audio-player'
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
 
-// import 'react-h5-audio-player/lib/styles.css'
+import PlayIcon from '../../../assets/play.svg'
+import StopIcon from '../../../assets/stop.svg'
 
-// import ReactAudioPlayer from 'react-audio-player'
+const useAudio = url => {
+  const [audio] = useState(new Audio(url))
+  const [playing, setPlaying] = useState(false)
 
-export const Player = ({ url, onFetchAudio }) => {
+  const toggle = () => setPlaying(!playing)
+
+  useEffect(() => {
+    playing ? audio.play() : audio.pause()
+  }, [playing])
+
+  useEffect(() => {
+    audio.addEventListener('ended', () => setPlaying(false))
+    return () => {
+      audio.removeEventListener('ended', () => setPlaying(false))
+    }
+  }, [])
+
+  return [playing, toggle]
+}
+
+const Player = ({ url, fetchData }) => {
+  const [playing, toggle] = useAudio(url)
   console.log(url)
   return (
-    <>
-      {/* <AudioPlayer
-        src={url}
-        // other props here
-      /> */}
-      {/* <ReactAudioPlayer src={url} controls onPlay={onFetchAudio}/> */}
-    </>
+    <div
+      onClick={() => {
+        toggle()
+        fetchData()
+      }}
+    >
+      {playing ? (
+        <Icon src={StopIcon} />
+      ) : (
+        <Icon src={PlayIcon} onClick={toggle} />
+      )}
+    </div>
   )
 }
+
+const Icon = styled.img`
+  cursor: pointer;
+`
+
+export default Player

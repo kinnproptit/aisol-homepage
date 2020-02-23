@@ -1,81 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
 
-import Sound from 'react-sound'
-import axios from 'axios'
-import qs from 'qs'
-
-import * as Actions from '../../../redux/action-creators/audio'
 import DownloadIcon from '../../../assets/download.svg'
 
 import Button from '../../../Shared/components/Button/Button'
 import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
 
-import { TextEditor } from './TextEditor'
+import Player from './Player'
 
-export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
-  const dispatch = useDispatch()
-  const audioRedux = useSelector(state => state.audioReducer)
-
-  const [audioUrl, setAudio] = useState('')
-  const [playStatus, setPlayStatus] = useState(Sound.status.PLAYING)
-  const [position, setPosition] = useState(0)
-  const [soundComp, setSoundComp] = useState(null)
-  const [text, setText] = useState('')
-  const [playing, setPlaying] = useState(false)
-  const [onFetch, setOnFetch] = useState(true)
-
-  const fetchData = async () => {
-    const { voiceId, token } = state
-    const options = {
-      method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: qs.stringify({
-        text,
-        voiceId,
-        token
-      }),
-      url: 'http://103.74.122.136:8086/api/v1/path'
-    }
-    const audio = await axios(options)
-    if (audio.data.status === 0) {
-      setAudio(audio.data.data.url)
-    }
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
-
-  const onFetchPlayButton = () => {
-    if (text === '') {
-      alert('Vui lòng nhập nội dung')
-    } else {
-      // setTimeout(() => {
-        setPlaying(!playing)
-        fetchData()
-        setPlayStatus(Sound.status.PLAYING)
-      // }, 1000)
-    }
-  }
-
-  const onClickPlayButton = () => {
-    setPlaying(true)
-    setPlayStatus(Sound.status.PLAYING)
-  }
-
-  const onClickPausedButton = () => {
-    setPlaying(false)
-    setOnFetch(false)
-    setPlayStatus(Sound.status.PAUSED)
-  }
-
-  const onChangeText = event => {
-    setText(event.target.value)
-    setAudio('')
-  }
-
+export const SpeechSynthesis = ({
+  mp3data,
+  onChangeVoice,
+  onChangeText,
+  audioUrl,
+  fetchData
+}) => {
   return (
     <section>
       <div className='margin-bottom-large'>
@@ -86,45 +25,15 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
           <FlexContent className='container'>
             <Paper>
               <PaperContent>
-                <TextEditor onChangeText={onChangeText} />
+                <Textarea onChange={e => onChangeText(e.target.value)}>
+                  Nội dung trải nghiệm
+                </Textarea>
               </PaperContent>
             </Paper>
             <PlayerContainer>
               <p>Giọng đọc</p>
               <Dropdown1 data={mp3data} onClick={onChangeVoice} />
-              <div>
-                <Sound
-                  url={audioUrl}
-                  playStatus={playStatus}
-                  onLoad={sound => {
-                    setSoundComp(sound)
-                  }}
-                  onPlaying={sound => {
-                    setPosition(sound.position)
-                  }}
-                  autoLoad={false}
-                  muted='muted'
-                />
-                <button
-                  onClick={() => {
-                    setPlaying(false)
-                    setOnFetch(true)
-                    setPlayStatus(Sound.status.PAUSED)
-                  }}
-                >
-                  Stop
-                </button>
-
-                {!playing ? (
-                  onFetch ? (
-                    <button onClick={onFetchPlayButton}>Play</button>
-                  ) : (
-                    <button onClick={onClickPlayButton}>Play 2</button>
-                  )
-                ) : (
-                  <button onClick={onClickPausedButton}>Paused</button>
-                )}
-              </div>
+              <Player url={audioUrl} fetchData={fetchData} />
               <div>
                 <StyledButton
                   text='Tải xuống'
@@ -173,6 +82,23 @@ const PaperContent = styled.div`
   opacity: 0.3;
 `
 
+const Textarea = styled.textarea`
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  line-height: 30px;
+  padding: 0 5px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  box-sizing: border-box;
+  z-index: 1;
+`
+
 const StyledButton = styled(Button)`
   justify-content: center;
   display: flex;
@@ -182,7 +108,7 @@ const StyledButton = styled(Button)`
 const StyledDropdown = styled(DropdownMenuVoice)`
   padding: 1rem 4rem;
   border-radius: 0.8rem;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-family: 'Muli', sans-serif;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;

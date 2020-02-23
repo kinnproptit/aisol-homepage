@@ -50,7 +50,7 @@ export const IntroCarousel = () => {
           <img className='d-block' src={image} alt='First slide'></img>
           <div className='container home-carousel__item'>
             <div className='row'>
-              <div className='col-md-8 d-flex flex-column align-items-start'>
+              <div className='col-md-10 d-flex flex-column align-items-start'>
                 <Title className='heading-big margin-bottom-small home-carousel__heading'>
                   {title}
                 </Title>
@@ -72,7 +72,7 @@ const Title = styled.h1`
 `
 
 const SubTitle = styled.h2`
-  font-size: 3rem;
-  font-weight: 800;
+ 
+  font-weight: 700;
   font-style: italic;
 `

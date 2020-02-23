@@ -109,7 +109,7 @@ h1 {
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 p {
@@ -169,9 +169,9 @@ p {
   margin-bottom: 3rem;
 }
 
-.margin-left-small {
-  margin-left: 2rem !important;
-}
+/* .margin-left-small {
+  margin-left: 2rem ;
+} */
 
 .nav-wrapper {
   position: -webkit-sticky;
@@ -207,7 +207,7 @@ p {
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: flex-end;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -228,6 +228,7 @@ p {
 
 .nav__item {
   list-style: none;
+  margin-right: 40px;
 }
 
 .nav__link {
@@ -406,7 +407,8 @@ p {
 }
 
 .home-carousel img {
-  /* min-height: 100vh; */
+  min-height: 100vh;
+  width: 100%;
 }
 
 @media (max-width: 37.5em) {
@@ -433,11 +435,12 @@ p {
 }
 
 .home-carousel__description {
-  /* line-height: 4rem; */
+  line-height: 4rem;
 }
 
 .btn {
   padding: 1rem 4rem;
+  z-index: 1;
   border-radius: 0.8rem;
   font-size: 18px;
   font-family: 'Muli', sans-serif;
@@ -469,11 +472,13 @@ p {
 .btn--blue {
   background: #06658d;
   color: #fff;
+ 
 }
 
 .btn--red {
   background: #d11919;
   color: #fff;
+ 
 }
 
 .advantage__heading {
@@ -673,6 +678,7 @@ p {
   }
 
   .btn-group {
+   
     /* margin: 0 5rem 4rem; */
   }
 }
@@ -715,6 +721,7 @@ p {
 
 .homepage-solution--odd {
   color: #000;
+  min-height: 600px;
 }
 
 .homepage-solution__main {
