@@ -123,25 +123,15 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   ) : (
                     <Img src={ResumeIcon} onClick={onClickPausedButton} />
                   )}
-                  {!playing ? (
-                    <StyledStop
-                      src={StopIcon}
-                      onClick={() => {
-                        setPlaying(false)
-                        setOnFetch(true)
-                        setPlayStatus(Sound.status.PAUSED)
-                      }}
-                    />
-                  ) : (
-                    <Stop
-                      src={StopIcon}
-                      onClick={() => {
-                        setPlaying(false)
-                        setOnFetch(true)
-                        setPlayStatus(Sound.status.PAUSED)
-                      }}
-                    />
-                  )}
+                  <StyledStop
+                    playing={!playing && onFetch}
+                    src={StopIcon}
+                    onClick={() => {
+                      setPlaying(false)
+                      setOnFetch(true)
+                      setPlayStatus(Sound.status.PAUSED)
+                    }}
+                  />
                 </MediaPlayer>
               </div>
               <div className='col-md-3'>
@@ -170,10 +160,8 @@ const Img = styled.img`
   height: 26px;
 `
 const StyledStop = styled(Img)`
-  opacity: 0.5;
+  opacity: ${props => (props.playing ? '0.5' : '1')};
 `
-
-const Stop = styled(Img)``
 
 const MediaPlayer = styled.div`
   background-color: #178ce3;
