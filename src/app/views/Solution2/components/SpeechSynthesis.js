@@ -8,6 +8,8 @@ import qs from 'qs'
 
 import * as Actions from '../../../redux/action-creators/audio'
 import DownloadIcon from '../../../assets/download.svg'
+import PlayIcon from '../../../assets/play.svg'
+import StopIcon from '../../../assets/stop.svg'
 
 import Button from '../../../Shared/components/Button/Button'
 import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
@@ -53,9 +55,9 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
       alert('Vui lòng nhập nội dung')
     } else {
       // setTimeout(() => {
-        setPlaying(!playing)
-        fetchData()
-        setPlayStatus(Sound.status.PLAYING)
+      setPlaying(!playing)
+      fetchData()
+      setPlayStatus(Sound.status.PLAYING)
       // }, 1000)
     }
   }
@@ -76,6 +78,8 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
     setAudio('')
   }
 
+  console.log(Sound.duration)
+
   return (
     <section>
       <div className='margin-bottom-large'>
@@ -89,10 +93,12 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                 <TextEditor onChangeText={onChangeText} />
               </PaperContent>
             </Paper>
-            <PlayerContainer>
-              <p>Giọng đọc</p>
-              <Dropdown1 data={mp3data} onClick={onChangeVoice} />
-              <div>
+            <PlayerContainer className='row'>
+              <CenterDiv className='col-md-5'>
+                <P>Giọng đọc</P>
+                <Dropdown1 data={mp3data} onClick={onChangeVoice} />
+              </CenterDiv>
+              <div className='col-md-4'>
                 <Sound
                   url={audioUrl}
                   playStatus={playStatus}
@@ -105,27 +111,27 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   autoLoad={false}
                   muted='muted'
                 />
-                <button
-                  onClick={() => {
-                    setPlaying(false)
-                    setOnFetch(true)
-                    setPlayStatus(Sound.status.PAUSED)
-                  }}
-                >
-                  Stop
-                </button>
-
-                {!playing ? (
-                  onFetch ? (
-                    <button onClick={onFetchPlayButton}>Play</button>
+                <MediaPlayer>
+                  {!playing ? (
+                    onFetch ? (
+                      <img src={PlayIcon} onClick={onFetchPlayButton} />
+                    ) : (
+                      <img src={PlayIcon} onClick={onClickPlayButton} />
+                    )
                   ) : (
-                    <button onClick={onClickPlayButton}>Play 2</button>
-                  )
-                ) : (
-                  <button onClick={onClickPausedButton}>Paused</button>
-                )}
+                    <img src={StopIcon} onClick={onClickPausedButton} />
+                  )}
+                  <Stop
+                    src={StopIcon}
+                    onClick={() => {
+                      setPlaying(false)
+                      setOnFetch(true)
+                      setPlayStatus(Sound.status.PAUSED)
+                    }}
+                  />
+                </MediaPlayer>
               </div>
-              <div>
+              <div className='col-md-3'>
                 <StyledButton
                   text='Tải xuống'
                   icon={DownloadIcon}
@@ -141,22 +147,48 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   )
 }
 
+const Stop = styled.img`
+  color: #ffffff;
+`
+
+const MediaPlayer = styled.div`
+  background-color: #178ce3;
+  padding: 1rem 4rem;
+  display: grid;
+  grid-template-columns: 24px 24px auto;
+  grid-gap: 16px;
+  align-items: center;
+`
+
+const CenterDiv = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const P = styled.p`
+  margin: 0;
+  margin-right: 1rem;
+`
+
 const Wrapper = styled.div`
   font-family: 'Muli', san-serif;
 `
 
 const FlexContent = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-bottom: 1em;
 `
 
 const PlayerContainer = styled.div`
-  width: 40%;
+  margin: 1rem;
+  align-items: center;
 `
 
 const Paper = styled.div`
-  width: 58%;
+  height: 22rem;
+  width: 100%;
   position: relative;
   border-radius: 13px;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.16);
@@ -194,11 +226,5 @@ const StyledDropdown = styled(DropdownMenuVoice)`
 `
 
 const Dropdown1 = styled(StyledDropdown)`
-  margin-bottom: 1em;
-`
-
-const P = styled.p`
-  margin: 0;
-  display: flex;
-  align-items: center;
+  width: 76%;
 `

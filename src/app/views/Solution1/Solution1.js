@@ -32,20 +32,20 @@ export const Solution1 = () => {
   const AdvantagesData = [
     {
       image: 'Ad1',
-      title: 'Tự động phân loại',
+      title: 'Độ chính xác cao',
       content:
-        'Tự động phân loại các cuộc gọi theo chủ đề, sản phẩm, dịch vụ, gói cước điện thoại khu vực. Giúp phân tích đưa ra định hướng kinh doanh'
+        'Việc sử dụng các công nghệ tiên tiến trên thế giới như mạng nơron sâu kết hợp với các giải pháp cho đặc thù tiếng Việt, dịch vụ nhận dạng tiếng nói của chúng tôi cho kết quả nhận dạng với độ chính xác lên tới 96%'
     },
     {
       image: 'Ad2',
-      title: 'Chính xác',
-      content: 'Hoạt động chính xác với tất cả các giọng vùng miền của Việt Nam'
+      title: 'Chịu tải cao',
+      content: 'Có thể đáp ứng tải lên tới hàng nghìn audio đầu vào tại cùng 1 thời điểm'
     },
     {
       image: 'Ad3',
-      title: 'Nhận dạng viết tắt',
+      title: 'Linh hoạt cao',
       content:
-        'Có khả năng nhận dạng những từ viết tắt, tên dịch vụ/ sản phẩm như: mobiletv, funring, mgame, mcare, facebook...'
+        'Nhận dạng được tất cả các đầu vào khác nhau, như cuộc gọi ghi âm tổng đài hay dữ liệu ghi âm. Có khả năng dễ dàng tùy chỉnh theo các lĩnh vực khác nhau'
     }
   ]
 
