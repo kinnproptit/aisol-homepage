@@ -217,6 +217,10 @@ body{
     margin: 10px auto !important;
     width: 90%;
   }
+
+  .btn p {
+    text-align: center;
+  }
 }
 /* solution-mobile */
 .solution-main{
