@@ -51,7 +51,7 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
                 <Button
                   icon={Icon}
                   text='Demo giải pháp'
-                  className='btn btn--red'
+                  className='btn btn--red homepage-button-2'
                 />
               </div>
             </div>

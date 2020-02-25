@@ -50,7 +50,7 @@ export const Solution = ({ image, title, description, id = 1 }) => {
                 <Button
                   icon={Icon}
                   text='Demo giải pháp'
-                  className='btn--yellow'
+                  className='btn--yellow homepage-button'
                 />
               </div>
             </div>

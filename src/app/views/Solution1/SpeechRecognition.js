@@ -21,8 +21,8 @@ const SpeechRecognition = () => {
               <div className='button-controller'>
                 <Button text='Ghi âm' icon={iconRecord} />
                 <Button text='Tải lên' icon={iconUpload} isMarginLeft />
-                <ButtonOutline text='Mẫu file 1' icon={iconWave} />
-                <ButtonOutline text='Mẫu file 2' icon={iconWave} />
+                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} />
+                <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2}/>
               </div>
               <Col>
                 <div className='ux1-description-container'>

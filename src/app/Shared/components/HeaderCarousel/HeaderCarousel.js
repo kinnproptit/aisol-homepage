@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Button from '../Button/Button'
 
-import Slide from '../../../assets/homepage_banner.svg'
+import Slide from '../../../assets/00.png'
 
 export const HeaderCarousel = ({
   title,
@@ -18,7 +18,7 @@ export const HeaderCarousel = ({
         <img className='d-block' src={image || Slide} alt='First slide' />
         <div className='container home-carousel__item'>
           <div className='row'>
-            <div className='col-md-6 d-flex flex-column align-items-start'>
+            <div className='col-md-8 d-flex flex-column align-items-start'>
               <h1 className='heading-big margin-bottom-small home-carousel__heading'>
                 {title}
               </h1>
