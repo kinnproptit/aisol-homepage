@@ -23,7 +23,7 @@ export const Solution = ({ image, title, description, id = 1 }) => {
       alt='Homepage solution banner'
       />
       <div className='homepage-solution__main'>
-        <div className=' solution-container h-200'>
+        <div className='container solution-container h-200'>
           <div
             className='row h-200'
           >
