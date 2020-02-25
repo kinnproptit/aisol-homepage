@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import { Menu, Dropdown, Icon } from 'antd'
@@ -33,11 +34,15 @@ export const DropdownMenuVoice = ({
     </Menu>
   )
   return (
-    <Dropdown className={className} overlay={menu} trigger={['click']}>
+    <StyledDropdown className={`${className} max-width-mobile`} overlay={menu} trigger={['click']}>
         <Link className='ant-dropdown-link' to='#'>
           {state.selected} <Icon type='down' />
         </Link>
-    </Dropdown>
+    </StyledDropdown>
   )
 }
+
+const StyledDropdown = styled(Dropdown)`
+  font-size: 18px;
+`
 

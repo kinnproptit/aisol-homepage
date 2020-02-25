@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import $ from 'jquery'
 import styled from 'styled-components'
-
-import {Icon} from 'antd'
 
 import { useHistory, Link, useLocation } from 'react-router-dom'
 
@@ -18,6 +16,8 @@ import Solution1Banner from '../../../../assets/giaiphap1_banner.png'
 import Solution2Banner from '../../../../assets/giaiphap2_banner.png'
 import SanPhamBanner from '../../../../assets/sanpham_banner.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
+
+import { PreloaderContext } from '../../../../Preloader'
 
 const Header = () => {
   const List = () => {
@@ -111,6 +111,8 @@ const Header = () => {
     }
   }
 
+  const { isActive } = useContext(PreloaderContext)
+
   return (
     <React.Fragment>
       <Section className='headernav'>
@@ -122,7 +124,10 @@ const Header = () => {
 
             <ul className='nav__list'>
               <li className='nav__item'>
-                <Link className='nav__link' onClick={() => handleLink('')}>
+                <Link
+                  className={isActive[0] ? 'nav__link active' : 'nav__link'}
+                  onClick={() => handleLink('')}
+                >
                   Trang chủ
                 </Link>
               </li>
@@ -135,7 +140,7 @@ const Header = () => {
                   ]}
                 >
                   <Link
-                    className='nav__link'
+                    className={isActive[1] ? 'nav__link active' : 'nav__link'}
                     // onClick={() => handleLink('solution1.html')}
                   >
                     Giải pháp <span className='caret'></span>
@@ -145,7 +150,7 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
-                  className='nav__link'
+                  className={isActive[2] ? 'nav__link active' : 'nav__link'}
                   onClick={() => handleLink('product.html')}
                 >
                   Sản phẩm
@@ -161,7 +166,7 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
-                  className='nav__link'
+                  className={isActive[3] ? 'nav__link active' : 'nav__link'}
                   onClick={() => handleLink('contact.html')}
                 >
                   Liên hệ

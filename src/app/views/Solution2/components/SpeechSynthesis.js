@@ -97,7 +97,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
               </PaperContent>
             </Paper>
             <PlayerContainer className='row'>
-              <CenterDiv className='col-md-5'>
+              <CenterDiv className='col-md-5 d-block-mobile'>
                 <P>Giọng đọc</P>
                 <Dropdown1 data={mp3data} onClick={onChangeVoice} />
               </CenterDiv>
@@ -176,11 +176,12 @@ const StyledStop = styled(Img)`
 
 const MediaPlayer = styled.div`
   background-color: #178ce3;
-  padding: 1rem 4rem;
+  padding: 0.6rem 4rem;
   display: grid;
   grid-template-columns: 24px 24px auto;
   grid-gap: 16px;
   align-items: center;
+  border-radius: 0.8rem;
 `
 
 const CenterDiv = styled.div`
@@ -254,7 +255,7 @@ const StyledButton = styled(Button)`
 const StyledDropdown = styled(DropdownMenuVoice)`
   padding: 1rem 4rem;
   border-radius: 0.8rem;
-  font-size: 1.8rem;
+  font-size: 18px;
   font-family: 'Muli', sans-serif;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
