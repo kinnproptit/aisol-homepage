@@ -22,8 +22,8 @@ export const SpeechRecognition = ({
           <Row className='row'>
             <Col className='col-lg-7 margin-bottom-medium'>
               <div className='button-controller'>
-                <Button text='Ghi âm' icon={iconRecord} id="streaming-btn" onClick={onRecord}/>
-                <Button text='Tải lên' icon={iconUpload} isMarginLeft />
+                <Button text='Ghi âm' icon={iconRecord} id="streaming-btn" onClick={onRecord} className2='margin-right-30 width-button-40'/>
+                <Button text='Tải lên' icon={iconUpload} isMarginLeft className2='width-button-40'/>
                 <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} />
                 <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2}/>
               </div>

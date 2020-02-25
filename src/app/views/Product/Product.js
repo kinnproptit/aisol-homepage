@@ -10,9 +10,9 @@ import Second from '../../assets/second.svg'
 import Third from '../../assets/third.svg'
 import Fourth from '../../assets/fourth.svg'
 
-import Ad1 from '../../assets/giaiphap2_ad2.png'
+import Ad1 from '../../assets/sanpham_ad1.png'
 import Ad2 from '../../assets/giaiphap2_ad2.png'
-import Ad3 from '../../assets/giaiphap2_ad2.png'
+import Ad3 from '../../assets/sanpham_ad3.png'
 
 export const Product = () => {
   const data = [

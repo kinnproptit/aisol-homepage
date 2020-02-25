@@ -3,13 +3,13 @@ import React from 'react'
 import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
 
-import AppImage1 from '../../assets/giaiphap1_ungdung.png'
+import AppImage1 from '../../assets/homepage_tonghop2.png'
 
 import { SpeechSynthesisContainer as SpeechSynthesis } from './components/SpeechSynthesisContainer'
 
-import Ad1 from '../../assets/giaiphap2_ad2.png'
-import Ad2 from '../../assets/giaiphap2_ad2.png'
-import Ad3 from '../../assets/giaiphap2_ad2.png'
+import Ad1 from '../../assets/solution1_img1.png'
+import Ad2 from '../../assets/solution1_img2.png'
+import Ad3 from '../../assets/solution1_img3.png'
 
 export const Solution2 = () => {
   const data = [

@@ -6,9 +6,9 @@ import { SpeechRecognitionContainer } from './SpeechRecognationContainer'
 
 import AppImage1 from '../../assets/giaiphap1_ungdung.png'
 
-import Ad1 from '../../assets/giaiphap2_ad2.png'
-import Ad2 from '../../assets/giaiphap2_ad2.png'
-import Ad3 from '../../assets/giaiphap2_ad2.png'
+import Ad1 from '../../assets/solution2_img1.png'
+import Ad2 from '../../assets/solution2_img2.png'
+import Ad3 from '../../assets/solution2_img3.png'
 
 export const Solution1 = () => {
   const data = [

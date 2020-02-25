@@ -299,7 +299,7 @@ p {
 .nav__icon::after {
   width: 5rem;
   height: 5px;
-  background-color: #FFF;
+  background-color: #fff;
   display: inline-block;
 }
 
@@ -473,17 +473,15 @@ p {
 .btn--blue {
   background: #06658d;
   color: #fff;
- 
 }
 
 .btn--red {
   background: #d11919;
   color: #fff;
- 
 }
 
 .advantage__heading {
-  font-size: 2.4rem;
+  font-size: 24px;
   font-family: 'Muli', sans-serif;
   font-weight: bold;
   text-align: center;
@@ -536,7 +534,7 @@ p {
 }
 
 .application__item__description {
-  line-height: 2.4rem;
+  /* line-height: 2.4rem; */
 }
 
 .technique-item {
@@ -623,7 +621,7 @@ p {
 }
 
 .contact-form-label p {
-  background-color: #FFF;
+  background-color: #fff;
   margin-left: 1rem;
   margin-bottom: 0 !important;
 }
@@ -680,7 +678,6 @@ p {
   }
 
   .btn-group {
-   
     /* margin: 0 5rem 4rem; */
   }
 }
@@ -748,6 +745,11 @@ p {
 
 .homepage-solution__btn-group .btn--green {
   margin-right: 2rem;
+  z-index: 1;
+}
+
+.homepage-solution__btn-group {
+  z-index: 1;
 }
 
 .homepage-solution__description {

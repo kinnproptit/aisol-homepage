@@ -7,7 +7,7 @@ export const Advantages = ({ data = [] }) => {
       className='advantage-item col-md-4 d-flex flex-column align-items-center flex-row'
       key={index}
     >
-      <div className='advantage-item__image margin-bottom-medium'>
+      <div className='margin-bottom-medium'>
         <Img src={image} alt='Advantage item image' />
       </div>
 
@@ -31,6 +31,6 @@ export const Advantages = ({ data = [] }) => {
 }
 
 const Img = styled.img`
-  max-width: 10rem;
-  max-height: 10rem;
+  max-width: 35rem;
+  max-height: 35rem;
 `
