@@ -1,1 +1,0 @@
-{"version":3,"sources":["app/views/assets/img_contact.svg"],"names":["module","exports"],"mappings":"oFAAAA,EAAOC,QAAU,IAA0B","file":"static/js/48.0c27e735.chunk.js","sourcesContent":["module.exports = __webpack_public_path__ + \"static/media/img_contact.4036c276.svg\";"],"sourceRoot":""}

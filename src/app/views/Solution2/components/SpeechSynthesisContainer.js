@@ -20,7 +20,6 @@ export const SpeechSynthesisContainer = () => {
   }
 
   const [state, setState] = useState(initialStates)
-  const [audioUrl, setAudioUrl] = defaultState('http://103.74.122.136:8086/data/end2end_ngocmiu/20200222122616-6fdb0d5e.mp3')
 
   const fetchData = async () => {
     const { voiceId, token, text } = state
@@ -40,7 +39,6 @@ export const SpeechSynthesisContainer = () => {
       loading: false,
       audioUrl: audio.data.data.url
     })
-    setAudioUrl(audio.data.data.url)
   }
 
   useEffect(() => {
@@ -62,7 +60,6 @@ export const SpeechSynthesisContainer = () => {
   const props = {
     mp3data,
     state,
-    audioUrl,
     setState,
     onChangeVoice,
     onChangeText,

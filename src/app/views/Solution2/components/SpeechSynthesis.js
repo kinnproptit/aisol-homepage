@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import qs from 'qs'
 import axios from 'axios'
 
-import {Slider } from 'antd'
+import { Slider } from 'antd'
 
 import DownloadIcon from '../../../assets/download.svg'
 import PlayIcon from '../../../assets/play.svg'
@@ -15,8 +15,6 @@ import ResumeIcon from '../../../assets/pause.svg'
 
 import Button from '../../../Shared/components/Button/Button'
 import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
-
-import { TextEditor } from './TextEditor'
 
 export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   const dispatch = useDispatch()
@@ -29,6 +27,9 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   const [text, setText] = useState('')
   const [playing, setPlaying] = useState(false)
   const [onFetch, setOnFetch] = useState(true)
+  const [duration, setDuration] = useState(null)
+  const [stop, setStop] = useState(false)
+  const [resume, setResume] = useState(false)
 
   const fetchData = async () => {
     const { voiceId, token } = state
@@ -80,8 +81,6 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
     setAudio('')
   }
 
-  console.log(Sound.duration)
-
   return (
     <section>
       <div className='margin-bottom-large'>
@@ -105,6 +104,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
               <div className='col-md-4'>
                 <Sound
                   url={audioUrl}
+                  playFromPosition={position}
                   playStatus={playStatus}
                   onLoad={sound => {
                     setSoundComp(sound)
@@ -112,7 +112,12 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   onPlaying={sound => {
                     setPosition(sound.position)
                   }}
-                  autoLoad={false}
+                  onLoading={sound => setDuration(sound.duration)}
+                  onFinishedPlaying={() => {
+                    setPlaying(false)
+                    setOnFetch(true)
+                    setPlayStatus(Sound.status.PAUSED)
+                  }}
                   muted='muted'
                 />
                 <MediaPlayer>
@@ -131,14 +136,21 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                     onClick={() => {
                       setPlaying(false)
                       setOnFetch(true)
+                      setPosition(0)
                       setPlayStatus(Sound.status.PAUSED)
                     }}
                   />
-                  <Slider defaultValue={30} />
+                  <Slider
+                    value={position}
+                    min={0}
+                    max={(duration && duration) || 100}
+                    onChange={value => setPosition(value)}
+                  />
                 </MediaPlayer>
               </div>
               <div className='col-md-3'>
                 <StyledButton
+                  to={audioUrl}
                   text='Tải xuống'
                   icon={DownloadIcon}
                   className='btn--red'
@@ -152,7 +164,6 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
     </section>
   )
 }
-
 
 const Img = styled.img`
   cursor: pointer;

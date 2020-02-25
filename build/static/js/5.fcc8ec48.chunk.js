@@ -1,2 +1,0 @@
-(this.webpackJsonpfinal=this.webpackJsonpfinal||[]).push([[5],{151:function(t,e,s){"use strict";s.r(e);var i=s(0),n=s.n(i),a=s(320);e.default=function(){return n.a.createElement(a.a,{status:"404",title:"404",subTitle:"Sorry, the page you visited does not exist."})}}}]);
-//# sourceMappingURL=5.fcc8ec48.chunk.js.map

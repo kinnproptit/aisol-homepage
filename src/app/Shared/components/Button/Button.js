@@ -1,13 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false }) => {
+import { Link } from 'react-router-dom'
+
+const Detail = ({ icon, text }) => {
+  return (
+    <Row className='row align-items-center'>
+      {icon && <img src={icon} />}
+      <Text>{text}</Text>
+    </Row>
+  )
+}
+
+const Button = ({
+  icon,
+  text,
+  className = 'btn--green',
+  isMarginLeft = false,
+  to = false
+}) => {
   return (
     <Wrapper className={`btn ${className}`} isMarginLeft={isMarginLeft}>
-      <Row className='row align-items-center'>
-        {icon && (<img src={icon} />)}
-        <Text>{text}</Text>
-      </Row>
+      {to ? (
+        <a href={to}>
+          <Detail icon={icon} text={text} />
+        </a>
+      ) : (
+        <Detail icon={icon} text={text} />
+      )}
     </Wrapper>
   )
 }
@@ -15,7 +35,7 @@ const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false }) 
 export default Button
 
 const Wrapper = styled.button`
-  margin-left: ${props => props.isMarginLeft ? '15px' : '0px'};
+  margin-left: ${props => (props.isMarginLeft ? '15px' : '0px')};
 `
 const Text = styled.p`
   margin: 0;
