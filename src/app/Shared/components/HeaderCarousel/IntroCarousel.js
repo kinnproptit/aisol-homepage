@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Carousel from 'react-bootstrap/Carousel'
 
 import Slide from '../../../assets/homepage_banner.png'
-
+import Slidee from '../../../assets/00.png'
 export const IntroCarousel = () => {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState(null)
@@ -47,10 +47,11 @@ export const IntroCarousel = () => {
     >
       {data.map(({ image, title, subtitle, content }) => (
         <Carousel.Item>
-          <img className='d-block' src={image} alt='First slide'></img>
-          <div className='container home-carousel__item'>
+          <img className='d-block pc-block' src={image} alt='First slide'></img>
+          <img className='mb-block' src={Slidee} alt='First slide'></img>
+          <div className='home-carousel__item'>
             <div className='row'>
-              <div className='col-md-8 d-flex flex-column align-items-start'>
+              <div className='col-md-12 d-flex flex-column '>
                 <Title className='heading-big margin-bottom-small home-carousel__heading'>
                   {title}
                 </Title>
