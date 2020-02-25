@@ -8,7 +8,10 @@ import iconWave from '../../assets/ic_wave.png'
 import Button from '../../Shared/components/Button/Button'
 import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
 
-const SpeechRecognition = () => {
+export const SpeechRecognition = ({
+  text,
+  onRecord
+}) => {
   return (
     <section className=''>
       <div className='margin-bottom-large'>
@@ -19,20 +22,14 @@ const SpeechRecognition = () => {
           <Row className='row'>
             <Col className='col-lg-7 margin-bottom-medium'>
               <div className='button-controller'>
-                <Button text='Ghi âm' icon={iconRecord} />
+                <Button text='Ghi âm' icon={iconRecord} id="streaming-btn" onClick={onRecord}/>
                 <Button text='Tải lên' icon={iconUpload} isMarginLeft />
                 <ButtonOutline text='Mẫu file 1' icon={iconWave} />
                 <ButtonOutline text='Mẫu file 2' icon={iconWave} />
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <p className='ux1-description'>
-                    Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng
-                    Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản
-                    phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh
-                    doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa
-                    dạng vùng miền, dễ dàng tích hợp với mọi hệ thống
-                  </p>
+                  <p className='ux1-description'>{text}</p>
                 </div>
               </Col>
             </Col>
@@ -56,8 +53,6 @@ const SpeechRecognition = () => {
     </section>
   )
 }
-
-export default SpeechRecognition
 
 const Wrapper = styled.div``
 
