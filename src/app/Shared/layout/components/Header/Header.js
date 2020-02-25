@@ -50,8 +50,12 @@ const Header = () => {
   let { pathname } = useLocation()
   let history = useHistory()
 
-  const handleLink = link => {
-    history.push(`/${link}`)
+  let { isActive, setPreloaderState } = useContext(PreloaderContext)
+  const handleLink = (position, link) => {
+    link && history.push(`/${link}`)
+    isActive = [0, 0, 0, 0, 0]
+    isActive[position] = 1
+    setPreloaderState({ isActive })
   }
 
   useEffect(() => {
@@ -111,8 +115,6 @@ const Header = () => {
     }
   }
 
-  const { isActive } = useContext(PreloaderContext)
-
   return (
     <React.Fragment>
       <Section className='headernav'>
@@ -126,7 +128,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className={isActive[0] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink('')}
+                  onClick={() => handleLink(0, '')}
                 >
                   Trang chủ
                 </Link>
@@ -138,10 +140,11 @@ const Header = () => {
                     { to: '/solution1.html', content: 'Nhận dạng tiếng nói' },
                     { to: '/solution2.html', content: 'Tổng hợp tiếng nói' }
                   ]}
+                  onClick={() => handleLink(1)}
                 >
                   <Link
                     className={isActive[1] ? 'nav__link active' : 'nav__link'}
-                    // onClick={() => handleLink('solution1.html')}
+                    onClick={() => handleLink(1)}
                   >
                     Giải pháp <span className='caret'></span>
                   </Link>
@@ -151,23 +154,23 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className={isActive[2] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink('product.html')}
+                  onClick={() => handleLink(2, 'product.html')}
                 >
                   Sản phẩm
                 </Link>
               </li>
               <li className='nav__item'>
                 <Link
-                  className='nav__link'
-                  onClick={() => handleLink('price.html')}
+                  className={isActive[3] ? 'nav__link active' : 'nav__link'}
+                  onClick={() => handleLink(3, 'price.html')}
                 >
                   Bảng giá
                 </Link>
               </li>
               <li className='nav__item'>
                 <Link
-                  className={isActive[3] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink('contact.html')}
+                  className={isActive[4] ? 'nav__link active' : 'nav__link'}
+                  onClick={() => handleLink(4, 'contact.html')}
                 >
                   Liên hệ
                 </Link>

@@ -16,7 +16,6 @@ import 'antd/dist/antd.css'
 import './packages/css/main.css'
 
 import { LoadingIndicator } from './packages/ui'
-import { Preloader } from './app/Preloader'
 
 const App = loadable(() => import('./app'), {
   fallback: LoadingIndicator
@@ -24,9 +23,7 @@ const App = loadable(() => import('./app'), {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Preloader>
-      <App />
-    </Preloader>
+    <App />
   </Provider>,
   document.getElementById('root')
 )

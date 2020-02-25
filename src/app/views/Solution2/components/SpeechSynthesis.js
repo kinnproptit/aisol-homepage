@@ -117,6 +117,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                     setPlaying(false)
                     setOnFetch(true)
                     setPlayStatus(Sound.status.PAUSED)
+                    setPosition(0)
                   }}
                   muted='muted'
                 />
@@ -175,7 +176,7 @@ const StyledStop = styled(Img)`
 `
 
 const MediaPlayer = styled.div`
-  background-color: #178ce3;
+  background-color: #227ca2;
   padding: 0.6rem 4rem;
   display: grid;
   grid-template-columns: 24px 24px auto;
