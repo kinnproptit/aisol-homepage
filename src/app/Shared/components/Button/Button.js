@@ -16,11 +16,12 @@ const Button = ({
   icon,
   text,
   className = 'btn--green',
+  className2 = '',
   isMarginLeft = false,
   to = false
 }) => {
   return (
-    <Wrapper className={`btn ${className}`} isMarginLeft={isMarginLeft}>
+    <Wrapper className={`btn ${className} ${className2}`} isMarginLeft={isMarginLeft}>
       {to ? (
         <a href={to}>
           <Detail icon={icon} text={text} />

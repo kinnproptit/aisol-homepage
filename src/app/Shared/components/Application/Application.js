@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 export const Application = ({ image, sectionTitle, data = [] }) => {
   return (
@@ -10,9 +11,9 @@ export const Application = ({ image, sectionTitle, data = [] }) => {
 
         <div className='container'>
           <div className='row'>
-            <div className='col-md-6'>
-              <img src={image} alt='' />
-            </div>
+            <Div className='col-md-6'>
+              <Img src={image} alt='' />
+            </Div>
             <div className='col-md-6'>
               <ul className='application__list'>
                 {data.map(({ title, content, subcontent = false }, index) => (
@@ -35,3 +36,10 @@ export const Application = ({ image, sectionTitle, data = [] }) => {
     </section>
   )
 }
+
+const Img = styled.img`
+  width: 100%;
+`
+const Div = styled.div`
+  margin-bottom: 40px
+`

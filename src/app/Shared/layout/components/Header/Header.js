@@ -52,7 +52,7 @@ const Header = () => {
 
   let { isActive, setPreloaderState } = useContext(PreloaderContext)
   const handleLink = (position, link) => {
-    link && history.push(`/${link}`)
+    link && history.push(`${link}`)
     isActive = [0, 0, 0, 0, 0]
     isActive[position] = 1
     setPreloaderState({ isActive })
@@ -128,7 +128,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className={isActive[0] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink(0, '')}
+                  onClick={() => handleLink(0, '/')}
                 >
                   Trang chủ
                 </Link>
@@ -154,7 +154,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className={isActive[2] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink(2, 'product.html')}
+                  onClick={() => handleLink(2, '/product.html')}
                 >
                   Sản phẩm
                 </Link>
@@ -162,7 +162,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className={isActive[3] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink(3, 'price.html')}
+                  onClick={() => handleLink(3, '/price.html')}
                 >
                   Bảng giá
                 </Link>
@@ -170,7 +170,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className={isActive[4] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink(4, 'contact.html')}
+                  onClick={() => handleLink(4, '/contact.html')}
                 >
                   Liên hệ
                 </Link>
@@ -194,14 +194,14 @@ const Header = () => {
         <nav className='nav-small'>
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
-              <Link className='nav-small__link' onClick={() => handleLink('')}>
+              <Link className='nav-small__link' onClick={() => handleLink(0, '/')}>
                 Trang chủ
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('solution1.html')}
+                onClick={() => handleLink(1, '/solution1.html')}
               >
                 Nhận dạng tiếng nói
               </Link>
@@ -209,7 +209,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('solution2.html')}
+                onClick={() => handleLink(1, '/solution2.html')}
               >
                 Tổng hợp tiếng nói
               </Link>
@@ -217,7 +217,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('product.html')}
+                onClick={() => handleLink(2, '/product.html')}
               >
                 Sản phẩm
               </Link>
@@ -225,7 +225,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('price.html')}
+                onClick={() => handleLink(3, '/price.html')}
               >
                 Bảng giá
               </Link>
@@ -233,7 +233,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('contact.html')}
+                onClick={() => handleLink(4, '/contact.html')}
               >
                 Liên hệ
               </Link>
