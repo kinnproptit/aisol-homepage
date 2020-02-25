@@ -31,9 +31,9 @@ export const Solution = ({ image, title, description, id = 1 }) => {
               className='col-md-6 col-sm-12 d-flex flex-column justify-content-start'
             >
               <div className="solution-title">
-                <p className='text-medium'>
+                <P className='text-medium'>
                   Giải pháp
-                </p>
+                </P>
                 <h1
                   className='heading-big homepage-solution__heading homepage-solution__heading--even'
                 >
@@ -41,9 +41,9 @@ export const Solution = ({ image, title, description, id = 1 }) => {
                 </h1>
               </div>
               
-              <p className='homepage-solution__description margin-bottom-extra-large'>
+              <P className='homepage-solution__description margin-bottom-extra-large'>
                 {description}
-              </p>
+              </P>
               <div className='homepage-solution__btn-group'>
                 <button className='btn btn--green'>Xem chi tiết</button>
 
@@ -67,4 +67,8 @@ export const Solution = ({ image, title, description, id = 1 }) => {
 const GirlDiv = styled.div`
   position: relative;
   right: -17%;
+`
+
+const P = styled.p`
+  color: white;
 `
