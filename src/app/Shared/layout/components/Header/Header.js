@@ -137,7 +137,7 @@ const Header = () => {
                 <DropdownMenu
                   isLink
                   options={[
-                    { to: '/solution.html', content: 'Nhận dạng tiếng nói' },
+                    { to: '/solution1.html', content: 'Nhận dạng tiếng nói' },
                     { to: '/solution2.html', content: 'Tổng hợp tiếng nói' }
                   ]}
                   onClick={() => handleLink(1)}
@@ -200,7 +200,7 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to='/solution.html'
+                to='/solution1.html'
                 className='nav-small__link'
                 // onClick={() => handleLink(1, '/solution1.html')}
               >
