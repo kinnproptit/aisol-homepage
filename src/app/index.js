@@ -1,14 +1,16 @@
 import React from 'react'
 import { HashRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
 
-import { withNormalLayout } from 'layout'
+import { withNormalLayout } from './Shared/layout'
 
 import { PrivateRoute } from './Shared/components/PrivateRoute'
 import { routes } from './config/routes'
+import { Preloader } from './Preloader'
 
 const App = () => {
   return (
     <Router>
+      <Preloader>
       <Switch>
         {routes.map((route, index) => {
           switch (true) {
@@ -39,8 +41,9 @@ const App = () => {
             }
           }
         })}
-        <Redirect to='/404.html' />
+        {/* <Redirect to='/404.html' /> */}
       </Switch>
+      </Preloader>
     </Router>
   )
 }

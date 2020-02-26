@@ -1,23 +1,24 @@
 import React, { createContext, useEffect } from 'react'
 import axios from 'axios'
 
-// import environments from 'environments'
-import { useState } from 'core'
-import { LoadingIndicator } from 'ui'
+import { LoadingIndicator } from '../packages/ui'
+import { useState } from '../packages/core'
 
 export const PreloaderContext = createContext()
 
 export const Preloader = ({ children }) => {
   const [state, setState] = useState({
     loading: true,
-    isLoggedIn: false
+    isActive: [1, 0, 0, 0, 0],
+    mp3data: []
   })
 
   useEffect(() => {
     const fetchData = async () => {
-      // const sessions = await axios(`${environments.baseUrl}sessions`)
-      // const parts = await axios(`${environments.baseUrl}parts`)
-      setState({ loading: false })
+      const response = await axios('http://103.74.122.136:8086/api/v1/voices', {
+        token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55'
+      })
+      setState({ loading: false, mp3data: response.data.voices })
     }
     fetchData()
   }, [])
@@ -27,7 +28,8 @@ export const Preloader = ({ children }) => {
   }
 
   const props = {
-    ...state
+    ...state,
+    setPreloaderState: setState
   }
 
   return (
