@@ -28,7 +28,7 @@ export const Solution = ({ image, title, description, id = 1 }) => {
             className='row h-200'
           >
             <div
-              className='col-md-6 col-sm-12 d-flex flex-column justify-content-start'
+              className='col-md-6 d-flex flex-column justify-content-start'
             >
               <div className="solution-title">
                 <p className='text-medium'>
@@ -54,7 +54,7 @@ export const Solution = ({ image, title, description, id = 1 }) => {
                 />
               </div>
             </div>
-            <GirlDiv className='col-md-6  homepage-solution__placeholder'>
+            <GirlDiv className='col-md-6 homepage-solution__placeholder'>
               <img src={Girl} className='girl-absolute' />
             </GirlDiv>
           </div>
