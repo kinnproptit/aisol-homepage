@@ -53,13 +53,13 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
     fetchData()
   }, [])
 
-  const onFetchPlayButton = () => {
+  const onFetchPlayButton = async () => {
     if (text === '') {
       alert('Vui lòng nhập nội dung')
     } else {
       // setTimeout(() => {
       setPlaying(!playing)
-      fetchData()
+      await fetchData()
       setPlayStatus(Sound.status.PLAYING)
       // }, 1000)
     }
@@ -77,8 +77,9 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   }
 
   const onChangeText = event => {
+    setPlayStatus(Sound.status.STOPPED)
     setText(event.target.value)
-    setAudio('')
+    // setAudio('')
   }
 
   return (
@@ -116,10 +117,9 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   onFinishedPlaying={() => {
                     setPlaying(false)
                     setOnFetch(true)
-                    setPlayStatus(Sound.status.PAUSED)
+                    setPlayStatus(Sound.status.STOPPED)
                     setPosition(0)
                   }}
-                  muted='muted'
                 />
                 <MediaPlayer>
                   {!playing ? (

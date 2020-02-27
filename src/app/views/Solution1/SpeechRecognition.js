@@ -12,6 +12,7 @@ export const SpeechRecognition = ({
   text,
   onRecord
 }) => {
+  console.log("SpeechRecog render")
   return (
     <section className=''>
       <div className='margin-bottom-large'>
