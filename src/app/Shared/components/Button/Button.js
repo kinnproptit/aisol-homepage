@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Link } from 'react-router-dom'
-
 const Detail = ({ icon, text }) => {
   return (
     <Row className='row align-items-center'>
@@ -18,10 +16,15 @@ const Button = ({
   className = 'btn--green',
   className2 = '',
   isMarginLeft = false,
-  to = false
+  to = false,
+  onClick = false
 }) => {
   return (
-    <Wrapper className={`btn ${className} ${className2}`} isMarginLeft={isMarginLeft}>
+    <Wrapper
+      className={`btn ${className} ${className2}`}
+      isMarginLeft={isMarginLeft}
+      onClick={onClick}
+    >
       {to ? (
         <a href={to}>
           <Detail icon={icon} text={text} />

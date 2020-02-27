@@ -12,7 +12,7 @@ export const Application = ({ image, sectionTitle, data = [] }) => {
         <div className='container'>
           <div className='row'>
             <Div className='col-md-6'>
-              <Img src={image} alt='' />
+              <Img src={image} />
             </Div>
             <div className='col-md-6'>
               <ul className='application__list'>
@@ -38,7 +38,7 @@ export const Application = ({ image, sectionTitle, data = [] }) => {
 }
 
 const Img = styled.img`
-  width: 100%;
+  width: 100% !important;
 `
 const Div = styled.div`
   margin-bottom: 40px

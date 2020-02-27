@@ -38,10 +38,10 @@ export const routes = [
     component: () => <AsyncPage component='Product' />,
     title: 'Products'
   },
-  {
-    path: '/404.html',
-    exact: true,
-    component: () => <AsyncPage component='404' />
-  }
+  // {
+  //   path: '/404.html',
+  //   exact: true,
+  //   component: () => <AsyncPage component='404' />
+  // }
 ]
 export default routes

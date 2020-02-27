@@ -6,12 +6,10 @@ import Button from '../../../Shared/components/Button/Button'
 import Icon from '../../../assets/ic_wave.png'
 import LeftImg from '../../../assets/homepage_tonghop2.svg'
 
-export const Solution2 = ({ image, title, description, id = 2 }) => {
+export const Solution2 = ({ image, title, description }) => {
   return (
-    <div
-      className={`homepage-solution homepage-solution--${
-        id % 2 ? 'even' : 'odd'
-      }`}
+    <Div
+      className='homepage-solution homepage-solution--odd'
     >
       <img
         src={image}
@@ -20,29 +18,24 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
       />
       <div className='homepage-solution__main'>
         <div className='container h-100'>
-          <div
-            className='row h-100 flex-row-reverse'>
+          <div className='row h-100 flex-row-reverse'>
             <div
-              className={`col-md-6  d-flex flex-column justify-content-center ${
-                id % 2 ? '' : 'padding-twoside-large'
-              }`}
+              className='col-md-6  d-flex flex-column justify-content-center solution-container padding-twoside-large'
             >
-              <p className='text-medium giai-phap-cl'>
-                Giải pháp
-              </p>
-              <h1
-                className='heading-big homepage-solution__heading homepage-solution__heading--odd'
-              >
-                {title}
-              </h1>
+              <div className='solution-title'>
+                <p className='text-medium giai-phap-cl'>Giải pháp</p>
+                <h1 className='heading-big homepage-solution__heading homepage-solution__heading--odd'>
+                  {title}
+                </h1>
+              </div>
               <div>
-                  <img
+                <img
                   src={LeftImg}
                   className='homepage-solution__image-mobile'
                   alt='Homepage solution banner mobile'
                 />
               </div>
-              <p className='homepage-solution2__description margin-bottom-extra-large'>
+              <p className='homepage-solution__description homepage-solution2__description margin-bottom-extra-large'>
                 {description}
               </p>
               <div className='homepage-solution__btn-group'>
@@ -56,19 +49,20 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
               </div>
             </div>
             <LeftDiv className='col-md-6  homepage-solution__placeholder'>
-              <img src={LeftImg} 
-              className='solution2-image'
-              />
+              <img src={LeftImg} className='solution2-image' />
             </LeftDiv>
           </div>
         </div>
       </div>
-    </div>
+    </Div>
   )
 }
 
 const LeftDiv = styled.div`
   position: relative;
-  left: -23%;
-  top: 15%;
+  
+`
+
+const Div = styled.div`
+  margin-bottom: 50px;
 `

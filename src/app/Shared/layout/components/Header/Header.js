@@ -200,8 +200,9 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
+                to='/solution1.html'
                 className='nav-small__link'
-                onClick={() => handleLink(1, '/solution1.html')}
+                // onClick={() => handleLink(1, '/solution1.html')}
               >
                 Nhận dạng tiếng nói
               </Link>

@@ -56,7 +56,7 @@ export const IntroCarousel = () => {
                   {title}
                 </Title>
                 <SubTitle className='text-white '>{subtitle}</SubTitle>
-                <h3 className='text-white home-carousel__description margin-bottom-small'>
+                <h3 className='text-white home-carousel__description margin-bottom-small d-none'>
                   {content}
                 </h3>
               </div>

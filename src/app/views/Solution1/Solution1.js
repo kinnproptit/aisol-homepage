@@ -2,13 +2,13 @@ import React from 'react'
 
 import { Advantages } from '../../Shared/components/Advantages/Advantages'
 import { Application } from '../../Shared/components/Application/Application'
-import SpeechRecognition from './SpeechRecognition'
+import { SpeechRecognitionContainer } from './SpeechRecognationContainer'
 
 import AppImage1 from '../../assets/giaiphap1_ungdung.png'
 
-import Ad1 from '../../assets/giaiphap2_ad2.png'
-import Ad2 from '../../assets/giaiphap2_ad2.png'
-import Ad3 from '../../assets/giaiphap2_ad2.png'
+import Ad1 from '../../assets/solution2_img1.png'
+import Ad2 from '../../assets/solution2_img2.png'
+import Ad3 from '../../assets/solution2_img3.png'
 
 export const Solution1 = () => {
   const data = [
@@ -39,7 +39,8 @@ export const Solution1 = () => {
     {
       image: Ad2,
       title: 'Chịu tải cao',
-      content: 'Có thể đáp ứng tải lên tới hàng nghìn audio đầu vào tại cùng 1 thời điểm'
+      content:
+        'Có thể đáp ứng tải lên tới hàng nghìn audio đầu vào tại cùng 1 thời điểm'
     },
     {
       image: Ad3,
@@ -52,7 +53,7 @@ export const Solution1 = () => {
   return (
     <React.Fragment>
       <div className='bg-second-cl'>
-        <SpeechRecognition />
+        <SpeechRecognitionContainer />
       </div>
 
       <Advantages data={AdvantagesData} />
