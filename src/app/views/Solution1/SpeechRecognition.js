@@ -8,7 +8,7 @@ import iconWave from '../../assets/ic_wave.png'
 import Button from '../../Shared/components/Button/Button'
 import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
 
-const SpeechRecognition = () => {
+export const SpeechRecognition = () => {
   return (
     <section className=''>
       <div className='margin-bottom-large'>
@@ -56,8 +56,6 @@ const SpeechRecognition = () => {
     </section>
   )
 }
-
-export default SpeechRecognition
 
 const Wrapper = styled.div``
 
