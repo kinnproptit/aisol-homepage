@@ -8,7 +8,7 @@ export const Footer = () => {
     <Wrapper>
       <FooterTop className='container'>
         <Row className='row'>
-          <FooterItem className='col-lg-3 col-md-3'>
+          <FooterItem className='col-lg-3 col-md-3 order-4 order-md-1 '>
             <HeaderItem>
               <img src={Logo} alt='' />
             </HeaderItem>
@@ -32,7 +32,7 @@ export const Footer = () => {
               </List>
             </BodyItem>
           </FooterItem>
-          <FooterItem className='col-lg-3 col-md-3'>
+          <FooterItem className='col-lg-3 col-md-3 order-1 order-md-2'>
             <HeaderItem>
               <ItemLabel>Giải pháp của chúng tôi</ItemLabel>
             </HeaderItem>
@@ -43,7 +43,7 @@ export const Footer = () => {
               </List>
             </BodyItem>
           </FooterItem>
-          <FooterItem className='col-lg-3 col-md-3'>
+          <FooterItem className='col-lg-3 col-md-3 order-2 order-md-3'>
             <HeaderItem>
               <ItemLabel>Sản phẩm</ItemLabel>
             </HeaderItem>
@@ -53,7 +53,7 @@ export const Footer = () => {
               </List>
             </BodyItem>
           </FooterItem>
-          <FooterItem className='col-lg-3 col-md-3'>
+          <FooterItem className='col-lg-3 col-md-3 order-3 order-md-4'>
             <HeaderItem>
               <ItemLabel>Tài liệu kỹ thuật</ItemLabel>
             </HeaderItem>

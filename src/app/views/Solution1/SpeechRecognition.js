@@ -8,11 +8,7 @@ import iconWave from '../../assets/ic_wave.png'
 import Button from '../../Shared/components/Button/Button'
 import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
 
-export const SpeechRecognition = ({
-  text,
-  onRecord
-}) => {
-  console.log("SpeechRecog render")
+const SpeechRecognition = () => {
   return (
     <section className=''>
       <div className='margin-bottom-large'>
@@ -22,15 +18,21 @@ export const SpeechRecognition = ({
         <Wrapper className='container'>
           <Row className='row'>
             <Col className='col-lg-7 margin-bottom-medium'>
-              <div className='button-controller'>
-                <Button text='Ghi âm' icon={iconRecord} id="streaming-btn" onClick={onRecord} className2='margin-right-30 width-button-40'/>
-                <Button text='Tải lên' icon={iconUpload} isMarginLeft className2='width-button-40'/>
-                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} />
-                <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2}/>
+              <div className='button-controller solution_1'>
+                <Button text='Ghi âm' icon={iconRecord} className='btn--green green '/>
+                <Button text='Tải lên' icon={iconUpload} className='btn--green green ' isMarginLeft />
+                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} classNameCss=' white'/>
+                <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2} classNameCss=' white'/>
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <p className='ux1-description'>{text}</p>
+                  <p className='ux1-description'>
+                    Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng
+                    Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản
+                    phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh
+                    doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa
+                    dạng vùng miền, dễ dàng tích hợp với mọi hệ thống
+                  </p>
                 </div>
               </Col>
             </Col>
@@ -54,6 +56,8 @@ export const SpeechRecognition = ({
     </section>
   )
 }
+
+export default SpeechRecognition
 
 const Wrapper = styled.div``
 

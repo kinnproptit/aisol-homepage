@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import $ from 'jquery'
 import styled from 'styled-components'
 
@@ -13,11 +13,11 @@ import ENGFlag from '../../../../assets/uk.svg'
 import VIEFlag from '../../../../assets/vietnam.svg'
 
 import Solution1Banner from '../../../../assets/giaiphap1_banner.png'
+import Solution_mbBanner from '../../../../assets/so1_pc.png'
+import Solution2_mbBanner from '../../../../assets/mb2_so2.png'
 import Solution2Banner from '../../../../assets/giaiphap2_banner.png'
 import SanPhamBanner from '../../../../assets/sanpham_banner.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
-
-import { PreloaderContext } from '../../../../Preloader'
 
 const Header = () => {
   const List = () => {
@@ -33,12 +33,12 @@ const Header = () => {
         </a>
         <ul className='dropdown-menu'>
           <li className='dropdown-item'>
-            <a href=''>
+            <a href='javascript:void(0);'>
               <StyledFlag src={ENGFlag} alt='flag' /> ENG
             </a>
           </li>
           <li className='dropdown-item'>
-            <a href=''>
+            <a href='javascript:void(0);'>
               <StyledFlag src={VIEFlag} alt='flag' /> VIE
             </a>
           </li>
@@ -50,12 +50,8 @@ const Header = () => {
   let { pathname } = useLocation()
   let history = useHistory()
 
-  let { isActive, setPreloaderState } = useContext(PreloaderContext)
-  const handleLink = (position, link) => {
-    link && history.push(`${link}`)
-    isActive = [0, 0, 0, 0, 0]
-    isActive[position] = 1
-    setPreloaderState({ isActive })
+  const handleLink = link => {
+    history.push(`/${link}`)
   }
 
   useEffect(() => {
@@ -82,6 +78,9 @@ const Header = () => {
             subcontent='Ứng dụng mạnh mẽ trong trợ lý ảo, phòng họp'
             button
             image={Solution1Banner}
+            image2={Solution_mbBanner}
+            classNameImg1=' so_pc'
+            classNameImg2='so_mb'
           />
         )
       case '/solution2.html':
@@ -91,6 +90,9 @@ const Header = () => {
             content='Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt với giọng điệu tự nhiên, hay và dễ dàng tích hợp với mọi hệ thống'
             button
             image={Solution2Banner}
+             image2={Solution2_mbBanner}
+            classNameImg1='so2_pc'
+            classNameImg2='so2_mb'
           />
         )
       case '/product.html':
@@ -100,6 +102,9 @@ const Header = () => {
             content='M-Care là giải pháp sử dụng công nghệ chuyển đổi âm thanh thành dạng chữ văn bản (Voice to Text) giúp dễ dàng và thuận tiện hơn trong việc giám sát nội dung các cuộc gọi giữa khách hàng và nhà cung cấp dịch vụ/ sản phẩm'
             button
             image={SanPhamBanner}
+            // image2={}
+            classNameImg1=''
+            classNameImg2=''
           />
         )
       case '/contact.html':
@@ -108,6 +113,9 @@ const Header = () => {
             title='Liên hệ với AISOL'
             content='Liên hệ với Chúng tôi để được hỗ trợ và trải nghiệm các sản phẩm - giải pháp tốt nhất tại thị trường Việt Nam ngày nay'
             image={LienHeBanner}
+            // image2={}
+            classNameImg1=''
+            classNameImg2=''
           />
         )
       default:
@@ -127,8 +135,9 @@ const Header = () => {
             <ul className='nav__list'>
               <li className='nav__item'>
                 <Link
-                  className={isActive[0] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink(0, '/')}
+                  to=''
+                  className='nav__link'
+                  onClick={() => handleLink('')}
                 >
                   Trang chủ
                 </Link>
@@ -140,37 +149,40 @@ const Header = () => {
                     { to: '/solution1.html', content: 'Nhận dạng tiếng nói' },
                     { to: '/solution2.html', content: 'Tổng hợp tiếng nói' }
                   ]}
-                  onClick={() => handleLink(1)}
                 >
                   <Link
-                    className={isActive[1] ? 'nav__link active' : 'nav__link'}
-                    onClick={() => handleLink(1)}
+                    to=''
+                    className='nav__link'
+                    // onClick={() => handleLink('solution1.html')}
                   >
-                    Giải pháp <span className='caret'></span>
+                    Giải pháp
                   </Link>
                 </DropdownMenu>
                 {/* Giải pháp */}
               </li>
               <li className='nav__item'>
                 <Link
-                  className={isActive[2] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink(2, '/product.html')}
+                  to=''
+                  className='nav__link'
+                  onClick={() => handleLink('product.html')}
                 >
                   Sản phẩm
                 </Link>
               </li>
               <li className='nav__item'>
                 <Link
-                  className={isActive[3] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink(3, '/price.html')}
+                  to=''
+                  className='nav__link'
+                  onClick={() => handleLink('price.html')}
                 >
                   Bảng giá
                 </Link>
               </li>
               <li className='nav__item'>
                 <Link
-                  className={isActive[4] ? 'nav__link active' : 'nav__link'}
-                  onClick={() => handleLink(4, '/contact.html')}
+                  to=''
+                  className='nav__link'
+                  onClick={() => handleLink('contact.html')}
                 >
                   Liên hệ
                 </Link>
@@ -192,49 +204,60 @@ const Header = () => {
         </label>
 
         <nav className='nav-small'>
+          <div className='nav__logo2'>
+              <img src={require('../../../../assets/logo_click.png')} alt='' className='logo2' />
+            </div>
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
-              <Link className='nav-small__link' onClick={() => handleLink(0, '/')}>
+              <Link
+                to=''
+                className='nav-small__link'
+                onClick={() => handleLink('')}
+              >
                 Trang chủ
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
-                to='/solution1.html'
+                to=''
                 className='nav-small__link'
-                // onClick={() => handleLink(1, '/solution1.html')}
+                onClick={() => handleLink('solution1.html')}
               >
                 Nhận dạng tiếng nói
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
-                onClick={() => handleLink(1, '/solution2.html')}
+                onClick={() => handleLink('solution2.html')}
               >
                 Tổng hợp tiếng nói
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
-                onClick={() => handleLink(2, '/product.html')}
+                onClick={() => handleLink('product.html')}
               >
                 Sản phẩm
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
-                onClick={() => handleLink(3, '/price.html')}
+                onClick={() => handleLink('price.html')}
               >
                 Bảng giá
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
+                to=''
                 className='nav-small__link'
-                onClick={() => handleLink(4, '/contact.html')}
+                onClick={() => handleLink('contact.html')}
               >
                 Liên hệ
               </Link>
