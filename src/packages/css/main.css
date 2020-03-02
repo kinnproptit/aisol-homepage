@@ -118,13 +118,14 @@ p {
 }
 
 .heading-big {
-  font-size: 50px;
+  font-size: 46px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
 }
 
 .text-medium {
   font-size: 21px;
+  color: #FFF;
   text-transform: uppercase;
 }
 
@@ -754,6 +755,8 @@ p {
 
 .homepage-solution__description {
   font-size: 20px;
+  color: #FFF;
+  
 }
 
 @media (max-width: 40em) {

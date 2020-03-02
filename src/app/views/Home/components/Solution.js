@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
+
 import Button from '../../../Shared/components/Button/Button'
 
 import Icon from '../../../assets/ic_wave.png'
@@ -8,6 +10,8 @@ import solution_image from '../../../assets/Layer.png'
 import Girl from '../../../assets/support-asia-girl.png'
 
 export const Solution = ({ image, title, description, id = 1 }) => {
+  let history = useHistory()
+
   return (
     <div
       className='homepage-solution homepage-solution-even solution-main'
@@ -28,7 +32,7 @@ export const Solution = ({ image, title, description, id = 1 }) => {
             className='row h-200'
           >
             <div
-              className='col-md-6 col-sm-12 d-flex flex-column justify-content-start'
+              className='col-md-6 d-flex flex-column justify-content-start'
             >
               <div className="solution-title">
                 <P className='text-medium'>
@@ -45,16 +49,17 @@ export const Solution = ({ image, title, description, id = 1 }) => {
                 {description}
               </P>
               <div className='homepage-solution__btn-group'>
-                <button className='btn btn--green'>Xem chi tiết</button>
+                <button className='btn btn--green' onClick={() => history.push('/solution1.html')}>Xem chi tiết</button>
 
                 <Button
+                onClick={() => history.push('/solution1.html')}
                   icon={Icon}
                   text='Demo giải pháp'
                   className='btn--yellow homepage-button'
                 />
               </div>
             </div>
-            <GirlDiv className='col-md-6  homepage-solution__placeholder'>
+            <GirlDiv className='col-md-6 homepage-solution__placeholder'>
               <img src={Girl} className='girl-absolute' />
             </GirlDiv>
           </div>

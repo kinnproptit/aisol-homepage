@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { useHistory } from 'react-router-dom'
+
 import MCareImage from '../../../assets/image-mcare.svg'
 import checkIcon from '../../../assets/ico_check.svg'
 
 export const MCare = () => {
+  let history = useHistory()
   return (
     <div className='m-care-container margin-bottom-large'>
       <div className='m-care-main'>
@@ -43,7 +46,7 @@ export const MCare = () => {
               </ul>
             </div>
             <div className='btn-group margin-bottom-small'>
-              <button className='btn btn--blue'>Chi tiết sản phẩm</button>
+              <button className='btn btn--blue' onClick={() => history.push('/product.html')}>Chi tiết sản phẩm</button>
               <button className='btn btn--red margin-left-small'>
                 Đặt mua sản phẩm
               </button>
