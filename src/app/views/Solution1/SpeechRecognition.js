@@ -17,7 +17,7 @@ export const SpeechRecognition = () => {
         </h1>
         <Wrapper className='container'>
           <Row className='row'>
-            <Col className='col-lg-7 margin-bottom-medium'>
+            <Col className='col-lg-7 margin-bottom-medium main_so1'>
               <div className='button-controller solution_1'>
                 <Button text='Ghi âm' icon={iconRecord} className='btn--green green ' textCustom='text_green' buttonCustom ='button_green'/>
                 <Button text='Tải lên' icon={iconUpload} className='btn--green green ' isMarginLeft textCustom='text_green'buttonCustom ='button_green' />
