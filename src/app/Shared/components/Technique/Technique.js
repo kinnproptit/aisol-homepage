@@ -4,8 +4,8 @@ import styled from 'styled-components'
 export const Technique = ({ data = [] }) => {
   const techniqueItem = data.map(({ image, content }) => (
     <Item className='technique-item'>
-      <InsideItem className='d-flex flex-column align-items-center flex-row-reverse'>
-        <Img className='margin-bottom-big' src={image} alt='' />
+      <InsideItem className='d-flex align-items-center main-item '>
+        <Img className='margin-bottom-big ma_bot' src={image} alt='' />
         <p>{content}</p>
       </InsideItem>
     </Item>

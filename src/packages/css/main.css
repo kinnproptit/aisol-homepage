@@ -533,7 +533,7 @@ p {
 
 .home-carousel {
   /* min-height: 90vh; */
-  margin-top: -14%;
+  margin-top: -8%;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -544,7 +544,7 @@ p {
 
 @media (max-width: 37.5em) {
   .home-carousel {
-    margin-top: -25%;
+    margin-top: -12%;
   }
 }
 
@@ -940,3 +940,30 @@ p {
 }
 
 /*# sourceMappingURL=main.css.map */
+/* solution */
+
+/* back_ground */
+.headernav{
+  background-color: #02384e;
+}
+.solution2-color{
+  background-color: #023a52;
+}
+.product-color{
+  background-color: #043a53;
+}
+@media only screen and (max-width: 920px){
+  .headernav{
+    background-color: #0d7c93;
+  }
+  .solution1-color{
+    background-color: #0791b3;
+  }
+  .solution2-color{
+    background-color: #06668e;
+  }
+  .product-color{
+    background-color: #546db1;
+  }
+
+}

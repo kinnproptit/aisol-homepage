@@ -33,7 +33,7 @@ export const HeaderCarousel = ({
                 {subcontent}
               </h3>
               {button && (
-                <Button text='Trải nghiệm ngay' className='btn btn--yellow ' />
+                <Button text='Trải nghiệm ngay' className='btn btn--yellow btn_ye'  buttonCustom='button_bann' textCustom='yellow_so1' />
               )}
             </div>
           </div>

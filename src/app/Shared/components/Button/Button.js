@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false, buttonCustom }) => {
+const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false, buttonCustom, textCustom }) => {
   return (
     <Wrapper className={`btn ${className}`} isMarginLeft={isMarginLeft}>
       <Row className={`${buttonCustom} row align-items-center`}>
         {icon && (<img src={icon} />)}
-        <Text>{text}</Text>
+        <Text className={`${textCustom}`}>{text}</Text>
       </Row>
     </Wrapper>
   )
@@ -19,9 +19,8 @@ const Wrapper = styled.button`
 `
 const Text = styled.p`
   margin: 0;
-  margin-left: 10px;
   color: white;
-  font-size: 1.8rem;
+  font-size: 18px;
 `
 
 const Row = styled.div``

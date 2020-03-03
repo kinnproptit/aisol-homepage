@@ -19,10 +19,10 @@ export const SpeechRecognition = () => {
           <Row className='row'>
             <Col className='col-lg-7 margin-bottom-medium'>
               <div className='button-controller solution_1'>
-                <Button text='Ghi âm' icon={iconRecord} className='btn--green green '/>
-                <Button text='Tải lên' icon={iconUpload} className='btn--green green ' isMarginLeft />
-                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} classNameCss=' white'  buttonCustom />
-                <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2} classNameCss=' white'/>
+                <Button text='Ghi âm' icon={iconRecord} className='btn--green green ' textCustom='text_green' buttonCustom ='button_green'/>
+                <Button text='Tải lên' icon={iconUpload} className='btn--green green ' isMarginLeft textCustom='text_green'buttonCustom ='button_green' />
+                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} classNameCss=' white'  buttonCustom='button_white' textCustom='text_white' />
+                <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2} classNameCss=' white' buttonCustom='button_white' textCustom='text_white'/>
               </div>
               <Col>
                 <div className='ux1-description-container'>

@@ -98,11 +98,11 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
               </PaperContent>
             </Paper>
             <PlayerContainer className='row'>
-              <CenterDiv className='col-md-5 d-block-mobile'>
+              <CenterDiv className='col-lg-4 d-block-mobile top_ma'>
                 <P>Giọng đọc</P>
                 <Dropdown1 data={mp3data} onClick={onChangeVoice} />
               </CenterDiv>
-              <div className='col-md-4'>
+              <div className='col-lg-4 top_ma'>
                 <Sound
                   url={audioUrl}
                   playFromPosition={position}
@@ -149,13 +149,16 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   />
                 </MediaPlayer>
               </div>
-              <div className='col-md-3'>
+              <div className='col-lg-4 top_ma'>
                 <StyledButton
                   to={audioUrl}
                   text='Tải xuống'
                   icon={DownloadIcon}
                   className='btn--red'
                   isMarginLeft={false}
+                  buttonCustom='button_red'
+                  textCustom='text_red'
+                  className=' btn--red red'
                 />
               </div>
             </PlayerContainer>
@@ -268,5 +271,5 @@ const StyledDropdown = styled(DropdownMenuVoice)`
 `
 
 const Dropdown1 = styled(StyledDropdown)`
-  width: 76%;
+  width: 86%;
 `

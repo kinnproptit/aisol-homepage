@@ -17,6 +17,7 @@ import Solution_mbBanner from '../../../../assets/so1_pc.png'
 import Solution2_mbBanner from '../../../../assets/mb2_so2.png'
 import Solution2Banner from '../../../../assets/giaiphap2_banner.png'
 import SanPhamBanner from '../../../../assets/sanpham_banner.png'
+import SanPham_mbBanner from '../../../../assets/mb_pro.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
 
 const Header = () => {
@@ -81,7 +82,7 @@ const Header = () => {
             image2={Solution_mbBanner}
             classNameImg1=' so_pc'
             classNameImg2='so_mb'
-            classCss='abd'
+            classCss='bg_so1'
           />
         )
       case '/solution2.html':
@@ -94,6 +95,7 @@ const Header = () => {
              image2={Solution2_mbBanner}
             classNameImg1='so2_pc'
             classNameImg2='so2_mb'
+            classCss='bg_so2'
           />
         )
       case '/product.html':
@@ -103,9 +105,9 @@ const Header = () => {
             content='M-Care là giải pháp sử dụng công nghệ chuyển đổi âm thanh thành dạng chữ văn bản (Voice to Text) giúp dễ dàng và thuận tiện hơn trong việc giám sát nội dung các cuộc gọi giữa khách hàng và nhà cung cấp dịch vụ/ sản phẩm'
             button
             image={SanPhamBanner}
-            // image2={}
-            classNameImg1=''
-            classNameImg2=''
+             image2={SanPham_mbBanner}
+            classNameImg1='pro_pc'
+            classNameImg2='pro_mb'
           />
         )
       case '/contact.html':
@@ -124,9 +126,27 @@ const Header = () => {
     }
   }
 
+  let headerColor = ''
+  if(pathname === '/solution1.html'){
+    headerColor = 'solution1-color'
+  }
+  else if(pathname === '/solution2.html'){
+    headerColor = 'solution2-color'
+  }
+  else if(pathname === '/product.html'){
+    headerColor = 'product-color'
+  }
+  else if(pathname === '/contact.html'){
+    headerColor = 'contact-color'
+  }
+  else {
+    headerColor = 'homepage-color'
+  }
+  
+
   return (
     <React.Fragment>
-      <Section className='headernav'>
+      <Section className={`${headerColor} headernav`}>
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo'>
