@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false }) => {
+const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false, buttonCustom }) => {
   return (
     <Wrapper className={`btn ${className}`} isMarginLeft={isMarginLeft}>
-      <Row className='row align-items-center'>
+      <Row className={`${buttonCustom} row align-items-center`}>
         {icon && (<img src={icon} />)}
         <Text>{text}</Text>
       </Row>

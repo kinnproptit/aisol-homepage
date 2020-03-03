@@ -21,7 +21,7 @@ export const SpeechRecognition = () => {
               <div className='button-controller solution_1'>
                 <Button text='Ghi âm' icon={iconRecord} className='btn--green green '/>
                 <Button text='Tải lên' icon={iconUpload} className='btn--green green ' isMarginLeft />
-                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} classNameCss=' white'/>
+                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} classNameCss=' white'  buttonCustom />
                 <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2} classNameCss=' white'/>
               </div>
               <Col>

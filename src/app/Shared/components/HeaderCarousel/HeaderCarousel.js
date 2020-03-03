@@ -12,11 +12,12 @@ export const HeaderCarousel = ({
   button = false,
   image,
   image2,
+  classCss,
   classNameImg1,
   classNameImg2,
 }) => {
   return (
-    <div className='home-carousel'>
+    <div className={`${classCss} home-carousel`}>
       <Wrapper>
         <img className={`${classNameImg1} d-block`} src={image || Slide} alt='First slide' />
         <img className={`${classNameImg2} d-none`} src={image2 || Slide} alt='First slide' />

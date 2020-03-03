@@ -332,8 +332,12 @@ background-color: #FFF !important;
   margin: 0 auto;
 }
 .solution-title{
+  height: 74px;
   position: relative;
  
+}
+.giai-phap-cl{
+  margin-top: 0;
 }
 .heading-big{
   font-size:45px !important;
@@ -474,6 +478,9 @@ background-color: #06658d;
    min-height: 600px;
     width: 100%;
     
+  }
+  .solution-title{
+    height: 80px;
   }
   .homepage-solution__description{
     margin-top: 500px;
@@ -784,7 +791,7 @@ background-color: #06658d;
   }
   .giai-phap-cl{
     color: #0c7b91 !important;
-    margin-top: 30px !important;
+    
   }
   .homepage-solution--odd
   {

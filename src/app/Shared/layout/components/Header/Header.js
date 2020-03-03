@@ -20,9 +20,9 @@ import SanPhamBanner from '../../../../assets/sanpham_banner.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
 
 const Header = () => {
-  const List = () => {
+  const List = ({classCss}) => {
     return (
-      <div className='btn-group langg'>
+      <div className={`${classCss} btn-group langg`}>
         <a
           className='dropdown-toggle dropdown-btn'
           data-toggle='dropdown'
@@ -81,6 +81,7 @@ const Header = () => {
             image2={Solution_mbBanner}
             classNameImg1=' so_pc'
             classNameImg2='so_mb'
+            classCss='abd'
           />
         )
       case '/solution2.html':
@@ -263,7 +264,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <List />
+              <List classCss='nav-bar-small'/>
             </li>
           </ul>
         </nav>

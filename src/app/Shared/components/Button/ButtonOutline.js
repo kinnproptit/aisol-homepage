@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ButtonOutline = ({ icon, text = '', id = 1, classNameCss }) => {
+const ButtonOutline = ({ icon, text = '', id = 1, classNameCss, buttonCustom }) => {
 
   return (
     <Wrapper className={`btn btn-outline-secondary btn-ux-outline ${id === 1 ? 'button1' : 'button2'} ${classNameCss}`}>
-      <Row className='row'>
+      <Row className={`${buttonCustom} row`}>
         <img src={icon} />
         <Text>{text}</Text>
       </Row>
