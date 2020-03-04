@@ -11,7 +11,7 @@ const SILENT_DURATION = 10
 
 const API_URL = 'ws://103.74.122.136/asr/stream/socket/16k/client/ws/speech'
 
-let isConnected = false;
+let isConnected = false
 let result = null // xâu text đang nhận dạng
 let isStop = true // có đang DỪNG record audio hay không
 
@@ -23,7 +23,7 @@ let countSilentDuration = 0
 const SendDataComponent = () => {
   const recogRedux = useSelector(state => state.recognitionReducer)
   useEffect(() => {
-    if(recogRedux.ws && recogRedux.ws.readyState === WebSocket.OPEN) {
+    if (recogRedux.ws && recogRedux.ws.readyState === WebSocket.OPEN) {
       // console.log("Send buffer")
       recogRedux.ws.send(recogRedux.audioData)
     }
@@ -32,7 +32,7 @@ const SendDataComponent = () => {
 }
 
 const TestSocket = () => {
-  console.log("TestSocket rendered")
+  console.log('TestSocket rendered')
   const dispatch = useDispatch()
   // const audioRedux = useSelector(state => state.recognitionReducer.audioData)
   // if (ws !== null) return null
@@ -41,7 +41,7 @@ const TestSocket = () => {
     '?content-type=audio/x-raw' +
     ',+layout=(string)interleaved' +
     ',+rate=(int)' +
-    "44100" +
+    '44100' +
     ',+format=(string)S16LE' +
     ',+channels=(int)1'
 
@@ -57,14 +57,14 @@ const TestSocket = () => {
 
   websocket.onopen = () => {
     // console.log('Socket channel connected')
-    isConnected = true;
+    isConnected = true
     dispatch(Actions.updateSocket(websocket))
   }
 
   // Xử lý dữ liệu server trả về
   websocket.onmessage = evt => {
     const message = JSON.parse(evt.data)
-    dispatch(Actions.updateText(message.result.hypotheses[0].transcript_normed))
+    // dispatch(Actions.updateText(message.result.hypotheses[0].transcript_normed))
     dispatch(Actions.updateText(processJsonResponse(message)))
     // console.log(message)
   }
@@ -73,10 +73,10 @@ const TestSocket = () => {
     // console.log('Websocket closed')
     // stop()
   }
-  return <SendDataComponent/>
+  return <SendDataComponent />
 }
 
-export const SocketRecognation = ({ text, ...restProps }) => {
+export const SocketRecognation = () => {
   // console.log("SocketRecognation render")
   const dispatch = useDispatch()
   // const audioRedux = useSelector(state => state.recognitionReducer.audioData)
@@ -95,9 +95,6 @@ export const SocketRecognation = ({ text, ...restProps }) => {
   const stop = () => {
     // Đánh dấu dừng
     isStop = true
-
-    // Đổi lại nút
-    $('#streaming-btn').html('<img src="images/start.png"/>')
 
     // $('#plain-text').scrollTop($('#plain-text')[0].scrollHeight)
     // clearCanvas()
@@ -145,14 +142,14 @@ export const SocketRecognation = ({ text, ...restProps }) => {
     // context.stroke();
   }
 
-  const record = (connectedWs) => {
+  const record = connectedWs => {
     // console.log('click record')
-    if(connectedWs){
+    if (connectedWs) {
       // close websocket before stop
-      dispatch(Actions.updateAudioData("EOS"))
+      dispatch(Actions.updateAudioData('EOS'))
     }
     dispatch(Actions.updateConnectedWS(!connectedWs))
-    
+
     // Nếu đang xử lý thì dừng lại
     // if (!isStop) {
     //   closeWS()
@@ -167,58 +164,53 @@ export const SocketRecognation = ({ text, ...restProps }) => {
         audioContext.resume()
       }
       // if(isStop)
-      
+
       navigator.mediaDevices
-          .getUserMedia({ audio: true })
-          .then(stream => {
-            let audioInput = audioContext.createMediaStreamSource(stream)
-            let bufferSize = 2048
-            recorder = audioContext.createScriptProcessor(bufferSize, 1, 1)
+        .getUserMedia({ audio: true })
+        .then(stream => {
+          let audioInput = audioContext.createMediaStreamSource(stream)
+          let bufferSize = 2048
+          recorder = audioContext.createScriptProcessor(bufferSize, 1, 1)
 
-            // Xử lý dữ liệu audio
-            recorder.onaudioprocess = e => {
-              if (
-                !isStop
-              ) {
-                // Nếu mà không nói lâu quá thì cũng dừng lại
-                //if (countSilentDuration > SILENT_DURATION) {
-                //    closeWS();
-                //    stop();
-                //    countSilentDuration = 0;
-                //    return;
-                //}
+          // Xử lý dữ liệu audio
+          recorder.onaudioprocess = e => {
+            if (!isStop) {
+              // Nếu mà không nói lâu quá thì cũng dừng lại
+              //if (countSilentDuration > SILENT_DURATION) {
+              //    closeWS();
+              //    stop();
+              //    countSilentDuration = 0;
+              //    return;
+              //}
 
-                buffer = e.inputBuffer.getChannelData(0)
-                drawBuffer(buffer)
-                let int16ArrayData = convertFloat32ToInt16(buffer)
-                countSilentDuration +=
-                  int16ArrayData.length / audioContext.sampleRate
-                for (let i = 0; i < int16ArrayData.length; i++) {
-                  if (Math.abs(int16ArrayData[i]) > SILENT_THRESHOLD) {
-                    countSilentDuration = 0
-                    break
-                  }
+              buffer = e.inputBuffer.getChannelData(0)
+              drawBuffer(buffer)
+              let int16ArrayData = convertFloat32ToInt16(buffer)
+              countSilentDuration +=
+                int16ArrayData.length / audioContext.sampleRate
+              for (let i = 0; i < int16ArrayData.length; i++) {
+                if (Math.abs(int16ArrayData[i]) > SILENT_THRESHOLD) {
+                  countSilentDuration = 0
+                  break
                 }
-
-                // Gửi dữ liệu lên server
-                // print(int16ArrayData)
-                // ws.send(int16ArrayData.buffer)
-                // console.log("Audio data", int16ArrayData.buffer)
-                dispatch(Actions.updateAudioData(int16ArrayData.buffer))
               }
+
+              // Gửi dữ liệu lên server
+              // print(int16ArrayData)
+              // ws.send(int16ArrayData.buffer)
+              // console.log("Audio data", int16ArrayData.buffer)
+              dispatch(Actions.updateAudioData(int16ArrayData.buffer))
             }
+          }
 
-            audioInput.connect(recorder)
-            recorder.connect(audioContext.destination)
-          })
-          .catch(e => {
-            console.log('Error when getUserMedia')
-            console.log(e)
-          })
+          audioInput.connect(recorder)
+          recorder.connect(audioContext.destination)
+        })
+        .catch(e => {
+          console.log('Error when getUserMedia')
+          console.log(e)
+        })
     }
-
-    // Đang chạy thì nút là "Dừng"
-    $('#streaming-btn').html('<img src="images/stop.png"/>')
 
     // Đánh dấu đang chạy
     isStop = false
@@ -226,27 +218,14 @@ export const SocketRecognation = ({ text, ...restProps }) => {
       setConnectWs(true)
     }
 
-    // Kết quả hiện tại
-    // result = $('#streaming-content-text').html()
-
     return null
   }
-
-  // useEffect(() => {
-
-  //   return () => {
-  //     console.log('Closing socket')
-  //     ws.close(1000, 'User chose other part. Change socket channel')
-  //   }
-  // }, [])
 
   const connectedWs = useSelector(state => state.recognitionReducer.connectedWs)
   return (
     <Fragment>
-      {connectedWs && (
-        <TestSocket/>
-      )}
-      <SpeechRecognition onRecord={() => record(connectedWs)}/>
+      {connectedWs && <TestSocket />}
+      <SpeechRecognition onRecord={() => record(connectedWs)} />
     </Fragment>
   )
 }
