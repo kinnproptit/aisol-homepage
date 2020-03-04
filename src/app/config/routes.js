@@ -40,7 +40,7 @@ export const routes = [
     title: 'Products'
   },
   {
-    path: '/404.html',
+    path: enviroments.linkToErrorPage,
     exact: true,
     component: () => <AsyncPage component='404' />
   }

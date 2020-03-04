@@ -7,7 +7,6 @@ import { useHistory, Link, useLocation } from 'react-router-dom'
 import environments from '../../../../../environments'
 
 import { DropdownMenu } from '../../../components/Dropdown/DropdownMenu'
-
 import { HeaderCarousel } from '../../../components/HeaderCarousel/HeaderCarousel'
 import { IntroCarousel } from '../../../components/HeaderCarousel/IntroCarousel'
 
