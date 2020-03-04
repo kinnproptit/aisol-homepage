@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+
+import { useSelector } from 'react-redux'
 
 import iconRecord from '../../assets/ic_record.png'
 import iconUpload from '../../assets/ic_upload.png'
@@ -8,11 +10,42 @@ import iconWave from '../../assets/ic_wave.png'
 import Button from '../../Shared/components/Button/Button'
 import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
 
-export const SpeechRecognition = ({
-  text,
-  onRecord
-}) => {
-  console.log("SpeechRecog render")
+const createMarkup = htmlString => {
+  return { __html: htmlString }
+}
+
+const DangerousHTML = ({ htmlString }) => {
+  return (
+    <div
+      className='ux1-description'
+      dangerouslySetInnerHTML={createMarkup(htmlString)}
+    />
+  )
+}
+
+const ButtonShowing = ({ onRecord }) => {
+  const connectedWs = useSelector(state => state.recognitionReducer.connectedWs)
+  return (
+    <Button
+      text='Ghi âm'
+      icon={iconRecord}
+      className={connectedWs ? 'btn--red' : 'btn--green'}
+      textCustom='text_green margin-left'
+      buttonCustom='button_green'
+      onClick={onRecord}
+    />
+  )
+}
+
+export const SpeechRecognition = ({ onRecord }) => {
+  const textRedux = useSelector(state => state.recognitionReducer.text)
+
+  const [text, setText] = useState(textRedux)
+
+  // useEffect(() => {
+  //   // setText(textRedux)
+  // }, [textRedux])
+
   return (
     <section className=''>
       <div className='margin-bottom-large'>
@@ -21,21 +54,42 @@ export const SpeechRecognition = ({
         </h1>
         <Wrapper className='container'>
           <Row className='row'>
-            <Col className='col-lg-7 margin-bottom-medium'>
-              <div className='button-controller'>
-                <Button text='Ghi âm' icon={iconRecord} id="streaming-btn" onClick={onRecord} className2='margin-right-30 width-button-40'/>
-                <Button text='Tải lên' icon={iconUpload} isMarginLeft className2='width-button-40'/>
-                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} />
-                <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2}/>
+            <Col className='col-lg-12 margin-bottom-medium main_so1'>
+              <div className='button-controller solution_1'>
+                <ButtonShowing onRecord={onRecord} />
+                {/* <Button
+                  text='Tải lên'
+                  icon={iconUpload}
+                  className='btn--green green margin-left'
+                  isMarginLeft
+                  textCustom='text_green'
+                  buttonCustom='button_green'
+                />
+                <ButtonOutline
+                  text='Mẫu file 1'
+                  icon={iconWave}
+                  id={1}
+                  classNameCss=' white'
+                  buttonCustom='button_white'
+                  textCustom='text_white'
+                />
+                <ButtonOutline
+                  text='Mẫu file 2'
+                  icon={iconWave}
+                  id={2}
+                  classNameCss=' white'
+                  buttonCustom='button_white'
+                  textCustom='text_white'
+                /> */}
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <p className='ux1-description'>{text}</p>
+                  <DangerousHTML htmlString={textRedux} />
                 </div>
               </Col>
             </Col>
-            <Col className='col-lg-5 '>
-              <Row className='margin-bottom-xs d-flex'>
+            {/* <Col className='col-lg-5 '> */}
+            {/* <Row className='margin-bottom-xs d-flex'>
                 <Input placeHolder='Enter Video URL' className='input' />
                 <button className='btn btn-danger ux1-play-btn'>Play</button>
               </Row>
@@ -46,8 +100,8 @@ export const SpeechRecognition = ({
                 allow='autoplay; encrypted-media'
                 allowFullScreen
                 title='video'
-              />
-            </Col>
+              /> */}
+            {/* </Col> */}
           </Row>
         </Wrapper>
       </div>

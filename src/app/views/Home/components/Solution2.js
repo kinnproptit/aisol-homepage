@@ -7,23 +7,27 @@ import Button from '../../../Shared/components/Button/Button'
 import Icon from '../../../assets/ic_wave.png'
 import LeftImg from '../../../assets/homepage_tonghop2.svg'
 
-export const Solution2 = ({ image, title, description }) => {
+export const Solution2 = ({ image, title, description, id = 2 }) => {
   let history = useHistory()
 
   return (
-    <Div
-      className='homepage-solution homepage-solution--odd'
+    <div
+      className={`homepage-solution homepage-solution--${
+        id % 2 ? 'even' : 'odd'
+      }`}
     >
-      <img
+      {/* <img
         src={image}
         className='homepage-solution__image'
         alt='Homepage solution banner'
-      />
+      /> */}
       <div className='homepage-solution__main'>
-        <div className='container h-100'>
+        <div className=' h-100'>
           <div className='row h-100 flex-row-reverse'>
             <div
-              className='col-md-6  d-flex flex-column justify-content-center solution-container padding-twoside-large'
+              className={`col-md-6  col-sm-12 d-flex flex-column  ${
+                id % 2 ? '' : 'padding-twoside-large'
+              }`}
             >
               <div className='solution-title'>
                 <p className='text-medium giai-phap-cl'>Giải pháp</p>
@@ -31,6 +35,7 @@ export const Solution2 = ({ image, title, description }) => {
                   {title}
                 </h1>
               </div>
+
               <div>
                 <img
                   src={LeftImg}
@@ -38,35 +43,37 @@ export const Solution2 = ({ image, title, description }) => {
                   alt='Homepage solution banner mobile'
                 />
               </div>
-              <p className='homepage-solution__description homepage-solution2__description margin-bottom-extra-large'>
+              <p className='homepage-solution2__description margin-bottom-extra-large'>
                 {description}
               </p>
               <div className='homepage-solution__btn-group'>
-                <button className='btn btn--green' onClick={() => history.push('/solution2.html')}>Xem chi tiết</button>
+                <button
+                  className='btn btn--green'
+                  onClick={() => history.push('/solution2.html')}
+                >
+                  Xem chi tiết
+                </button>
 
                 <Button
-                  onClick={() => history.push('/solution2.html')}
                   icon={Icon}
                   text='Demo giải pháp'
                   className='btn btn--red homepage-button-2'
+                  onClick={() => history.push('/solution2.html')}
                 />
               </div>
             </div>
-            <LeftDiv className='col-md-6  homepage-solution__placeholder'>
+            <LeftDiv className='col-md-6 col-sm-12 homepage-solution__placeholder'>
               <img src={LeftImg} className='solution2-image' />
             </LeftDiv>
           </div>
         </div>
       </div>
-    </Div>
+    </div>
   )
 }
 
 const LeftDiv = styled.div`
   position: relative;
-  
-`
-
-const Div = styled.div`
-  margin-bottom: 50px;
+  left: -23%;
+  top: 15%;
 `

@@ -1,65 +1,58 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
-
 import Button from '../../../Shared/components/Button/Button'
 
 import Icon from '../../../assets/ic_wave.png'
 import solution_image from '../../../assets/Layer.png'
-
 import Girl from '../../../assets/support-asia-girl.png'
 
 export const Solution = ({ image, title, description, id = 1 }) => {
   let history = useHistory()
 
   return (
-    <div
-      className='homepage-solution homepage-solution-even solution-main'
-    >
-      <img
+    <div className='homepage-solution homepage-solution-even solution-main'>
+      {/* <img
         src={image}
         className='homepage-solution__image'
         alt='Homepage solution banner'
-      />
+      /> */}
       <img
-      src={solution_image}
-      className='homepage-solution__image_mobile'
-      alt='Homepage solution banner'
+        src={solution_image}
+        className='homepage-solution__image_mobile'
+        alt='Homepage solution banner'
       />
       <div className='homepage-solution__main'>
-        <div className='container solution-container h-200'>
-          <div
-            className='row h-200'
-          >
-            <div
-              className='col-md-6 d-flex flex-column justify-content-start'
-            >
-              <div className="solution-title">
-                <P className='text-medium'>
-                  Giải pháp
-                </P>
-                <h1
-                  className='heading-big homepage-solution__heading homepage-solution__heading--even'
-                >
+        <div className=' solution-container h-200'>
+          <div className='row h-200'>
+            <div className='col-md-6 col-sm-12 d-flex flex-column justify-content-start'>
+              <div className='solution-title'>
+                <p className='text-medium'>Giải pháp</p>
+                <h1 className='heading-big homepage-solution__heading homepage-solution__heading--even'>
                   {title}
                 </h1>
               </div>
-              
-              <P className='homepage-solution__description margin-bottom-extra-large'>
+
+              <p className='homepage-solution__description margin-bottom-extra-large'>
                 {description}
-              </P>
+              </p>
               <div className='homepage-solution__btn-group'>
-                <button className='btn btn--green' onClick={() => history.push('/solution1.html')}>Xem chi tiết</button>
+                <button
+                  className='btn btn--green'
+                  onClick={() => history.push('/solution1.html')}
+                >
+                  Xem chi tiết
+                </button>
 
                 <Button
-                onClick={() => history.push('/solution1.html')}
                   icon={Icon}
                   text='Demo giải pháp'
                   className='btn--yellow homepage-button'
+                  onClick={() => history.push('/solution1.html')}
                 />
               </div>
             </div>
-            <GirlDiv className='col-md-6 homepage-solution__placeholder'>
+            <GirlDiv className='col-md-6  homepage-solution__placeholder'>
               <img src={Girl} className='girl-absolute' />
             </GirlDiv>
           </div>
@@ -72,8 +65,4 @@ export const Solution = ({ image, title, description, id = 1 }) => {
 const GirlDiv = styled.div`
   position: relative;
   right: -17%;
-`
-
-const P = styled.p`
-  color: white;
 `
