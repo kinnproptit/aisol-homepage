@@ -11,43 +11,38 @@ export const Solution = ({ image, title, description, id = 1 }) => {
   let history = useHistory()
 
   return (
-    <div
-      className='homepage-solution homepage-solution-even solution-main'
-    >
+    <div className='homepage-solution homepage-solution-even solution-main'>
       {/* <img
         src={image}
         className='homepage-solution__image'
         alt='Homepage solution banner'
       /> */}
       <img
-      src={solution_image}
-      className='homepage-solution__image_mobile'
-      alt='Homepage solution banner'
+        src={solution_image}
+        className='homepage-solution__image_mobile'
+        alt='Homepage solution banner'
       />
       <div className='homepage-solution__main'>
         <div className=' solution-container h-200'>
-          <div
-            className='row h-200'
-          >
-            <div
-              className='col-md-6 col-sm-12 d-flex flex-column justify-content-start'
-            >
-              <div className="solution-title">
-                <p className='text-medium'>
-                  Giải pháp
-                </p>
-                <h1
-                  className='heading-big homepage-solution__heading homepage-solution__heading--even'
-                >
+          <div className='row h-200'>
+            <div className='col-md-6 col-sm-12 d-flex flex-column justify-content-start'>
+              <div className='solution-title'>
+                <p className='text-medium'>Giải pháp</p>
+                <h1 className='heading-big homepage-solution__heading homepage-solution__heading--even'>
                   {title}
                 </h1>
               </div>
-              
+
               <p className='homepage-solution__description margin-bottom-extra-large'>
                 {description}
               </p>
               <div className='homepage-solution__btn-group'>
-                <button className='btn btn--green' onClick={() => history.push('/solution1.html')}>Xem chi tiết</button>
+                <button
+                  className='btn btn--green'
+                  onClick={() => history.push('/solution1.html')}
+                >
+                  Xem chi tiết
+                </button>
 
                 <Button
                   icon={Icon}

@@ -16,11 +16,17 @@ const createMarkup = htmlString => {
 }
 
 const DangerousHTML = ({ htmlString }) => {
-  return <div className='ux1-description' dangerouslySetInnerHTML={createMarkup(htmlString)} />
+  return (
+    <div
+      className='ux1-description'
+      dangerouslySetInnerHTML={createMarkup(htmlString)}
+    />
+  )
 }
 
 export const SpeechRecognition = ({ onRecord }) => {
-  const textRedux = useSelector(state => state.recognitionReducer.text)
+  const recogRedux = useSelector(state => state.recognitionReducer)
+  const { text, connectedWs } = recogRedux
 
   return (
     <section className=''>
@@ -35,7 +41,7 @@ export const SpeechRecognition = ({ onRecord }) => {
                 <Button
                   text='Ghi âm'
                   icon={iconRecord}
-                  className='btn--green green '
+                  className={connectedWs ? 'btn--red' : 'btn--green'}
                   textCustom='text_green margin-left'
                   buttonCustom='button_green'
                   onClick={onRecord}
@@ -67,12 +73,12 @@ export const SpeechRecognition = ({ onRecord }) => {
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <DangerousHTML htmlString={textRedux} />
+                  <DangerousHTML htmlString={text} />
                 </div>
               </Col>
             </Col>
             {/* <Col className='col-lg-5 '> */}
-              {/* <Row className='margin-bottom-xs d-flex'>
+            {/* <Row className='margin-bottom-xs d-flex'>
                 <Input placeHolder='Enter Video URL' className='input' />
                 <button className='btn btn-danger ux1-play-btn'>Play</button>
               </Row>

@@ -19,7 +19,7 @@ export const MCare = () => {
               alt='m-care-image'
             />
           </div>
-          
+
           <div className='col-lg-5'>
             <div className='m-care__description'>
               <h1 className='text-with-border-left margin-bottom-small'>
@@ -46,7 +46,12 @@ export const MCare = () => {
               </ul>
             </div>
             <div className='btn-group margin-bottom-small'>
-              <button className='btn btn--blue' onClick={() => history.push('/product.html')}>Chi tiết sản phẩm</button>
+              <button
+                className='btn btn--blue'
+                onClick={() => history.push('/product.html')}
+              >
+                Chi tiết sản phẩm
+              </button>
               <button className='btn btn--red margin-left-small'>
                 Đặt mua sản phẩm
               </button>

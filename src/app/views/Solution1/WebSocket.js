@@ -24,7 +24,7 @@ const SendDataComponent = () => {
   const recogRedux = useSelector(state => state.recognitionReducer)
   useEffect(() => {
     if(recogRedux.ws && recogRedux.ws.readyState === WebSocket.OPEN) {
-      console.log("Send buffer")
+      // console.log("Send buffer")
       recogRedux.ws.send(recogRedux.audioData)
     }
   }, [recogRedux.audioData])
@@ -59,15 +59,14 @@ const TestSocket = () => {
     // console.log('Socket channel connected')
     isConnected = true;
     dispatch(Actions.updateSocket(websocket))
-    // console.log("Server accepted")
   }
 
   // Xử lý dữ liệu server trả về
   websocket.onmessage = evt => {
     const message = JSON.parse(evt.data)
+    dispatch(Actions.updateText(message.result.hypotheses[0].transcript_normed))
     dispatch(Actions.updateText(processJsonResponse(message)))
-    console.log(message)
-    // dispatch(Actions.updateConnectedWS(true))
+    // console.log(message)
   }
 
   websocket.onclose = () => {
