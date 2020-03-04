@@ -31,7 +31,7 @@ const Header = () => {
           data-toggle='dropdown'
           href='#'
         >
-          <StyledFlag src={ENGFlag} alt='eng flag' /> ENG{' '}
+          <StyledFlag src={VIEFlag} alt='flag' /> VIE
           <span className='caret'></span>
         </a>
         <ul className='dropdown-menu'>
@@ -73,7 +73,7 @@ const Header = () => {
 
   const showingCarousel = pathname => {
     switch (pathname) {
-      case environments.socketASR:
+      case environments.linkToASR:
         return (
           <HeaderCarousel
             title='NHẬN DẠNG TIẾNG NÓI'
@@ -85,6 +85,8 @@ const Header = () => {
             classNameImg1=' so_pc'
             classNameImg2='so_mb'
             classCss='bg_so1'
+            link={environments.linkToASR}
+            idScroll='asr-demo'
           />
         )
       case environments.linkToTTS:
@@ -98,6 +100,8 @@ const Header = () => {
             classNameImg1='so2_pc'
             classNameImg2='so2_mb'
             classCss='bg_so2'
+            link={environments.linkToTTS}
+            idScroll='tts-demo'
           />
         )
       case environments.linkToProduct:
@@ -146,7 +150,7 @@ const Header = () => {
       <Section className={`${headerColor} headernav`}>
         <div className='nav-wrapper'>
           <nav className='nav'>
-            <div className='nav__logo'>
+            <div className='nav__logo' onClick={() => handleLink('/')}>
               <img src={require('../../../../assets/logo.png')} alt='' />
             </div>
 
@@ -213,7 +217,7 @@ const Header = () => {
         </label>
 
         <nav className='nav-small'>
-          <div className='nav__logo2'>
+          <div className='nav__logo2' onClick={() => handleLink('/')}>
             <img
               src={require('../../../../assets/logo_click.png')}
               alt=''

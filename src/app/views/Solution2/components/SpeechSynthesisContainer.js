@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 
+import enviroments from '../../../../environments'
+
 import { useState } from '../../../../packages/core'
 import { PreloaderContext } from '../../../Preloader'
 import { SpeechSynthesis } from './SpeechSynthesis'
@@ -9,17 +11,14 @@ export const SpeechSynthesisContainer = () => {
 
   const initialStates = {
     voiceId: mp3data[0].id || null,
-    text: 'Chưa có nội dung'
+    text: 'Chưa có nội dung',
+    token: enviroments.token
   }
 
   const [state, setState] = useState(initialStates)
 
   const onChangeVoice = voiceId => {
     setState({ voiceId })
-  }
-
-  const onChangeText = value => {
-    setState({ text: value })
   }
 
   const props = {

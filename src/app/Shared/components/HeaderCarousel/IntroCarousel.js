@@ -56,7 +56,7 @@ export const IntroCarousel = () => {
                   {title}
                 </Title>
                 <SubTitle className='text-white '>{subtitle}</SubTitle>
-                <h3 className='text-white home-carousel__description margin-bottom-small'>
+                <h3 className='text-white home-carousel__description margin-bottom-small intro-description'>
                   {content}
                 </h3>
               </div>
@@ -73,7 +73,6 @@ const Title = styled.h1`
 `
 
 const SubTitle = styled.h2`
- 
   font-weight: 700;
   font-style: italic;
 `

@@ -165,8 +165,6 @@ p {
   margin-bottom: 4rem;
 }
 
-
-
 /* .margin-left-small {
   margin-left: 2rem ;
 } */
@@ -196,7 +194,6 @@ p {
 @media (max-width: 75em) {
   .nav {
     padding: 0 0 2rem 1rem;
-   
   }
 }
 
@@ -297,7 +294,7 @@ p {
 .nav__icon::after {
   width: 5rem;
   height: 5px;
-  background-color: #FFF;
+  background-color: #fff;
   display: inline-block;
 }
 
@@ -307,7 +304,7 @@ p {
   left: 0;
   width: 0%;
   height: 100%;
-  background: #FFF;
+  background: #fff;
   z-index: 1000;
   opacity: 0;
   -webkit-transform-origin: right;
@@ -328,118 +325,120 @@ p {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-.logo2{
+.logo2 {
   width: 100%;
-
 }
-@media only screen and (max-width: 930px){
- 
+.nav__logo2,
+.nav__logo {
+  cursor: pointer;
+}
+@media only screen and (max-width: 930px) {
   .nav-small__list {
     top: 55%;
     left: 25%;
   }
-  .nav__logo2{
+  .nav__logo2 {
     position: absolute;
     top: 2%;
     left: 11%;
-    padding: 2rem 0 0 0 ;
+    padding: 2rem 0 0 0;
   }
-  .nav-small{
+  .nav-small {
     height: 61%;
   }
 }
-@media only screen and (max-width: 790px){
+@media only screen and (max-width: 790px) {
   .nav-small__list {
     top: 52%;
     left: 23%;
   }
-  .nav__logo2{
+  .nav__logo2 {
     position: absolute;
     top: 2%;
     left: 8%;
-    padding: 2rem 0 0 0 ;
+    padding: 2rem 0 0 0;
   }
-  .nav-small{
+  .nav-small {
     height: 58%;
   }
 }
-@media only screen and (max-width: 690px){
+@media only screen and (max-width: 690px) {
   .nav-small__list {
     top: 55%;
     left: 23%;
   }
-  .nav__logo2{
+  .nav__logo2 {
     position: absolute;
     top: 2%;
     left: 6%;
-    padding: 2rem 0 0 0 ;
+    padding: 2rem 0 0 0;
   }
-  .nav-small{
+  .nav-small {
     height: 72%;
   }
-}@media only screen and (max-width: 620px){
+}
+@media only screen and (max-width: 620px) {
   .nav-small__list {
     top: 56%;
     left: 25%;
   }
-  .nav__logo2{
+  .nav__logo2 {
     position: absolute;
     top: 2%;
     left: 6%;
-    padding: 2rem 0 0 0 ;
+    padding: 2rem 0 0 0;
   }
-  .nav-small{
+  .nav-small {
     height: 75%;
   }
 }
-@media only screen and (max-width: 600px){
-  .nav-small__link{
+@media only screen and (max-width: 600px) {
+  .nav-small__link {
     font-size: 5rem !important;
   }
   .nav-small__list {
     top: 52%;
     left: 25%;
   }
-  .nav__logo2{
+  .nav__logo2 {
     position: absolute;
     top: 2%;
     left: 6%;
-    padding: 2rem 0 0 0 ;
+    padding: 2rem 0 0 0;
   }
-  .nav-small{
+  .nav-small {
     height: 68%;
   }
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 540px) {
   .nav-small__list {
     top: 52%;
     left: 26%;
   }
-  .nav__logo2{
+  .nav__logo2 {
     position: absolute;
     top: 2%;
     left: 5%;
-    padding: 2rem 0 0 0 ;
+    padding: 2rem 0 0 0;
   }
-  .nav-small{
+  .nav-small {
     height: 66%;
   }
 }
-@media only screen and (max-width: 490px){
+@media only screen and (max-width: 490px) {
   .nav-small__list {
     top: 57%;
     left: 31%;
   }
-  .nav-small{
+  .nav-small {
     height: 53%;
   }
-  
 }
-@media only screen and (max-width: 400px){
-  .nav-small{
+@media only screen and (max-width: 400px) {
+  .nav-small {
     height: 57%;
   }
-  .nav-small__link{
+  .nav-small__link {
     font-size: 4rem !important;
   }
   .nav-small__list {
@@ -447,11 +446,11 @@ p {
     left: 33% !important;
   }
 }
-@media only screen and (max-width: 321px){
-  .nav-small{
+@media only screen and (max-width: 321px) {
+  .nav-small {
     height: 62%;
   }
-  .nav-small__link{
+  .nav-small__link {
     font-size: 4rem !important;
   }
   .nav-small__list {
@@ -465,7 +464,7 @@ p {
 
 .nav-small__link {
   text-decoration: none;
- 
+
   color: #000;
   font-size: 3rem;
 }
@@ -567,8 +566,6 @@ p {
   line-height: 3.5rem;
 }
 
-
-
 .btn:hover {
   -webkit-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
@@ -593,13 +590,11 @@ p {
 .btn--blue {
   background: #06658d;
   color: #fff;
- 
 }
 
 .btn--red {
   background: #d11919;
   color: #fff;
- 
 }
 
 .advantage__heading {
@@ -743,7 +738,7 @@ p {
 }
 
 .contact-form-label p {
-  background-color: #FFF;
+  background-color: #fff;
   margin-left: 1rem;
   margin-bottom: 0 !important;
 }
@@ -800,7 +795,6 @@ p {
   }
 
   .btn-group {
-   
     /* margin: 0 5rem 4rem; */
   }
 }
@@ -843,7 +837,6 @@ p {
 
 .homepage-solution--odd {
   color: #000;
- 
 }
 
 .homepage-solution__main {
@@ -911,24 +904,22 @@ p {
     0% 85%
   ); */
 }
-.ux1-description-container::before{
-  position: absolute;
+.ux1-description-container::before {
+  /* position: absolute;
   top: 38px;
   right: -51px;
-  content: "";
+  content: '';
   width: 0;
   height: 0;
-  border-top: 65px solid #FFF;
-  border-right: 50px solid transparent;
-  
+  border-top: 65px solid #fff;
+  border-right: 50px solid transparent; */
 }
-.main_so1{
-  padding-right: 48px;
-  padding-bottom: 40px;
+.main_so1 {
+  /* padding-right: 48px;
+  padding-bottom: 40px; */
 }
 
-@media only screen and (max-width: 920px){
-
+@media only screen and (max-width: 920px) {
 }
 
 .ux1-play-btn {
@@ -957,49 +948,47 @@ p {
 /* solution */
 
 /* back_ground */
-.headernav{
+.headernav {
   background-color: #02384e;
 }
-.solution2-color{
+.solution2-color {
   background-color: #023a52;
 }
-.product-color{
+.product-color {
   background-color: #043a53;
 }
-.contact-color{
+.contact-color {
   background-color: #023950;
 }
-@media only screen and (max-width: 920px){
-  .headernav{
+@media only screen and (max-width: 920px) {
+  .headernav {
     background-color: #0d7c93;
   }
-  .solution1-color{
+  .solution1-color {
     background-color: #0791b3;
   }
-  .solution2-color{
+  .solution2-color {
     background-color: #06668e;
   }
-  .product-color{
+  .product-color {
     background-color: #546db1;
   }
-  .contact-color{
+  .contact-color {
     background-color: #0e7098;
   }
-  .ux1-description-container::before{
+  .ux1-description-container::before {
     position: absolute;
     top: 100%;
     /* bottom: 27px; */
     left: 20px;
-    content: "";
+    content: '';
     width: 0;
     height: 0;
-    border-top: 39px solid #FFF;
+    border-top: 39px solid #fff;
     border-right: 37px solid transparent;
-    
   }
-  .main_so1{
+  .main_so1 {
     padding-right: 13px;
     padding-bottom: 40px;
   }
-  
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { useHistory } from 'react-router-dom'
+import enviroments from '../../../../environments'
 
 import MCareImage from '../../../assets/image-mcare.svg'
 import checkIcon from '../../../assets/ico_check.svg'
@@ -48,7 +49,7 @@ export const MCare = () => {
             <div className='btn-group margin-bottom-small'>
               <button
                 className='btn btn--blue'
-                onClick={() => history.push('/product.html')}
+                onClick={() => history.push(enviroments.linkToProduct)}
               >
                 Chi tiết sản phẩm
               </button>

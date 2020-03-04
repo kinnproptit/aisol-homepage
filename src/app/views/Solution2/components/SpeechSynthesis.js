@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Sound from 'react-sound'
 import { useDispatch, useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
 import qs from 'qs'
 import axios from 'axios'
@@ -30,8 +31,6 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   const [playing, setPlaying] = useState(false)
   const [onFetch, setOnFetch] = useState(true)
   const [duration, setDuration] = useState(null)
-  const [stop, setStop] = useState(false)
-  const [resume, setResume] = useState(false)
 
   const fetchData = async () => {
     const { voiceId, token } = state
@@ -59,11 +58,9 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
     if (text === '') {
       alert('Vui lòng nhập nội dung')
     } else {
-      // setTimeout(() => {
       setPlaying(!playing)
       await fetchData()
       setPlayStatus(Sound.status.PLAYING)
-      // }, 1000)
     }
   }
 
@@ -84,8 +81,16 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
     // setAudio('')
   }
 
+  let location = useLocation()
+
+  useEffect(() => {
+    if (location.state && location.state.scroll) {
+      document.getElementById('tts-demo').scrollIntoView()
+    }
+  }, [])
+
   return (
-    <section>
+    <section id='tts-demo'>
       <div className='margin-bottom-large'>
         <h1 className='application__heading text-center margin-bottom-medium advantage__heading'>
           Trải nghiệm
@@ -95,7 +100,8 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
             <Paper>
               <PaperContent>
                 <Textarea onChange={onChangeText}>
-                  Nội dung trải nghiệm
+                  Bạn hãy nhập nội dung để trải nghiệm thử giọng đọc của mình
+                  nhé
                 </Textarea>
               </PaperContent>
             </Paper>
@@ -167,6 +173,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
           </FlexContent>
         </Wrapper>
       </div>
+      s
     </section>
   )
 }

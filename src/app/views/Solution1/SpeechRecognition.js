@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
 import iconRecord from '../../assets/ic_record.png'
 import iconUpload from '../../assets/ic_upload.png'
@@ -26,37 +27,96 @@ const DangerousHTML = ({ htmlString }) => {
 const ButtonShowing = ({ onRecord }) => {
   const connectedWs = useSelector(state => state.recognitionReducer.connectedWs)
   return (
-    <Button
-      text='Ghi âm'
-      icon={iconRecord}
-      className={connectedWs ? 'btn--red' : 'btn--green'}
-      textCustom='text_green margin-left'
-      buttonCustom='button_green'
-      onClick={onRecord}
-    />
+    <div className='button-fixes'>
+      <Button
+        text='Ghi âm'
+        icon={iconRecord}
+        className={connectedWs ? 'btn--red' : 'btn--green'}
+        textCustom='text_green margin-left'
+        buttonCustom='button_green'
+        onClick={onRecord}
+      />
+    </div>
   )
 }
 
 export const SpeechRecognition = ({ onRecord }) => {
+  let location = useLocation()
   const textRedux = useSelector(state => state.recognitionReducer.text)
-  console.log(textRedux)
-  const [text, setText] = useState(textRedux)
+  const [text, setText] = useState('')
+  const [runningText, setRunningText] = useState(
+    'Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa dạng vùng miền, dễ dàng tích hợp với mọi hệ thống'
+  )
+  const [isFinalState, setIsFinalState] = useState(false)
 
-  // useEffect(() => {
-  //   // setText(textRedux)
-  // }, [textRedux])
+  useEffect(() => {
+    if (location.state && location.state.scroll) {
+      document.getElementById('asr-demo').scrollIntoView()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (textRedux && textRedux.result) {
+      setIsFinalState(textRedux.result.final)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (textRedux) {
+      onChangeText(textRedux)
+    }
+  }, [textRedux])
+
+  console.log(textRedux)
+  const onChangeText = message => {
+    let clone_text = text
+    let clone_running_text = runningText
+
+    if (
+      message.status == 0 &&
+      message.result &&
+      message.result.hypotheses.length > 0
+    ) {
+      // Shorthand of conditional operator
+      let transcript =
+        message.result.hypotheses[0].transcript_normed ||
+        message.result.hypotheses[0].transcript
+      let cache_text = transcript // decodeURI(
+      //console.log(text);
+
+      // Không nhận dạng được
+      // if (cache_text == '<unk>.') {
+      //   return
+      // }
+
+      if (cache_text.endsWith('.')) {
+        // Xóa ký tự cuối cùng của xâu
+        cache_text = cache_text.slice(0, -1)
+      }
+      if (message.result.final) {
+        clone_text += clone_running_text + ' '
+      } else {
+        clone_running_text = cache_text
+      }
+    }
+
+    setIsFinalState(message.result && message.result.final)
+    setText(clone_text)
+    setRunningText(clone_running_text)
+  }
 
   return (
-    <section className=''>
+    <section id='asr-demo'>
       <div className='margin-bottom-large'>
         <h1 className='application__heading text-center margin-bottom-medium advantage__heading'>
           Trải nghiệm
         </h1>
         <Wrapper className='container'>
-          <Row className='row'>
+          <div className='row'>
+            {/* <ButtonShowing onRecord={onRecord} /> */}
             <Col className='col-lg-12 margin-bottom-medium main_so1'>
               <div className='button-controller solution_1'>
-                <ButtonShowing onRecord={onRecord} />
+              <ButtonShowing onRecord={onRecord} />
                 {/* <Button
                   text='Tải lên'
                   icon={iconUpload}
@@ -84,7 +144,7 @@ export const SpeechRecognition = ({ onRecord }) => {
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  {/* <DangerousHTML htmlString={textRedux} /> */}
+                  <DangerousHTML htmlString={text} />
                 </div>
               </Col>
             </Col>
@@ -102,7 +162,7 @@ export const SpeechRecognition = ({ onRecord }) => {
                 title='video'
               /> */}
             {/* </Col> */}
-          </Row>
+          </div>
         </Wrapper>
       </div>
     </section>
@@ -110,10 +170,6 @@ export const SpeechRecognition = ({ onRecord }) => {
 }
 
 const Wrapper = styled.div``
-
-const Row = styled.div`
-  margin-bottom: 2rem;
-`
 
 const Intro = styled.p`
   margin-top: 10px;

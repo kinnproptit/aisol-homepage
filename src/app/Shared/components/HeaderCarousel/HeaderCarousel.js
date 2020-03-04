@@ -1,11 +1,10 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 import Button from '../Button/Button'
 
 import Slide from '../../../assets/homepage_banner.svg'
-
-const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop)
 
 export const HeaderCarousel = ({
   title,
@@ -16,9 +15,11 @@ export const HeaderCarousel = ({
   image2,
   classCss,
   classNameImg1,
-  classNameImg2
+  classNameImg2,
+  link,
+  idScroll
 }) => {
-  const executeScroll = myRef => scrollToRef(myRef)
+  let history = useHistory()
 
   return (
     <div className={`${classCss} home-carousel`}>
@@ -50,6 +51,15 @@ export const HeaderCarousel = ({
                   className='btn btn--yellow btn_ye'
                   buttonCustom='button_bann'
                   textCustom='yellow_so1'
+                  onClick={() =>
+                    history.push({
+                      pathname: link,
+                      state: {
+                        scroll: true,
+                        id: idScroll
+                      }
+                    })
+                  }
                 />
               )}
             </div>

@@ -173,6 +173,11 @@ font-size: 50px !important;
 .home-carousel__description{
   margin-top: 100px;
 }
+
+.intro-description {
+  margin-right: 34rem !important;
+}
+
 .carousel-indicators{
   display: none;
 }
@@ -1356,6 +1361,6 @@ background-color: #06658d;
   color: blue;
 }
 
-/* bottom: 18%;
-    left: 14%;
-    right: 40%; */
+.button-fixes {
+  margin: 0 auto !important;
+}
