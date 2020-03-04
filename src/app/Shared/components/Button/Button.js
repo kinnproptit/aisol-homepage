@@ -45,9 +45,9 @@ const Wrapper = styled.button`
   margin-left: ${props => (props.isMarginLeft ? '15px' : '0px')};
 `
 const Text = styled.p`
-  margin: 0;
+  margin: 0 0 0 10px ;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
 `
 
 const Row = styled.div``

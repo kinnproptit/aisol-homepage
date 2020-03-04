@@ -31,7 +31,7 @@ const ButtonShowing = ({ onRecord }) => {
       <Button
         text='Ghi âm'
         icon={iconRecord}
-        className={connectedWs ? 'btn--red' : 'btn--green'}
+        className={connectedWs ? 'btn--red green_so1' : 'btn--green green_so1' }
         textCustom='text_green margin-left'
         buttonCustom='button_green'
         onClick={onRecord}
