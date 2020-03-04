@@ -21,7 +21,7 @@ import SanPham_mbBanner from '../../../../assets/mb_pro.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
 
 const Header = () => {
-  const List = ({classCss}) => {
+  const List = ({ classCss }) => {
     return (
       <div className={`${classCss} btn-group langg`}>
         <a
@@ -92,7 +92,7 @@ const Header = () => {
             content='Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt với giọng điệu tự nhiên, hay và dễ dàng tích hợp với mọi hệ thống'
             button
             image={Solution2Banner}
-             image2={Solution2_mbBanner}
+            image2={Solution2_mbBanner}
             classNameImg1='so2_pc'
             classNameImg2='so2_mb'
             classCss='bg_so2'
@@ -105,7 +105,7 @@ const Header = () => {
             content='M-Care là giải pháp sử dụng công nghệ chuyển đổi âm thanh thành dạng chữ văn bản (Voice to Text) giúp dễ dàng và thuận tiện hơn trong việc giám sát nội dung các cuộc gọi giữa khách hàng và nhà cung cấp dịch vụ/ sản phẩm'
             button
             image={SanPhamBanner}
-             image2={SanPham_mbBanner}
+            image2={SanPham_mbBanner}
             classNameImg1='pro_pc'
             classNameImg2='pro_mb'
           />
@@ -127,22 +127,17 @@ const Header = () => {
   }
 
   let headerColor = ''
-  if(pathname === '/solution1.html'){
+  if (pathname === '/solution1.html') {
     headerColor = 'solution1-color'
-  }
-  else if(pathname === '/solution2.html'){
+  } else if (pathname === '/solution2.html') {
     headerColor = 'solution2-color'
-  }
-  else if(pathname === '/product.html'){
+  } else if (pathname === '/product.html') {
     headerColor = 'product-color'
-  }
-  else if(pathname === '/contact.html'){
+  } else if (pathname === '/contact.html') {
     headerColor = 'contact-color'
-  }
-  else {
+  } else {
     headerColor = 'homepage-color'
   }
-  
 
   return (
     <React.Fragment>
@@ -155,11 +150,7 @@ const Header = () => {
 
             <ul className='nav__list'>
               <li className='nav__item'>
-                <Link
-                  to=''
-                  className='nav__link'
-                  onClick={() => handleLink('')}
-                >
+                <Link className='nav__link' onClick={() => handleLink('')}>
                   Trang chủ
                 </Link>
               </li>
@@ -172,7 +163,6 @@ const Header = () => {
                   ]}
                 >
                   <Link
-                    to=''
                     className='nav__link'
                     // onClick={() => handleLink('solution1.html')}
                   >
@@ -183,7 +173,6 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
-                  to=''
                   className='nav__link'
                   onClick={() => handleLink('product.html')}
                 >
@@ -192,7 +181,6 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
-                  to=''
                   className='nav__link'
                   onClick={() => handleLink('price.html')}
                 >
@@ -201,7 +189,6 @@ const Header = () => {
               </li>
               <li className='nav__item'>
                 <Link
-                  to=''
                   className='nav__link'
                   onClick={() => handleLink('contact.html')}
                 >
@@ -226,21 +213,20 @@ const Header = () => {
 
         <nav className='nav-small'>
           <div className='nav__logo2'>
-              <img src={require('../../../../assets/logo_click.png')} alt='' className='logo2' />
-            </div>
+            <img
+              src={require('../../../../assets/logo_click.png')}
+              alt=''
+              className='logo2'
+            />
+          </div>
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
-              <Link
-                to=''
-                className='nav-small__link'
-                onClick={() => handleLink('')}
-              >
+              <Link className='nav-small__link' onClick={() => handleLink('')}>
                 Trang chủ
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('solution1.html')}
               >
@@ -249,7 +235,6 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('solution2.html')}
               >
@@ -258,7 +243,6 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('product.html')}
               >
@@ -267,7 +251,6 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('price.html')}
               >
@@ -276,7 +259,6 @@ const Header = () => {
             </li>
             <li className='nav-small__item'>
               <Link
-                to=''
                 className='nav-small__link'
                 onClick={() => handleLink('contact.html')}
               >
@@ -284,7 +266,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <List classCss='nav-bar-small'/>
+              <List classCss='nav-bar-small' />
             </li>
           </ul>
         </nav>

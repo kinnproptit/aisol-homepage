@@ -8,7 +8,7 @@ import iconWave from '../../assets/ic_wave.png'
 import Button from '../../Shared/components/Button/Button'
 import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
 
-export const SpeechRecognition = () => {
+export const SpeechRecognition = ({onRecord}) => {
   return (
     <section className=''>
       <div className='margin-bottom-large'>
@@ -19,7 +19,7 @@ export const SpeechRecognition = () => {
           <Row className='row'>
             <Col className='col-lg-7 margin-bottom-medium main_so1'>
               <div className='button-controller solution_1'>
-                <Button text='Ghi âm' icon={iconRecord} className='btn--green green ' textCustom='text_green' buttonCustom ='button_green'/>
+                <Button text='Ghi âm' icon={iconRecord} className='btn--green green ' textCustom='text_green' buttonCustom ='button_green' onClick={onRecord}/>
                 <Button text='Tải lên' icon={iconUpload} className='btn--green green ' isMarginLeft textCustom='text_green'buttonCustom ='button_green' />
                 <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} classNameCss=' white'  buttonCustom='button_white' textCustom='text_white' />
                 <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2} classNameCss=' white' buttonCustom='button_white' textCustom='text_white'/>

@@ -1270,7 +1270,7 @@ background-color: #06658d;
 .technique-item{
   background-repeat: no-repeat;
   background-size: cover;
-  background-image:  url("app/assets/hong.png") ;
+  /* background-image:  url("app/assets/hong.png") ; */
   
 }
 .main-item{

@@ -3,6 +3,13 @@ import React from 'react'
 import OwlCarousel from 'react-owl-carousel'
 import PartnerLogo from '../../../../assets/img_doitac5.svg'
 
+import dt1 from '../../../../assets/dt1.png'
+import dt2 from '../../../../assets/dt2.png'
+import dt3 from '../../../../assets/dt3.png'
+import dt4 from '../../../../assets/dt4.png'
+import dt5 from '../../../../assets/dt5.png'
+
+
 export const Partner = () => {
   const options = {
     loop: true,
@@ -17,9 +24,9 @@ export const Partner = () => {
     }
   }
 
-  const parter = [...Array(10)].map((item, index) => {
-    return <img src={PartnerLogo} alt='' key={index} />
-  })
+  // const parter = [...Array(10)].map((item, index) => {
+  //   return <img src={PartnerLogo} alt='' key={index} />
+  // })
 
   return (
     <section className='partner margin-bottom-large'>
@@ -32,7 +39,11 @@ export const Partner = () => {
         nav
         key={`owl-carousel-${Math.random()}`}
       >
-        {parter}
+        <img src={dt1} alt='' />
+        <img src={dt2} alt='' />
+        <img src={dt3} alt='' />
+        <img src={dt4} alt='' />
+        <img src={dt5} alt='' />
       </OwlCarousel>
     </section>
   )

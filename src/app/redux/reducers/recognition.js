@@ -1,8 +1,9 @@
 import * as Actions from '../action-types'
 
 const initialState = {
-  ws: '',
-  audioData: ''
+  ws: null,
+  audioData: null,
+  connectedWs: null
 }
 
 const recognitionReducer = (state = initialState, action) => {
@@ -12,10 +13,15 @@ const recognitionReducer = (state = initialState, action) => {
         ...state,
         ws: action.payload
       }
-    case Actions.SEND_DATA:
+    case Actions.GET_AUDIO:
       return {
         ...state,
         audioData: action.payload
+      }
+    case Actions.GET_CONNECTED_WS:
+      return {
+        ...state,
+        connectedWs: action.payload
       }
     default:
       return state

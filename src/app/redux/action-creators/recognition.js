@@ -15,3 +15,11 @@ export const updateSocket = payload => {
       payload
     })
 }
+
+export const updateConnectedWS = payload => {
+  return dispatch =>
+    dispatch({
+      type: Actions.GET_CONNECTED_WS,
+      payload
+    })
+}

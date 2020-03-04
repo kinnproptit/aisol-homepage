@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false, buttonCustom, textCustom }) => {
+const Button = ({ icon, text, className = 'btn--green', isMarginLeft = false, buttonCustom, textCustom, onClick }) => {
   return (
-    <Wrapper className={`btn ${className}`} isMarginLeft={isMarginLeft}>
+    <Wrapper className={`btn ${className}`} isMarginLeft={isMarginLeft} onClick={onClick}>
       <Row className={`${buttonCustom} row align-items-center`}>
         {icon && (<img src={icon} />)}
         <Text className={`${textCustom}`}>{text}</Text>

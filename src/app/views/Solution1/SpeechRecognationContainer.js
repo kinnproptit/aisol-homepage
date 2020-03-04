@@ -11,5 +11,6 @@ export const SpeechRecognitionContainer = () => {
     setState
   }
 
-  return <SocketRecognation {...props} />
+  // return <SocketRecognation {...props} />
+  return <SocketRecognation {...props}/>
 }
