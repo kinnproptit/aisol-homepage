@@ -172,8 +172,12 @@ font-size: 50px !important;
 }
 .home-carousel__description{
   margin-top: 100px;
+}
+
+.intro-description {
   margin-right: 34rem !important;
 }
+
 .carousel-indicators{
   display: none;
 }

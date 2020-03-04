@@ -85,6 +85,8 @@ const Header = () => {
             classNameImg1=' so_pc'
             classNameImg2='so_mb'
             classCss='bg_so1'
+            link={environments.linkToASR}
+            idScroll='asr-demo'
           />
         )
       case environments.linkToTTS:
@@ -98,6 +100,8 @@ const Header = () => {
             classNameImg1='so2_pc'
             classNameImg2='so2_mb'
             classCss='bg_so2'
+            link={environments.linkToTTS}
+            idScroll='tts-demo'
           />
         )
       case environments.linkToProduct:
