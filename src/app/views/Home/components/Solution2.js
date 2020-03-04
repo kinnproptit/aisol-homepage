@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 import Button from '../../../Shared/components/Button/Button'
 
@@ -7,6 +8,8 @@ import Icon from '../../../assets/ic_wave.png'
 import LeftImg from '../../../assets/homepage_tonghop2.svg'
 
 export const Solution2 = ({ image, title, description, id = 2 }) => {
+  let history = useHistory()
+
   return (
     <div
       className={`homepage-solution homepage-solution--${
@@ -49,12 +52,13 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
                 {description}
               </p>
               <div className='homepage-solution__btn-group'>
-                <button className='btn btn--green'>Xem chi tiết</button>
+                <button className='btn btn--green' onClick={() => history.push('/solution2.html')}>Xem chi tiết</button>
 
                 <Button
                   icon={Icon}
                   text='Demo giải pháp'
                   className='btn btn--red homepage-button-2'
+                  onClick={() => history.push('/solution2.html')}
                 />
               </div>
             </div>

@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 import Button from '../../../Shared/components/Button/Button'
 
 import Icon from '../../../assets/ic_wave.png'
 import solution_image from '../../../assets/Layer.png'
-
 import Girl from '../../../assets/support-asia-girl.png'
 
 export const Solution = ({ image, title, description, id = 1 }) => {
+  let history = useHistory()
+
   return (
     <div
       className='homepage-solution homepage-solution-even solution-main'
@@ -45,12 +47,13 @@ export const Solution = ({ image, title, description, id = 1 }) => {
                 {description}
               </p>
               <div className='homepage-solution__btn-group'>
-                <button className='btn btn--green'>Xem chi tiết</button>
+                <button className='btn btn--green' onClick={() => history.push('/solution1.html')}>Xem chi tiết</button>
 
                 <Button
                   icon={Icon}
                   text='Demo giải pháp'
                   className='btn--yellow homepage-button'
+                  onClick={() => history.push('/solution1.html')}
                 />
               </div>
             </div>

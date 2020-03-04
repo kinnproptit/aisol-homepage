@@ -56,7 +56,7 @@ const TestSocket = () => {
   // }, [audioRedux])
 
   websocket.onopen = () => {
-    console.log('Socket channel connected')
+    // console.log('Socket channel connected')
     isConnected = true;
     dispatch(Actions.updateSocket(websocket))
     // console.log("Server accepted")
@@ -65,20 +65,20 @@ const TestSocket = () => {
   // Xử lý dữ liệu server trả về
   websocket.onmessage = evt => {
     const message = JSON.parse(evt.data)
+    dispatch(Actions.updateText(processJsonResponse(message)))
     console.log(message)
     // dispatch(Actions.updateConnectedWS(true))
-    // processJsonResponse(message)
   }
 
   websocket.onclose = () => {
-    console.log('Websocket closed')
+    // console.log('Websocket closed')
     // stop()
   }
   return <SendDataComponent/>
 }
 
 export const SocketRecognation = ({ text, ...restProps }) => {
-  console.log("SocketRecognation render")
+  // console.log("SocketRecognation render")
   const dispatch = useDispatch()
   // const audioRedux = useSelector(state => state.recognitionReducer.audioData)
   const [ws, setWs] = useState(null)
@@ -147,7 +147,7 @@ export const SocketRecognation = ({ text, ...restProps }) => {
   }
 
   const record = (connectedWs) => {
-    console.log('click record')
+    // console.log('click record')
     if(connectedWs){
       // close websocket before stop
       dispatch(Actions.updateAudioData("EOS"))
@@ -160,7 +160,7 @@ export const SocketRecognation = ({ text, ...restProps }) => {
     //   stop()
     //   return
     // }
-    console.log('Record func called')
+    // console.log('Record func called')
     // Khởi tạo audioContext
     if (!audioContext) {
       audioContext = new (window.AudioContext || window.webkitAudioContext)()
@@ -247,7 +247,7 @@ export const SocketRecognation = ({ text, ...restProps }) => {
       {connectedWs && (
         <TestSocket/>
       )}
-      <SpeechRecognition text={text} onRecord={() => record(connectedWs)}/>
+      <SpeechRecognition onRecord={() => record(connectedWs)}/>
     </Fragment>
   )
 }
@@ -283,11 +283,15 @@ const processJsonResponse = resp => {
 
     if (resp.result.final) {
       // Đã nhận dạng xong, lưu kết quả
-      result += '<span>' + text + '. </span>'
+      result = '<span>' + text + '. </span>'
       // displayText(result);
+      // result += text + '.'
     } else {
       // Vẫn đang nhận dạng
       // displayText(result + '<span class="temp">' + text + '</span>');
+      result = '<span class="temp">' + text + '</span>'
     }
+
+    return result
   }
 }

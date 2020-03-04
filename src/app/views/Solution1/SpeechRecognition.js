@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { useSelector } from 'react-redux'
+
 import iconRecord from '../../assets/ic_record.png'
 import iconUpload from '../../assets/ic_upload.png'
 import iconWave from '../../assets/ic_wave.png'
@@ -8,7 +10,18 @@ import iconWave from '../../assets/ic_wave.png'
 import Button from '../../Shared/components/Button/Button'
 import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
 
-export const SpeechRecognition = ({onRecord}) => {
+const createMarkup = htmlString => {
+  console.log(htmlString)
+  return { __html: htmlString }
+}
+
+const DangerousHTML = ({ htmlString }) => {
+  return <div className='ux1-description' dangerouslySetInnerHTML={createMarkup(htmlString)} />
+}
+
+export const SpeechRecognition = ({ onRecord }) => {
+  const textRedux = useSelector(state => state.recognitionReducer.text)
+
   return (
     <section className=''>
       <div className='margin-bottom-large'>
@@ -17,27 +30,49 @@ export const SpeechRecognition = ({onRecord}) => {
         </h1>
         <Wrapper className='container'>
           <Row className='row'>
-            <Col className='col-lg-7 margin-bottom-medium main_so1'>
+            <Col className='col-lg-12 margin-bottom-medium main_so1'>
               <div className='button-controller solution_1'>
-                <Button text='Ghi âm' icon={iconRecord} className='btn--green green ' textCustom='text_green' buttonCustom ='button_green' onClick={onRecord}/>
-                <Button text='Tải lên' icon={iconUpload} className='btn--green green ' isMarginLeft textCustom='text_green'buttonCustom ='button_green' />
-                <ButtonOutline text='Mẫu file 1' icon={iconWave} id={1} classNameCss=' white'  buttonCustom='button_white' textCustom='text_white' />
-                <ButtonOutline text='Mẫu file 2' icon={iconWave} id={2} classNameCss=' white' buttonCustom='button_white' textCustom='text_white'/>
+                <Button
+                  text='Ghi âm'
+                  icon={iconRecord}
+                  className='btn--green green '
+                  textCustom='text_green margin-left'
+                  buttonCustom='button_green'
+                  onClick={onRecord}
+                />
+                {/* <Button
+                  text='Tải lên'
+                  icon={iconUpload}
+                  className='btn--green green margin-left'
+                  isMarginLeft
+                  textCustom='text_green'
+                  buttonCustom='button_green'
+                />
+                <ButtonOutline
+                  text='Mẫu file 1'
+                  icon={iconWave}
+                  id={1}
+                  classNameCss=' white'
+                  buttonCustom='button_white'
+                  textCustom='text_white'
+                />
+                <ButtonOutline
+                  text='Mẫu file 2'
+                  icon={iconWave}
+                  id={2}
+                  classNameCss=' white'
+                  buttonCustom='button_white'
+                  textCustom='text_white'
+                /> */}
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <p className='ux1-description'>
-                    Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng
-                    Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản
-                    phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh
-                    doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa
-                    dạng vùng miền, dễ dàng tích hợp với mọi hệ thống
-                  </p>
+                  <DangerousHTML htmlString={textRedux} />
                 </div>
               </Col>
             </Col>
-            <Col className='col-lg-5 '>
-              <Row className='margin-bottom-xs d-flex'>
+            {/* <Col className='col-lg-5 '> */}
+              {/* <Row className='margin-bottom-xs d-flex'>
                 <Input placeHolder='Enter Video URL' className='input' />
                 <button className='btn btn-danger ux1-play-btn'>Play</button>
               </Row>
@@ -48,8 +83,8 @@ export const SpeechRecognition = ({onRecord}) => {
                 allow='autoplay; encrypted-media'
                 allowFullScreen
                 title='video'
-              />
-            </Col>
+              /> */}
+            {/* </Col> */}
           </Row>
         </Wrapper>
       </div>

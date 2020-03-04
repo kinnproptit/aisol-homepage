@@ -23,3 +23,11 @@ export const updateConnectedWS = payload => {
       payload
     })
 }
+
+export const updateText = payload => {
+  return dispatch => 
+    dispatch({
+      type: Actions.GET_TEXT,
+      payload
+    })
+}
