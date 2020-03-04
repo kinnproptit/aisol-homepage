@@ -165,9 +165,7 @@ p {
   margin-bottom: 4rem;
 }
 
-.margin-bottom-small {
-  margin-bottom: 3rem;
-}
+
 
 /* .margin-left-small {
   margin-left: 2rem ;
@@ -566,7 +564,7 @@ p {
 }
 
 .home-carousel__description {
-  line-height: 4rem;
+  line-height: 3.5rem;
 }
 
 
@@ -968,6 +966,9 @@ p {
 .product-color{
   background-color: #043a53;
 }
+.contact-color{
+  background-color: #023950;
+}
 @media only screen and (max-width: 920px){
   .headernav{
     background-color: #0d7c93;
@@ -980,6 +981,9 @@ p {
   }
   .product-color{
     background-color: #546db1;
+  }
+  .contact-color{
+    background-color: #0e7098;
   }
   .ux1-description-container::before{
     position: absolute;
