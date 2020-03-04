@@ -905,18 +905,18 @@ p {
   ); */
 }
 .ux1-description-container::before {
-  position: absolute;
+  /* position: absolute;
   top: 38px;
   right: -51px;
   content: '';
   width: 0;
   height: 0;
   border-top: 65px solid #fff;
-  border-right: 50px solid transparent;
+  border-right: 50px solid transparent; */
 }
 .main_so1 {
-  padding-right: 48px;
-  padding-bottom: 40px;
+  /* padding-right: 48px;
+  padding-bottom: 40px; */
 }
 
 @media only screen and (max-width: 920px) {

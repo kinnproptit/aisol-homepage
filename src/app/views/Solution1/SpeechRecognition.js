@@ -27,14 +27,16 @@ const DangerousHTML = ({ htmlString }) => {
 const ButtonShowing = ({ onRecord }) => {
   const connectedWs = useSelector(state => state.recognitionReducer.connectedWs)
   return (
-    <Button
-      text='Ghi âm'
-      icon={iconRecord}
-      className={connectedWs ? 'btn--red' : 'btn--green'}
-      textCustom='text_green margin-left'
-      buttonCustom='button_green'
-      onClick={onRecord}
-    />
+    <div className='button-fixes'>
+      <Button
+        text='Ghi âm'
+        icon={iconRecord}
+        className={connectedWs ? 'btn--red' : 'btn--green'}
+        textCustom='text_green margin-left'
+        buttonCustom='button_green'
+        onClick={onRecord}
+      />
+    </div>
   )
 }
 
@@ -42,7 +44,9 @@ export const SpeechRecognition = ({ onRecord }) => {
   let location = useLocation()
   const textRedux = useSelector(state => state.recognitionReducer.text)
   const [text, setText] = useState('')
-  const [runningText, setRunningText] = useState('Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa dạng vùng miền, dễ dàng tích hợp với mọi hệ thống')
+  const [runningText, setRunningText] = useState(
+    'Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa dạng vùng miền, dễ dàng tích hợp với mọi hệ thống'
+  )
   const [isFinalState, setIsFinalState] = useState(false)
 
   useEffect(() => {
@@ -108,10 +112,11 @@ export const SpeechRecognition = ({ onRecord }) => {
           Trải nghiệm
         </h1>
         <Wrapper className='container'>
-          <Row className='row'>
+          <div className='row'>
+            {/* <ButtonShowing onRecord={onRecord} /> */}
             <Col className='col-lg-12 margin-bottom-medium main_so1'>
-              <ButtonShowing onRecord={onRecord} />
               <div className='button-controller solution_1'>
+              <ButtonShowing onRecord={onRecord} />
                 {/* <Button
                   text='Tải lên'
                   icon={iconUpload}
@@ -157,7 +162,7 @@ export const SpeechRecognition = ({ onRecord }) => {
                 title='video'
               /> */}
             {/* </Col> */}
-          </Row>
+          </div>
         </Wrapper>
       </div>
     </section>
@@ -165,10 +170,6 @@ export const SpeechRecognition = ({ onRecord }) => {
 }
 
 const Wrapper = styled.div``
-
-const Row = styled.div`
-  margin-bottom: 2rem;
-`
 
 const Intro = styled.p`
   margin-top: 10px;

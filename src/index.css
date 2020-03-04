@@ -1361,6 +1361,6 @@ background-color: #06658d;
   color: blue;
 }
 
-/* bottom: 18%;
-    left: 14%;
-    right: 40%; */
+.button-fixes {
+  margin: 0 auto !important;
+}
