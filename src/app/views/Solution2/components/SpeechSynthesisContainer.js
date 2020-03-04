@@ -17,6 +17,7 @@ export const SpeechSynthesisContainer = () => {
     loading: true,
     voiceId: mp3data[0].id || null,
     text: 'Chưa có nội dung',
+    token: enviroments.token
   }
 
   const [state, setState] = useState(initialStates)
@@ -29,7 +30,7 @@ export const SpeechSynthesisContainer = () => {
       data: qs.stringify({
         text,
         voiceId,
-        token: enviroments.token
+        token
       }),
       url: enviroments.apiPostTTS
     }

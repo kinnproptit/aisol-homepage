@@ -95,7 +95,8 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
             <Paper>
               <PaperContent>
                 <Textarea onChange={onChangeText}>
-                  Nội dung trải nghiệm
+                  Bạn hãy nhập nội dung để trải nghiệm thử giọng đọc của mình
+                  nhé
                 </Textarea>
               </PaperContent>
             </Paper>
