@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { useSelector } from 'react-redux'
@@ -39,6 +39,12 @@ const ButtonShowing = ({ onRecord }) => {
 
 export const SpeechRecognition = ({ onRecord }) => {
   const textRedux = useSelector(state => state.recognitionReducer.text)
+
+  const [text, setText] = useState(textRedux)
+
+  // useEffect(() => {
+  //   // setText(textRedux)
+  // }, [textRedux])
 
   return (
     <section className=''>

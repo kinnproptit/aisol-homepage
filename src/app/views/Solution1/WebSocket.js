@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import $ from 'jquery'
 
 import { useSelector, useDispatch } from 'react-redux'
 import * as Actions from '../../redux/action-creators/recognition'
@@ -34,7 +33,7 @@ const SendDataComponent = () => {
 const TestSocket = () => {
   console.log('TestSocket rendered')
   const dispatch = useDispatch()
-  // const audioRedux = useSelector(state => state.recognitionReducer.audioData)
+  // const textRedux = useSelector(state => state.recognitionReducer.text)
   // if (ws !== null) return null
   let url =
     API_URL +
@@ -47,13 +46,6 @@ const TestSocket = () => {
 
   // eslint-disable-next-line no-undef
   const websocket = new WebSocket(url)
-
-  // useEffect(() => {
-  //   if(audioRedux && websocket.readyState === WebSocket.OPEN){
-  //     console.log("Send message", audioRedux)
-  //     websocket.send(audioRedux)
-  //   }
-  // }, [audioRedux])
 
   websocket.onopen = () => {
     // console.log('Socket channel connected')
