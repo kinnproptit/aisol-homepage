@@ -1,6 +1,7 @@
 import React, { createContext, useEffect } from 'react'
 import axios from 'axios'
 
+import enviroments from '../environments'
 import { LoadingIndicator } from '../packages/ui'
 import { useState } from '../packages/core'
 
@@ -15,8 +16,8 @@ export const Preloader = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios('http://103.74.122.136:8086/api/v1/voices', {
-        token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55'
+      const response = await axios(enviroments.apiGetTTS, {
+        token: enviroments.token
       })
       setState({ loading: false, mp3data: response.data.voices })
     }

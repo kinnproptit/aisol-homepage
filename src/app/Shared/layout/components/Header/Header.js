@@ -4,6 +4,8 @@ import styled from 'styled-components'
 
 import { useHistory, Link, useLocation } from 'react-router-dom'
 
+import environments from '../../../../../environments'
+
 import { DropdownMenu } from '../../../components/Dropdown/DropdownMenu'
 
 import { HeaderCarousel } from '../../../components/HeaderCarousel/HeaderCarousel'
@@ -53,7 +55,7 @@ const Header = () => {
   let history = useHistory()
 
   const handleLink = link => {
-    history.push(`/${link}`)
+    history.push(`${link}`)
   }
 
   useEffect(() => {
@@ -72,7 +74,7 @@ const Header = () => {
 
   const showingCarousel = pathname => {
     switch (pathname) {
-      case '/solution1.html':
+      case environments.socketASR:
         return (
           <HeaderCarousel
             title='NHẬN DẠNG TIẾNG NÓI'
@@ -86,7 +88,7 @@ const Header = () => {
             classCss='bg_so1'
           />
         )
-      case '/solution2.html':
+      case environments.linkToTTS:
         return (
           <HeaderCarousel
             title='TỔNG HỢP TIẾNG NÓI'
@@ -99,7 +101,7 @@ const Header = () => {
             classCss='bg_so2'
           />
         )
-      case '/product.html':
+      case environments.linkToProduct:
         return (
           <HeaderCarousel
             title='MCare'
@@ -111,7 +113,7 @@ const Header = () => {
             classNameImg2='pro_mb'
           />
         )
-      case '/contact.html':
+      case environments.linkToContact:
         return (
           <HeaderCarousel
             title='Liên hệ với AISOL'
@@ -128,13 +130,13 @@ const Header = () => {
   }
 
   let headerColor = ''
-  if (pathname === '/solution1.html') {
+  if (pathname === environments.linkToASR) {
     headerColor = 'solution1-color'
-  } else if (pathname === '/solution2.html') {
+  } else if (pathname === environments.linkToTTS) {
     headerColor = 'solution2-color'
-  } else if (pathname === '/product.html') {
+  } else if (pathname === environments.linkToProduct) {
     headerColor = 'product-color'
-  } else if (pathname === '/contact.html') {
+  } else if (pathname === environments.linkToContact) {
     headerColor = 'contact-color'
   } else {
     headerColor = 'homepage-color'
@@ -151,7 +153,7 @@ const Header = () => {
 
             <ul className='nav__list'>
               <li className='nav__item'>
-                <Link className='nav__link' onClick={() => handleLink('')}>
+                <Link className='nav__link' onClick={() => handleLink('/')}>
                   Trang chủ
                 </Link>
               </li>
@@ -159,13 +161,12 @@ const Header = () => {
                 <DropdownMenu
                   isLink
                   options={[
-                    { to: '/solution1.html', content: 'Nhận dạng tiếng nói' },
-                    { to: '/solution2.html', content: 'Tổng hợp tiếng nói' }
+                    { to: environments.linkToASR, content: 'Nhận dạng tiếng nói' },
+                    { to: environments.linkToTTS, content: 'Tổng hợp tiếng nói' }
                   ]}
                 >
                   <Link
                     className='nav__link'
-                    // onClick={() => handleLink('solution1.html')}
                   >
                     Giải pháp
                   </Link>
@@ -175,7 +176,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className='nav__link'
-                  onClick={() => handleLink('product.html')}
+                  onClick={() => handleLink(environments.linkToProduct)}
                 >
                   Sản phẩm
                 </Link>
@@ -183,7 +184,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className='nav__link'
-                  onClick={() => handleLink('price.html')}
+                  onClick={() => handleLink(environments.linkToPrice)}
                 >
                   Bảng giá
                 </Link>
@@ -191,7 +192,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className='nav__link'
-                  onClick={() => handleLink('contact.html')}
+                  onClick={() => handleLink(environments.linkToContact)}
                 >
                   Liên hệ
                 </Link>
@@ -222,14 +223,14 @@ const Header = () => {
           </div>
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
-              <Link className='nav-small__link' onClick={() => handleLink('')}>
+              <Link className='nav-small__link' onClick={() => handleLink('/')}>
                 Trang chủ
               </Link>
             </li>
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('solution1.html')}
+                onClick={() => handleLink(environments.linkToASR)}
               >
                 Nhận dạng tiếng nói
               </Link>
@@ -237,7 +238,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('solution2.html')}
+                onClick={() => handleLink(environments.linkToTTS)}
               >
                 Tổng hợp tiếng nói
               </Link>
@@ -245,7 +246,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('product.html')}
+                onClick={() => handleLink(environments.linkToProduct)}
               >
                 Sản phẩm
               </Link>
@@ -253,7 +254,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('price.html')}
+                onClick={() => handleLink(environments.linkToPrice)}
               >
                 Bảng giá
               </Link>
@@ -261,7 +262,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink('contact.html')}
+                onClick={() => handleLink(environments.linkToContact)}
               >
                 Liên hệ
               </Link>

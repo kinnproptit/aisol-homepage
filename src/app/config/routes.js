@@ -1,6 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
 
+import enviroments from '../../environments'
 import { LoadingIndicator } from '../../packages/ui'
 
 const AsyncPage = loadable(props => import(`../views/${props.component}`), {
@@ -15,25 +16,25 @@ export const routes = [
     title: 'Homepage'
   },
   {
-    path: '/solution1.html',
+    path: enviroments.linkToASR,
     exact: true,
     component: () => <AsyncPage component='Solution1' />,
     title: 'Solution'
   },
   {
-    path: '/solution2.html',
+    path: enviroments.linkToTTS,
     exact: true,
     component: () => <AsyncPage component='Solution2' />,
     title: 'Solution'
   },
   {
-    path: '/contact.html',
+    path: enviroments.linkToContact,
     exact: true,
     component: () => <AsyncPage component='Contact' />,
     title: 'Contact'
   },
   {
-    path: '/product.html',
+    path: enviroments.linkToProduct,
     exact: true,
     component: () => <AsyncPage component='Product' />,
     title: 'Products'
