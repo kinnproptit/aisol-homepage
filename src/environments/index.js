@@ -7,5 +7,6 @@ module.exports = {
     linkToTTS: '/solution2.html',
     linkToProduct: '/product.html',
     linkToContact: '/contact.html',
-    linkToPrice: '/price.html'
+    linkToPrice: '/price.html',
+    linkToErrorPage: '/404.html'
 }
