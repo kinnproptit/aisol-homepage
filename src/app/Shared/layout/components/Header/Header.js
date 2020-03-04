@@ -19,6 +19,7 @@ import Solution2Banner from '../../../../assets/giaiphap2_banner.png'
 import SanPhamBanner from '../../../../assets/sanpham_banner.png'
 import SanPham_mbBanner from '../../../../assets/mb_pro.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
+import LienHe_mbBanner from '../../../../assets/mb_con.png'
 
 const Header = () => {
   const List = ({ classCss }) => {
@@ -116,9 +117,9 @@ const Header = () => {
             title='Liên hệ với AISOL'
             content='Liên hệ với Chúng tôi để được hỗ trợ và trải nghiệm các sản phẩm - giải pháp tốt nhất tại thị trường Việt Nam ngày nay'
             image={LienHeBanner}
-            // image2={}
-            classNameImg1=''
-            classNameImg2=''
+            image2={ LienHe_mbBanner}
+            classNameImg1='con_pc'
+            classNameImg2='con_mb'
           />
         )
       default:

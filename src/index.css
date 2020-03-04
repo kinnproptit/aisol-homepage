@@ -971,9 +971,33 @@ background-color: #06658d;
 .top_ma{
   margin-top: 3rem;
 }
+.button_red{
+  justify-content: center;
+}
+.banner-title{
+  font-size: 40px !important;
+}
+.home-carousel__item {
+  bottom: 21% !important;
+}
+.banner_hei{
+  min-height: 250px;
+}
+@media only screen and (max-width: 1400px){
+  .home-carousel__item {
+    bottom: 10% !important;
+  }
+  .banner-title{
+    font-size: 36px !important;
+  }
+}
+
 @media only screen and (max-width: 1200px){
   .banner-description{
-    margin: 10px 0 0 0 !important;
+    margin: 10px 0 10px 0 !important;
+  }
+  .banner-title{
+    font-size: 30px !important;
   }
   .red{
     margin: 0 !important;
@@ -992,12 +1016,30 @@ background-color: #06658d;
   .button1{
     margin-left: 0 !important;
   }
+  .btn_ye{
+    width: 69% !important;
+
+  }
 }
-@media only screen and (max-width: 990px){
+@media only screen and (max-width: 993px){
   .button_red {
     width: 26% !important;
     margin: 0 auto;
-}
+  }
+  .home-carousel__description {
+    margin-right: 34rem !important;
+    line-height: 3rem !important;
+   }
+   .btn_ye{
+    width: 40% !important;
+
+  }
+  .banner-title{
+    font-size: 30px !important;
+  }
+  .home-banner-carousel{
+    bottom: 2% !important;
+  }
 .top_ma{
   margin-top: 5rem;
 }
@@ -1007,6 +1049,7 @@ background-color: #06658d;
   .banner-description{
     display: block !important;
   }
+ 
   
 }
 @media only screen and (max-width: 920px){
@@ -1027,12 +1070,13 @@ background-color: #06658d;
   }
   .banner-description{
    
-  margin-top: 40px !important;
+  margin-top: 20px !important;
   margin-bottom: 40px !important;
   font-size: 20px !important;
   
   }
   .home-carousel__description {
+    margin-right: 0 !important;
     line-height: 6rem !important;
   }
   .btn_ye{
@@ -1162,6 +1206,9 @@ background-color: #06658d;
   .white{
     width: 42% !important;
   }
+  .banner_hei{
+    min-height: 173px;
+  }
   }
 
 @media only screen and (max-width: 420px){
@@ -1244,6 +1291,12 @@ background-color: #06658d;
       display: none !important;
     }
     .pro_mb{
+      display: block !important;
+    }
+    .con_pc{
+      display: none !important;
+    }
+    .con_mb{
       display: block !important;
     }
  

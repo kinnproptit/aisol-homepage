@@ -35,7 +35,7 @@ export const HeaderCarousel = ({
         />
         <div className=' home-carousel__item home-banner-carousel'>
           <div className='row'>
-            <div className='col-md-10  d-flex flex-column align-items-start'>
+            <div className='col-md-10 col-lg-6  d-flex flex-column align-items-start banner_hei'>
               <h1 className='heading-big margin-bottom-small home-carousel__heading banner-title'>
                 {title}
               </h1>
