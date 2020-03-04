@@ -1,5 +1,7 @@
-import React, {Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import $ from 'jquery'
+
+import { useSelector, useDispatch } from 'react-redux'
 
 import { SpeechRecognition } from './SpeechRecognition'
 
@@ -17,45 +19,37 @@ let buffer = null // có chuyển về local được không?
 let audioContext = null // đối tượng audio context
 let countSilentDuration = 0
 
-const TestSocket = ({ws, setWs, audioSampleText}) => {
-  // useEffect(() => {
-  //   print(ws)
-  // }, [ws])
-  if(ws !== null) return null
+const TestSocket = ({ ws, setWs, audioSampleText }) => {
+  if (ws !== null) return null
   let url =
-      API_URL +
-      '?content-type=audio/x-raw' +
-      ',+layout=(string)interleaved' +
-      ',+rate=(int)' +
-      audioSampleText +
-      ',+format=(string)S16LE' +
-      ',+channels=(int)1'
+    API_URL +
+    '?content-type=audio/x-raw' +
+    ',+layout=(string)interleaved' +
+    ',+rate=(int)' +
+    audioSampleText +
+    ',+format=(string)S16LE' +
+    ',+channels=(int)1'
 
-    // eslint-disable-next-line no-undef
-    const websocket = new WebSocket(url)
+  // eslint-disable-next-line no-undef
+  const websocket = new WebSocket(url)
 
-    // setWs(websocket)
+  websocket.onopen = () => {
+    console.log('Socket channel connected')
+    setWs(websocket)
+  }
 
-    websocket.onopen = () => {
-      console.log('Socket channel connected')
-      setWs(websocket)
-      // print(ws)
-    }
+  // Xử lý dữ liệu server trả về
+  websocket.onmessage = evt => {
+    const message = JSON.parse(evt.data)
+    console.log(message)
+    processJsonResponse(message)
+  }
 
-    
-
-    // Xử lý dữ liệu server trả về
-    websocket.onmessage = evt => {
-      const message = JSON.parse(evt.data)
-      console.log(message)
-      processJsonResponse(message)
-    }
-
-    websocket.onclose = () => {
-      console.log('Websocket closed')
-      // stop()
-    }
-    return null
+  websocket.onclose = () => {
+    console.log('Websocket closed')
+    // stop()
+  }
+  return null
 }
 
 export const SocketRecognation = ({ text, ...restProps }) => {
@@ -67,7 +61,7 @@ export const SocketRecognation = ({ text, ...restProps }) => {
   const [state, setState] = useState({
     token: 'k-P-k03vy7MgQ0iV8ItD5oLrjh7CigLWMR1oCeP5QMGs461nNu07k-VzENKNQW-c'
   })
-  
+
   /**
    * Dừng record audio.
    */
@@ -124,7 +118,7 @@ export const SocketRecognation = ({ text, ...restProps }) => {
     // context.stroke();
   }
 
-  const record = (websocket) => {
+  const record = websocket => {
     console.log('click record')
     // Nếu đang xử lý thì dừng lại
     if (!isStop) {
@@ -132,58 +126,61 @@ export const SocketRecognation = ({ text, ...restProps }) => {
       stop()
       return
     }
-    console.log("Record func called")
+    console.log('Record func called')
     // Khởi tạo audioContext
     if (!audioContext) {
       audioContext = new (window.AudioContext || window.webkitAudioContext)()
       if (audioContext.state == 'suspended') {
         audioContext.resume()
       }
-      websocket && navigator.mediaDevices
-        .getUserMedia({ audio: true })
-        .then(stream => {
-          let audioInput = audioContext.createMediaStreamSource(stream)
-          let bufferSize = 2048
-          recorder = audioContext.createScriptProcessor(bufferSize, 1, 1)
+      websocket &&
+        navigator.mediaDevices
+          .getUserMedia({ audio: true })
+          .then(stream => {
+            let audioInput = audioContext.createMediaStreamSource(stream)
+            let bufferSize = 2048
+            recorder = audioContext.createScriptProcessor(bufferSize, 1, 1)
 
-          // Xử lý dữ liệu audio
-          recorder.onaudioprocess = (e) => {
-            
-            if (!isStop && websocket && websocket.readyState == websocket.OPEN) {
-              // Nếu mà không nói lâu quá thì cũng dừng lại
-              //if (countSilentDuration > SILENT_DURATION) {
-              //    closeWS();
-              //    stop();
-              //    countSilentDuration = 0;
-              //    return;
-              //}
+            // Xử lý dữ liệu audio
+            recorder.onaudioprocess = e => {
+              if (
+                !isStop &&
+                websocket &&
+                websocket.readyState == websocket.OPEN
+              ) {
+                // Nếu mà không nói lâu quá thì cũng dừng lại
+                //if (countSilentDuration > SILENT_DURATION) {
+                //    closeWS();
+                //    stop();
+                //    countSilentDuration = 0;
+                //    return;
+                //}
 
-              buffer = e.inputBuffer.getChannelData(0)
-              drawBuffer(buffer)
-              let int16ArrayData = convertFloat32ToInt16(buffer)
-              countSilentDuration +=
-                int16ArrayData.length / audioContext.sampleRate
-              for (let i = 0; i < int16ArrayData.length; i++) {
-                if (Math.abs(int16ArrayData[i]) > SILENT_THRESHOLD) {
-                  countSilentDuration = 0
-                  break
+                buffer = e.inputBuffer.getChannelData(0)
+                drawBuffer(buffer)
+                let int16ArrayData = convertFloat32ToInt16(buffer)
+                countSilentDuration +=
+                  int16ArrayData.length / audioContext.sampleRate
+                for (let i = 0; i < int16ArrayData.length; i++) {
+                  if (Math.abs(int16ArrayData[i]) > SILENT_THRESHOLD) {
+                    countSilentDuration = 0
+                    break
+                  }
                 }
+
+                // Gửi dữ liệu lên server
+                print(int16ArrayData)
+                ws.send(int16ArrayData.buffer)
               }
-
-              // Gửi dữ liệu lên server
-              print(int16ArrayData)
-              ws.send(int16ArrayData.buffer)
-
             }
-          }
 
-          audioInput.connect(recorder)
-          recorder.connect(audioContext.destination)
-        })
-        .catch(e => {
-          console.log('Error when getUserMedia')
-          console.log(e)
-        })
+            audioInput.connect(recorder)
+            recorder.connect(audioContext.destination)
+          })
+          .catch(e => {
+            console.log('Error when getUserMedia')
+            console.log(e)
+          })
     }
 
     // Đang chạy thì nút là "Dừng"
@@ -191,10 +188,10 @@ export const SocketRecognation = ({ text, ...restProps }) => {
 
     // Đánh dấu đang chạy
     isStop = false
-    if(! connectWs){
+    if (!connectWs) {
       setConnectWs(true)
     }
-    
+
     // Kết quả hiện tại
     // result = $('#streaming-content-text').html()
 
@@ -235,20 +232,26 @@ export const SocketRecognation = ({ text, ...restProps }) => {
     return null
   }
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   return () => {
-  //     console.log('Closing socket')
-  //     ws.close(1000, 'User chose other part. Change socket channel')
-  //   }
-  // }, [])
+    return () => {
+      console.log('Closing socket')
+      ws.close(1000, 'User chose other part. Change socket channel')
+    }
+  }, [])
 
-  // useEffect(() => {
-  //   // dispatch(Actions.updateEditText({text_norm: restProps.sentences[0]}))
-  // }, [])
+  useEffect(() => {
+    // dispatch(Actions.updateEditText({text_norm: restProps.sentences[0]}))
+  }, [])
   return (
     <Fragment>
-      {connectWs && <TestSocket ws={ws} setWs={setWs} audioSampleText={audioContext.sampleRate}></TestSocket>}
+      {connectWs && (
+        <TestSocket
+          ws={ws}
+          setWs={setWs}
+          audioSampleText={audioContext.sampleRate}
+        ></TestSocket>
+      )}
       <SpeechRecognition text={text} onRecord={() => record(ws)} />
     </Fragment>
   )
