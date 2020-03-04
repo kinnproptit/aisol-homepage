@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
 import iconRecord from '../../assets/ic_record.png'
 import iconUpload from '../../assets/ic_upload.png'
@@ -38,16 +39,19 @@ const ButtonShowing = ({ onRecord }) => {
 }
 
 export const SpeechRecognition = ({ onRecord }) => {
+  let location = useLocation()
   const textRedux = useSelector(state => state.recognitionReducer.text)
   console.log(textRedux)
   const [text, setText] = useState(textRedux)
 
-  // useEffect(() => {
-  //   // setText(textRedux)
-  // }, [textRedux])
+  useEffect(() => {
+    if (location.state && location.state.scroll) {
+      document.getElementById('asr-demo').scrollIntoView() 
+    }
+  }, [])
 
   return (
-    <section className=''>
+    <section id='asr-demo'>
       <div className='margin-bottom-large'>
         <h1 className='application__heading text-center margin-bottom-medium advantage__heading'>
           Trải nghiệm
@@ -55,8 +59,8 @@ export const SpeechRecognition = ({ onRecord }) => {
         <Wrapper className='container'>
           <Row className='row'>
             <Col className='col-lg-12 margin-bottom-medium main_so1'>
+              <ButtonShowing onRecord={onRecord} />
               <div className='button-controller solution_1'>
-                <ButtonShowing onRecord={onRecord} />
                 {/* <Button
                   text='Tải lên'
                   icon={iconUpload}

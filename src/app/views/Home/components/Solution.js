@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import Button from '../../../Shared/components/Button/Button'
 
+import enviroments from '../../../../environments'
+
 import Icon from '../../../assets/ic_wave.png'
 import solution_image from '../../../assets/Layer.png'
 import Girl from '../../../assets/support-asia-girl.png'
@@ -39,7 +41,7 @@ export const Solution = ({ image, title, description, id = 1 }) => {
               <div className='homepage-solution__btn-group'>
                 <button
                   className='btn btn--green'
-                  onClick={() => history.push('/solution1.html')}
+                  onClick={() => history.push(enviroments.linkToASR)}
                 >
                   Xem chi tiết
                 </button>
@@ -48,7 +50,12 @@ export const Solution = ({ image, title, description, id = 1 }) => {
                   icon={Icon}
                   text='Demo giải pháp'
                   className='btn--yellow homepage-button'
-                  onClick={() => history.push('/solution1.html')}
+                  onClick={() => history.push({
+                    pathname: `${enviroments.linkToASR}`,
+                    state: {
+                      scroll: true
+                    }
+                  })}
                 />
               </div>
             </div>

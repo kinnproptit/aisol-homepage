@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 
+import enviroments from '../../../../environments'
+
 import { useState } from '../../../../packages/core'
 import { PreloaderContext } from '../../../Preloader'
 import { SpeechSynthesis } from './SpeechSynthesis'

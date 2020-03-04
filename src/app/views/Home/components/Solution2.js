@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
+import enviroments from '../../../../environments'
 import Button from '../../../Shared/components/Button/Button'
 
 import Icon from '../../../assets/ic_wave.png'
@@ -49,7 +50,7 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
               <div className='homepage-solution__btn-group'>
                 <button
                   className='btn btn--green'
-                  onClick={() => history.push('/solution2.html')}
+                  onClick={() => history.push(enviroments.linkToTTS)}
                 >
                   Xem chi tiết
                 </button>
@@ -58,7 +59,12 @@ export const Solution2 = ({ image, title, description, id = 2 }) => {
                   icon={Icon}
                   text='Demo giải pháp'
                   className='btn btn--red homepage-button-2'
-                  onClick={() => history.push('/solution2.html')}
+                  onClick={() => history.push({
+                    pathname: `${enviroments.linkToTTS}`,
+                    state: {
+                      scroll: true
+                    }
+                  })}
                 />
               </div>
             </div>
