@@ -39,7 +39,7 @@ const ButtonShowing = ({ onRecord }) => {
 
 export const SpeechRecognition = ({ onRecord }) => {
   const textRedux = useSelector(state => state.recognitionReducer.text)
-
+  console.log(textRedux)
   const [text, setText] = useState(textRedux)
 
   // useEffect(() => {
@@ -84,7 +84,7 @@ export const SpeechRecognition = ({ onRecord }) => {
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <DangerousHTML htmlString={textRedux} />
+                  {/* <DangerousHTML htmlString={textRedux} /> */}
                 </div>
               </Col>
             </Col>

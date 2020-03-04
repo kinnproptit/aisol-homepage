@@ -8,6 +8,8 @@ import axios from 'axios'
 
 import { Slider } from 'antd'
 
+import enviroments from '../../../../environments'
+
 import DownloadIcon from '../../../assets/download.svg'
 import PlayIcon from '../../../assets/play.svg'
 import StopIcon from '../../../assets/stop.svg'
@@ -41,7 +43,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
         voiceId,
         token
       }),
-      url: 'http://103.74.122.136:8086/api/v1/path'
+      url: enviroments.apiPostTTS
     }
     const audio = await axios(options)
     if (audio.data.status === 0) {

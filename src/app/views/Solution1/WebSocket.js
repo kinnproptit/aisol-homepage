@@ -2,13 +2,15 @@ import React, { Fragment, useEffect, useState } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 import * as Actions from '../../redux/action-creators/recognition'
+
+import enviroments from '../../../environments'
 import { SpeechRecognition } from './SpeechRecognition'
 
 const print = console.log
 const SILENT_THRESHOLD = 1000
 const SILENT_DURATION = 10
 
-const API_URL = 'ws://103.74.122.136/asr/stream/socket/16k/client/ws/speech'
+const API_URL = enviroments.socketASR
 
 let isConnected = false
 let result = null // xâu text đang nhận dạng
@@ -57,7 +59,8 @@ const TestSocket = () => {
   websocket.onmessage = evt => {
     const message = JSON.parse(evt.data)
     // dispatch(Actions.updateText(message.result.hypotheses[0].transcript_normed))
-    dispatch(Actions.updateText(processJsonResponse(message)))
+    // dispatch(Actions.updateText(processJsonResponse(message)))
+    dispatch(Actions.updateText(message))
     // console.log(message)
   }
 

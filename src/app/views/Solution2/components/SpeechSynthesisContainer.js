@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState as defaultState } from 'react'
 import axios from 'axios'
 import qs from 'qs'
 
+import enviroments from '../../../../environments'
 import { useState } from '../../../../packages/core'
 
 import { LoadingIndicator } from '../../../../packages/ui'
@@ -16,7 +17,6 @@ export const SpeechSynthesisContainer = () => {
     loading: true,
     voiceId: mp3data[0].id || null,
     text: 'Chưa có nội dung',
-    token: 'McTUDABy8FZYbKwC00OTIweLZwYWgy55'
   }
 
   const [state, setState] = useState(initialStates)
@@ -29,9 +29,9 @@ export const SpeechSynthesisContainer = () => {
       data: qs.stringify({
         text,
         voiceId,
-        token
+        token: enviroments.token
       }),
-      url: 'http://103.74.122.136:8086/api/v1/path'
+      url: enviroments.apiPostTTS
     }
     const audio = await axios(options)
 
