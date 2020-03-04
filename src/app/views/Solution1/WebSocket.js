@@ -233,38 +233,3 @@ const convertFloat32ToInt16 = float32ArrayData => {
   }
   return int16ArrayData
 }
-
-const processJsonResponse = resp => {
-  if (resp.status == 0 && resp.result && resp.result.hypotheses.length > 0) {
-    //console.log(resp);
-    // Shorthand of conditional operator
-    let transcript =
-      resp.result.hypotheses[0].transcript_normed ||
-      resp.result.hypotheses[0].transcript
-    let text = transcript // decodeURI(
-    //console.log(text);
-
-    // Không nhận dạng được
-    if (text == '<unk>.') {
-      return
-    }
-
-    if (text.endsWith('.')) {
-      // Xóa ký tự cuối cùng của xâu
-      text = text.slice(0, -1)
-    }
-
-    if (resp.result.final) {
-      // Đã nhận dạng xong, lưu kết quả
-      result = '<span>' + text + '. </span>'
-      // displayText(result);
-      // result += text + '.'
-    } else {
-      // Vẫn đang nhận dạng
-      // displayText(result + '<span class="temp">' + text + '</span>');
-      result = '<span class="temp">' + text + '</span>'
-    }
-
-    return result
-  }
-}
