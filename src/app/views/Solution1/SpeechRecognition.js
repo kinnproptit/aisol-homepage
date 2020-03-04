@@ -11,7 +11,6 @@ import Button from '../../Shared/components/Button/Button'
 import ButtonOutline from '../../Shared/components/Button/ButtonOutline'
 
 const createMarkup = htmlString => {
-  console.log(htmlString)
   return { __html: htmlString }
 }
 
@@ -24,9 +23,22 @@ const DangerousHTML = ({ htmlString }) => {
   )
 }
 
+const ButtonShowing = ({ onRecord }) => {
+  const connectedWs = useSelector(state => state.recognitionReducer.connectedWs)
+  return (
+    <Button
+      text='Ghi âm'
+      icon={iconRecord}
+      className={connectedWs ? 'btn--red' : 'btn--green'}
+      textCustom='text_green margin-left'
+      buttonCustom='button_green'
+      onClick={onRecord}
+    />
+  )
+}
+
 export const SpeechRecognition = ({ onRecord }) => {
-  const recogRedux = useSelector(state => state.recognitionReducer)
-  const { text, connectedWs } = recogRedux
+  const textRedux = useSelector(state => state.recognitionReducer.text)
 
   return (
     <section className=''>
@@ -38,14 +50,7 @@ export const SpeechRecognition = ({ onRecord }) => {
           <Row className='row'>
             <Col className='col-lg-12 margin-bottom-medium main_so1'>
               <div className='button-controller solution_1'>
-                <Button
-                  text='Ghi âm'
-                  icon={iconRecord}
-                  className={connectedWs ? 'btn--red' : 'btn--green'}
-                  textCustom='text_green margin-left'
-                  buttonCustom='button_green'
-                  onClick={onRecord}
-                />
+                <ButtonShowing onRecord={onRecord} />
                 {/* <Button
                   text='Tải lên'
                   icon={iconUpload}
@@ -73,7 +78,7 @@ export const SpeechRecognition = ({ onRecord }) => {
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <DangerousHTML htmlString={text} />
+                  <DangerousHTML htmlString={textRedux} />
                 </div>
               </Col>
             </Col>
