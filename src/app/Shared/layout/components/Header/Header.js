@@ -50,7 +50,7 @@ const Header = () => {
     )
   }
 
-  let { pathname } = useLocation()
+  let { pathname, location } = useLocation()
   let history = useHistory()
 
   const handleLink = link => {
@@ -70,6 +70,10 @@ const Header = () => {
         .html(img + ' ' + selText + ' <span class="caret"></span>')
     })
   })
+
+  useEffect(() => {
+    document.querySelector('section').scrollIntoView()
+  }, [])
 
   const showingCarousel = pathname => {
     switch (pathname) {
@@ -122,7 +126,7 @@ const Header = () => {
             title='Liên hệ với AISOL'
             content='Liên hệ với Chúng tôi để được hỗ trợ và trải nghiệm các sản phẩm - giải pháp tốt nhất tại thị trường Việt Nam ngày nay'
             image={LienHeBanner}
-            image2={ LienHe_mbBanner}
+            image2={LienHe_mbBanner}
             classNameImg1='con_pc'
             classNameImg2='con_mb'
           />
@@ -164,15 +168,17 @@ const Header = () => {
                 <DropdownMenu
                   isLink
                   options={[
-                    { to: environments.linkToASR, content: 'Nhận dạng tiếng nói' },
-                    { to: environments.linkToTTS, content: 'Tổng hợp tiếng nói' }
+                    {
+                      to: environments.linkToASR,
+                      content: 'Nhận dạng tiếng nói'
+                    },
+                    {
+                      to: environments.linkToTTS,
+                      content: 'Tổng hợp tiếng nói'
+                    }
                   ]}
                 >
-                  <Link
-                    className='nav__link'
-                  >
-                    Giải pháp
-                  </Link>
+                  <Link className='nav__link'>Giải pháp</Link>
                 </DropdownMenu>
                 {/* Giải pháp */}
               </li>
