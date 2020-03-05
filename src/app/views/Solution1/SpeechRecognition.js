@@ -47,7 +47,6 @@ export const SpeechRecognition = ({ onRecord }) => {
   const [runningText, setRunningText] = useState(
     'Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa dạng vùng miền, dễ dàng tích hợp với mọi hệ thống'
   )
-  const [isFinalState, setIsFinalState] = useState(false)
 
   useEffect(() => {
     if (location.state && location.state.scroll) {
@@ -55,11 +54,11 @@ export const SpeechRecognition = ({ onRecord }) => {
     }
   }, [])
 
-  useEffect(() => {
-    if (textRedux && textRedux.result) {
-      setIsFinalState(textRedux.result.final)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (textRedux && textRedux.result) {
+  //     setIsFinalState(textRedux.result.final)
+  //   }
+  // }, [])
 
   useEffect(() => {
     if (textRedux) {
@@ -94,13 +93,13 @@ export const SpeechRecognition = ({ onRecord }) => {
         cache_text = cache_text.slice(0, -1)
       }
       if (message.result.final) {
-        clone_text += clone_running_text + ' '
+        clone_text += clone_running_text + '. '
+        clone_running_text = ''
       } else {
         clone_running_text = cache_text
       }
     }
 
-    setIsFinalState(message.result && message.result.final)
     setText(clone_text)
     setRunningText(clone_running_text)
   }
@@ -144,7 +143,7 @@ export const SpeechRecognition = ({ onRecord }) => {
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <DangerousHTML htmlString={text} />
+                  <DangerousHTML htmlString={text + '<span class="temp">' + runningText + '</span>'} />
                 </div>
               </Col>
             </Col>
