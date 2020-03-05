@@ -66,7 +66,6 @@ export const SpeechRecognition = ({ onRecord }) => {
     }
   }, [textRedux])
 
-  console.log(textRedux)
   const onChangeText = message => {
     let clone_text = text
     let clone_running_text = runningText

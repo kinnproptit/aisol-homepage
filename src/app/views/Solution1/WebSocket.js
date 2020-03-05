@@ -160,51 +160,55 @@ export const SocketRecognation = () => {
       }
       // if(isStop)
 
-      navigator.mediaDevices
-        .getUserMedia({ audio: true })
-        .then(stream => {
-          let audioInput = audioContext.createMediaStreamSource(stream)
-          let bufferSize = 2048
-          recorder = audioContext.createScriptProcessor(bufferSize, 1, 1)
+      try {
+        navigator.mediaDevices
+          .getUserMedia({ audio: true })
+          .then(stream => {
+            let audioInput = audioContext.createMediaStreamSource(stream)
+            let bufferSize = 2048
+            recorder = audioContext.createScriptProcessor(bufferSize, 1, 1)
 
-          // Xử lý dữ liệu audio
-          recorder.onaudioprocess = e => {
-            if (!isStop) {
-              // Nếu mà không nói lâu quá thì cũng dừng lại
-              //if (countSilentDuration > SILENT_DURATION) {
-              //    closeWS();
-              //    stop();
-              //    countSilentDuration = 0;
-              //    return;
-              //}
+            // Xử lý dữ liệu audio
+            recorder.onaudioprocess = e => {
+              if (!isStop) {
+                // Nếu mà không nói lâu quá thì cũng dừng lại
+                //if (countSilentDuration > SILENT_DURATION) {
+                //    closeWS();
+                //    stop();
+                //    countSilentDuration = 0;
+                //    return;
+                //}
 
-              buffer = e.inputBuffer.getChannelData(0)
-              drawBuffer(buffer)
-              let int16ArrayData = convertFloat32ToInt16(buffer)
-              countSilentDuration +=
-                int16ArrayData.length / audioContext.sampleRate
-              for (let i = 0; i < int16ArrayData.length; i++) {
-                if (Math.abs(int16ArrayData[i]) > SILENT_THRESHOLD) {
-                  countSilentDuration = 0
-                  break
+                buffer = e.inputBuffer.getChannelData(0)
+                drawBuffer(buffer)
+                let int16ArrayData = convertFloat32ToInt16(buffer)
+                countSilentDuration +=
+                  int16ArrayData.length / audioContext.sampleRate
+                for (let i = 0; i < int16ArrayData.length; i++) {
+                  if (Math.abs(int16ArrayData[i]) > SILENT_THRESHOLD) {
+                    countSilentDuration = 0
+                    break
+                  }
                 }
+
+                // Gửi dữ liệu lên server
+                // print(int16ArrayData)
+                // ws.send(int16ArrayData.buffer)
+                // console.log("Audio data", int16ArrayData.buffer)
+                dispatch(Actions.updateAudioData(int16ArrayData.buffer))
               }
-
-              // Gửi dữ liệu lên server
-              // print(int16ArrayData)
-              // ws.send(int16ArrayData.buffer)
-              // console.log("Audio data", int16ArrayData.buffer)
-              dispatch(Actions.updateAudioData(int16ArrayData.buffer))
             }
-          }
 
-          audioInput.connect(recorder)
-          recorder.connect(audioContext.destination)
-        })
-        .catch(e => {
-          console.log('Error when getUserMedia')
-          console.log(e)
-        })
+            audioInput.connect(recorder)
+            recorder.connect(audioContext.destination)
+          })
+          .catch(e => {
+            console.log('Error when getUserMedia')
+            console.log(e)
+          })
+      } catch (e) {
+        console.log('Error when getUserMedia')
+      }
     }
 
     // Đánh dấu đang chạy
