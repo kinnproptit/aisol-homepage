@@ -27,7 +27,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   const [playStatus, setPlayStatus] = useState(Sound.status.PLAYING)
   const [position, setPosition] = useState(0)
   const [soundComp, setSoundComp] = useState(null)
-  const [text, setText] = useState('')
+  const [text, setText] = useState('Bạn hãy nhập nội dung để trải nghiệm thử giọng đọc của mình nhé')
   const [playing, setPlaying] = useState(false)
   const [onFetch, setOnFetch] = useState(true)
   const [duration, setDuration] = useState(null)
@@ -55,13 +55,17 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   }, [])
 
   const onFetchPlayButton = async () => {
-    if (text === '') {
-      alert('Vui lòng nhập nội dung')
-    } else {
-      setPlaying(!playing)
-      await fetchData()
-      setPlayStatus(Sound.status.PLAYING)
-    }
+    // if (text === '') {
+    //   alert('Vui lòng nhập nội dung')
+    // } else {
+    //   setPlaying(!playing)
+    //   await fetchData()
+    //   setPlayStatus(Sound.status.PLAYING)
+    // }
+    setPlaying(!playing)
+    // setPlaying(true)
+    await fetchData()
+    setPlayStatus(Sound.status.PLAYING)
   }
 
   const onClickPlayButton = () => {

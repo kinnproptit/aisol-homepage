@@ -11,7 +11,6 @@ export const SpeechSynthesisContainer = () => {
 
   const initialStates = {
     voiceId: mp3data[0].id || null,
-    text: 'Chưa có nội dung',
     token: enviroments.token
   }
 
