@@ -24,7 +24,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   const audioRedux = useSelector(state => state.audioReducer)
 
   const [audioUrl, setAudio] = useState('')
-  const [playStatus, setPlayStatus] = useState(Sound.status.PLAYING)
+  const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED)
   const [position, setPosition] = useState(0)
   const [soundComp, setSoundComp] = useState(null)
   const [text, setText] = useState('Bạn hãy nhập nội dung để trải nghiệm thử giọng đọc của mình nhé')
