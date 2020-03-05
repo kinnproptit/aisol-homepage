@@ -33,7 +33,7 @@ const SendDataComponent = () => {
 }
 
 const TestSocket = () => {
-  console.log('TestSocket rendered')
+  // console.log('TestSocket rendered')
   const dispatch = useDispatch()
   // const textRedux = useSelector(state => state.recognitionReducer.text)
   // if (ws !== null) return null
@@ -65,8 +65,9 @@ const TestSocket = () => {
   }
 
   websocket.onclose = () => {
-    // console.log('Websocket closed')
-    // stop()
+    console.log('Websocket closed')
+    stop()
+    dispatch(Actions.switchButton(true))
   }
   return <SendDataComponent />
 }
@@ -143,14 +144,15 @@ export const SocketRecognation = () => {
       // close websocket before stop
       dispatch(Actions.updateAudioData('EOS'))
     }
+    dispatch(Actions.switchButton(true))
     dispatch(Actions.updateConnectedWS(!connectedWs))
 
     // Nếu đang xử lý thì dừng lại
-    // if (!isStop) {
-    //   closeWS()
-    //   stop()
-    //   return
-    // }
+    if (!isStop) {
+      closeWS()
+      stop()
+      return
+    }
     // console.log('Record func called')
     // Khởi tạo audioContext
     if (!audioContext) {

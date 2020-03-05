@@ -31,3 +31,11 @@ export const updateText = payload => {
       payload
     })
 }
+
+export const switchButton = payload => {
+  return dispatch => 
+    dispatch({
+      type: Actions.SWITCH_BUTTON,
+      payload
+    })
+}

@@ -25,13 +25,19 @@ const DangerousHTML = ({ htmlString }) => {
 }
 
 const ButtonShowing = ({ onRecord }) => {
-  const connectedWs = useSelector(state => state.recognitionReducer.connectedWs)
+  const recognitionRedux = useSelector(state => state.recognitionReducer)
+  const { onSocket, connectedWs } = recognitionRedux
+
   return (
     <div className='button-fixes'>
       <Button
         text='Ghi âm'
         icon={iconRecord}
-        className={connectedWs ? 'btn--red green_so1' : 'btn--green green_so1' }
+        className={
+          connectedWs && onSocket
+            ? 'btn--red green_so1'
+            : 'btn--green green_so1'
+        }
         textCustom='text_green margin-left'
         buttonCustom='button_green'
         onClick={onRecord}
@@ -97,6 +103,8 @@ export const SpeechRecognition = ({ onRecord }) => {
       } else {
         clone_running_text = cache_text
       }
+    } else if (message.status == 9) {
+      alert('Không có tài nguyên')
     }
 
     setText(clone_text)
@@ -114,7 +122,7 @@ export const SpeechRecognition = ({ onRecord }) => {
             {/* <ButtonShowing onRecord={onRecord} /> */}
             <Col className='col-lg-12 margin-bottom-medium main_so1'>
               <div className='button-controller solution_1'>
-              <ButtonShowing onRecord={onRecord} />
+                <ButtonShowing onRecord={onRecord} />
                 {/* <Button
                   text='Tải lên'
                   icon={iconUpload}
@@ -142,7 +150,11 @@ export const SpeechRecognition = ({ onRecord }) => {
               </div>
               <Col>
                 <div className='ux1-description-container'>
-                  <DangerousHTML htmlString={text + '<span class="temp">' + runningText + '</span>'} />
+                  <DangerousHTML
+                    htmlString={
+                      text + '<span class="temp">' + runningText + '</span>'
+                    }
+                  />
                 </div>
               </Col>
             </Col>

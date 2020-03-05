@@ -4,7 +4,8 @@ const initialState = {
   ws: null,
   audioData: null,
   connectedWs: null,
-  text: null
+  text: null,
+  onSocket: false
 }
 
 const recognitionReducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const recognitionReducer = (state = initialState, action) => {
       return {
         ...state,
         text: action.payload
+      }
+    case Actions.SWITCH_BUTTON: 
+      return {
+        ...state,
+        onSocket: !state.onSocket
       }
     default:
       return state
