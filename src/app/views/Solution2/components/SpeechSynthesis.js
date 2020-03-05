@@ -20,17 +20,17 @@ import Button from '../../../Shared/components/Button/Button'
 import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
 
 export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
-  const dispatch = useDispatch()
-  const audioRedux = useSelector(state => state.audioReducer)
-
   const [audioUrl, setAudio] = useState('')
   const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED)
   const [position, setPosition] = useState(0)
   const [soundComp, setSoundComp] = useState(null)
-  const [text, setText] = useState('Bạn hãy nhập nội dung để trải nghiệm thử giọng đọc của mình nhé')
+  const [text, setText] = useState(
+    'Bạn hãy nhập nội dung để trải nghiệm thử giọng đọc của mình nhé'
+  )
   const [playing, setPlaying] = useState(false)
   const [onFetch, setOnFetch] = useState(true)
   const [duration, setDuration] = useState(null)
+  const [blobUrl, setBlobUrl] = useState(null)
 
   const fetchData = async () => {
     const { voiceId, token } = state
@@ -53,6 +53,17 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   useEffect(() => {
     fetchData()
   }, [])
+
+  const downloadFile = (filename, url) => {
+    fetch(url).then(t => {
+      return t.blob().then(b => {
+        var a = document.createElement('a')
+        a.href = URL.createObjectURL(b)
+        a.setAttribute('download', filename)
+        a.click()
+      })
+    })
+  }
 
   const onFetchPlayButton = async () => {
     // if (text === '') {
@@ -163,7 +174,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
               </div>
               <div className='col-lg-4 top_ma'>
                 <StyledButton
-                  to={audioUrl}
+                  // to={audioUrl}
                   text='Tải xuống'
                   icon={DownloadIcon}
                   className='btn--red'
@@ -171,6 +182,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   buttonCustom='button_red'
                   textCustom='text_red'
                   className=' btn--red red'
+                  onClick={() => downloadFile('aisol-vn-tts.mp3', audioUrl)}
                 />
               </div>
             </PlayerContainer>

@@ -10,8 +10,7 @@ const Button = ({
   isMarginLeft = false,
   buttonCustom,
   textCustom,
-  onClick,
-  to = false
+  onClick
 }) => {
   const InsideButton = () => {
     return (
@@ -22,17 +21,7 @@ const Button = ({
     )
   }
 
-  return to ? (
-    <a href={to}>
-      <Wrapper
-        className={`btn ${className}`}
-        isMarginLeft={isMarginLeft}
-        onClick={onClick}
-      >
-        <InsideButton />
-      </Wrapper>
-    </a>
-  ) : (
+  return (
     <Wrapper
       className={`btn ${className}`}
       isMarginLeft={isMarginLeft}
