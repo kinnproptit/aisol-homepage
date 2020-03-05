@@ -107,7 +107,7 @@ const ItemLabel = styled.h2`
   margin-top: 4rem;
   color: #a0feea;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 20px;
 `
 
 const List = styled.ul``

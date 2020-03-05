@@ -189,7 +189,6 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
           </FlexContent>
         </Wrapper>
       </div>
-      s
     </section>
   )
 }
