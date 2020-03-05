@@ -40,7 +40,8 @@ export const Solution1 = () => {
       image: Ad2,
       title: 'Chịu tải cao',
       content:
-        'Có thể đáp ứng tải lên tới hàng nghìn audio đầu vào tại cùng 1 thời điểm'
+        'Có thể đáp ứng tải lên tới hàng nghìn audio đầu vào tại cùng 1 thời điểm',
+      customClass: 'mg-top-17'
     },
     {
       image: Ad3,

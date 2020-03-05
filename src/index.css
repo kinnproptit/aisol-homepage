@@ -1311,3 +1311,7 @@ body {
 .button-fixes {
   margin: 0 auto !important;
 }
+
+.mg-top-17 {
+  margin-top: -17px;
+}
