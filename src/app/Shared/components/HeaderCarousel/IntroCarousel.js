@@ -5,6 +5,7 @@ import Carousel from 'react-bootstrap/Carousel'
 
 import Slide from '../../../assets/homepage_banner.png'
 import Slidee from '../../../assets/00.png'
+
 export const IntroCarousel = () => {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState(null)
@@ -21,21 +22,21 @@ export const IntroCarousel = () => {
       subtitle: 'Giải pháp trí tuệ nhân tạo cho Việt Nam',
       content:
         'Cung cấp giải pháp thông minh cho các doanh nghiệp trong thời kỳ chuyển đổi sổ Tập hợp các giải pháp và sản phẩm trí tuệ nhân tạo được phát triển bởi các chuyên gia hàng đầu Việt Nam'
-    },
-    {
-      image: Slide,
-      title: 'Vietnam AI Solutions',
-      subtitle: 'Giải pháp trí tuệ nhân tạo cho Việt Nam',
-      content:
-        'Cung cấp giải pháp thông minh cho các doanh nghiệp trong thời kỳ chuyển đổi sổ Tập hợp các giải pháp và sản phẩm trí tuệ nhân tạo được phát triển bởi các chuyên gia hàng đầu Việt Nam'
-    },
-    {
-      image: Slide,
-      title: 'Vietnam AI Solutions',
-      subtitle: 'Giải pháp trí tuệ nhân tạo cho Việt Nam',
-      content:
-        'Cung cấp giải pháp thông minh cho các doanh nghiệp trong thời kỳ chuyển đổi sổ Tập hợp các giải pháp và sản phẩm trí tuệ nhân tạo được phát triển bởi các chuyên gia hàng đầu Việt Nam'
     }
+    // {
+    //   image: Slide,
+    //   title: 'Vietnam AI Solutions',
+    //   subtitle: 'Giải pháp trí tuệ nhân tạo cho Việt Nam',
+    //   content:
+    //     'Cung cấp giải pháp thông minh cho các doanh nghiệp trong thời kỳ chuyển đổi sổ Tập hợp các giải pháp và sản phẩm trí tuệ nhân tạo được phát triển bởi các chuyên gia hàng đầu Việt Nam'
+    // },
+    // {
+    //   image: Slide,
+    //   title: 'Vietnam AI Solutions',
+    //   subtitle: 'Giải pháp trí tuệ nhân tạo cho Việt Nam',
+    //   content:
+    //     'Cung cấp giải pháp thông minh cho các doanh nghiệp trong thời kỳ chuyển đổi sổ Tập hợp các giải pháp và sản phẩm trí tuệ nhân tạo được phát triển bởi các chuyên gia hàng đầu Việt Nam'
+    // }
   ]
 
   return (
@@ -55,7 +56,9 @@ export const IntroCarousel = () => {
                 <Title className='heading-big margin-bottom-small home-carousel__heading'>
                   {title}
                 </Title>
-                <SubTitle className='text-white intro-subtitle'>{subtitle}</SubTitle>
+                <SubTitle className='text-white intro-subtitle'>
+                  {subtitle}
+                </SubTitle>
                 <h3 className='text-white home-carousel__description margin-bottom-small intro-description'>
                   {content}
                 </h3>
@@ -75,5 +78,4 @@ const Title = styled.h1`
 const SubTitle = styled.h2`
   font-weight: 700;
   font-style: italic;
-
 `

@@ -31,13 +31,9 @@ const ButtonShowing = ({ onRecord }) => {
   return (
     <div className='button-fixes'>
       <Button
-        text='Ghi âm'
+        text={onSocket ? 'Dừng lại' : 'Ghi âm'}
         icon={iconRecord}
-        className={
-          connectedWs && onSocket
-            ? 'btn--red green_so1'
-            : 'btn--green green_so1'
-        }
+        className={onSocket ? 'btn--red green_so1' : 'btn--green green_so1'}
         textCustom='text_green margin-left'
         buttonCustom='button_green'
         onClick={onRecord}
@@ -104,7 +100,7 @@ export const SpeechRecognition = ({ onRecord }) => {
         clone_running_text = cache_text
       }
     } else if (message.status == 9) {
-      alert('Không có tài nguyên')
+      // alert('Không có tài nguyên')
     }
 
     setText(clone_text)

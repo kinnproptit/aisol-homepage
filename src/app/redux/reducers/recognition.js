@@ -33,7 +33,7 @@ const recognitionReducer = (state = initialState, action) => {
     case Actions.SWITCH_BUTTON: 
       return {
         ...state,
-        onSocket: !state.onSocket
+        onSocket: action.payload
       }
     default:
       return state

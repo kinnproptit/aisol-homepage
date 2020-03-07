@@ -60,14 +60,19 @@ const TestSocket = () => {
     const message = JSON.parse(evt.data)
     // dispatch(Actions.updateText(message.result.hypotheses[0].transcript_normed))
     // dispatch(Actions.updateText(processJsonResponse(message)))
-    dispatch(Actions.updateText(message))
+    // if (message.status == 0){
+      dispatch(Actions.updateText(message))
+    // } else {
+    //   console.log('no decoder')
+    //   websocket.send('EOS')
+    //   // websocket = null
+    // }
     // console.log(message)
   }
 
   websocket.onclose = () => {
-    console.log('Websocket closed')
-    stop()
-    dispatch(Actions.switchButton(true))
+    // console.log('Websocket closed')
+    dispatch(Actions.switchButton(false))
   }
   return <SendDataComponent />
 }
@@ -75,35 +80,9 @@ const TestSocket = () => {
 export const SocketRecognation = () => {
   // console.log("SocketRecognation render")
   const dispatch = useDispatch()
-  // const audioRedux = useSelector(state => state.recognitionReducer.audioData)
-  const [ws, setWs] = useState(null)
-  const [connectWs, setConnectWs] = useState(false)
-  // useEffect(() => {
-  //   console.log(ws)
-  // }, [ws])
   const [state, setState] = useState({
     token: 'k-P-k03vy7MgQ0iV8ItD5oLrjh7CigLWMR1oCeP5QMGs461nNu07k-VzENKNQW-c'
   })
-
-  /**
-   * Dừng record audio.
-   */
-  const stop = () => {
-    // Đánh dấu dừng
-    isStop = true
-
-    // $('#plain-text').scrollTop($('#plain-text')[0].scrollHeight)
-    // clearCanvas()
-  }
-
-  /**
-   * Đóng web socket.
-   */
-  const closeWS = () => {
-    if (ws && ws.readyState == ws.OPEN) {
-      ws.send('EOS')
-    }
-  }
 
   const drawBuffer = data => {
     // var canvas = document.getElementById("canvas");
@@ -138,21 +117,21 @@ export const SocketRecognation = () => {
     // context.stroke();
   }
 
-  const record = connectedWs => {
+  const record = (connectedWs, switchButton) => {
     // console.log('click record')
     if (connectedWs) {
       // close websocket before stop
       dispatch(Actions.updateAudioData('EOS'))
     }
-    dispatch(Actions.switchButton(true))
+    dispatch(Actions.switchButton(!switchButton))
     dispatch(Actions.updateConnectedWS(!connectedWs))
 
     // Nếu đang xử lý thì dừng lại
-    if (!isStop) {
-      closeWS()
-      stop()
-      return
-    }
+    // if (!isStop) {
+    //   closeWS()
+    //   stop()
+    //   return
+    // }
     // console.log('Record func called')
     // Khởi tạo audioContext
     if (!audioContext) {
@@ -213,20 +192,15 @@ export const SocketRecognation = () => {
       }
     }
 
-    // Đánh dấu đang chạy
-    isStop = false
-    if (!connectWs) {
-      setConnectWs(true)
-    }
-
     return null
   }
 
-  const connectedWs = useSelector(state => state.recognitionReducer.connectedWs)
+  const recognitionRedux = useSelector(state => state.recognitionReducer)
+  const { connectedWs, onSocket } = recognitionRedux
   return (
     <Fragment>
       {connectedWs && <TestSocket />}
-      <SpeechRecognition onRecord={() => record(connectedWs)} />
+      <SpeechRecognition onRecord={() => record(connectedWs, onSocket)} />
     </Fragment>
   )
 }

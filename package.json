@@ -35,8 +35,7 @@
     "redux-axios-middleware": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.0.1",
-    "waypoints": "^4.0.1"
+    "styled-components": "^5.0.1"
   },
   "homepage": ".",
   "scripts": {

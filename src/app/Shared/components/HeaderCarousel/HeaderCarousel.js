@@ -4,8 +4,6 @@ import { useHistory } from 'react-router-dom'
 
 import Button from '../Button/Button'
 
-import Slide from '../../../assets/homepage_banner.svg'
-
 export const HeaderCarousel = ({
   title,
   content,
@@ -26,12 +24,12 @@ export const HeaderCarousel = ({
       <Wrapper>
         <img
           className={`${classNameImg1} d-block`}
-          src={image || Slide}
+          src={image}
           alt='First slide'
         />
         <img
           className={`${classNameImg2} d-none`}
-          src={image2 || Slide}
+          src={image2}
           alt='First slide'
         />
         <div className=' home-carousel__item home-banner-carousel'>

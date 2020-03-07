@@ -23,7 +23,7 @@ export const Footer = () => {
                 </Item>
                 <Item noSpace>
                   <Span className='footer-primary-color'>Điện thoại:</Span>{' '}
-                  <Span>0912.345.678</Span>
+                  <Span>0966.688.883 | 0948.860.868</Span>
                 </Item>
                 <Item>
                   <Span className='footer-primary-color'>Email:</Span>{' '}
