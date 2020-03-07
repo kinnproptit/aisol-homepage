@@ -47,7 +47,7 @@ export const SpeechRecognition = ({ onRecord }) => {
   const textRedux = useSelector(state => state.recognitionReducer.text)
   const [text, setText] = useState('')
   const [runningText, setRunningText] = useState(
-    'Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt giúp doanh nghiệp tự động hóa quá trình cung cấp sản phẩm dịch vụ, nâng cao hiệu quả hoạt động sản xuất kinh doanh. Giọng đọc nhân tạo Voice AI có ngữ điệu tự nhiên, đa dạng vùng miền, dễ dàng tích hợp với mọi hệ thống'
+    'Hãy nhấn Ghi âm để bắt đầu trải nghiệm chuyển đổi giọng nói thành văn bản'
   )
 
   useEffect(() => {

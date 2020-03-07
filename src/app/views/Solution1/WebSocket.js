@@ -64,6 +64,7 @@ const TestSocket = () => {
       dispatch(Actions.updateText(message))
     } else {
       alert('Lỗi không tìm thấy mic')
+      dispatch(Actions.updateConnectedWS(false))
     }
     // console.log(message)
   }
@@ -212,6 +213,7 @@ export const SocketRecognation = () => {
           })
       } else {
         alert('Lỗi không tìm thấy mic')
+        dispatch(Actions.updateConnectedWS(false))
       }
     }
 
