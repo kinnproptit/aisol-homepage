@@ -33,7 +33,7 @@ const SendDataComponent = () => {
 }
 
 const TestSocket = () => {
-  // console.log('TestSocket rendered')
+  console.log('TestSocket rendered')
   const dispatch = useDispatch()
   // const textRedux = useSelector(state => state.recognitionReducer.text)
   // if (ws !== null) return null
@@ -60,19 +60,14 @@ const TestSocket = () => {
     const message = JSON.parse(evt.data)
     // dispatch(Actions.updateText(message.result.hypotheses[0].transcript_normed))
     // dispatch(Actions.updateText(processJsonResponse(message)))
-    // if (message.status == 0){
-      dispatch(Actions.updateText(message))
-    // } else {
-    //   console.log('no decoder')
-    //   websocket.send('EOS')
-    //   // websocket = null
-    // }
+    dispatch(Actions.updateText(message))
     // console.log(message)
   }
 
   websocket.onclose = () => {
     // console.log('Websocket closed')
-    dispatch(Actions.switchButton(false))
+    // stop()
+    dispatch(Actions.updateConnectedWS(false))
   }
   return <SendDataComponent />
 }
@@ -80,9 +75,35 @@ const TestSocket = () => {
 export const SocketRecognation = () => {
   // console.log("SocketRecognation render")
   const dispatch = useDispatch()
+  // const audioRedux = useSelector(state => state.recognitionReducer.audioData)
+  const [ws, setWs] = useState(null)
+  const [connectWs, setConnectWs] = useState(false)
+  // useEffect(() => {
+  //   console.log(ws)
+  // }, [ws])
   const [state, setState] = useState({
     token: 'k-P-k03vy7MgQ0iV8ItD5oLrjh7CigLWMR1oCeP5QMGs461nNu07k-VzENKNQW-c'
   })
+
+  /**
+   * Dừng record audio.
+   */
+  const stop = () => {
+    // Đánh dấu dừng
+    isStop = true
+
+    // $('#plain-text').scrollTop($('#plain-text')[0].scrollHeight)
+    // clearCanvas()
+  }
+
+  /**
+   * Đóng web socket.
+   */
+  const closeWS = () => {
+    if (ws && ws.readyState == ws.OPEN) {
+      ws.send('EOS')
+    }
+  }
 
   const drawBuffer = data => {
     // var canvas = document.getElementById("canvas");
@@ -117,13 +138,12 @@ export const SocketRecognation = () => {
     // context.stroke();
   }
 
-  const record = (connectedWs, switchButton) => {
+  const record = connectedWs => {
     // console.log('click record')
     if (connectedWs) {
       // close websocket before stop
       dispatch(Actions.updateAudioData('EOS'))
     }
-    dispatch(Actions.switchButton(!switchButton))
     dispatch(Actions.updateConnectedWS(!connectedWs))
 
     // Nếu đang xử lý thì dừng lại
@@ -141,66 +161,67 @@ export const SocketRecognation = () => {
       }
       // if(isStop)
 
-      try {
-        navigator.mediaDevices
-          .getUserMedia({ audio: true })
-          .then(stream => {
-            let audioInput = audioContext.createMediaStreamSource(stream)
-            let bufferSize = 2048
-            recorder = audioContext.createScriptProcessor(bufferSize, 1, 1)
+      navigator.mediaDevices
+        .getUserMedia({ audio: true })
+        .then(stream => {
+          let audioInput = audioContext.createMediaStreamSource(stream)
+          let bufferSize = 2048
+          recorder = audioContext.createScriptProcessor(bufferSize, 1, 1)
 
-            // Xử lý dữ liệu audio
-            recorder.onaudioprocess = e => {
-              if (!isStop) {
-                // Nếu mà không nói lâu quá thì cũng dừng lại
-                //if (countSilentDuration > SILENT_DURATION) {
-                //    closeWS();
-                //    stop();
-                //    countSilentDuration = 0;
-                //    return;
-                //}
+          // Xử lý dữ liệu audio
+          recorder.onaudioprocess = e => {
+            if (!isStop) {
+              // Nếu mà không nói lâu quá thì cũng dừng lại
+              //if (countSilentDuration > SILENT_DURATION) {
+              //    closeWS();
+              //    stop();
+              //    countSilentDuration = 0;
+              //    return;
+              //}
 
-                buffer = e.inputBuffer.getChannelData(0)
-                drawBuffer(buffer)
-                let int16ArrayData = convertFloat32ToInt16(buffer)
-                countSilentDuration +=
-                  int16ArrayData.length / audioContext.sampleRate
-                for (let i = 0; i < int16ArrayData.length; i++) {
-                  if (Math.abs(int16ArrayData[i]) > SILENT_THRESHOLD) {
-                    countSilentDuration = 0
-                    break
-                  }
+              buffer = e.inputBuffer.getChannelData(0)
+              drawBuffer(buffer)
+              let int16ArrayData = convertFloat32ToInt16(buffer)
+              countSilentDuration +=
+                int16ArrayData.length / audioContext.sampleRate
+              for (let i = 0; i < int16ArrayData.length; i++) {
+                if (Math.abs(int16ArrayData[i]) > SILENT_THRESHOLD) {
+                  countSilentDuration = 0
+                  break
                 }
-
-                // Gửi dữ liệu lên server
-                // print(int16ArrayData)
-                // ws.send(int16ArrayData.buffer)
-                // console.log("Audio data", int16ArrayData.buffer)
-                dispatch(Actions.updateAudioData(int16ArrayData.buffer))
               }
-            }
 
-            audioInput.connect(recorder)
-            recorder.connect(audioContext.destination)
-          })
-          .catch(e => {
-            console.log('Error when getUserMedia')
-            console.log(e)
-          })
-      } catch (e) {
-        console.log('Error when getUserMedia')
-      }
+              // Gửi dữ liệu lên server
+              // print(int16ArrayData)
+              // ws.send(int16ArrayData.buffer)
+              // console.log("Audio data", int16ArrayData.buffer)
+              dispatch(Actions.updateAudioData(int16ArrayData.buffer))
+            }
+          }
+
+          audioInput.connect(recorder)
+          recorder.connect(audioContext.destination)
+        })
+        .catch(e => {
+          console.log('Error when getUserMedia')
+          console.log(e)
+        })
+    }
+
+    // Đánh dấu đang chạy
+    isStop = false
+    if (!connectWs) {
+      setConnectWs(true)
     }
 
     return null
   }
 
-  const recognitionRedux = useSelector(state => state.recognitionReducer)
-  const { connectedWs, onSocket } = recognitionRedux
+  const connectedWs = useSelector(state => state.recognitionReducer.connectedWs)
   return (
     <Fragment>
       {connectedWs && <TestSocket />}
-      <SpeechRecognition onRecord={() => record(connectedWs, onSocket)} />
+      <SpeechRecognition onRecord={() => record(connectedWs)} />
     </Fragment>
   )
 }

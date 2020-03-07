@@ -31,9 +31,9 @@ const ButtonShowing = ({ onRecord }) => {
   return (
     <div className='button-fixes'>
       <Button
-        text={onSocket ? 'Dừng lại' : 'Ghi âm'}
+        text={connectedWs ? 'Dừng lại' : 'Ghi âm'}
         icon={iconRecord}
-        className={onSocket ? 'btn--red green_so1' : 'btn--green green_so1'}
+        className={connectedWs ? 'btn--red green_so1' : 'btn--green green_so1'}
         textCustom='text_green margin-left'
         buttonCustom='button_green'
         onClick={onRecord}
