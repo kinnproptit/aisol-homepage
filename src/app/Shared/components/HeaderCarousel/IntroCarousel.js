@@ -40,14 +40,16 @@ export const IntroCarousel = () => {
   ]
 
   return (
-    <Carousel
+    <div className='home-carousel'>
+      {/* <Carousel
       activeIndex={index}
       direction={direction}
       onSelect={handleSelect}
       className='home-carousel'
-    >
+    > */}
       {data.map(({ image, title, subtitle, content }) => (
-        <Carousel.Item>
+        <Wrapper>
+          {/* <Carousel.Item> */}
           <img className='d-block pc-block' src={image} alt='First slide'></img>
           <img className='mb-block' src={Slidee} alt='First slide'></img>
           <div className='home-carousel__item'>
@@ -65,9 +67,11 @@ export const IntroCarousel = () => {
               </div>
             </div>
           </div>
-        </Carousel.Item>
+          {/* </Carousel.Item> */}
+        </Wrapper>
       ))}
-    </Carousel>
+      {/* </Carousel> */}
+    </div>
   )
 }
 
@@ -78,4 +82,8 @@ const Title = styled.h1`
 const SubTitle = styled.h2`
   font-weight: 700;
   font-style: italic;
+`
+
+const Wrapper = styled.div`
+  position: relative;
 `
