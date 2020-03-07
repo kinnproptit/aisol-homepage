@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Sound from 'react-sound'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
+import { soundManager } from 'soundmanager2/script/soundmanager2-nodebug'
 
 import qs from 'qs'
 import axios from 'axios'
@@ -29,8 +30,12 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   )
   const [playing, setPlaying] = useState(false)
   const [onFetch, setOnFetch] = useState(true)
-  const [duration, setDuration] = useState(null)
-  const [blobUrl, setBlobUrl] = useState(null)
+
+  useEffect(() => {
+    soundManager.setup({
+      ignoreMobileRestrictions: true
+    })
+  })
 
   const fetchData = async () => {
     const { voiceId, token } = state
@@ -93,7 +98,6 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
   const onChangeText = event => {
     setPlayStatus(Sound.status.STOPPED)
     setText(event.target.value)
-    // setAudio('')
   }
 
   let location = useLocation()
@@ -136,7 +140,6 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   onPlaying={sound => {
                     setPosition(sound.position)
                   }}
-                  onLoading={sound => setDuration(sound.duration)}
                   onFinishedPlaying={() => {
                     setPlaying(false)
                     setOnFetch(true)
@@ -167,14 +170,13 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   <Slider
                     value={position}
                     min={0}
-                    max={(duration && duration) || 100}
+                    max={(soundComp && soundComp.duration) || 100}
                     onChange={value => setPosition(value)}
                   />
                 </MediaPlayer>
               </div>
               <div className='col-lg-4 top_ma'>
                 <StyledButton
-                  // to={audioUrl}
                   text='Tải xuống'
                   icon={DownloadIcon}
                   className='btn--red'

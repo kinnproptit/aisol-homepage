@@ -9,7 +9,7 @@ import Icon from '../../../assets/ic_wave.png'
 import solution_image from '../../../assets/Layer.png'
 import Girl from '../../../assets/support-asia-girl.png'
 
-export const Solution = ({ image, title, description, id = 1 }) => {
+export default ({ image, title, description, id = 1 }) => {
   let history = useHistory()
 
   return (
@@ -50,12 +50,14 @@ export const Solution = ({ image, title, description, id = 1 }) => {
                   icon={Icon}
                   text='Demo giải pháp'
                   className='btn--yellow homepage-button'
-                  onClick={() => history.push({
-                    pathname: `${enviroments.linkToASR}`,
-                    state: {
-                      scroll: true
-                    }
-                  })}
+                  onClick={() =>
+                    history.push({
+                      pathname: `${enviroments.linkToASR}`,
+                      state: {
+                        scroll: true
+                      }
+                    })
+                  }
                 />
               </div>
             </div>

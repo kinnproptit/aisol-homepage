@@ -1,11 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
+import loadable from '@loadable/component'
 
-import { Footer } from '../Footer/Footer'
-import { Partner } from '../Partner/Partner'
+import { ErrorBoundary, LoadingIndicator } from '../../../../../packages/ui'
 
-import { ErrorBoundary } from '../../../../../packages/ui'
-import Header from '../Header'
+const Header = loadable(() => import('../Header'), {
+  fallback: LoadingIndicator
+})
+
+const Footer = loadable(() => import('../Footer/Footer'), {
+  fallback: LoadingIndicator
+})
+
+const Partner = loadable(() => import('../Partner/Partner'), {
+  fallback: LoadingIndicator
+})
 
 export const NormalLayout = ({
   title = false,

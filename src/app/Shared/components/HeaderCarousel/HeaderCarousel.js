@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import Button from '../Button/Button'
 
-export const HeaderCarousel = ({
+const HeaderCarousel = ({
   title,
   content,
   subcontent = false,
@@ -67,6 +67,8 @@ export const HeaderCarousel = ({
     </div>
   )
 }
+
+export default HeaderCarousel
 
 const Wrapper = styled.div`
   position: relative;

@@ -10,7 +10,7 @@ import dt4 from '../../../../assets/dt4.png'
 import dt5 from '../../../../assets/dt5.png'
 
 
-export const Partner = () => {
+const Partner = () => {
   const options = {
     loop: true,
     center: true,
@@ -48,3 +48,5 @@ export const Partner = () => {
     </section>
   )
 }
+
+export default Partner

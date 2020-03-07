@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import $ from 'jquery'
 import styled from 'styled-components'
+import loadable from '@loadable/component'
 
 import { useHistory, Link, useLocation } from 'react-router-dom'
 
 import environments from '../../../../../environments'
+import { LoadingIndicator } from '../../../../../packages/ui'
 
 import { DropdownMenu } from '../../../components/Dropdown/DropdownMenu'
-import { HeaderCarousel } from '../../../components/HeaderCarousel/HeaderCarousel'
-import { IntroCarousel } from '../../../components/HeaderCarousel/IntroCarousel'
+// import { HeaderCarousel } from '../../../components/HeaderCarousel/HeaderCarousel'
+// import { IntroCarousel } from '../../../components/HeaderCarousel/IntroCarousel'
 
 import ENGFlag from '../../../../assets/uk.svg'
 import VIEFlag from '../../../../assets/vietnam.svg'
@@ -21,6 +23,14 @@ import SanPhamBanner from '../../../../assets/sanpham_banner.png'
 import SanPham_mbBanner from '../../../../assets/mb_pro.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
 import LienHe_mbBanner from '../../../../assets/mb_con.png'
+
+const IntroCarousel = loadable(() => import('../../../components/HeaderCarousel/IntroCarousel'), {
+  fallback: LoadingIndicator
+})
+
+const HeaderCarousel = loadable(() => import('../../../components/HeaderCarousel/HeaderCarousel'), {
+  fallback: LoadingIndicator
+})
 
 const Header = () => {
   const List = ({ classCss }) => {

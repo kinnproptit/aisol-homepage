@@ -6,7 +6,7 @@ import Carousel from 'react-bootstrap/Carousel'
 import Slide from '../../../assets/homepage_banner.png'
 import Slidee from '../../../assets/00.png'
 
-export const IntroCarousel = () => {
+const IntroCarousel = () => {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState(null)
 
@@ -74,6 +74,8 @@ export const IntroCarousel = () => {
     </div>
   )
 }
+
+export default IntroCarousel
 
 const Title = styled.h1`
   margin-bottom: 0 !important;

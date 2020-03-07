@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Logo from '../../../../assets/logo.png'
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <Wrapper>
       <FooterTop className='container'>
@@ -71,6 +71,8 @@ export const Footer = () => {
     </Wrapper>
   )
 }
+
+export default Footer
 
 const Wrapper = styled.div`
   background-color: #05638f;

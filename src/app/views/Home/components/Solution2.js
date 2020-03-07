@@ -8,7 +8,7 @@ import Button from '../../../Shared/components/Button/Button'
 import Icon from '../../../assets/ic_wave.png'
 import LeftImg from '../../../assets/homepage_tonghop2.svg'
 
-export const Solution2 = ({ image, title, description, id = 2 }) => {
+export default ({ image, title, description, id = 2 }) => {
   let history = useHistory()
 
   return (

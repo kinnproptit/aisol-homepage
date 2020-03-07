@@ -7,7 +7,7 @@ import enviroments from '../../../../environments'
 import MCareImage from '../../../assets/image-mcare.svg'
 import checkIcon from '../../../assets/ico_check.svg'
 
-export const MCare = () => {
+export default () => {
   let history = useHistory()
   return (
     <div className='m-care-container margin-bottom-large'>
