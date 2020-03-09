@@ -1,63 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Sound from 'react-sound'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { soundManager } from 'soundmanager2/script/soundmanager2-nodebug'
 
-import qs from 'qs'
-import axios from 'axios'
-
-import { Slider } from 'antd'
-
-import enviroments from '../../../../environments'
+import * as Actions from '../../../redux/action-creators/audio'
 
 import DownloadIcon from '../../../assets/download.svg'
-import PlayIcon from '../../../assets/play.svg'
-import StopIcon from '../../../assets/stop.svg'
-import ResumeIcon from '../../../assets/pause.svg'
 
 import Button from '../../../Shared/components/Button/Button'
 import { DropdownMenuVoice } from '../../../Shared/components/Dropdown/DropdownMenuVoice'
 
+import Sound from './ReactSound'
+import { AudioPlayer } from './AudioPlayer'
+
 export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
-  const [audioUrl, setAudio] = useState('')
-  const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED)
-  const [position, setPosition] = useState(0)
-  const [soundComp, setSoundComp] = useState(null)
-  const [text, setText] = useState(
-    'Bạn hãy nhập nội dung để trải nghiệm thử giọng đọc của mình nhé'
-  )
-  const [playing, setPlaying] = useState(false)
-  const [onFetch, setOnFetch] = useState(true)
+  let dispatch = useDispatch()
 
   useEffect(() => {
     soundManager.setup({
       ignoreMobileRestrictions: true
     })
   })
-
-  const fetchData = async () => {
-    const { voiceId, token } = state
-    const options = {
-      method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: qs.stringify({
-        text,
-        voiceId,
-        token
-      }),
-      url: enviroments.apiPostTTS
-    }
-    const audio = await axios(options)
-    if (audio.data.status === 0) {
-      setAudio(audio.data.data.url)
-    }
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
 
   const downloadFile = (filename, url) => {
     fetch(url).then(t => {
@@ -70,34 +34,9 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
     })
   }
 
-  const onFetchPlayButton = async () => {
-    // if (text === '') {
-    //   alert('Vui lòng nhập nội dung')
-    // } else {
-    //   setPlaying(!playing)
-    //   await fetchData()
-    //   setPlayStatus(Sound.status.PLAYING)
-    // }
-    setPlaying(!playing)
-    // setPlaying(true)
-    await fetchData()
-    setPlayStatus(Sound.status.PLAYING)
-  }
-
-  const onClickPlayButton = () => {
-    setPlaying(true)
-    setPlayStatus(Sound.status.PLAYING)
-  }
-
-  const onClickPausedButton = () => {
-    setPlaying(false)
-    setOnFetch(false)
-    setPlayStatus(Sound.status.PAUSED)
-  }
-
   const onChangeText = event => {
-    setPlayStatus(Sound.status.STOPPED)
-    setText(event.target.value)
+    dispatch(Actions.updatePlayStatus(Sound.status.STOPPED))
+    dispatch(Actions.updateText(event.target.value))
   }
 
   let location = useLocation()
@@ -107,6 +46,8 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
       document.getElementById('tts-demo').scrollIntoView()
     }
   }, [])
+
+  const audioUrl = useSelector(state => state.ttsReducer.audioUrl)
 
   return (
     <section id='tts-demo'>
@@ -130,50 +71,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                 <Dropdown1 data={mp3data} onClick={onChangeVoice} />
               </CenterDiv>
               <div className='col-lg-4 top_ma'>
-                <Sound
-                  url={audioUrl}
-                  playFromPosition={position}
-                  playStatus={playStatus}
-                  onLoad={sound => {
-                    setSoundComp(sound)
-                  }}
-                  onPlaying={sound => {
-                    setPosition(sound.position)
-                  }}
-                  onFinishedPlaying={() => {
-                    setPlaying(false)
-                    setOnFetch(true)
-                    setPlayStatus(Sound.status.STOPPED)
-                    setPosition(0)
-                  }}
-                />
-                <MediaPlayer>
-                  {!playing ? (
-                    onFetch ? (
-                      <Img src={PlayIcon} onClick={onFetchPlayButton} />
-                    ) : (
-                      <Img src={PlayIcon} onClick={onClickPlayButton} />
-                    )
-                  ) : (
-                    <Img src={ResumeIcon} onClick={onClickPausedButton} />
-                  )}
-                  <StyledStop
-                    playing={!playing && onFetch}
-                    src={StopIcon}
-                    onClick={() => {
-                      setPlaying(false)
-                      setOnFetch(true)
-                      setPosition(0)
-                      setPlayStatus(Sound.status.PAUSED)
-                    }}
-                  />
-                  <Slider
-                    value={position}
-                    min={0}
-                    max={(soundComp && soundComp.duration) || 100}
-                    onChange={value => setPosition(value)}
-                  />
-                </MediaPlayer>
+                <AudioPlayer state={state} />
               </div>
               <div className='col-lg-4 top_ma'>
                 <StyledButton
@@ -194,25 +92,6 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
     </section>
   )
 }
-
-const Img = styled.img`
-  cursor: pointer;
-  width: 26px;
-  height: 26px;
-`
-const StyledStop = styled(Img)`
-  opacity: ${props => (props.playing ? '0.5' : '1')};
-`
-
-const MediaPlayer = styled.div`
-  background-color: #227ca2;
-  padding: 0.6rem 4rem;
-  display: grid;
-  grid-template-columns: 24px 24px auto;
-  grid-gap: 16px;
-  align-items: center;
-  border-radius: 0.8rem;
-`
 
 const CenterDiv = styled.div`
   display: flex;

@@ -43,4 +43,6 @@ const Text = styled.p`
   font-size: 16px;
 `
 
-const Row = styled.div``
+const Row = styled.div`
+  justify-content: center !important;
+`

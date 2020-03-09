@@ -1,22 +1,46 @@
 import * as Actions from '../action-types'
 
 const initialState = {
-  audioUrl: 'http://103.74.122.136:8086/data/end2end_ngocmiu/20200222181755-47007795.mp3',
-  text: null
+  audioUrl: null,
+  text: 'Bạn hãy nhập nội dung để trải nghiệm thử giọng đọc của mình nhé',
+  playStatus: 'STOPPED',
+  audioPosition: 0,
+  resumePosition: 0,
+  duration: 100
 }
 
 const audioReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Actions.PLAY_AUDIO:
+    case Actions.AUDIO_URL:
       return {
         ...state,
-        audioUrl: action.payload.audioUrl
+        audioUrl: action.payload
       }
-    case Actions.GET_TEXT:
-        return {
-            ...state,
-            text: action.playload.text
-        }
+    case Actions.TTS_TEXT:
+      return {
+        ...state,
+        text: action.payload
+      }
+    case Actions.TTS_PLAY_STATUS:
+      return {
+        ...state,
+        playStatus: action.payload
+      }
+    case Actions.TTS_POSITION:
+      return {
+        ...state,
+        audioPosition: action.payload
+      }
+    case Actions.TTS_RESUME_POSITION:
+      return {
+        ...state,
+        resumePosition: action.payload
+      }
+    case Actions.TTS_DURATION:
+      return {
+        ...state,
+        duration: action.payload
+      }
     default:
       return state
   }

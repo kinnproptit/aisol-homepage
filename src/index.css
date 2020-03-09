@@ -420,6 +420,7 @@ body {
   }
   .heading-big {
     margin: 16px 0 10px 0;
+    text-align: center;
   }
 }
 @media only screen and (max-width: 929px) {
@@ -1025,7 +1026,7 @@ body {
     bottom: 7% !important;
   }
   .banner-title {
-    font-size: 45px !important;
+    font-size: 44px !important;
   }
   .banner-description {
     margin-top: 20px !important;
@@ -1315,4 +1316,8 @@ body {
 
 .mg-top-17 {
   margin-top: -17px;
+}
+
+.homepage-solution__heading {
+  text-align: left !important;
 }
