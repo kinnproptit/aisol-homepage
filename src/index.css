@@ -216,12 +216,12 @@ body {
     font-size: 15px !important; */
   }
   .nav__icon {
-    background-color: #fff !important;
+    /* background-color: #000000 !important; */
     font-weight: bold;
   }
 }
 .nav__icon {
-  background-color: #fff !important;
+  /* background-color: #fff !important; */
   font-weight: bold;
 }
 /* click */

@@ -13,6 +13,7 @@ import enviroments from '../../../../environments'
 import PlayIcon from '../../../assets/play.svg'
 import StopIcon from '../../../assets/stop.svg'
 import ResumeIcon from '../../../assets/pause.svg'
+import LoadingIcon from '../../../assets/loading.svg'
 
 const SliderAudio = ({ setResumePos }) => {
 
@@ -37,6 +38,7 @@ export const AudioPlayer = ({ state }) => {
   const [playing, setPlaying] = useState(false)
   const [onFetch, setOnFetch] = useState(true)
   const [resumePos, setResumePos] = useState(0)
+  const [loading, setLoading] = useState(false)
 
   const text = useSelector(state => state.ttsReducer.text)
   const playStatus = useSelector(state => state.ttsReducer.playStatus)
@@ -45,6 +47,7 @@ export const AudioPlayer = ({ state }) => {
   console.log(text + ' ' + playStatus + ' ' + audioUrl)
 
   const fetchData = async () => {
+    setLoading(true)
     const { voiceId, token } = state
     const options = {
       method: 'POST',

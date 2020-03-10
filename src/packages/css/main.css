@@ -431,7 +431,7 @@ p {
 }
 @media only screen and (max-width: 490px) {
   .nav-small__list {
-    top: 57%;
+    top: 61%;
     left: 31%;
   }
   .nav-small {
@@ -446,7 +446,7 @@ p {
     font-size: 4rem !important;
   }
   .nav-small__list {
-    top: 55%;
+    top: 62%;
     left: 33% !important;
   }
 }
@@ -458,7 +458,7 @@ p {
     font-size: 4rem !important;
   }
   .nav-small__list {
-    top: 55%;
+    top: 63%;
     left: 35% !important;
   }
 }

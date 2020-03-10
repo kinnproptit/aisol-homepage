@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 import styled from 'styled-components'
 import loadable from '@loadable/component'
@@ -42,6 +42,8 @@ const HeaderCarousel = loadable(
 )
 
 const Header = () => {
+  const [isClicked, setClick] = useState(false)
+
   const List = ({ classCss }) => {
     return (
       <div className={`${classCss} btn-group langg`}>
@@ -234,11 +236,12 @@ const Header = () => {
           className='nav__checkbox'
           name='checkbox'
           id='toggle-nav'
+          onClick={() => setClick(!isClicked)}
         />
         <label htmlFor='toggle-nav' className='nav__toggle-btn'>
-          <p className='nav__icon'></p>
-          <p className='nav__icon'></p>
-          <p className='nav__icon'></p>
+          <P isClicked={isClicked} className='nav__icon'></P>
+          <P isClicked={isClicked} className='nav__icon'></P>
+          <P isClicked={isClicked} className='nav__icon'></P>
         </label>
 
         <nav className='nav-small'>
@@ -312,6 +315,10 @@ const Section = styled.section`
 const StyledFlag = styled.img`
   width: 26px;
   height: 18px;
+`
+
+const P = styled.p`
+  background-color: ${props => (props.isClicked ? '#000000' : '#fffffff')};
 `
 
 export default Header
