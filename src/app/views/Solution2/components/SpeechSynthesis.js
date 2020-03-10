@@ -133,9 +133,8 @@ const PaperContent = styled.div`
   right: 1.5rem;
   bottom: 0.5rem;
   left: 1.5rem;
-  background: linear-gradient(transparent, transparent 29px, gray 29px);
+  ${'' /* background: linear-gradient(transparent, transparent 29px, gray 29px); */}
   background-size: 30px 30px;
-  opacity: 0.3;
 `
 
 const Textarea = styled.textarea`
@@ -143,13 +142,12 @@ const Textarea = styled.textarea`
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  line-height: 30px;
+  ${'' /* line-height: 50px; */}
   padding: 0 5px;
   border: 0;
   outline: 0;
   background: transparent;
   color: #000;
-  font-weight: bold;
   font-size: 16px;
   box-sizing: border-box;
   z-index: 1;

@@ -15,6 +15,9 @@ import { DropdownMenu } from '../../../components/Dropdown/DropdownMenu'
 import ENGFlag from '../../../../assets/uk.svg'
 import VIEFlag from '../../../../assets/vietnam.svg'
 
+import Logo from '../../../../assets/AISOL-2.png'
+import Logo_mb from '../../../../assets/logo_aisol.png'
+
 import Solution1Banner from '../../../../assets/giaiphap1_banner.png'
 import Solution_mbBanner from '../../../../assets/so1_pc.png'
 import Solution2_mbBanner from '../../../../assets/mb2_so2.png'
@@ -24,13 +27,19 @@ import SanPham_mbBanner from '../../../../assets/mb_pro.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
 import LienHe_mbBanner from '../../../../assets/mb_con.png'
 
-const IntroCarousel = loadable(() => import('../../../components/HeaderCarousel/IntroCarousel'), {
-  fallback: LoadingIndicator
-})
+const IntroCarousel = loadable(
+  () => import('../../../components/HeaderCarousel/IntroCarousel'),
+  {
+    fallback: LoadingIndicator
+  }
+)
 
-const HeaderCarousel = loadable(() => import('../../../components/HeaderCarousel/HeaderCarousel'), {
-  fallback: LoadingIndicator
-})
+const HeaderCarousel = loadable(
+  () => import('../../../components/HeaderCarousel/HeaderCarousel'),
+  {
+    fallback: LoadingIndicator
+  }
+)
 
 const Header = () => {
   const List = ({ classCss }) => {
@@ -165,7 +174,7 @@ const Header = () => {
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo' onClick={() => handleLink('/')}>
-              <img src={require('../../../../assets/logo.png')} alt='' />
+              <Img src={Logo} alt='' />
             </div>
 
             <ul className='nav__list'>
@@ -234,11 +243,7 @@ const Header = () => {
 
         <nav className='nav-small'>
           <div className='nav__logo2' onClick={() => handleLink('/')}>
-            <img
-              src={require('../../../../assets/logo_click.png')}
-              alt=''
-              className='logo2'
-            />
+            <Img src={Logo_mb} alt='' className='logo2' />
           </div>
           <ul className='nav-small__list'>
             <li className='nav-small__item'>
@@ -297,6 +302,9 @@ const Header = () => {
   )
 }
 
+const Img = styled.img`
+  width: 182px;
+`
 const Section = styled.section`
   padding-top: 2.3rem;
 `

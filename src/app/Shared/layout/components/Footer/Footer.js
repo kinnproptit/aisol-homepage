@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Logo from '../../../../assets/logo.png'
+import Logo from '../../../../assets/AISOL-2.png'
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
         <Row className='row'>
           <FooterItem className='col-lg-3 col-md-3 order-4 order-md-1 '>
             <HeaderItem>
-              <img src={Logo} alt='' />
+              <Img src={Logo} alt='' />
             </HeaderItem>
             <BodyItem noSpace>
               <Label>Công ty cổ phần Giải pháp trí tuệ nhân tạo AISOL</Label>
@@ -73,6 +73,10 @@ const Footer = () => {
 }
 
 export default Footer
+
+const Img = styled.img`
+  width: 182px;
+`
 
 const Wrapper = styled.div`
   background-color: #05638f;
