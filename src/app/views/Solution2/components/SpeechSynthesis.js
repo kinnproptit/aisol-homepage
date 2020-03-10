@@ -81,7 +81,7 @@ export const SpeechSynthesis = ({ mp3data, onChangeVoice, state }) => {
                   isMarginLeft={false}
                   buttonCustom='button_red'
                   textCustom='text_red'
-                  className=' btn--red red'
+                  className=' btn--red red fix-tts-button'
                   onClick={() => downloadFile('aisol-vn-tts.mp3', audioUrl)}
                 />
               </div>
@@ -120,7 +120,7 @@ const PlayerContainer = styled.div`
 `
 
 const Paper = styled.div`
-  height: 22rem;
+  height: 220px;
   width: 100%;
   position: relative;
   border-radius: 13px;

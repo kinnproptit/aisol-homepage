@@ -1321,3 +1321,7 @@ body {
 .homepage-solution__heading {
   text-align: left !important;
 }
+
+.fix-tts-button {
+  padding: 1rem 4rem !important;
+}
