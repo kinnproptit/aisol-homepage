@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import $ from 'jquery'
 import styled from 'styled-components'
 import loadable from '@loadable/component'
 
@@ -12,9 +11,6 @@ import { DropdownMenu } from '../../../components/Dropdown/DropdownMenu'
 // import { HeaderCarousel } from '../../../components/HeaderCarousel/HeaderCarousel'
 // import { IntroCarousel } from '../../../components/HeaderCarousel/IntroCarousel'
 
-import ENGFlag from '../../../../assets/uk.svg'
-import VIEFlag from '../../../../assets/vietnam.svg'
-
 import Logo from '../../../../assets/AISOL-2.png'
 import Logo_mb from '../../../../assets/logo_aisol.png'
 
@@ -26,6 +22,8 @@ import SanPhamBanner from '../../../../assets/sanpham_banner.png'
 import SanPham_mbBanner from '../../../../assets/mb_pro.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
 import LienHe_mbBanner from '../../../../assets/mb_con.png'
+
+import { DropdownLanguage } from '../../../components/Dropdown/DropdownLanguage'
 
 const IntroCarousel = loadable(
   () => import('../../../components/HeaderCarousel/IntroCarousel'),
@@ -45,30 +43,7 @@ const Header = () => {
   const [isClicked, setClick] = useState(false)
 
   const List = ({ classCss }) => {
-    return (
-      <div className={`${classCss} btn-group langg`}>
-        <a
-          className='dropdown-toggle dropdown-btn'
-          data-toggle='dropdown'
-          href='#'
-        >
-          <StyledFlag src={VIEFlag} alt='flag' /> VIE
-          <span className='caret'></span>
-        </a>
-        <ul className='dropdown-menu'>
-          <li className='dropdown-item'>
-            <a href='javascript:void(0);'>
-              <StyledFlag src={ENGFlag} alt='flag' /> ENG
-            </a>
-          </li>
-          <li className='dropdown-item'>
-            <a href='javascript:void(0);'>
-              <StyledFlag src={VIEFlag} alt='flag' /> VIE
-            </a>
-          </li>
-        </ul>
-      </div>
-    )
+    return <DropdownLanguage options={['VIE', 'ENG']} classCss={classCss} />
   }
 
   let { pathname, location } = useLocation()
@@ -77,20 +52,6 @@ const Header = () => {
   const handleLink = link => {
     history.push(`${link}`)
   }
-
-  useEffect(() => {
-    $('.dropdown-menu li a').click(function() {
-      var selText = $(this).text()
-      var imgSource = $(this)
-        .find('img')
-        .attr('src')
-      var img = '<StyledFlag src="' + imgSource + '"/>'
-      $(this)
-        .parents('.btn-group')
-        .find('.dropdown-toggle')
-        .html(img + ' ' + selText + ' <span class="caret"></span>')
-    })
-  })
 
   useEffect(() => {
     document.querySelector('section').scrollIntoView()
