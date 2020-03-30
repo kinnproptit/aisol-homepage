@@ -1325,3 +1325,9 @@ body {
 .fix-tts-button {
   padding: 1rem 4rem !important;
 }
+
+@media (max-width: 929px) {
+  .margin-bottom-large {
+    padding-top: 0 !important;
+  }
+}
