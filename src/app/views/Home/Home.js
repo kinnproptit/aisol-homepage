@@ -25,18 +25,18 @@ const MCare = loadable(() => import('./components/MCare'), {
 export const Home = () => {
   return (
     <React.Fragment>
-      <div className='margin-bottom-large'>
-        <Solution
-          title='NHẬN DẠNG TIẾNG NÓI'
-          description='Giải pháp tự động chuyển đổi tiếng nói thành văn bản Tiếng Việt, đạt độ chính xác lên tới 96% và nhận dạng được tất cả môi trường'
-          image={sol1}
-        />
-        <Solution2
-          title='TỔNG HỢP TIẾNG NÓI'
-          description='Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt với giọng điệu tự nhiên, hay và dễ dàng tích hợp với mọi hệ thống'
-          image={sol2}
-        />
-      </div>
+      {/* <div className=''> */}
+      <Solution
+        title='NHẬN DẠNG TIẾNG NÓI'
+        description='Giải pháp tự động chuyển đổi tiếng nói thành văn bản Tiếng Việt, đạt độ chính xác lên tới 96% và nhận dạng được tất cả môi trường'
+        image={sol1}
+      />
+      <Solution2
+        title='TỔNG HỢP TIẾNG NÓI'
+        description='Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt với giọng điệu tự nhiên, hay và dễ dàng tích hợp với mọi hệ thống'
+        image={sol2}
+      />
+      {/* </div> */}
       <MCare />
     </React.Fragment>
   )

@@ -61,7 +61,7 @@ body {
 
 .girl-absolute {
   position: absolute;
-  bottom: -195px;
+  /* bottom: -195px; */
 }
 
 @media (max-width: 43.125em) {
