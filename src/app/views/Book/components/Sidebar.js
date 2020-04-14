@@ -64,7 +64,8 @@ const FileName = styled.div`
 `
 
 const CurrentPage = styled.div`
-  border: ${props => (props.isActive ? '2px solid blue' : 'none')};
+  outline: ${props => (props.isActive ? '7px solid lightgray' : 'none')};
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 2px 5px 0px;
 `
 
 const Img = styled.img`
