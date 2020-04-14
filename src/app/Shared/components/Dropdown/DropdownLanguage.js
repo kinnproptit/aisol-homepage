@@ -8,7 +8,7 @@ import ENG from '../../../assets/uk.svg'
 export const DropdownLanguage = ({
   options = [],
   className,
-  onClick = false,
+  onClick,
   classCss
 }) => {
   const [selected, setSelected] = useState(options[0])

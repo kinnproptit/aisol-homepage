@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const Icon = ({
-  source,
+  Source,
   height = '20px',
   fill,
   width = '20px',
@@ -10,11 +10,11 @@ export const Icon = ({
   isImage = false,
   ...props
 }) => {
-  if (/.(jpe?g|png|gif|bmp)$/i.test(source) || isImage) {
+  if (/.(jpe?g|png|gif|bmp)$/i.test(Source) || isImage) {
     return (
       <IconImage
         className={className}
-        src={source}
+        src={Source}
         height={height}
         width={width}
         {...props}
@@ -27,9 +27,10 @@ export const Icon = ({
       fill={fill}
       height={height}
       width={width}
-      dangerouslySetInnerHTML={{ __html: source }}
       {...props}
-    />
+    >
+      <Source />
+    </IconSource>
   )
 }
 

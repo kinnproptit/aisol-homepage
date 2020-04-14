@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import * as Actions from '../../../redux/action-creators/book'
 
+import playIcon from '../../../assets/play-button.png'
+
 import { scrollToPage } from '../BookContainer'
 
 export const InputBar = () => {
   let dispatch = useDispatch()
 
   const page = useSelector(state => state.bookReducer.page)
+  const allPages = useSelector(state => state.bookReducer.allPages)
 
   const [input, setInput] = useState(page)
 
@@ -18,8 +21,12 @@ export const InputBar = () => {
   }
 
   const handleSubmit = () => {
-    scrollToPage(input)
     dispatch(Actions.updatePageBook(parseInt(input)))
+    if (input > allPages) {
+      dispatch(Actions.updatePageBook(parseInt(allPages)))
+      scrollToPage(allPages)
+    }
+    input && scrollToPage(input)
   }
 
   return (
@@ -37,7 +44,7 @@ export const InputBar = () => {
           placeholder='Nhập trang'
         />
         <button type='button' className='btn3' onClick={handleSubmit}>
-          <i className='fas fa-play-circle'></i>
+          <Img src={playIcon} />
         </button>
       </div>
     </PlayDiv>
@@ -46,13 +53,19 @@ export const InputBar = () => {
 
 const PlayDiv = styled.div``
 
+const Img = styled.img`
+  color: gray;
+`
+
 const LargeInput = styled.input`
+  text-align: center;
   @media (max-width: 900px) {
     display: none;
   }
 `
 
 const SmallInput = styled.input`
+  text-align: center;
   @media (min-width: 900px) {
     display: none;
   }

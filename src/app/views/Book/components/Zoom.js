@@ -2,6 +2,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Actions from '../../../redux/action-creators/book'
 
+import ZoomIn from '../../../assets/zoom-in.png'
+import ZoomOut from '../../../assets/zoom-out.png'
+
 export const Zoom = () => {
   let dispatch = useDispatch()
   const zoom = useSelector(state => state.bookReducer.zoom)
@@ -17,10 +20,10 @@ export const Zoom = () => {
   return (
     <div className='zoom'>
       <button type='button' className='btn1' onClick={handleZoomOut}>
-        <i className='fas fa-search-minus'></i>
+        <img src={ZoomOut} />
       </button>
       <button type='button' className='btn2' onClick={handleZoomIn}>
-        <i className='fas fa-search-plus'></i>
+        <img src={ZoomIn} />
       </button>
     </div>
   )

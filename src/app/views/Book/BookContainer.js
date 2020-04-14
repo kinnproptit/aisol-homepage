@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Actions from '../../redux/action-creators/book'
@@ -8,6 +8,7 @@ import { Sidebar } from './components/Sidebar'
 import { AudioBook } from './Books'
 
 import './assets/css/book.css'
+import playIcon from '../../assets/play-button.png'
 
 import page1 from './assets/pdf2docx/test-page3.pdf'
 import page2 from './assets/pdf2docx/test-page7.pdf'
@@ -87,8 +88,10 @@ const data = [
 ]
 
 export const scrollToPage = page => {
-  document.getElementById(`page-${page}`).scrollIntoView()
-  document.getElementById('pg-viewer').scrollIntoView()
+  let pageNumber = document.getElementById(`page-${page}`)
+  let Viewer = document.getElementById('pg-viewer')
+  pageNumber && pageNumber.scrollIntoView()
+  Viewer && Viewer.scrollIntoView()
 }
 
 export const AudioBookContainer = () => {
@@ -106,6 +109,10 @@ export const AudioBookContainer = () => {
   //   dispatch(Actions.updatePageBook(page + 1))
   // }
 
+  useEffect(() => {
+    document.getElementById('book-audio').scrollIntoView()
+  }, [])
+
   const handlePlayAll = () => {
     dispatch(Actions.updatePageBook(1))
     setPlayAll(true)
@@ -122,7 +129,7 @@ export const AudioBookContainer = () => {
           <div className='flex-bar'>
             <p className='text2'>Nghe tất cả</p>
             <button type='button' className='btn5' onClick={handlePlayAll}>
-              <i className='fas fa-play-circle'></i>
+              <Img src={playIcon} />
             </button>
           </div>
         </div>
@@ -131,13 +138,14 @@ export const AudioBookContainer = () => {
   }
 
   return (
-    <div className='book container'>
+    <div className='book container' id='book-audio'>
       <div className='content'>
         <NavBar />
         <Wrapper>
           <Sidebar data={data} playAll={playAll} />
           <ContentPage>
             <AudioBook data={data} playAll={playAll} />
+            <PlayStatus>Bạn đang nghe trang {page}</PlayStatus>
           </ContentPage>
         </Wrapper>
       </div>
@@ -145,14 +153,31 @@ export const AudioBookContainer = () => {
   )
 }
 
+const PlayStatus = styled.div`
+  text-align: center;
+  position: absolute;
+  bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  font-size: 16px;
+  font-weight: bold;
+`
+
 const Wrapper = styled.div`
   display: flex;
+`
+
+const Img = styled.img`
+  color: gray;
 `
 
 const ContentPage = styled.div`
   border-radius: 0 0 10px 0;
   width: 80%;
   background-color: #ffffff;
+  position: relative;
 
   @media (max-width: 990px) {
     width: 100%;

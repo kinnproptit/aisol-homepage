@@ -3,8 +3,11 @@ import * as Actions from '../action-types'
 const initialState = {
   page: 1,
   playStatus: 'PLAYING',
-  audio: '',
-  zoom: 654
+  audio: null,
+  allPages: 10,
+  zoom: 654,
+  audioPosition: 0,
+  resumePosition: 0
 }
 
 export const bookReducer = (state = initialState, action) => {
@@ -28,6 +31,16 @@ export const bookReducer = (state = initialState, action) => {
       return {
         ...state,
         zoom: action.payload
+      }
+    case Actions.BOOK_AUDIO_POSITION:
+      return {
+        ...state,
+        audioPosition: action.payload
+      }
+    case Actions.BOOK_AUDIO_REPOS:
+      return {
+        ...state,
+        resumePosition: action.payload
       }
     default:
       return state

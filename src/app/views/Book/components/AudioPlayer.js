@@ -9,32 +9,27 @@ export const AudioPlayer = ({ audio: audioUrl, playAll }) => {
   let dispatch = useDispatch()
 
   const [playing, setPlaying] = useState(false)
-  const [onFetch, setOnFetch] = useState(true)
-  const [resumePos, setResumePos] = useState(0)
-  const [loading, setLoading] = useState(false)
 
-  const playStatus = 'PLAYING'
+  const playStatus = useSelector(state => state.bookReducer.playStatus)
+  const audioPosition = useSelector(state => state.bookReducer.audioPosition)
   const page = useSelector(state => state.bookReducer.page)
 
   return (
     <>
       <Sound
         url={audioUrl}
-        playFromPosition={resumePos}
+        playFromPosition={audioPosition}
         playStatus={playStatus}
-        onLoad={sound => {
-          // dispatch(Actions.updateDuration(sound.duration))
+        onPause={sound => {
+          dispatch(Actions.updateAudioPosition(sound.position))
         }}
-        onPlaying={sound => {
-          // console.log("sound playing: " + sound.position)
-          // sound.position !== 0 &&
-          //   dispatch(Actions.updateAudioPosition(sound.position))
+        onResume={sound => {
+          dispatch(Actions.updateAudioPosition(sound.position))
         }}
         onFinishedPlaying={() => {
           setPlaying(false)
-          setOnFetch(true)
           // dispatch(Actions.updatePlayStatus(Sound.status.STOPPED))
-          setResumePos(0)
+          dispatch(Actions.updateAudioPosition(0))
           playAll && dispatch(Actions.updatePageBook(page + 1))
         }}
       />

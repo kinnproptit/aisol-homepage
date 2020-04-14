@@ -16,7 +16,7 @@ export const updatePageBook = payload => {
     })
 }
 
-export const updatePlayStatusBook = payload => {
+export const updatePlayStatus = payload => {
   return dispatch =>
     dispatch({
       type: Actions.BOOK_AUDIO_STATUS,
@@ -28,6 +28,14 @@ export const updateZoom = payload => {
   return dispatch =>
     dispatch({
       type: Actions.BOOK_ZOOM,
+      payload
+    })
+}
+
+export const updateAudioPosition = payload => {
+  return dispatch =>
+    dispatch({
+      type: Actions.BOOK_AUDIO_POSITION,
       payload
     })
 }
