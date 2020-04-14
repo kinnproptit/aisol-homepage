@@ -113,6 +113,19 @@ const Header = () => {
             classNameImg2='con_mb'
           />
         )
+      case environments.linkToBook:
+        return (
+          <HeaderCarousel
+            title='Sách nói'
+            content='Giải pháp số hóa các giáo trình học từ dạng sách hoặc truyện đọc chữ truyền thống thành dạng điện tử dưới dạng sách nói'
+            image={LienHeBanner}
+            image2={LienHe_mbBanner}
+            classNameImg1='con_pc'
+            classNameImg2='con_mb'
+            button
+            link={environments.linkToBook}
+          />
+        )
       default:
         return <IntroCarousel />
     }
@@ -167,7 +180,7 @@ const Header = () => {
               <li className='nav__item'>
                 <Link
                   className='nav__link'
-                  onClick={() => handleLink(environments.linkToProduct)}
+                  onClick={() => handleLink(environments.linkToBook)}
                 >
                   Sản phẩm
                 </Link>
@@ -234,7 +247,7 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
-                onClick={() => handleLink(environments.linkToProduct)}
+                onClick={() => handleLink(environments.linkToBook)}
               >
                 Sản phẩm
               </Link>

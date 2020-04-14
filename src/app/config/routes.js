@@ -43,6 +43,12 @@ export const routes = [
     path: enviroments.linkToErrorPage,
     exact: true,
     component: () => <AsyncPage component='404' />
+  },
+  {
+    path: enviroments.linkToBook,
+    exact: true,
+    component: () => <AsyncPage component='Book' />,
+    title: 'Boook'
   }
 ]
 export default routes

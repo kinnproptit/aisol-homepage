@@ -5,6 +5,7 @@
   "dependencies": {
     "@loadable/component": "^5.12.0",
     "@react-hook/window-scroll": "^1.0.7",
+    "@react-pdf/renderer": "^1.6.8",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -21,6 +22,7 @@
     "react-audio-player": "^0.11.1",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
+    "react-file-viewer": "^1.2.1",
     "react-h5-audio-player": "^2.3.6",
     "react-hot-loader": "^4.12.19",
     "react-owl-carousel": "^2.3.1",
@@ -30,6 +32,7 @@
     "react-scripts": "3.4.0",
     "react-sound": "^1.2.0",
     "react-toastify": "^5.5.0",
+    "react-zoom-pan-pinch": "^1.6.1",
     "redux": "^4.0.5",
     "redux-axios-middleware": "^4.0.1",
     "redux-logger": "^3.0.6",
@@ -60,5 +63,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-pdf-to-image": "^1.0.2"
   }
 }
