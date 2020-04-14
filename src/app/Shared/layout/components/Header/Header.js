@@ -178,12 +178,21 @@ const Header = () => {
                 {/* Giải pháp */}
               </li>
               <li className='nav__item'>
-                <Link
-                  className='nav__link'
-                  onClick={() => handleLink(environments.linkToBook)}
+                <DropdownMenu
+                  isLink
+                  options={[
+                    {
+                      to: environments.linkToProduct,
+                      content: 'M-Care'
+                    },
+                    {
+                      to: environments.linkToBook,
+                      content: 'Sách nói'
+                    }
+                  ]}
                 >
-                  Sản phẩm
-                </Link>
+                  <Link className='nav__link'>Sản phẩm</Link>
+                </DropdownMenu>
               </li>
               <li className='nav__item'>
                 <Link
@@ -223,11 +232,11 @@ const Header = () => {
             <Img src={Logo_mb} alt='' className='logo2' />
           </div>
           <ul className='nav-small__list'>
-            <li className='nav-small__item'>
+            {/* <li className='nav-small__item'>
               <Link className='nav-small__link' onClick={() => handleLink('/')}>
                 Trang chủ
               </Link>
-            </li>
+            </li> */}
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
@@ -247,9 +256,17 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
+                onClick={() => handleLink(environments.linkToProduct)}
+              >
+                M-Care
+              </Link>
+            </li>
+            <li className='nav-small__item'>
+              <Link
+                className='nav-small__link'
                 onClick={() => handleLink(environments.linkToBook)}
               >
-                Sản phẩm
+                Sách nói
               </Link>
             </li>
             <li className='nav-small__item'>

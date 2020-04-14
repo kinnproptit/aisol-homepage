@@ -50,6 +50,7 @@ const Footer = () => {
             <BodyItem>
               <List>
                 <Item>M-Care</Item>
+                <Item>Sách nói</Item>
               </List>
             </BodyItem>
           </FooterItem>
