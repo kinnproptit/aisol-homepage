@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import FileViewer from 'react-file-viewer'
 import { useSelector } from 'react-redux'
 
@@ -19,17 +19,20 @@ export const AudioBook = ({ data, playAll }) => {
 const type = 'pdf'
 
 const Book = ({ content }) => {
-  // const zoom = useSelector(state => state.bookReducer.zoom)
+  const zoom = useSelector(state => state.bookReducer.zoom)
   // if (document.querySelector('canvas')) {
   //   console.log(`${zoom}%`)
   //   document.querySelector('canvas').style.width = '1500px'
   // }
 
   // var canvas = document.getElementsByTagName('canvas')[0]
-  // let canvas = document.querySelector('canvas')
-  // if (canvas) {
-  //   canvas.style.width = `${zoom}%`
-  // }
+  useEffect(() => {
+    console.log(zoom)
+    let canvas = document.querySelector('canvas')
+    if (canvas) {
+      canvas.style.width = `${zoom}%`
+    }
+  }, [zoom])
 
   return <FileViewer fileType={type} filePath={content} />
 }
