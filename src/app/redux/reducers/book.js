@@ -17,16 +17,18 @@ export const bookReducer = (state = initialState, action) => {
     case Actions.BOOK_INPUT:
       let result = 0
       let playStatus = 'PLAYING'
+      let playing = true
       if (action.payload > state.allPages) {
         result = state.allPages
         playStatus = 'STOPPED'
+        playing = false
       } else {
         result = action.payload
       }
       return {
         ...state,
         playStatus,
-        playing: true,
+        playing,
         page: result,
         menuVisible: false,
         audioPosition: 0
