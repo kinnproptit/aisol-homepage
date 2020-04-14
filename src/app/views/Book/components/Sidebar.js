@@ -8,10 +8,11 @@ import * as Actions from '../../../redux/action-creators/book'
 export const Sidebar = ({ data }) => {
   let dispatch = useDispatch()
 
+  const menuVisible = useSelector(state => state.bookReducer.menuVisible)
   const page = useSelector(state => state.bookReducer.page)
 
   return (
-    <PageLeft className='page-left'>
+    <PageLeft className='page-left' menuVisible={menuVisible}>
       <FileNameTop className='file-name'>
         <FileName>
           {' '}
@@ -21,7 +22,7 @@ export const Sidebar = ({ data }) => {
       </FileNameTop>
 
       {data.map(({ content, id }) => (
-        <div className='page-current'>
+        <Current className='page-current'>
           <CurrentPage
             id={`page-${id}`}
             className='page'
@@ -38,19 +39,25 @@ export const Sidebar = ({ data }) => {
             </PDFtoIMG>
           </CurrentPage>
           <p className='page-index'>{id}</p>
-        </div>
+        </Current>
       ))}
     </PageLeft>
   )
 }
 
+const Current = styled.div`
+  height: 250px;
+`
+
 const PageLeft = styled.div`
+  width: 20%;
   overflow-y: scroll;
   border-radius: 0 0 0 10px;
   position: relative;
 
   @media (max-width: 990px) {
-    display: none;
+    ${props => !props.menuVisible && 'display: none;'}
+    width: 100%;
   }
 `
 
@@ -70,4 +77,5 @@ const CurrentPage = styled.div`
 
 const Img = styled.img`
   width: 100%;
+  cursor: pointer;
 `

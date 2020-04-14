@@ -47,3 +47,11 @@ export const updatePlaying = payload => {
       payload
     })
 }
+
+export const updateMenu = payload => {
+  return dispatch =>
+    dispatch({
+      type: Actions.BOOK_MENU,
+      payload
+    })
+}

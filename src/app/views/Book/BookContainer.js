@@ -9,7 +9,7 @@ import { Sidebar } from './components/Sidebar'
 import { AudioBook } from './Books'
 
 import './assets/css/book.css'
-import playIcon from '../../assets/play-button.png'
+import playIcon from '../../assets/play.svg'
 
 import page1 from './assets/pdf2docx/test-page3.pdf'
 import page2 from './assets/pdf2docx/test-page7.pdf'
@@ -34,6 +34,7 @@ import audio9 from './assets/pdf2docx/15.wav'
 import audio10 from './assets/pdf2docx/16.wav'
 import { InputBar } from './components/InputBar'
 import { Zoom } from './components/Zoom'
+import { Menu } from './components/Menu'
 
 const data = [
   {
@@ -115,7 +116,9 @@ export const AudioBookContainer = () => {
   const NavBar = () => {
     return (
       <NavBook className='nav-book'>
-        <div className='nav-left'></div>
+        <div className='nav-left'>
+          <Menu />
+        </div>
         <div className='nav-right'>
           <Zoom />
           <InputBar />
@@ -159,18 +162,21 @@ const PlayStatus = styled.div`
 `
 
 const Wrapper = styled.div`
-  display: flex;
+  @media (min-width: 990px) {
+    display: flex;
+  }
 `
 
 const Img = styled.img`
-  color: gray;
+  width: 20px;
+  cursor: pointer;
 `
 
 const ContentPage = styled.div`
   border-radius: 0 0 10px 0;
-  width: 80%;
   background-color: #ffffff;
   position: relative;
+  width: 80%;
 
   @media (max-width: 990px) {
     width: 100%;

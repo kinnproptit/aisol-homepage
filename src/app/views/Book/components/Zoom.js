@@ -1,9 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Actions from '../../../redux/action-creators/book'
 
-import ZoomIn from '../../../assets/zoom-in.png'
-import ZoomOut from '../../../assets/zoom-out.png'
+import ZoomIn from '../../../assets/zoom-in.svg'
+import ZoomOut from '../../../assets/zoom-out.svg'
 
 export const Zoom = () => {
   let dispatch = useDispatch()
@@ -20,11 +21,15 @@ export const Zoom = () => {
   return (
     <div className='zoom'>
       <button type='button' className='btn1' onClick={handleZoomOut}>
-        <img src={ZoomOut} />
+        <Img src={ZoomOut} />
       </button>
       <button type='button' className='btn2' onClick={handleZoomIn}>
-        <img src={ZoomIn} />
+        <Img src={ZoomIn} />
       </button>
     </div>
   )
 }
+
+const Img = styled.img`
+  width: 20px;
+`

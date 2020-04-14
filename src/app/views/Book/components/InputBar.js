@@ -6,11 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import * as Actions from '../../../redux/action-creators/book'
 
-import playIcon from '../../../assets/play-button.png'
-
 import { scrollToPage } from '../BookContainer'
-import pauseIcon from '../../../assets/pause-book.svg'
-import playIconSVG from '../../../assets/play-button.svg'
+import pauseIcon from '../../../assets/pause.svg'
+import playIcon from '../../../assets/play.svg'
 
 export const InputBar = () => {
   let dispatch = useDispatch()
@@ -73,7 +71,7 @@ export const InputBar = () => {
           {playing && !input ? (
             <PauseImg src={pauseIcon} onClick={handlePause} />
           ) : (
-            <PauseImg src={playIconSVG} onClick={handlePause} />
+            <PauseImg src={playIcon} onClick={handlePause} />
           )}
         </button>
       </div>
@@ -82,7 +80,7 @@ export const InputBar = () => {
 }
 
 const PauseImg = styled.img`
-  width: 26px;
+  width: 20px;
   cursor: pointer;
 `
 

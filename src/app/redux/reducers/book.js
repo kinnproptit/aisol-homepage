@@ -8,7 +8,8 @@ const initialState = {
   allPages: 10,
   zoom: 654,
   audioPosition: 0,
-  resumePosition: 0
+  resumePosition: 0,
+  menuVisible: true
 }
 
 export const bookReducer = (state = initialState, action) => {
@@ -19,6 +20,7 @@ export const bookReducer = (state = initialState, action) => {
         playStatus: 'PLAYING',
         playing: true,
         page: action.payload,
+        menuVisible: false,
         audioPosition: 0
       }
     case Actions.BOOK_AUDIO:
@@ -52,6 +54,11 @@ export const bookReducer = (state = initialState, action) => {
       return {
         ...state,
         playing: action.payload
+      }
+    case Actions.BOOK_MENU:
+      return {
+        ...state,
+        menuVisible: action.payload
       }
     default:
       return state
