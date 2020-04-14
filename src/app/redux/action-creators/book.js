@@ -39,3 +39,11 @@ export const updateAudioPosition = payload => {
       payload
     })
 }
+
+export const updatePlaying = payload => {
+  return dispatch =>
+    dispatch({
+      type: Actions.BOOK_PLAYING,
+      payload
+    })
+}

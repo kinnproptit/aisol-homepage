@@ -8,8 +8,6 @@ import * as Actions from '../../../redux/action-creators/book'
 export const AudioPlayer = ({ audio: audioUrl, playAll }) => {
   let dispatch = useDispatch()
 
-  const [playing, setPlaying] = useState(false)
-
   const playStatus = useSelector(state => state.bookReducer.playStatus)
   const audioPosition = useSelector(state => state.bookReducer.audioPosition)
   const page = useSelector(state => state.bookReducer.page)
@@ -21,14 +19,18 @@ export const AudioPlayer = ({ audio: audioUrl, playAll }) => {
         playFromPosition={audioPosition}
         playStatus={playStatus}
         onPause={sound => {
+          console.log(sound.position)
+          // dispatch(Actions.updatePlaying(false))
           dispatch(Actions.updateAudioPosition(sound.position))
         }}
         onResume={sound => {
+          console.log('pause')
+          // dispatch(Actions.updatePlaying(true))
+
           dispatch(Actions.updateAudioPosition(sound.position))
         }}
         onFinishedPlaying={() => {
-          setPlaying(false)
-          // dispatch(Actions.updatePlayStatus(Sound.status.STOPPED))
+          dispatch(Actions.updatePlayStatus(Sound.status.STOPPED))
           dispatch(Actions.updateAudioPosition(0))
           playAll && dispatch(Actions.updatePageBook(page + 1))
         }}

@@ -67,10 +67,17 @@
 }
 
 .nav-book .nav-left {
-  height: 40px;
-  width: 20%;
-  background-color: rgb(220, 218, 220);
-  border-radius: 10px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .nav-left {
+    height: 40px;
+    width: 20%;
+    background-color: rgb(220, 218, 220);
+    border-radius: 10px 0px 0px 0px;
+  }
 }
 
 .nav-book .nav-right {

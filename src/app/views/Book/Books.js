@@ -22,7 +22,6 @@ const Book = ({ content }) => {
   const zoom = useSelector(state => state.bookReducer.zoom)
 
   useEffect(() => {
-    console.log(zoom)
     let canvas = document.querySelector('canvas')
     if (canvas) {
       canvas.style.width = `${zoom}px`
