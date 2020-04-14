@@ -20,17 +20,13 @@ const type = 'pdf'
 
 const Book = ({ content }) => {
   const zoom = useSelector(state => state.bookReducer.zoom)
-  // if (document.querySelector('canvas')) {
-  //   console.log(`${zoom}%`)
-  //   document.querySelector('canvas').style.width = '1500px'
-  // }
 
-  // var canvas = document.getElementsByTagName('canvas')[0]
   useEffect(() => {
     console.log(zoom)
     let canvas = document.querySelector('canvas')
     if (canvas) {
-      canvas.style.width = `${zoom}%`
+      canvas.style.width = `${zoom}px`
+      // canvas.width = zoom
     }
   }, [zoom])
 

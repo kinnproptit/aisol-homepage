@@ -4,7 +4,7 @@ const initialState = {
   page: 1,
   playStatus: 'PLAYING',
   audio: '',
-  zoom: 100
+  zoom: 654
 }
 
 export const bookReducer = (state = initialState, action) => {
