@@ -101,16 +101,12 @@ export const AudioBookContainer = () => {
 
   const page = useSelector(state => state.bookReducer.page)
 
-  const [playAll, setPlayAll] = useState(null)
-
   useEffect(() => {
     document.getElementById('book-audio').scrollIntoView()
   }, [])
 
   const handlePlayAll = () => {
     dispatch(Actions.updatePageBook(1))
-    setPlayAll(true)
-    // scrollToPage(1)
   }
 
   const NavBar = () => {
@@ -138,9 +134,9 @@ export const AudioBookContainer = () => {
       <div className='content'>
         <NavBar />
         <Wrapper>
-          <Sidebar data={data} playAll={playAll} />
+          <Sidebar data={data} />
           <ContentPage>
-            <AudioBook data={data} playAll={playAll} />
+            <AudioBook data={data} />
             <PlayStatus>Bạn đang nghe trang {page}</PlayStatus>
           </ContentPage>
         </Wrapper>

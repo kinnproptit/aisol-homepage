@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import * as Actions from '../../../redux/action-creators/book'
 
-export const AudioPlayer = ({ audio: audioUrl, playAll }) => {
+export const AudioPlayer = ({ audio: audioUrl }) => {
   let dispatch = useDispatch()
 
   const playStatus = useSelector(state => state.bookReducer.playStatus)
@@ -32,7 +32,7 @@ export const AudioPlayer = ({ audio: audioUrl, playAll }) => {
         onFinishedPlaying={() => {
           dispatch(Actions.updatePlayStatus(Sound.status.STOPPED))
           dispatch(Actions.updateAudioPosition(0))
-          playAll && dispatch(Actions.updatePageBook(page + 1))
+          dispatch(Actions.updatePageBook(page + 1))
         }}
       />
     </>

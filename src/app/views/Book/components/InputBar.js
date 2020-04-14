@@ -63,7 +63,7 @@ export const InputBar = () => {
         <SmallInput
           className='btn4'
           onChange={handleInputChange}
-          placeholder='Nhập trang'
+          placeholder={`Nghe trang ${page}`}
           onKeyDown={handleKeyDown}
         />
         <button type='button' className='btn3'>

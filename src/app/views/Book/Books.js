@@ -4,14 +4,14 @@ import { useSelector } from 'react-redux'
 
 import { AudioPlayer } from './components/AudioPlayer'
 
-export const AudioBook = ({ data, playAll }) => {
+export const AudioBook = ({ data }) => {
   const page = useSelector(state => state.bookReducer.page)
 
   let book = data.filter(({ id }) => id === page)
   return book.map(({ id, content, audio }) => (
     <React.Fragment key={id}>
       <Book content={content} />
-      <AudioPlayer audio={audio} playAll={playAll} />
+      <AudioPlayer audio={audio} />
     </React.Fragment>
   ))
 }

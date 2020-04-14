@@ -2,8 +2,8 @@ import * as Actions from '../action-types'
 
 const initialState = {
   page: 1,
-  playStatus: 'PLAYING',
-  playing: true,
+  playStatus: 'STOPPED',
+  playing: false,
   audio: null,
   allPages: 10,
   zoom: 654,
@@ -15,11 +15,17 @@ const initialState = {
 export const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case Actions.BOOK_INPUT:
+      let result = 0
+      if (action.payload > state.allPages) {
+        result = state.allPages
+      } else {
+        result = action.payload
+      }
       return {
         ...state,
         playStatus: 'PLAYING',
         playing: true,
-        page: action.payload,
+        page: result,
         menuVisible: false,
         audioPosition: 0
       }
