@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Sound from 'react-sound'
 import { useDispatch, useSelector } from 'react-redux'
 
 import * as Actions from '../../redux/action-creators/book'
@@ -11,8 +10,6 @@ import { AudioBook } from './Books'
 
 import './assets/css/book.css'
 import playIcon from '../../assets/play-button.png'
-import pauseIcon from '../../assets/pause-book.svg'
-import playIconSVG from '../../assets/play-button.svg'
 
 import page1 from './assets/pdf2docx/test-page3.pdf'
 import page2 from './assets/pdf2docx/test-page7.pdf'
@@ -102,7 +99,6 @@ export const AudioBookContainer = () => {
   let dispatch = useDispatch()
 
   const page = useSelector(state => state.bookReducer.page)
-  const playing = useSelector(state => state.bookReducer.playing)
 
   const [playAll, setPlayAll] = useState(null)
 
@@ -113,27 +109,13 @@ export const AudioBookContainer = () => {
   const handlePlayAll = () => {
     dispatch(Actions.updatePageBook(1))
     setPlayAll(true)
-    scrollToPage(1)
-  }
-
-  const handlePause = () => {
-    if (playing) {
-      dispatch(Actions.updatePlayStatus(Sound.status.PAUSED))
-    } else {
-      dispatch(Actions.updatePlayStatus(Sound.status.PLAYING))
-    }
+    // scrollToPage(1)
   }
 
   const NavBar = () => {
     return (
       <NavBook className='nav-book'>
-        <div className='nav-left'>
-          {playing ? (
-            <PauseImg src={pauseIcon} onClick={handlePause} />
-          ) : (
-            <PauseImg src={playIconSVG} onClick={handlePause} />
-          )}
-        </div>
+        <div className='nav-left'></div>
         <div className='nav-right'>
           <Zoom />
           <InputBar />
@@ -163,12 +145,6 @@ export const AudioBookContainer = () => {
     </div>
   )
 }
-
-const PauseImg = styled.img`
-  width: 26px;
-  margin-left: 20px;
-  cursor: pointer;
-`
 
 const PlayStatus = styled.div`
   text-align: center;
