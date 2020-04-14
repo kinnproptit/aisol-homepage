@@ -16,14 +16,16 @@ export const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case Actions.BOOK_INPUT:
       let result = 0
+      let playStatus = 'PLAYING'
       if (action.payload > state.allPages) {
         result = state.allPages
+        playStatus = 'STOPPED'
       } else {
         result = action.payload
       }
       return {
         ...state,
-        playStatus: 'PLAYING',
+        playStatus,
         playing: true,
         page: result,
         menuVisible: false,
