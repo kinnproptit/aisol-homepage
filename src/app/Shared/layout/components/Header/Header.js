@@ -58,23 +58,35 @@ const Header = () => {
   }, [])
 
   const showingCarousel = pathname => {
-    switch (pathname) {
-      case environments.linkToBook:
-        return (
-          <HeaderCarousel
-            title='Sách nói'
-            content='Giải pháp số hóa các giáo trình học từ dạng sách hoặc truyện đọc chữ truyền thống thành dạng điện tử dưới dạng sách nói'
-            image={LienHeBanner}
-            image2={LienHe_mbBanner}
-            classNameImg1='con_pc'
-            classNameImg2='con_mb'
-            button
-            link={environments.linkToBook}
-          />
-        )
-      default:
-        return <IntroCarousel />
-    }
+    // switch (pathname) {
+    //   case environments.linkToBook:
+    //     return (
+    //       <HeaderCarousel
+    //         title='Sách nói'
+    //         content='Giải pháp số hóa các giáo trình học từ dạng sách hoặc truyện đọc chữ truyền thống thành dạng điện tử dưới dạng sách nói'
+    //         image={LienHeBanner}
+    //         image2={LienHe_mbBanner}
+    //         classNameImg1='con_pc'
+    //         classNameImg2='con_mb'
+    //         button
+    //         link={environments.linkToBook}
+    //       />
+    //     )
+    //   default:
+    //     return <IntroCarousel />
+    // }
+    return (
+      <HeaderCarousel
+        title='Sách nói'
+        content='Giải pháp số hóa các giáo trình học từ dạng sách hoặc truyện đọc chữ truyền thống thành dạng điện tử dưới dạng sách nói'
+        image={LienHeBanner}
+        image2={LienHe_mbBanner}
+        classNameImg1='con_pc'
+        classNameImg2='con_mb'
+        button
+        link={environments.linkToBook}
+      />
+    )
   }
 
   return (
