@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Logo from '../../../../assets/AISOL-2.png'
+// import Logo from '../../../../assets/AISOL-2.png'
+import Logo from '../../../../assets/par.png'
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
               <Img src={Logo} alt='' />
             </HeaderItem>
             <BodyItem noSpace>
-              <Label>Công ty cổ phần Giải pháp trí tuệ nhân tạo AISOL</Label>
+              <Label>CÔNG TY CỔ PHẦN TẬP ĐOÀN CÔNG NGHỆ COMGATE</Label>
               <List>
                 <Item noSpace>
                   <Span className='footer-primary-color'>Địa chỉ:</Span>{' '}
@@ -27,7 +28,7 @@ const Footer = () => {
                 </Item>
                 <Item>
                   <Span className='footer-primary-color'>Email:</Span>{' '}
-                  <Span>info@aisol.com.vn</Span>
+                  <Span>info@comgate.com.vn</Span>
                 </Item>
               </List>
             </BodyItem>
@@ -68,7 +69,7 @@ const Footer = () => {
           </FooterItem>
         </Row>
       </FooterTop>
-      <Copyright className='text-center'>Copyright 2020 AISOL</Copyright>
+      <Copyright className='text-center'>Copyright 2020 COMGATE</Copyright>
     </Wrapper>
   )
 }
@@ -76,7 +77,7 @@ const Footer = () => {
 export default Footer
 
 const Img = styled.img`
-  width: 182px;
+  width: 80px;
 `
 
 const Wrapper = styled.div`

@@ -11,8 +11,11 @@ import { DropdownMenu } from '../../../components/Dropdown/DropdownMenu'
 // import { HeaderCarousel } from '../../../components/HeaderCarousel/HeaderCarousel'
 // import { IntroCarousel } from '../../../components/HeaderCarousel/IntroCarousel'
 
-import Logo from '../../../../assets/AISOL-2.png'
-import Logo_mb from '../../../../assets/logo_aisol.png'
+// import Logo from '../../../../assets/AISOL-2.png'
+// import Logo_mb from '../../../../assets/logo_aisol.png'
+
+import Logo from '../../../../assets/par.png'
+import Logo_mb from '../../../../assets/par.png'
 
 // import Solution1Banner from '../../../../assets/giaiphap1_banner.png'
 // import Solution_mbBanner from '../../../../assets/so1_pc.png'
@@ -91,7 +94,7 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <Section className={`headernav`}>
+      <Section className='contact-color headernav'>
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo' onClick={() => handleLink('/')}>
@@ -242,7 +245,8 @@ const Header = () => {
 }
 
 const Img = styled.img`
-  width: 182px;
+  ${'' /* width: 182px; */}
+  width: 80px;
 `
 const Section = styled.section`
   padding-top: 2.3rem;
