@@ -107,7 +107,7 @@ const Header = () => {
                   Trang chủ
                 </Link>
               </li>
-              <li className='nav__item'>
+              {/* <li className='nav__item'>
                 <DropdownMenu
                   isLink
                   options={[
@@ -123,9 +123,8 @@ const Header = () => {
                 >
                   <Link className='nav__link'>Giải pháp</Link>
                 </DropdownMenu>
-                {/* Giải pháp */}
-              </li>
-              <li className='nav__item'>
+              </li> */}
+              {/* <li className='nav__item'>
                 <DropdownMenu
                   isLink
                   options={[
@@ -141,8 +140,16 @@ const Header = () => {
                 >
                   <Link className='nav__link'>Sản phẩm</Link>
                 </DropdownMenu>
-              </li>
+              </li> */}
               <li className='nav__item'>
+                <Link
+                  className='nav__link'
+                  onClick={() => handleLink(environments.linkToBook)}
+                >
+                  Sản phẩm
+                </Link>
+              </li>
+              {/* <li className='nav__item'>
                 <Link
                   className='nav__link'
                   onClick={() => handleLink(environments.linkToPrice)}
@@ -157,7 +164,7 @@ const Header = () => {
                 >
                   Liên hệ
                 </Link>
-              </li>
+              </li> */}
               <List />
             </ul>
           </nav>
@@ -180,12 +187,12 @@ const Header = () => {
             <Img src={Logo_mb} alt='' className='logo2' />
           </div>
           <ul className='nav-small__list'>
-            {/* <li className='nav-small__item'>
+            <li className='nav-small__item'>
               <Link className='nav-small__link' onClick={() => handleLink('/')}>
                 Trang chủ
               </Link>
-            </li> */}
-            <li className='nav-small__item'>
+            </li>
+            {/* <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
                 onClick={() => handleLink(environments.linkToASR)}
@@ -200,15 +207,7 @@ const Header = () => {
               >
                 Tổng hợp tiếng nói
               </Link>
-            </li>
-            <li className='nav-small__item'>
-              <Link
-                className='nav-small__link'
-                onClick={() => handleLink(environments.linkToProduct)}
-              >
-                M-Care
-              </Link>
-            </li>
+            </li> */}
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
@@ -217,7 +216,7 @@ const Header = () => {
                 Sách nói
               </Link>
             </li>
-            <li className='nav-small__item'>
+            {/* <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
                 onClick={() => handleLink(environments.linkToPrice)}
@@ -232,7 +231,7 @@ const Header = () => {
               >
                 Liên hệ
               </Link>
-            </li>
+            </li> */}
             <li>
               <List classCss='nav-bar-small' />
             </li>
