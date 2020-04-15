@@ -1,3 +1,4 @@
 module.exports = {
-  linkToBook: '/book'
+  linkToBook: '/book',
+  linkToErrorPage: '/404'
 }

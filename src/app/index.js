@@ -1,5 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route
+} from 'react-router-dom'
 
 import { withNormalLayout } from './Shared/layout'
 
@@ -11,38 +16,27 @@ const App = () => {
   return (
     <Router>
       <Preloader>
-      <Switch>
-        {routes.map((route, index) => {
-          switch (true) {
-            case route.redirect:
-              const { redirect, ...props } = route
-              return <Redirect key={index} {...props} />
-            case route.isPrivate: {
-              const { path, exact = false, title = false, component } = route
-              return (
-                <PrivateRoute
-                  key={index}
-                  path={path}
-                  exact={exact}
-                  component={withNormalLayout(component, { title })}
-                />
-              )
+        <Switch>
+          {routes.map((route, index) => {
+            switch (true) {
+              case route.redirect:
+                const { redirect, ...props } = route
+                return <Redirect key={index} {...props} />
+              default: {
+                const { path, exact = false, title = false, component } = route
+                return (
+                  <Route
+                    key={index}
+                    path={path}
+                    exact={exact}
+                    component={withNormalLayout(component, { title })}
+                  />
+                )
+              }
             }
-            default: {
-              const { path, exact = false, title = false, component } = route
-              return (
-                <Route
-                  key={index}
-                  path={path}
-                  exact={exact}
-                  component={withNormalLayout(component, { title })}
-                />
-              )
-            }
-          }
-        })}
-        <Redirect to='/404.html' />
-      </Switch>
+          })}
+          <Redirect to='/404' />
+        </Switch>
       </Preloader>
     </Router>
   )
