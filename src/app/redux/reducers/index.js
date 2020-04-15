@@ -5,9 +5,13 @@ import recognitionReducer from './recognition'
 import ttsReducer from './audio'
 import bookReducer from './book'
 
+// export default combineReducers({
+//   homeReducer,
+//   recognitionReducer,
+//   ttsReducer,
+//   bookReducer
+// })
+
 export default combineReducers({
-  homeReducer,
-  recognitionReducer,
-  ttsReducer,
   bookReducer
 })

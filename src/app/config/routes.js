@@ -12,32 +12,8 @@ export const routes = [
   {
     path: '/',
     exact: true,
-    component: () => <AsyncPage component='Home' />,
-    title: 'Homepage'
-  },
-  {
-    path: enviroments.linkToASR,
-    exact: true,
-    component: () => <AsyncPage component='Solution1' />,
-    title: 'Solution'
-  },
-  {
-    path: enviroments.linkToTTS,
-    exact: true,
-    component: () => <AsyncPage component='Solution2' />,
-    title: 'Solution'
-  },
-  {
-    path: enviroments.linkToContact,
-    exact: true,
-    component: () => <AsyncPage component='Contact' />,
-    title: 'Contact'
-  },
-  {
-    path: enviroments.linkToProduct,
-    exact: true,
-    component: () => <AsyncPage component='Product' />,
-    title: 'Products'
+    component: () => <AsyncPage component='Book' />,
+    title: 'Book'
   },
   {
     path: enviroments.linkToErrorPage,
@@ -48,7 +24,7 @@ export const routes = [
     path: enviroments.linkToBook,
     exact: true,
     component: () => <AsyncPage component='Book' />,
-    title: 'Boook'
+    title: 'Book'
   }
 ]
 export default routes

@@ -14,12 +14,12 @@ import { DropdownMenu } from '../../../components/Dropdown/DropdownMenu'
 import Logo from '../../../../assets/AISOL-2.png'
 import Logo_mb from '../../../../assets/logo_aisol.png'
 
-import Solution1Banner from '../../../../assets/giaiphap1_banner.png'
-import Solution_mbBanner from '../../../../assets/so1_pc.png'
-import Solution2_mbBanner from '../../../../assets/mb2_so2.png'
-import Solution2Banner from '../../../../assets/giaiphap2_banner.png'
-import SanPhamBanner from '../../../../assets/sanpham_banner.png'
-import SanPham_mbBanner from '../../../../assets/mb_pro.png'
+// import Solution1Banner from '../../../../assets/giaiphap1_banner.png'
+// import Solution_mbBanner from '../../../../assets/so1_pc.png'
+// import Solution2_mbBanner from '../../../../assets/mb2_so2.png'
+// import Solution2Banner from '../../../../assets/giaiphap2_banner.png'
+// import SanPhamBanner from '../../../../assets/sanpham_banner.png'
+// import SanPham_mbBanner from '../../../../assets/mb_pro.png'
 import LienHeBanner from '../../../../assets/contact_banner.png'
 import LienHe_mbBanner from '../../../../assets/mb_con.png'
 
@@ -59,60 +59,6 @@ const Header = () => {
 
   const showingCarousel = pathname => {
     switch (pathname) {
-      case environments.linkToASR:
-        return (
-          <HeaderCarousel
-            title='NHẬN DẠNG TIẾNG NÓI'
-            content='Giải pháp tự động chuyển đổi tiếng nói thành văn bản Tiếng Việt, đạt độ chính xác lên tới 96% và nhận dạng được tất cả môi trường'
-            subcontent='Ứng dụng mạnh mẽ trong trợ lý ảo, phòng họp'
-            button
-            image={Solution1Banner}
-            image2={Solution_mbBanner}
-            classNameImg1=' so_pc'
-            classNameImg2='so_mb'
-            classCss='bg_so1'
-            link={environments.linkToASR}
-            idScroll='asr-demo'
-          />
-        )
-      case environments.linkToTTS:
-        return (
-          <HeaderCarousel
-            title='TỔNG HỢP TIẾNG NÓI'
-            content='Giải pháp tự động chuyển đổi văn bản thành tiếng nói Tiếng Việt với giọng điệu tự nhiên, hay và dễ dàng tích hợp với mọi hệ thống'
-            button
-            image={Solution2Banner}
-            image2={Solution2_mbBanner}
-            classNameImg1='so2_pc'
-            classNameImg2='so2_mb'
-            classCss='bg_so2'
-            link={environments.linkToTTS}
-            idScroll='tts-demo'
-          />
-        )
-      case environments.linkToProduct:
-        return (
-          <HeaderCarousel
-            title='MCare'
-            content='M-Care là giải pháp sử dụng công nghệ chuyển đổi âm thanh thành dạng chữ văn bản (Voice to Text) giúp dễ dàng và thuận tiện hơn trong việc giám sát nội dung các cuộc gọi giữa khách hàng và nhà cung cấp dịch vụ/ sản phẩm'
-            button
-            image={SanPhamBanner}
-            image2={SanPham_mbBanner}
-            classNameImg1='pro_pc'
-            classNameImg2='pro_mb'
-          />
-        )
-      case environments.linkToContact:
-        return (
-          <HeaderCarousel
-            title='Liên hệ với AISOL'
-            content='Liên hệ với Chúng tôi để được hỗ trợ và trải nghiệm các sản phẩm - giải pháp tốt nhất tại thị trường Việt Nam ngày nay'
-            image={LienHeBanner}
-            image2={LienHe_mbBanner}
-            classNameImg1='con_pc'
-            classNameImg2='con_mb'
-          />
-        )
       case environments.linkToBook:
         return (
           <HeaderCarousel
@@ -131,22 +77,9 @@ const Header = () => {
     }
   }
 
-  let headerColor = ''
-  if (pathname === environments.linkToASR) {
-    headerColor = 'solution1-color'
-  } else if (pathname === environments.linkToTTS) {
-    headerColor = 'solution2-color'
-  } else if (pathname === environments.linkToProduct) {
-    headerColor = 'product-color'
-  } else if (pathname === environments.linkToContact) {
-    headerColor = 'contact-color'
-  } else {
-    headerColor = 'homepage-color'
-  }
-
   return (
     <React.Fragment>
-      <Section className={`${headerColor} headernav`}>
+      <Section className={`headernav`}>
         <div className='nav-wrapper'>
           <nav className='nav'>
             <div className='nav__logo' onClick={() => handleLink('/')}>
