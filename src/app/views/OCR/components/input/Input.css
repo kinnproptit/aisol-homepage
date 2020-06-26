@@ -1,0 +1,82 @@
+.input-style {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: white;
+}
+
+.input-style h3 {
+  margin-top: 30px;
+}
+
+.btn-grad {
+  background-color: #5cc2a6;
+  width: 200px;
+  margin: 30px 0px;
+  font-weight: bold;
+  color: white;
+}
+.btn-grad:hover {
+  transition: 0.5s ease-in-out;
+  background-color: #6f42c1;
+}
+
+.selected-custom {
+  flex: 1;
+}
+
+.ocr-button--border {
+  padding: 5px;
+  align-items: center;
+  width: 80%;
+  border: 1px solid #bce0fd;
+}
+
+.ocr-button--border:hover {
+  border: 1px solid #63d481;
+}
+
+.scenario {
+  width: 100px;
+  background-color: white;
+  border-right: 1px solid #bce0fd;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-input {
+  display: none;
+}
+
+.text-input {
+  flex: 1;
+  border: none;
+}
+
+.text-input:focus {
+  outline: none !important;
+}
+
+.btn-upload {
+  background-color: #5cc2a6;
+  width: 150px;
+  overflow: hidden;
+  color: white;
+}
+
+@media screen and (max-width: 992px) {
+  .input-style {
+    width: 95%;
+  }
+}
+
+.form-control {
+  font-size: 14px;
+}

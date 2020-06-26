@@ -1,0 +1,128 @@
+$wd: 700px * 595px / 842px;
+$wd1: 500px * 595px / 842px;
+$wd2: 300px * 595px / 842px;
+.output-left-document {
+    width: $wd;
+    height: 610px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.output-left {
+    background-color: #f1f9fe;
+}
+
+.output-left, .output-right {
+    border: 1px solid #bce0fd;
+    width: 50%;
+    height: 700px;
+}
+
+@media screen and (min-width: 992px) {
+    .output-left-document {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .output-left, .output-right {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .output-left-document {
+        width: $wd1;
+        height: 410px;
+    }
+
+    .output-left, .output-right {
+        height: 500px;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .output-left-document {
+        width: $wd2;
+        height: 210px;
+    }
+
+    .output-left, .output-right {
+        height: 300px;
+        width: 95%;
+    }
+}
+
+.output-right{
+    .title{
+        width: 100%;
+        display: flex;
+        color: grey;
+        height: 50px;
+        justify-content: center;
+        line-height: 50px;
+        position: relative;
+        .textlines{
+            margin-right: 2rem;
+            &:hover{
+                color: #63d481;
+                cursor: pointer;
+            }
+        }
+        .json {
+            &:hover{
+                color: #63d481;
+                cursor: pointer;
+            }
+        }
+        .title-active {
+            color: #63d481;
+            font-weight: bold;
+            border-bottom: 2px solid #63d481;
+        }
+        .copy-to-clipboard {
+            font-size: 20px;
+            color: grey;
+            line-height: 50px;
+            position: absolute;
+            top: 0;
+            right: 10px;
+            &:hover{
+                color: #63d481;
+                cursor: pointer;
+            }
+        }
+    }
+    .table{
+        width: 100%;
+        tr{
+            border: solid 1px #eeeeee;
+            th {
+                color: #6084a4;
+            }
+        }
+        .header{
+            background-color: #f1f9fe;
+            .text{
+                width: 75%;
+            }
+        }
+        
+        .cover-box{
+            background-color: #f5fded;
+            color: #64ca31;
+            border: solid 1px #b7eb8f;
+            text-align: center;
+            width: 4rem;
+        }
+    }
+    .json-content{
+        overflow-y: scroll;
+        .json-data{
+            width: 100%;
+        }
+    }
+    
+}

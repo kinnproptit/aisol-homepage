@@ -28,6 +28,12 @@ export const routes = [
     title: 'Solution'
   },
   {
+    path: enviroments.linkToOCR,
+    exact: true,
+    component: () => <AsyncPage component='OCR' />,
+    title: 'OCR'
+  },
+  {
     path: enviroments.linkToContact,
     exact: true,
     component: () => <AsyncPage component='Contact' />,

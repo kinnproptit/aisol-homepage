@@ -90,6 +90,21 @@ const Header = () => {
             idScroll='tts-demo'
           />
         )
+      case environments.linkToOCR:
+        return (
+          <HeaderCarousel
+            title='OCR'
+            content='Chuyển đổi hình ảnh và PDF thành văn bản'
+            button
+            image={Solution2Banner}
+            image2={Solution2_mbBanner}
+            classNameImg1='so2_pc'
+            classNameImg2='so2_mb'
+            classCss='bg_so2'
+            link={environments.linkToOCR}
+            idScroll='tts-demo'
+          />
+        )
       case environments.linkToProduct:
         return (
           <HeaderCarousel
@@ -136,6 +151,8 @@ const Header = () => {
     headerColor = 'solution1-color'
   } else if (pathname === environments.linkToTTS) {
     headerColor = 'solution2-color'
+  } else if (pathname === environments.linkToOCR) {
+    headerColor = 'solution2-color'
   } else if (pathname === environments.linkToProduct) {
     headerColor = 'product-color'
   } else if (pathname === environments.linkToContact) {
@@ -170,6 +187,10 @@ const Header = () => {
                     {
                       to: environments.linkToTTS,
                       content: 'Tổng hợp tiếng nói'
+                    },
+                    {
+                      to: environments.linkToOCR,
+                      content: 'OCR'
                     }
                   ]}
                 >
