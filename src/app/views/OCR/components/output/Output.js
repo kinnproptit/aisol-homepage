@@ -121,6 +121,11 @@ export default function Output({ listData, loading }) {
   const widthWindow = size.width
   // console.log(widthWindow)
 
+  let textCopy = ''
+  state.output.pages[indexPage - 1].textlines.map(textline => {
+    textCopy += textline.text + '\n'
+  })
+
   if (loading) {
     return <LoadingIndicator />
   }
@@ -250,13 +255,7 @@ export default function Output({ listData, loading }) {
               Raw JSON Results
             </div>
             {isTextlines ? (
-              <CopyToClipboard
-                text={state.output.pages[indexPage - 1].textlines.map(
-                  textline => {
-                    return textline.text + '\n'
-                  }
-                )}
-              >
+              <CopyToClipboard text={textCopy}>
                 <i
                   className='fa fa-clipboard copy-to-clipboard'
                   aria-hidden='true'
