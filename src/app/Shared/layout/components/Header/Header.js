@@ -277,6 +277,14 @@ const Header = () => {
             <li className='nav-small__item'>
               <Link
                 className='nav-small__link'
+                onClick={() => handleLink(environments.linkToOCR)}
+              >
+                OCR
+              </Link>
+            </li>
+            <li className='nav-small__item'>
+              <Link
+                className='nav-small__link'
                 onClick={() => handleLink(environments.linkToProduct)}
               >
                 M-Care

@@ -431,28 +431,28 @@ p {
 }
 @media only screen and (max-width: 490px) {
   .nav-small__list {
-    top: 61%;
+    top: 59%;
     left: 31%;
   }
   .nav-small {
-    height: 55%;
+    height: 60%;
   }
 }
 @media only screen and (max-width: 400px) {
   .nav-small {
-    height: 57%;
+    height: 64%;
   }
   .nav-small__link {
     font-size: 4rem !important;
   }
   .nav-small__list {
-    top: 62%;
+    top: 61%;
     left: 33% !important;
   }
 }
 @media only screen and (max-width: 321px) {
   .nav-small {
-    height: 62%;
+    height: 74%;
   }
   .nav-small__link {
     font-size: 4rem !important;
