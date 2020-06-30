@@ -1,92 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Output.css'
 import './Output.scss'
 import Switch from 'react-switch'
-import JSONTreeComponent from 'react-json-tree'
-import { Stage, Layer, Rect } from 'react-konva'
-// import useImage from 'use-image';
+import { Stage, Layer, Rect, Text, Shape } from 'react-konva'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import RowJson from './components/RowJson'
+import RowTextlines from './components/RowTextlines'
+import ImagePage from './components/ImagePage'
 import { LoadingIndicator } from '../../../../../packages/ui'
 
 export default function Output({ listData, loading }) {
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState(true)
   const [isTextlines, setIsTextlines] = useState(true)
   const [indexPage, setIndexPage] = useState(1)
   const [state, setState] = useState(listData)
+  const [visit, setVisit] = useState([])
+  const [stroke, setStroke] = useState([])
+  const [color, setColor] = useState(['green'])
+
   useEffect(() => {
     setState(listData)
   }, [listData])
 
-  const theme = {
-    scheme: 'monokai',
-    base00: '#272822',
-    base01: '#383830',
-    base02: '#49483e',
-    base03: '#75715e',
-    base04: '#a59f85',
-    base05: '#f8f8f2',
-    base06: '#f5f4f1',
-    base07: '#f9f8f5',
-    base08: '#f92672',
-    base09: '#fd971f',
-    base0A: '#f4bf75',
-    base0B: '#a6e22e',
-    base0C: '#a1efe4',
-    base0D: '#66d9ef',
-    base0E: '#ae81ff',
-    base0F: '#cc6633'
-  }
-
   const handleChange = checked => {
     setChecked(checked)
-  }
-
-  const RowJson = () => {
-    return (
-      <div className='json-content'>
-        <button type='button' name='' id='' className='btn btn-json'>
-          <i className='fa fa-download' aria-hidden='true'></i>
-          Download JSON
-        </button>
-        <div className='json-data'>
-          <JSONTreeComponent data={state} theme={theme} invertTheme={true} />
-        </div>
-      </div>
-    )
-  }
-
-  const renderTable = () => {
-    return state.output.pages[indexPage - 1].textlines.map(
-      (textline, index) => {
-        const { text, confidence } = textline
-        return (
-          <tr key={index}>
-            <td> {text} </td>
-            <td>
-              <div className='cover-box'>
-                {parseFloat(confidence).toFixed(3)}
-              </div>
-            </td>
-          </tr>
-        )
-      }
-    )
-  }
-
-  const RowTextlines = () => {
-    return (
-      <div className='table-responsive'>
-        <table className='table'>
-          <thead>
-            <tr className='header'>
-              <th className='text'>Text</th>
-              <th className='confidence'>Confidence</th>
-            </tr>
-          </thead>
-          <tbody>{renderTable()}</tbody>
-        </table>
-      </div>
-    )
   }
 
   const useWindowSize = () => {
@@ -119,12 +56,38 @@ export default function Output({ listData, loading }) {
 
   const size = useWindowSize()
   const widthWindow = size.width
-  // console.log(widthWindow)
 
   let textCopy = ''
   state.output.pages[indexPage - 1].textlines.map(textline => {
     textCopy += textline.text + '\n'
   })
+
+  const getTextWidth = (s, size) => {
+    const text = document.createElement('span')
+    document.body.appendChild(text)
+    text.style.font = 'times new roman'
+    text.style.fontSize = size + 'px'
+    text.style.height = 'auto'
+    text.style.width = 'auto'
+    text.style.position = 'absolute'
+    text.style.whiteSpace = 'no-wrap'
+    text.innerHTML = s
+    const width = Math.ceil(text.clientWidth)
+    document.body.removeChild(text)
+    return width
+  }
+
+  const setHoverText = index => {
+    if (index !== null) {
+      color[index] = 'green'
+      for (let i = 0; i < color.length; i++) {
+        if (i !== index) {
+          color[i] = 'red'
+        }
+      }
+      setColor([...color])
+    }
+  }
 
   if (loading) {
     return <LoadingIndicator />
@@ -132,7 +95,7 @@ export default function Output({ listData, loading }) {
 
   return (
     <div className='container-fluid output-style'>
-      <h3>OUTPUT</h3>
+      <h3 style={state.time === null ? { marginBottom: 100 } : null}>OUTPUT</h3>
       <div className='content-output'>
         <div className='output-left'>
           <div className='output-left-top'>
@@ -172,19 +135,14 @@ export default function Output({ listData, loading }) {
                         ></i> */}
           </div>
           <div className='output-left-document'>
+            {/* { state.output.pages[0]. */}
             <Stage
               height={
                 widthWindow > 600
-                  ? (((700 * 595) / 842) *
-                      state.output.pages[indexPage - 1].height) /
-                    state.output.pages[indexPage - 1].width
+                  ? 610
                   : widthWindow <= 600 && widthWindow > 435
-                  ? (((500 * 595) / 842) *
-                      state.output.pages[indexPage - 1].height) /
-                    state.output.pages[indexPage - 1].width
-                  : (((300 * 595) / 842) *
-                      state.output.pages[indexPage - 1].height) /
-                    state.output.pages[indexPage - 1].width
+                  ? 410
+                  : 210
               }
               width={
                 widthWindow > 600
@@ -193,18 +151,19 @@ export default function Output({ listData, loading }) {
                   ? (500 * 595) / 842
                   : (300 * 595) / 842
               }
-              style={{
-                backgroundImage: `url("${`https://d1e7nkzi0xqtmh.cloudfront.net/` +
-                  state.output.pages[indexPage - 1].url}")`,
-                backgroundPosition: 'left top',
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat'
-              }}
+              draggable
             >
+              <Layer>
+                <ImagePage
+                  state={state}
+                  widthWindow={widthWindow}
+                  indexPage={indexPage}
+                />
+              </Layer>
               <Layer>
                 {checked
                   ? state.output.pages[indexPage - 1].textlines.map(
-                      textline => {
+                      (textline, index) => {
                         const decide =
                           widthWindow > 600
                             ? (700 * 595) /
@@ -223,13 +182,186 @@ export default function Output({ listData, loading }) {
                           (textline.polys[1][0] - textline.polys[0][0]) * decide
                         let height =
                           (textline.polys[3][1] - textline.polys[0][1]) * decide
+                        const handleVisitFalse = () => {
+                          visit[index] = false
+                          stroke[index] = 1
+                          setStroke([...stroke])
+                          setVisit([...visit])
+                        }
+                        const handleVisitTrue = () => {
+                          visit[index] = true
+                          stroke[index] = 2
+                          setStroke([...stroke])
+                          setVisit([...visit])
+                        }
                         return (
                           <Rect
                             x={x}
                             y={y}
                             width={width}
                             height={height}
-                            stroke='red'
+                            stroke={
+                              color[index] === undefined ||
+                              color[index] === 'red'
+                                ? 'red'
+                                : 'green'
+                            }
+                            strokeWidth={
+                              stroke[index] === undefined || stroke[index] === 1
+                                ? 1
+                                : 2
+                            }
+                            key={index}
+                            onMouseMove={handleVisitTrue}
+                            onMouseOut={handleVisitFalse}
+                          />
+                        )
+                      }
+                    )
+                  : null}
+              </Layer>
+              <Layer>
+                {checked
+                  ? state.output.pages[indexPage - 1].textlines.map(
+                      (textline, index) => {
+                        const decide =
+                          widthWindow > 600
+                            ? (700 * 595) /
+                              842 /
+                              state.output.pages[indexPage - 1].width
+                            : widthWindow <= 600 && widthWindow > 435
+                            ? (500 * 595) /
+                              842 /
+                              state.output.pages[indexPage - 1].width
+                            : (300 * 595) /
+                              842 /
+                              state.output.pages[indexPage - 1].width
+                        let x = textline.polys[0][0] * decide
+                        let y = textline.polys[0][1] * decide
+                        let widthBox =
+                          (textline.polys[1][0] - textline.polys[0][0]) * decide
+                        let heightBox =
+                          (textline.polys[3][1] - textline.polys[0][1]) * decide
+                        let width = getTextWidth(textline.text, 12) + 8
+                        let height = 20
+                        let tmp = (width - widthBox) / 2
+                        return y < height ? (
+                          <Shape
+                            key={index}
+                            sceneFunc={(context, shape) => {
+                              context.beginPath()
+                              context.moveTo(
+                                x - tmp,
+                                y + heightBox + 10 + height
+                              )
+                              context.lineTo(
+                                x + width - tmp,
+                                y + height + 10 + heightBox
+                              )
+                              context.lineTo(x + width - tmp, y + 5 + heightBox)
+                              context.lineTo(
+                                x + 5 - tmp + width / 2,
+                                y + 5 + heightBox
+                              )
+                              context.lineTo(x - tmp + width / 2, y + heightBox)
+                              context.lineTo(
+                                x - 5 - tmp + width / 2,
+                                y + 5 + heightBox
+                              )
+                              context.lineTo(x - tmp, y + 5 + heightBox)
+                              context.closePath()
+                              context.fillStrokeShape(shape)
+                            }}
+                            fill='black'
+                            visible={
+                              visit[index] === undefined ||
+                              visit[index] === false
+                                ? false
+                                : true
+                            }
+                          />
+                        ) : (
+                          <Shape
+                            key={index}
+                            sceneFunc={(context, shape) => {
+                              context.beginPath()
+                              context.moveTo(x - tmp, y - height - 10)
+                              context.lineTo(x + width - tmp, y - height - 10)
+                              context.lineTo(x + width - tmp, y - 5)
+                              context.lineTo(x + 5 - tmp + width / 2, y - 5)
+                              context.lineTo(x - tmp + width / 2, y)
+                              context.lineTo(x - 5 - tmp + width / 2, y - 5)
+                              context.lineTo(x - tmp, y - 5)
+                              context.closePath()
+                              context.fillStrokeShape(shape)
+                            }}
+                            fill='black'
+                            visible={
+                              visit[index] === undefined ||
+                              visit[index] === false
+                                ? false
+                                : true
+                            }
+                          />
+                        )
+                      }
+                    )
+                  : null}
+              </Layer>
+              <Layer>
+                {checked
+                  ? state.output.pages[indexPage - 1].textlines.map(
+                      (textline, index) => {
+                        const decide =
+                          widthWindow > 600
+                            ? (700 * 595) /
+                              842 /
+                              state.output.pages[indexPage - 1].width
+                            : widthWindow <= 600 && widthWindow > 435
+                            ? (500 * 595) /
+                              842 /
+                              state.output.pages[indexPage - 1].width
+                            : (300 * 595) /
+                              842 /
+                              state.output.pages[indexPage - 1].width
+                        let x = textline.polys[0][0] * decide
+                        let y = textline.polys[0][1] * decide
+                        let widthBox =
+                          (textline.polys[1][0] - textline.polys[0][0]) * decide
+                        let heightBox =
+                          (textline.polys[3][1] - textline.polys[0][1]) * decide
+                        let width = getTextWidth(textline.text, 12) + 8
+                        let height = 20
+                        let tmp = (width - widthBox) / 2
+                        return y >= height ? (
+                          <Text
+                            text={textline.text}
+                            fill='white'
+                            x={x + 4 - tmp}
+                            y={y - height - 2}
+                            fontSize={12}
+                            visible={
+                              visit[index] === undefined ||
+                              visit[index] === false
+                                ? false
+                                : true
+                            }
+                            key={index}
+                          />
+                        ) : (
+                          <Text
+                            text={textline.text}
+                            fill='white'
+                            x={x + 4 - tmp}
+                            y={y + heightBox + 12}
+                            fontSize={12}
+                            visible={
+                              visit[index] === undefined ||
+                              visit[index] === false
+                                ? false
+                                : true
+                            }
+                            key={index}
                           />
                         )
                       }
@@ -266,7 +398,15 @@ export default function Output({ listData, loading }) {
               </CopyToClipboard>
             ) : null}
           </div>
-          {isTextlines ? <RowTextlines /> : <RowJson />}
+          {isTextlines ? (
+            <RowTextlines
+              state={state}
+              indexPage={indexPage}
+              setHoverText={setHoverText}
+            />
+          ) : (
+            <RowJson state={state} />
+          )}
         </div>
       </div>
     </div>
